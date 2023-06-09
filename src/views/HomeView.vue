@@ -1,18 +1,22 @@
 <template>
   <div>
     <text-field
-    label="Email"
+    label="E-mail"
     outlined
     rounded
     class="mb-2"
-    color="error"
+    :rules="[v => !!v || 'Email is required']"
+    color="#F44336"
 />
 <text-field
     label="Password"
     outlined
     rounded
     class="mb-2"
-
+    :rules="[v => !!v || 'Password is required']"
+    required
+    icons="mdi-eye"
+    color="#F44336"
 />
 <text-field
     label="Destination"
@@ -27,9 +31,10 @@
     icons="mdi-magnify"
 />
 <text-area outlined label="Text Area"/>
-<slider-field color="#FFB74D" label="Age" hint="Be Honest" ThumbLabel minimum="1" maximum="10"/>
-<range-slider-field-vue   hint="Im a hint" maximum="50" minimum="-50" />
-
+<slider-field color="#1B5E20" label="Age" hint="Be Honest" ThumbLabel minimum="1" maximum="10"/>
+<range-slider-field-vue label="Age" hint="Im a hint" maximum="90" minimum="18" color="#1B5E20" ThumbLabel/>
+<category-field label="Category" outlined items="items"/>
+<file-field label="File input" filled icon="mdi-camera"/>
 </div>
 </template>
 
@@ -38,15 +43,21 @@ import TextField from '@/components/TextField'
 import TextArea from '@/components/TextArea.vue'
 import SliderField from '@/components/SliderField.vue'
 import RangeSliderFieldVue from '@/components/RangeSliderField.vue'
+import CategoryField from '@/components/CategoryField.vue'
+import FileField from '@/components/FileField.vue'
 
 export default {
   name: 'HomePage',
-
   components: {
     TextField,
     TextArea,
     SliderField,
-    RangeSliderFieldVue
-  }
+    RangeSliderFieldVue,
+    CategoryField,
+    FileField
+  },
+  data: () => ({
+    items: ['Foo', 'Bar', 'Fizz', 'Buzz']
+  })
 }
 </script>

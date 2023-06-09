@@ -1,7 +1,7 @@
 <template>
   <div class="about">
     <h1>Login Page</h1>
-    <v-btn @click="LoginToken">login</v-btn>
+    <button-component @click="LoginToken" btn-label="Login" />
   </div>
 </template>
 

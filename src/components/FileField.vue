@@ -1,6 +1,12 @@
 <template>
   <div>
-<v-file-input v-bind="$attrs" v-on="$listeners" :label="label" :prepend-icon="icon" :filled="filled"/>
+<v-file-input
+v-bind="$attrs"
+v-on="$listeners"
+:label="label"
+:prepend-icon="icon"
+:filled="filled"
+/>
   </div>
 </template>
 
@@ -17,7 +23,7 @@ export default {
     },
     filled: {
       type: Boolean,
-      defualt: false
+      default: false
     }
   }
 }

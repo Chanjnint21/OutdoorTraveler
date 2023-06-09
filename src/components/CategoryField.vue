@@ -7,10 +7,6 @@
 <script>
 export default {
   name: 'SelectField',
-  // data () {
-  //   return {
-  //     items: ['Foo', 'Bar', 'Fizz', 'Buzz']
-  //   } //},
   data: () => ({
     items: ['Foo', 'Bar', 'Fizz', 'Buzz']
   }),

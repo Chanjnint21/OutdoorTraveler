@@ -1,6 +1,17 @@
 <template>
   <div>
-    <v-text-field v-bind="$attrs" v-on="$listeners" :label="label" :rounded="rounded" :outlined="outlined" :append-icon="icons" :color="color" :required="required"/>
+    <v-text-field v-bind="$attrs"
+    v-on="$listeners"
+    :label="label"
+    :rounded="rounded"
+    :outlined="outlined"
+    :append-icon="icons"
+    :color="color"
+    :required="required"
+    :name="name"
+    :hint="hint"
+    :counter="counter"
+    />
   </div>
 </template>
 
@@ -33,7 +44,26 @@ export default {
     required: {
       type: Boolean,
       default: false
+    },
+    name: {
+      type: String
+    },
+    hint: {
+      type: String
+    },
+    counter: {
+      type: String,
+      default: '15'
     }
+  },
+  data () {
+    return {
+      email: '',
+      password: ''
+    }
+  },
+  computed: {
+
   }
 }
 </script>

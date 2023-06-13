@@ -1,6 +1,9 @@
 <template>
-  <v-btn v-bind="$attrs" v-on="$listeners" color="BtnColor"
-  >{{ BtnLabel }} <v-icon>{{ Icons }}</v-icon></v-btn>
+  <v-btn
+  v-bind="$attrs"
+  v-on="$listeners"
+  :color="BtnColor"
+  ><v-icon >{{ Icons }}</v-icon> {{ BtnLabel }}</v-btn>
 </template>
 <script>
 export default {

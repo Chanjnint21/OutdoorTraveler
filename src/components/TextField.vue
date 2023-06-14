@@ -5,12 +5,11 @@
     :label="label"
     :rounded="rounded"
     :outlined="outlined"
-    :append-icon="icons"
+    :prepend-inner-icon="icons"
     :color="color"
     :required="required"
     :name="name"
     :hint="hint"
-    :counter="counter"
     />
   </div>
 </template>
@@ -53,7 +52,7 @@ export default {
     },
     counter: {
       type: String,
-      default: '15'
+      default: null
     }
   },
   data () {

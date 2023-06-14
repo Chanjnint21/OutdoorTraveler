@@ -10,15 +10,17 @@ export default {
   name: 'ButtonComponent',
   props: {
     BtnLabel: {
-      type: String,
-      default: 'Button label'
+      type: String
     },
     BtnColor: {
-      type: String,
-      default: 'green'
+      type: String
     },
     Icons: {
       type: String
+    },
+    outlined: {
+      type: Boolean,
+      default: false
     }
   }
 }

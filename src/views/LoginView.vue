@@ -1,5 +1,5 @@
 <template>
-  <v-container fluid class="d-flex align-center justify-center" style=" height: 100%; ">
+  <v-container fluid class="Login d-flex align-center justify-center" style=" height: 100%; ">
     <v-card class="d-flex rounded-xl" style=" width: auto;, height: auto; " elevation="5" >
       <v-row class='pa-5 my-5'>
         <v-col class="d-flex align-center justify-center"
@@ -73,7 +73,7 @@ export default {
 </script>
 
 <style>
-  .container{
+  .Login{
     background: #013a21;
   }
 </style>

@@ -1,6 +1,5 @@
 <template>
-  <div>
-    <v-text-field v-bind="$attrs"
+  <v-text-field v-bind="$attrs"
     v-on="$listeners"
     :label="label"
     :rounded="rounded"
@@ -11,8 +10,7 @@
     :name="name"
     :hint="hint"
     :counter="counter"
-    />
-  </div>
+  />
 </template>
 
 <script>
@@ -52,8 +50,7 @@ export default {
       type: String
     },
     counter: {
-      type: String,
-      default: '15'
+      type: String
     }
   },
   data () {

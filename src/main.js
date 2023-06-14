@@ -14,7 +14,7 @@ Vue.component('TextField', TextField)
 Vue.component('TextArea', TextArea)
 Vue.component('SliderField', SliderField)
 Vue.component('CategoryField', CategoryField)
-Vue.component('FileField ', FileField)
+Vue.component('FileField', FileField)
 
 Vue.config.productionTip = false
 

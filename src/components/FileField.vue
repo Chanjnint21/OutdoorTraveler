@@ -1,13 +1,13 @@
 <template>
-  <div>
-<v-file-input
-v-bind="$attrs"
-v-on="$listeners"
-:label="label"
-:prepend-icon="icon"
-:filled="filled"
-/>
-  </div>
+  <v-file-input
+    v-bind="$attrs"
+    v-on="$listeners"
+    :label="label"
+    prepend-icon=""
+    :append-icon="icon"
+    :filled="filled"
+    multiple
+  />
 </template>
 
 <script>

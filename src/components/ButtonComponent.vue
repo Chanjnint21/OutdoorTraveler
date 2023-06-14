@@ -1,5 +1,5 @@
 <template>
-  <v-btn v-bind="$attrs" v-on="$listeners" color="BtnColor"
+  <v-btn v-bind="$attrs" v-on="$listeners" :color="BtnColor" :outlined="outlined"
   >{{ BtnLabel }} <v-icon>{{ Icons }}</v-icon></v-btn>
 </template>
 <script>
@@ -7,15 +7,17 @@ export default {
   name: 'ButtonComponent',
   props: {
     BtnLabel: {
-      type: String,
-      default: 'Button label'
+      type: String
     },
     BtnColor: {
-      type: String,
-      default: 'green'
+      type: String
     },
     Icons: {
       type: String
+    },
+    outlined: {
+      type: Boolean,
+      default: false
     }
   }
 }

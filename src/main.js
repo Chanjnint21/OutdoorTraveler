@@ -10,11 +10,12 @@ import FileField from '@/components/FileField.vue'
 import ButtonComponent from './components/ButtonComponent.vue'
 import VueScrollTo from 'vue-scrollto'
 
+Vue.component('ButtonComponent', ButtonComponent)
 Vue.component('TextField', TextField)
 Vue.component('TextArea', TextArea)
 Vue.component('SliderField', SliderField)
 Vue.component('CategoryField', SelectField)
-Vue.component('FileField ', FileField)
+Vue.component('FileField', FileField)
 Vue.component('ButtonComponent', ButtonComponent)
 Vue.use(VueScrollTo)
 Vue.config.productionTip = false

@@ -1,23 +1,25 @@
 <template>
   <div>
-  <v-select v-bind="$attrs" v-on="$listeners" :color="color" :label="label" :required="required"/>
+    <v-autocomplete v-bind="$attrs" v-on="$listeners" :label="label" :outlined="outlined" :items="items" :color="color"/>
   </div>
 </template>
 
 <script>
 export default {
   name: 'SelectField',
+  data: () => ({
+    items: ['Popular', 'Recommend', 'Price High to Low', 'Price Low to High']
+  }),
   props: {
-    color: {
+    label: {
       type: String
     },
-    label: {
-      type: String,
-      default: 'Category'
-    },
-    required: {
+    outlined: {
       type: Boolean,
       default: false
+    },
+    color: {
+      type: String
     }
   }
 }

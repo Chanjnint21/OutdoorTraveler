@@ -4,7 +4,7 @@
     :label="label"
     :rounded="rounded"
     :outlined="outlined"
-    :append-icon="icons"
+    :prepend-inner-icon="icons"
     :color="color"
     :required="required"
     :name="name"
@@ -50,7 +50,8 @@ export default {
       type: String
     },
     counter: {
-      type: String
+      type: String,
+      default: null
     }
   },
   data () {

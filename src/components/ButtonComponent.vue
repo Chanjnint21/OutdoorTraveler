@@ -31,6 +31,7 @@ export default {
     },
     BtnRouter: {
       type: String
-    },
+    }
+  }
 }
 </script>

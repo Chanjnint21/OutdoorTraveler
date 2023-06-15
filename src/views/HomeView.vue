@@ -64,7 +64,7 @@
                 cols="12"
                 sm="6"
                 md="6"
-                lg="6"
+                lg="4"
               >
                 <v-img
                   max-width="500"
@@ -77,7 +77,7 @@
                 cols="12"
                 sm="6"
                 md="6"
-                lg="6"
+                lg="8"
               >
                 <v-row class="d-flex align-start" style="height: 60%" no-gutters>
                   <v-col cols="12">
@@ -103,6 +103,18 @@
                   </v-col>
                   <v-col class="d-flex align-center justify-center mb-2" cols="12" sm="12" md="6">
                     <v-card-actions>
+                      <button-component
+                        :BtnColor="toggle ? 'success' : 'primary'"
+                        Icons="mdi-bookmark"
+                        icon />
+                      <button-component
+                        BtnColor="#607D8B"
+                        class="white--text"
+                        btn-label="Detail" />
+                      <button-component
+                        BtnColor="#478C5C"
+                        class="white--text"
+                        btn-label="Register" />
                     </v-card-actions>
                   </v-col>
                 </v-row>

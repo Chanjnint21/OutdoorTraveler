@@ -3,6 +3,7 @@
   v-bind="$attrs"
   v-on="$listeners"
   :color="BtnColor"
+  :TextColor="TextColor"
   ><v-icon >{{ Icons }}</v-icon> {{ BtnLabel }}</v-btn>
 </template>
 <script>
@@ -18,9 +19,8 @@ export default {
     Icons: {
       type: String
     },
-    outlined: {
-      type: Boolean,
-      default: false
+    TextColor: {
+      type: String
     }
   }
 }

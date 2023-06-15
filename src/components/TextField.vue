@@ -4,7 +4,7 @@
     :label="label"
     :rounded="rounded"
     :outlined="outlined"
-    :prepend-inner-icon="icons"
+    :append-icon="icons"
     :color="color"
     :required="required"
     :name="name"

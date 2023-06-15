@@ -1,7 +1,7 @@
 <template>
-  <div class="create">
+  <v-container class="create">
     <v-card>
-      <v-card-title class="d-flex justify-center"> <h2>Create Trip</h2> </v-card-title>
+      <v-card-title class="d-flex justify-center text-h6">Create Trip</v-card-title>
       <v-card-text>
         <v-form>
           <v-row>
@@ -45,15 +45,15 @@
               />
             </v-col>
             <v-col cols="12">
-              <category-field
+              <select-field
                 label="Category"
                 outlined
-                items="items"
+                :SelectItem="Tags"
                 multiple
-                chips
+                small-chips
               />
             </v-col>
-            <v-col cols="12" class="d-flex justify-center"><h2>- Departure -</h2></v-col>
+            <v-col cols="12" class="d-flex justify-center text-h6">- Departure -</v-col>
             <v-col cols="6">
               <text-field
                 label="Meet Location"
@@ -68,7 +68,7 @@
                 icons="mdi-clock"
               />
             </v-col>
-            <v-col cols="12" class="d-flex justify-center"><h2>- Requirements -</h2></v-col>
+            <v-col cols="12" class="d-flex justify-center text-h6">- Requirements -</v-col>
             <v-col cols="6" class="d-flex align-center">
               <v-col cols=12>
                 <range-slider-field
@@ -91,10 +91,10 @@
               />
             </v-col>
             <v-col cols="6">
-              <category-field label="National ID" outlined items="items"/>
+              <select-field label="National ID" outlined :SelectItem="Choice"/>
             </v-col>
             <v-col cols="6">
-              <category-field label="Phone Number" outlined items="items"/>
+              <select-field label="Phone Number" outlined :SelectItem="Choice"/>
             </v-col>
           </v-row>
         </v-form>
@@ -106,7 +106,7 @@
         </v-row>
       </v-card-action>
     </v-card>
-  </div>
+  </v-container>
 </template>
 
 <script>
@@ -115,6 +115,12 @@ import RangeSliderField from '@/components/RangeSliderField.vue'
 export default {
   components: {
     RangeSliderField
+  },
+  data () {
+    return {
+      Choice: ['Not Require', 'Require'],
+      Tags: ['One day Trip', 'Hiking', 'Sea', 'Camping']
+    }
   }
 }
 </script>

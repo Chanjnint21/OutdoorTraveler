@@ -20,14 +20,6 @@
           <router-link to='/user/home' class='py-3 pl-5 pr-16 white--text text-decoration-none'>
             <v-icon class='mr-2'>mdi-home</v-icon> Home
           </router-link>
-          <!-- <button-component
-            class='text-left'
-            BtnColor='#478c5c'
-            btn-label='Home'
-            icons='mdi-home'
-            block
-            large
-          /> -->
         </v-col>
         <v-col cols='9' class='routelink rounded-lg mt-5'>
           <router-link to='/user/create' class='py-3 pl-5 pr-16 white--text text-decoration-none'
@@ -51,9 +43,17 @@
         </v-col>
       </v-row>
     </v-navigation-drawer>
-    <v-app-bar app v-if='authToken'>
+    <v-app-bar app elevation="0" v-if='authToken' color="white">
       <v-app-bar-nav-icon @click='drawer = !drawer'></v-app-bar-nav-icon>
-      <v-toolbar-title>Application</v-toolbar-title>
+      <v-toolbar-title class="text-h5 pl-1">{{ $route.meta.RouteName }}</v-toolbar-title>
+      <v-spacer></v-spacer>
+      <button-component
+        class="white--text"
+        BtnColor="#478C5C"
+        rounded
+        icons="mdi-plus-circle-outline"
+        RouterPath="/user/create"
+        BtnRouter="create"/>
     </v-app-bar>
     <v-main>
       <router-view />
@@ -84,7 +84,7 @@ export default {
   background-color: #478c5c
 }
 .routelink:hover {
-  background-color: rgb(1,58,33)
+  background-color: rgb(3, 91, 53)
 }
 .logout{
   position: absolute;

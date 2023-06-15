@@ -31,7 +31,8 @@ const routes = [
         name: 'home',
         component: HomeView,
         meta: {
-          auth: true
+          auth: true,
+          RouteName: 'Home'
         }
       },
       {
@@ -39,7 +40,8 @@ const routes = [
         name: 'create',
         component: TripCreate,
         meta: {
-          auth: true
+          auth: true,
+          RouteName: 'Create Trip'
         }
       },
       {
@@ -47,7 +49,8 @@ const routes = [
         name: 'profile',
         component: ProfileView,
         meta: {
-          auth: true
+          auth: true,
+          RouteName: 'Profile'
         }
       }
     ]

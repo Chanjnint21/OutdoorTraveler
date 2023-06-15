@@ -9,6 +9,7 @@ import SelectField from '@/components/SelectField.vue'
 import FileField from '@/components/FileField.vue'
 import ButtonComponent from './components/ButtonComponent.vue'
 import VueScrollTo from 'vue-scrollto'
+import CardComponent from './components/CardComponent.vue'
 
 Vue.component('ButtonComponent', ButtonComponent)
 Vue.component('TextField', TextField)
@@ -17,6 +18,7 @@ Vue.component('SliderField', SliderField)
 Vue.component('SelectField', SelectField)
 Vue.component('FileField', FileField)
 Vue.component('ButtonComponent', ButtonComponent)
+Vue.component('CardComponent', CardComponent)
 Vue.use(VueScrollTo)
 Vue.config.productionTip = false
 

@@ -13,7 +13,7 @@
           </v-chip-group> -->
           <v-col cols="10" class="d-flex justify-end">
             <button-component BtnColor="#478C5C" class="mr-6" btn-label="Popular" rounded />
-            <button-component BtnColor="#478C5C" class="mr-6" btn-label="Recommend" outlined rounded @click="Onclick" />
+            <button-component BtnColor="#478C5C" class="mr-6" btn-label="Recommend" outlined rounded />
             <button-component BtnColor="#478C5C" class="mr-6" btn-label="Price to High" outlined rounded
             @click="Onclick" />
             <button-component BtnColor="#478C5C" class="mr-6" btn-label="Price High to Low" outlined rounded
@@ -39,14 +39,12 @@
                   <v-col cols="12" class="d-flex align-end justify-end">
                     <v-card-actions>
                       <v-col cols="12" class="d-flex align-end">
-                        <v-col cols="12" class="d-flex align-baseline justify-end">
                           <div class="grey--text mb-2">
                             <small class="pl-1">By Jennie</small>
                           </div>
                             <button-component :BtnColor="toggle ? 'success' : 'primary'" Icons="mdi-bookmark" icon />
                           <button-component BtnColor="#607D8B" class="mr-6 white--text" btn-label="Detail" />
                           <button-component BtnColor="#478C5C" class="mr-6 white--text " btn-label="Register" />
-                        </v-col>
                       </v-col>
                     </v-card-actions>
                   </v-col>

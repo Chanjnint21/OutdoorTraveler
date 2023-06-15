@@ -1,10 +1,5 @@
 <template>
   <v-btn
-  v-bind="$attrs"
-  v-on="$listeners"
-  :color="BtnColor"
-  :TextColor="TextColor"
-  ><v-icon >{{ Icons }}</v-icon> {{ BtnLabel }}</v-btn>
 </template>
 <script>
 export default {
@@ -19,9 +14,6 @@ export default {
     Icons: {
       type: String
     },
-    TextColor: {
-      type: String
-    }
   }
 }
 </script>

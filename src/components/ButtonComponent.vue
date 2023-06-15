@@ -26,8 +26,11 @@ export default {
     Icons: {
       type: String
     },
-    RouterPath: String,
-    BtnRouter: String
-  }
+    RouterPath: {
+      type: String
+    },
+    BtnRouter: {
+      type: String
+    },
 }
 </script>

@@ -1,15 +1,12 @@
 <template>
   <div>
-    <v-autocomplete v-bind="$attrs" v-on="$listeners" :label="label" :outlined="outlined" :items="items" :color="color"/>
+    <v-autocomplete v-bind="$attrs" v-on="$listeners" :label="label" :outlined="outlined" :items="SelectItem" :color="color"/>
   </div>
 </template>
 
 <script>
 export default {
   name: 'SelectField',
-  data: () => ({
-    items: ['Popular', 'Recommend', 'Price High to Low', 'Price Low to High']
-  }),
   props: {
     label: {
       type: String
@@ -20,6 +17,9 @@ export default {
     },
     color: {
       type: String
+    },
+    SelectItem: {
+      type: Array
     }
   }
 }

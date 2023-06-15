@@ -8,7 +8,8 @@
     {{ BtnLabel }}
     <router-link
       class="white--text text-decoration-none pl-1"
-      :to="RouterPath">{{ BtnRouter }}
+      :to="RouterPath">
+    {{ BtnRouter }}
     </router-link>
   </v-btn>
 </template>

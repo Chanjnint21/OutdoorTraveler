@@ -8,7 +8,7 @@
           <v-row no-gutters>
             <v-col cols="2">
               <v-avatar size="200" style="top: -60%; left: 5%;">
-                <img src="../assets/pf1.jpeg" alt="Patrick">
+                <img src="../assets/Img/pf2.jpg" alt="Naruto">
               </v-avatar>
             </v-col>
             <v-col cols="4">

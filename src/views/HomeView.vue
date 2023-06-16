@@ -33,7 +33,7 @@
                   <button-component
                     class="white--text"
                     BtnColor="#478C5C"
-                    btn-label="Populars"
+                    btn-label="Popular"
                     rounded
                     block/>
                 </v-col>
@@ -55,72 +55,12 @@
       <!-- Vue to create a loop that will repeat the contents of the template four times, with each iteration assigned a variable named n -->
       <template v-for="n in 10">
         <v-col :key="n">
-          <v-card
+          <card-component
             height="auto"
             class="pa-md-4 mx-lg-auto text-center"
-            elevation="8">
-            <v-row no-gutters>
-              <v-col
-                cols="12"
-                sm="6"
-                md="6"
-                lg="4"
-              >
-                <v-img
-                  max-width="500"
-                  max-height="470"
-                  src="../assets/HomeImage.jpeg"
-                  class="align-start"
-                />
-              </v-col>
-              <v-col
-                cols="12"
-                sm="6"
-                md="6"
-                lg="8"
-              >
-                <v-row class="d-flex align-start" style="height: 60%" no-gutters>
-                  <v-col cols="12">
-                    <v-card-title class="text-h5">Maldives Holiday Trip</v-card-title>
-                    <v-card-text class="text-left">
-                      Find cheap return or one-way flights to Maldives.
-                      Book and compare flight deals to
-                      Maldives and save now! Get great flight deals to Maldives for 2023.
-                      Book and compare flight deals to
-                      Maldives and save now! Get great flight deals to Maldives for 2023.
-                      Book and compare flight deals to
-                      Maldives and save now! Get great flight deals to Maldives for 2023.
-                    </v-card-text>
-                  </v-col>
-                  <v-col cols="12">
-                  </v-col>
-                </v-row>
-                <v-row class="d-flex align-end" style="height: 40%" no-gutters>
-                  <v-col class="d-flex align-center" cols="12" sm="12" md="6">
-                    <v-card-subtitle class="grey--text">
-                      By: Jennie
-                    </v-card-subtitle>
-                  </v-col>
-                  <v-col class="d-flex align-center justify-center mb-2" cols="12" sm="12" md="6">
-                    <v-card-actions>
-                      <button-component
-                        :BtnColor="toggle ? 'success' : 'primary'"
-                        Icons="mdi-bookmark"
-                        icon />
-                      <button-component
-                        BtnColor="#607D8B"
-                        class="white--text"
-                        btn-label="Detail" />
-                      <button-component
-                        BtnColor="#478C5C"
-                        class="white--text"
-                        btn-label="Register" />
-                    </v-card-actions>
-                  </v-col>
-                </v-row>
-              </v-col>
-            </v-row>
-          </v-card>
+            elevation="8"
+            imageUrl="HomeImage.jpeg" >
+          </card-component>
         </v-col>
         <v-responsive v-if="n === 2" :key="`width-${n}`" width="100%"></v-responsive>
       </template>
@@ -151,4 +91,4 @@ export default {
     }
   }
 }
-</script>s
+</script>

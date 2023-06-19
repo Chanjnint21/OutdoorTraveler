@@ -44,10 +44,14 @@
               :type="show ? 'text' : 'password'"/>
             </v-col>
             <button-component
-              @click="LoginToken"
-              class="white--text"
-              BtnColor="#478c5c"
-              btn-label="Login"/>
+            @click="LoginToken"
+            rounded
+            class="white--text ml-2 font-size:24px"
+            BtnColor="#478c5c"
+            btn-label="Login"
+            x-large
+            width="700"
+          />
             </v-row>
           </v-form>
         </v-col>

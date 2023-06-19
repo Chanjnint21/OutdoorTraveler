@@ -13,9 +13,9 @@
         </v-row>
         <v-row class="d-flex align-end" style="height: 40%" no-gutters>
           <v-col class="d-flex align-center " cols="12" sm="12" md="6">
-            <button-component :BtnColor="toggle ? 'success' : 'primary'" Icons="mdi-bookmark" icon />
-            <button-component BtnColor="#607D8B" class="white--text mr-5" btn-label="Detail" />
-            <button-component BtnColor="#478C5C" class="white--text" btn-label="Register" />
+            <trip-btn :BtnColor="toggle ? 'success' : 'primary'" Icons="mdi-bookmark" icon />
+            <trip-btn BtnColor="#607D8B" class="white--text mr-5" btn-label="Detail" />
+            <trip-btn BtnColor="#478C5C" class="white--text" btn-label="Register" />
             <v-col class="d-flex align-center " cols="12" sm="12" md="6">
               <v-card-text class="grey--text">{{ Text }} {{ cardText }}</v-card-text>
             </v-col>
@@ -27,12 +27,12 @@
 </template>
 
 <script>
-import ButtonComponent from './ButtonComponent.vue'
+import TripBtn from './ButtonComponent.vue'
 
 export default {
   name: 'CardComponent',
   components: {
-    ButtonComponent
+    TripBtn
   },
   props: {
     elevation: {

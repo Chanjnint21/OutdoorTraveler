@@ -71,7 +71,7 @@
             <v-col cols="12" class="d-flex justify-center text-h6">- Requirements -</v-col>
             <v-col cols="6" class="d-flex align-center">
               <v-col cols=12>
-                <range-slider-field
+                <range-slider
                 label="Age"
                 hint="Im a hint"
                 maximum="90"
@@ -101,8 +101,8 @@
       </v-card-text>
       <v-card-action>
         <v-row class="d-flex justify-center pb-5">
-            <button-component class="white--text mx-3" btn-color="#478c5c" btn-label="Public"/>
-            <button-component class="white--text mx-3" btn-color="#013a21" btn-label="Draft"/>
+            <trip-btn class="white--text mx-3" btn-color="#478c5c" btn-label="Public"/>
+            <trip-btn class="white--text mx-3" btn-color="#013a21" btn-label="Draft"/>
         </v-row>
       </v-card-action>
     </v-card>
@@ -110,12 +110,8 @@
 </template>
 
 <script>
-import RangeSliderField from '@/components/RangeSliderField.vue'
 
 export default {
-  components: {
-    RangeSliderField
-  },
   data () {
     return {
       Choice: ['Not Require', 'Require'],

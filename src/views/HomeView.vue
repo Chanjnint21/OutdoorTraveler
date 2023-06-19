@@ -30,15 +30,16 @@
             >
               <v-row class="d-flex justify-end" no-gutters>
                 <v-col cols="6" md="2">
-                  <button-component
+                  <trip-btn
                     class="white--text"
                     BtnColor="#478C5C"
                     btn-label="Popular"
                     rounded
-                    block/>
+                    block
+                  />
                 </v-col>
                 <v-col cols="6" sm="2">
-                  <button-component
+                  <trip-btn
                     class="ml-2"
                     BtnColor="#478C5C"
                     btn-label="Recommend"
@@ -75,15 +76,9 @@
   </v-app>
 </template>
 <script>
-import ButtonComponent from '@/components/ButtonComponent.vue'
-import SelectField from '@/components/SelectField.vue'
 
 export default {
   name: 'HomePage',
-  components: {
-    ButtonComponent,
-    SelectField
-  },
   data () {
     return {
       show: false,

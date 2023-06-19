@@ -7,7 +7,7 @@
 
 <script>
 export default {
-  name: 'RangeSliderField',
+  name: 'RangeSlider',
   props: {
     hint: {
       type: String,

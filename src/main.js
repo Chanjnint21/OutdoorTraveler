@@ -4,20 +4,19 @@ import router from './router'
 import vuetify from './plugins/vuetify'
 import TextField from '@/components/TextField'
 import TextArea from '@/components/TextArea.vue'
-import SliderField from '@/components/SliderField.vue'
+import RangeSlider from '@/components/RangeSliderField.vue'
 import SelectField from '@/components/SelectField.vue'
 import FileField from '@/components/FileField.vue'
-import ButtonComponent from './components/ButtonComponent.vue'
+import TripBtn from './components/ButtonComponent.vue'
 import VueScrollTo from 'vue-scrollto'
 import CardComponent from './components/CardComponent.vue'
 
-Vue.component('ButtonComponent', ButtonComponent)
+Vue.component('ButtonComponent', TripBtn)
 Vue.component('TextField', TextField)
 Vue.component('TextArea', TextArea)
-Vue.component('SliderField', SliderField)
+Vue.component('RangeSliderField', RangeSlider)
 Vue.component('SelectField', SelectField)
 Vue.component('FileField', FileField)
-Vue.component('ButtonComponent', ButtonComponent)
 Vue.component('CardComponent', CardComponent)
 Vue.use(VueScrollTo)
 Vue.config.productionTip = false

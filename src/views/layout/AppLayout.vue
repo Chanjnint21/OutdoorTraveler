@@ -26,11 +26,6 @@
             ><v-icon class='mr-2'>mdi-plus-circle-outline</v-icon> Create
           </router-link>
         </v-col>
-        <v-col cols='9' class='routelink rounded-lg mt-5 text-decoration-none'>
-          <router-link to='/user/profile' class='py-3 pl-5 pr-16 white--text text-decoration-none'
-            ><v-icon class='mr-2'>mdi-account-circle-outline</v-icon> Profile
-          </router-link>
-        </v-col>
       </v-row>
       <v-row class="logout">
         <v-col cols='12' offset='2' class='routelink rounded-lg mb-5 pr-4' >
@@ -51,9 +46,9 @@
         class="white--text"
         BtnColor="#478C5C"
         rounded
-        icons="mdi-plus-circle-outline"
-        RouterPath="/user/create"
-        BtnRouter="create"/>
+        icons="mdi-account-circle-outline"
+        RouterPath="/user/profile"
+        BtnRouter="profile"/>
     </v-app-bar>
     <v-main>
       <router-view />

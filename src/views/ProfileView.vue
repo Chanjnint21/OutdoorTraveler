@@ -54,7 +54,7 @@
                   </card-component>
                   </v-col>
                   <v-responsive v-if="n === 2" :key="`width-${n}`" width="100%"></v-responsive>
-             </template>
+            </template>
           </v-tab-item>
           <v-tab-item>
             <template v-for="n in 2">

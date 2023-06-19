@@ -1,32 +1,31 @@
 <template>
   <v-container fluid class="Login d-flex align-center justify-center" style=" height: 100%; ">
-    <v-card class="d-flex rounded-xl" width="1000" height="500" elevation="5" >
-      <v-row class='pa-15 my-5'>
-        <v-col class="d-flex align-center justify-center"
+    <v-card class="LoginCard d-flex rounded-xl" elevation="5" >
+      <v-row class='pa-5 my-5'>
+        <v-col
+          class="d-flex align-center justify-center mr-5"
           cols="12"
           md="5"
           sm="5"
           xs="12"
         >
-        <v-row class="pl-5 my-10">
-        <v-img
-          contain
-          src='../assets/Img/circle-logo-turbine-png.webp'
-          max-height="400"
-          max-width="270"
+          <v-img
+            contain
+            src='../assets/Img/circle-logo-turbine-png.webp'
+            max-height="400"
+            max-width="270"
           />
-        </v-row>
         </v-col>
         <v-col
           cols="12"
-          md="7"
-          sm="7"
+          md="6"
+          sm="6"
           xs="12"
         >
           <v-form>
-            <v-row class="d-flex justify-center green--text pr-5">
-              <h1 style="margin-bottom:30px" >Sign In</h1>
-              <v-col cols="12">
+            <v-row class="d-flex justify-center">
+              <h1 style="color: #478c5c" >Sign In</h1>
+              <v-col cols="12" class="mb-3">
               <text-field
                 v-model="email"
                 label="E-mail"
@@ -35,9 +34,10 @@
                 name="email"
                 hide-details="auto"
                 rounded
+                :rules='LoginRules'
               />
             </v-col>
-            <v-col cols="12">
+            <v-col cols="12" class="mb-3">
               <text-field
                 label="Password"
                 name="password"
@@ -47,16 +47,17 @@
                 hint="Password must be at least 8 characters"
                 required
                 color="#478c5c"
+                :rules='LoginRules'
                 :type="show ? 'text' : 'password'"
                 hide-details="auto"
                 rounded
               />
             </v-col>
             <v-col cols="12">
-              <button-component
+              <trip-btn
                 @click="LoginToken"
                 rounded
-                class="white--text ml-2 font-size:24px"
+                class="white--text"
                 BtnColor="#478c5c"
                 btn-label="Login"
                 x-large
@@ -75,7 +76,10 @@
 export default {
   data () {
     return {
-      show: false
+      show: false,
+      LoginRules: [
+        value => !!value || 'This field Required.'
+      ]
     }
   },
   methods: {
@@ -90,5 +94,10 @@ export default {
 <style>
   .Login{
     background: #013a21;
+  }
+  @media(min-width: 850px){
+    .LoginCard{
+      width: 800px;
+    }
   }
 </style>

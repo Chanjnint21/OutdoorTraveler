@@ -39,18 +39,10 @@
           </card-component>
         </v-col>
       </template>
-      <v-row justify="center">
-        <v-col cols="8">
-          <v-container class="max-width">
-            <v-pagination v-model="page" class="my-4" :length="5" circle></v-pagination>
-          </v-container>
-        </v-col>
-      </v-row>
     </v-container>
 </template>
 <script>
 import HomeImage from '@/assets/HomeImage.jpeg'
-
 export default {
   name: 'HomePage',
   data () {

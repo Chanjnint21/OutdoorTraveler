@@ -63,26 +63,18 @@
             imageUrl="HomeImage.jpeg" >
           </card-component>
         </v-col>
+        <Trip-Btn/>
         <v-responsive v-if="n === 2" :key="`width-${n}`" width="100%"></v-responsive>
       </template>
-      <v-row justify="center">
-        <v-col cols="8">
-          <v-container class="max-width">
-            <v-pagination v-model="page" class="my-4" :length="5" circle></v-pagination>
-          </v-container>
-        </v-col>
-      </v-row>
     </v-container>
   </v-app>
 </template>
 <script>
-
 export default {
   name: 'HomePage',
   data () {
     return {
-      show: false,
-      page: 1
+      show: false
     }
   }
 }

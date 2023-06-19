@@ -1,7 +1,16 @@
 <template>
   <div>
-<v-range-slider v-bind="$attrs" v-on="$listeners"
-:hint="hint" :min="minimum" :max="maximum" :required="required" :color="color" :thumb-label="ThumbLabel" :label="label"/>
+    <v-range-slider
+      v-bind="$attrs"
+      v-on="$listeners"
+      :hint="hint"
+      :min="minimum"
+      :max="maximum"
+      :required="required"
+      :color="color"
+      :thumb-label="ThumbLabel"
+      :label="label"
+    />
   </div>
 </template>
 

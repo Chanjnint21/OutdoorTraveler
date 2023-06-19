@@ -13,6 +13,7 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/',
+    redirect: '/login',
     name: 'login',
     component: AuthLayout,
     children: [
@@ -70,7 +71,6 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes
 })
-
 router.beforeEach((to, from, next) => {
   const isAuthenticated = localStorage.getItem('authToken')
   if (to.meta.auth && !isAuthenticated) {

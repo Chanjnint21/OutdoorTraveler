@@ -1,24 +1,49 @@
 <template>
-  <v-card v-bind="$attrs" v-on="$listeners" :elevation="elevation" class="pa-md-2 mx-lg-auto text-center">
+  <v-card
+    v-bind="$attrs"
+    v-on="$listeners"
+    :elevation="elevation"
+    class="pa-md-4 mx-lg-auto text-center">
     <v-row no-gutters>
-      <v-col cols="12" sm="6" md="6" lg="6">
-        <v-img max-width="500" max-height="470" class="align-start" :src="require(`../assets/${imageUrl}`)" />
+      <v-col
+        cols="12"
+        sm="6"
+        md="6"
+        lg="4">
+        <v-img
+          max-width="500"
+          max-height="470"
+          class="align-start"
+          :src="imageUrl"/>
       </v-col>
-      <v-col cols="8" sm="6" md="6" lg="6">
+      <v-col cols="12" sm="6" md="6" lg="8">
         <v-row class="d-flex align-start" style="height: 60%" no-gutters>
           <v-col cols="12">
             <v-card-title class="text-h5">{{ cardTitleText }}</v-card-title>
-            <v-card-subtitle class="text-left">{{ cardSubText }}</v-card-subtitle>
+            <v-card-text class="text-left">{{ cardSubText }}</v-card-text>
           </v-col>
         </v-row>
         <v-row class="d-flex align-end" style="height: 40%" no-gutters>
           <v-col class="d-flex align-center " cols="12" sm="12" md="6">
-            <trip-btn :BtnColor="toggle ? 'success' : 'primary'" Icons="mdi-bookmark" icon />
-            <trip-btn BtnColor="#607D8B" class="white--text mr-5" btn-label="Detail" />
-            <trip-btn BtnColor="#478C5C" class="white--text" btn-label="Register" />
-            <v-col class="d-flex align-center " cols="12" sm="12" md="6">
-              <v-card-text class="grey--text">{{ Text }} {{ cardText }}</v-card-text>
-            </v-col>
+            <v-card-subtitle class="grey--text">
+              {{ Text }} {{ cardText }}
+            </v-card-subtitle>
+          </v-col>
+          <v-col class="d-flex align-center justify-center mb-2" cols="12" sm="12" md="6">
+            <v-card-actions>
+              <trip-btn
+                :BtnColor="toggle ? 'success' : 'primary'"
+                Icons="mdi-bookmark"
+                icon/>
+              <trip-btn
+                BtnColor="#607D8B"
+                class="white--text"
+                btn-label="Detail" />
+              <trip-btn
+                BtnColor="#478c5c"
+                class="white--text"
+                btn-label="Register" />
+            </v-card-actions>
           </v-col>
         </v-row>
       </v-col>
@@ -27,13 +52,9 @@
 </template>
 
 <script>
-import TripBtn from './ButtonComponent.vue'
 
 export default {
   name: 'CardComponent',
-  components: {
-    TripBtn
-  },
   props: {
     elevation: {
       type: String
@@ -48,7 +69,8 @@ export default {
       type: String
     },
     imageUrl: {
-      type: String
+      type: String,
+      require: true
     }
   },
   data: () => ({

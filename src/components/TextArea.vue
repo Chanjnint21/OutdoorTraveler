@@ -1,13 +1,13 @@
 <template>
   <div>
-<v-textarea
-v-bind="$attrs"
-v-on="$listeners"
-:outlined="outlined"
-:label="label"
-:required="required"
-:counter="counter"/>
-
+    <v-textarea
+      v-bind="$attrs"
+      v-on="$listeners"
+      :outlined="outlined"
+      :label="label"
+      :required="required"
+      :counter="counter"
+    />
   </div>
 </template>
 

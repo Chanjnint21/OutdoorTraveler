@@ -1,5 +1,6 @@
 <template>
-  <v-text-field v-bind="$attrs"
+  <v-text-field
+    v-bind="$attrs"
     v-on="$listeners"
     :label="label"
     :rounded="rounded"

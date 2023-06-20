@@ -15,7 +15,7 @@
               <p class="text-h5">_Username007</p>
             </v-col>
             <v-col cols="6" class="d-flex justify-end">
-              <button-component
+              <trip-btn
                 BtnColor="#478C5C"
                 class="mr-6"
                 btn-label="Edit Profile"
@@ -41,7 +41,7 @@
             </v-tab>
           </v-tabs>
           <v-divider></v-divider>
-        <v-container>
+        <v-container class="MainContain">
           <v-tabs-items v-model="tab">
           <v-tab-item>
             <template v-for="n in 3">
@@ -110,15 +110,15 @@
                         </v-col>
                         <v-col class="d-flex align-center justify-center mb-2" cols="12" sm="12" md="6">
                           <v-card-actions>
-                            <button-component
+                            <trip-btn
                               :BtnColor="toggle ? 'success' : 'primary'"
                               Icons="mdi-bookmark"
                               icon />
-                            <button-component
+                            <trip-btn
                               BtnColor="#607D8B"
                               class="white--text"
                               btn-label="Detail" />
-                            <button-component
+                            <trip-btn
                               BtnColor="#478C5C"
                               class="white--text"
                               btn-label="Register" />
@@ -186,15 +186,15 @@
                         </v-col>
                         <v-col class="d-flex align-center justify-center mb-2" cols="12" sm="12" md="6">
                           <v-card-actions>
-                            <button-component
+                            <trip-btn
                               :BtnColor="toggle ? 'success' : 'primary'"
                               Icons="mdi-bookmark"
                               icon />
-                            <button-component
+                            <trip-btn
                               BtnColor="#607D8B"
                               class="white--text"
                               btn-label="Detail" />
-                            <button-component
+                            <trip-btn
                               BtnColor="error"
                               class="white--text"
                               btn-label="UnRegister" />
@@ -262,15 +262,15 @@
                         </v-col>
                         <v-col class="d-flex align-center justify-center mb-2" cols="12" sm="12" md="6">
                           <v-card-actions>
-                            <button-component
+                            <trip-btn
                               :BtnColor="toggle ? 'success' : 'primary'"
                               Icons="mdi-bookmark"
                               icon />
-                            <button-component
+                            <trip-btn
                               BtnColor="#607D8B"
                               class="white--text"
                               btn-label="Detail" />
-                            <button-component
+                            <trip-btn
                               btn-label="Joined"
                               disabled/>
                           </v-card-actions>
@@ -289,10 +289,6 @@
     </v-container>
 </template>
 <style>
-/* .container-detail {
-  position: relative;
-  top: 3%
-} */
 .card {
   position: relative;
   top: 100%

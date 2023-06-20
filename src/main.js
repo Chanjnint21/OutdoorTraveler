@@ -11,7 +11,7 @@ import TripBtn from './components/ButtonComponent.vue'
 import VueScrollTo from 'vue-scrollto'
 import CardComponent from './components/CardComponent.vue'
 
-Vue.component('ButtonComponent', TripBtn)
+Vue.component('TripBtn', TripBtn)
 Vue.component('TextField', TextField)
 Vue.component('TextArea', TextArea)
 Vue.component('RangeSliderField', RangeSlider)

@@ -22,8 +22,8 @@
           </router-link>
         </v-col>
         <v-col cols='9' class='routelink rounded-lg mt-5'>
-          <router-link to='/user/create' class='py-3 pl-5 pr-16 white--text text-decoration-none'
-            ><v-icon class='mr-2'>mdi-plus-circle-outline</v-icon> Create
+          <router-link to='/user/profile' class='py-3 pl-5 pr-16 white--text text-decoration-none'
+            ><v-icon class='mr-2'>mdi-account-circle-outline</v-icon> Profile
           </router-link>
         </v-col>
       </v-row>
@@ -42,13 +42,14 @@
       <v-app-bar-nav-icon @click='drawer = !drawer'></v-app-bar-nav-icon>
       <v-toolbar-title class="text-h5 pl-1">{{ $route.meta.RouteName }}</v-toolbar-title>
       <v-spacer></v-spacer>
-      <button-component
+      <trip-btn
         class="white--text"
         BtnColor="#478C5C"
+        BtnLabel="Create"
         rounded
-        icons="mdi-account-circle-outline"
-        RouterPath="/user/profile"
-        BtnRouter="profile"/>
+        icons="mdi-plus-circle-outline"
+        @click="toCreatepage"
+      />
     </v-app-bar>
     <v-main>
       <router-view />
@@ -68,6 +69,9 @@ export default {
   methods: {
     LogOut () {
       localStorage.removeItem('authToken')
+    },
+    toCreatepage () {
+      location.replace('/user/create')
     }
   }
 }

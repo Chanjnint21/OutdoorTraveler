@@ -1,12 +1,13 @@
 <template>
   <div>
     <v-autocomplete
-    v-bind="$attrs"
-    v-on="$listeners"
-    :label="label"
-    :outlined="outlined"
-    :items="SelectItem"
-    :color="color"/>
+      v-bind="$attrs"
+      v-on="$listeners"
+      :label="label"
+      :outlined="outlined"
+      :items="SelectItem"
+      :color="color"
+    />
   </div>
 </template>
 

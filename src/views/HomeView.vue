@@ -1,6 +1,5 @@
 <template>
-  <v-app id="inspire">
-    <v-container>
+    <v-container class="MainContain">
       <v-row>
         <v-col cols="12" class="d-flex align-center pb-1">
           <v-text-field
@@ -8,49 +7,25 @@
             outlined
             rounded
             style="width: 1000px;"
-            prepend-inner-icon="mdi-magnify" />
+            prepend-inner-icon="mdi-magnify"
+          />
         </v-col>
-        <v-col>
-          <v-row>
-            <v-col
-              cols="12"
-              md="3">
-              <select-field
-                color="#1B5E20"
-                rounded
-                dense
-                class="d-flex align-center justify-start"
-                outlined
-                label="Sort By"
-                items />
-            </v-col>
-            <v-col
-              cols="12"
-              md="9"
-            >
-              <v-row class="d-flex justify-end" no-gutters>
-                <v-col cols="6" md="2">
-                  <trip-btn
-                    class="white--text"
-                    BtnColor="#478C5C"
-                    btn-label="Popular"
-                    rounded
-                    block
-                  />
-                </v-col>
-                <v-col cols="6" sm="2">
-                  <trip-btn
-                    class="ml-2"
-                    BtnColor="#478C5C"
-                    btn-label="Recommend"
-                    outlined
-                    rounded
-                    @click="Onclick"
-                    block/>
-                </v-col>
-              </v-row>
-            </v-col>
-          </v-row>
+        <v-col cols="12" class="d-flex justify-space-around mb-3">
+          <!-- <trip-btn
+            class="white--text"
+            BtnColor="#478C5C"
+            btn-label="Newest"
+            rounded
+          /> -->
+          <template v-for="n of 6">
+            <trip-btn
+              :key= 'n'
+              BtnColor="#478C5C"
+              :btn-label="Sortlabel[n]"
+              rounded
+              outlined
+            />
+          </template>
         </v-col>
       </v-row>
       <!-- Vue to create a loop that will repeat the contents of the template four times, with each iteration assigned a variable named n -->
@@ -60,21 +35,22 @@
             height="auto"
             class="pa-md-4 mx-lg-auto text-center"
             elevation="8"
-            imageUrl="HomeImage.jpeg" >
+            :imageUrl= "image" >
           </card-component>
         </v-col>
-        <Trip-Btn/>
-        <v-responsive v-if="n === 2" :key="`width-${n}`" width="100%"></v-responsive>
       </template>
     </v-container>
-  </v-app>
 </template>
 <script>
+import HomeImage from '@/assets/HomeImage.jpeg'
 export default {
   name: 'HomePage',
   data () {
     return {
-      show: false
+      show: false,
+      page: 1,
+      Sortlabel: ['', 'newest', 'oldest', 'Popular', 'Recommend', 'Price to High', 'Price to Low'],
+      image: HomeImage
     }
   }
 }

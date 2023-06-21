@@ -32,22 +32,28 @@
           <v-col class="d-flex align-center justify-center mb-2" cols="12" sm="12" md="6">
             <v-card-actions>
               <slot name="bookmark">
-              <trip-btn
-                :BtnColor="toggle ? 'success' : 'primary'"
-                Icons="mdi-bookmark"
-                icon/>
+                <trip-btn
+                  :BtnColor="toggle ? 'success' : 'primary'"
+                  icon
+                >
+                  <template #icon>
+                    <v-icon class="pa-2">mdi-bookmark-outline</v-icon>
+                  </template>
+                </trip-btn>
               </slot>
               <slot name="detail">
-              <trip-btn
-                BtnColor="#276678"
-                class="white--text"
-                btn-label="Detail" />
+                <trip-btn
+                  BtnColor="#276678"
+                  class="white--text"
+                  btn-label="Detail"
+                />
               </slot>
               <slot name="register">
-              <trip-btn
-                BtnColor="#1687A7"
-                class="white--text"
-                btn-label="Register" />
+                <trip-btn
+                  BtnColor="#1687A7"
+                  class="white--text"
+                  btn-label="Register"
+                />
               </slot>
             </v-card-actions>
           </v-col>

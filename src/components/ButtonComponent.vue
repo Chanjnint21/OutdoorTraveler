@@ -4,12 +4,7 @@
     v-on="$listeners"
     :color="BtnColor"
   >
-    <!-- <v-icon >{{ Icons }}</v-icon>
-    {{ BtnLabel }} -->
-    <slot name="icon">
-      <v-icon>{{ Icons }}</v-icon>
-    </slot>
-    <v-icon :class="IconClass" >{{ Icons }}</v-icon>
+    <slot name="icon"></slot>
     {{ BtnLabel }}
   </v-btn>
 </template>

@@ -22,7 +22,7 @@
                 outlined
                 rounded>
                 <template v-slot:icon>
-                  <v-icon>"mdi-account-edit"</v-icon>
+                  <v-icon>mdi-account-edit</v-icon>
                   </template>
                 </trip-btn>
             </v-col>

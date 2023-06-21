@@ -2,8 +2,18 @@
   <v-container fluid class="Login d-flex align-center justify-center" style="height: 100%;">
     <v-card class="LoginCard d-flex rounded-xl" elevation="5">
       <v-row class='pa-5 my-5'>
-        <v-col class="d-flex align-center justify-center mr-5" cols="12" md="5" sm="5" xs="12">
-          <v-img contain src="@/assets/Img/logo1687A7.png" max-height="400" max-width="270" />
+        <v-col
+          class="d-flex align-center justify-center mr-5"
+          cols="12"
+          md="5"
+          sm="5"
+          xs="12"
+        >
+          <v-img
+            contain src="@/assets/Img/logo1687A7.png"
+            max-height="400"
+            max-width="270"
+          />
         </v-col>
         <v-col cols="12" md="6" sm="6" xs="12">
           <v-form ref="form">
@@ -11,18 +21,43 @@
               <h1 style="color: #1687A7; margin-bottom: 20px;">Sign In</h1>
           </v-row>
             <v-col cols="12" class="mb-3">
-              <v-text-field v-model="email" label="Email" outlined color="#478c5c" name="email" hide-details="auto"
-                rounded :rules="LoginRules" />
+              <v-text-field
+                v-model="email"
+                label="Email"
+                outlined
+                color="#1687A7"
+                name="email"
+                hide-details="auto"
+                rounded
+                :rules="LoginRules"
+              />
             </v-col>
             <v-col cols="12" class="mb-3">
-              <v-text-field v-model="password" label="Password" name="password" outlined
-                :append-icon="show ? 'mdi-eye' : 'mdi-eye-off'" @click:append="show = !show"
-                hint="Password must be at least 8 characters" required color="#478c5c" :rules="LoginRules"
-                :type="show ? 'text' : 'password'" hide-details="auto" rounded />
+              <v-text-field
+                v-model="password"
+                label="Password"
+                name="password"
+                outlined
+                :append-icon="show ? 'mdi-eye' : 'mdi-eye-off'"
+                @click:append="show = !show"
+                hint="Password must be at least 8 characters"
+                required color="#1687A7"
+                :rules="LoginRules"
+                :type="show ? 'text' : 'password'"
+                hide-details="auto"
+                rounded
+              />
             </v-col>
             <v-col cols="12" class="mb-3">
-              <trip-btn @click="loginToken" rounded class="white--text" BtnColor="#1687A7" btn-label="Login" x-large
-                block />
+              <trip-btn
+                @click="loginToken"
+                rounded
+                class="white--text"
+                BtnColor="#1687A7"
+                btn-label="Login"
+                x-large
+                block
+              />
             </v-col>
           </v-form>
         </v-col>

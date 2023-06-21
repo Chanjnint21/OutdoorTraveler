@@ -26,33 +26,41 @@
             @click="toHome"
             block
             x-large
-          />
+          >
+          <template #icon>
+            <v-icon class="pa-2">mdi-home</v-icon>
+          </template>
+          </trip-btn>
         </v-col>
         <v-col cols='9' class='pa-1 mx-1 my-2'>
           <trip-btn
             class="RouteBtn rounded-lg"
-            icon-class="pa-2"
             BtnColor="#276678"
             BtnLabel="Profile"
-            icons="mdi-account-circle-outline"
             @click="ToProfile"
             block
             x-large
-          />
+          >
+            <template #icon>
+              <v-icon class="pa-2">mdi-account-circle-outline</v-icon>
+            </template>
+          </trip-btn>
         </v-col>
       </v-row>
       <v-row class='d-flex justify-center align-end' style="height: 50vh">
         <v-col cols='9' class='pa-1 mx-1' >
           <trip-btn
             class="RouteBtn rounded-lg"
-            icon-class="pa-2"
             BtnColor="#276678"
             BtnLabel="Log Out"
-            icons="mdi-logout"
             @click="LogOut"
             block
             x-large
-          />
+          >
+            <template #icon>
+              <v-icon class="pa-2">mdi-logout</v-icon>
+            </template>
+          </trip-btn>
         </v-col>
       </v-row>
     </v-navigation-drawer>

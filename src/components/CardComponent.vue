@@ -36,11 +36,11 @@
                 Icons="mdi-bookmark"
                 icon/>
               <trip-btn
-                BtnColor="#607D8B"
+                BtnColor="#276678"
                 class="white--text"
                 btn-label="Detail" />
               <trip-btn
-                BtnColor="#478c5c"
+                BtnColor="#1687A7"
                 class="white--text"
                 btn-label="Register" />
             </v-card-actions>

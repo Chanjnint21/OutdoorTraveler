@@ -4,7 +4,7 @@
     v-on="$listeners"
     :color="BtnColor"
   >
-    <v-icon >{{ Icons }}</v-icon>
+    <v-icon :class="IconClass" >{{ Icons }}</v-icon>
     {{ BtnLabel }}
   </v-btn>
 </template>
@@ -20,7 +20,8 @@ export default {
     },
     Icons: {
       type: String
-    }
+    },
+    IconClass: String
   }
 }
 </script>

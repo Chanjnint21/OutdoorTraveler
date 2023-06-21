@@ -25,6 +25,7 @@ const routes = [
   },
   {
     path: '/user',
+    redirect: '/user/home',
     component: BoilerPlate,
     children: [
       {
@@ -76,7 +77,7 @@ router.beforeEach((to, from, next) => {
   if (to.meta.auth && !isAuthenticated) {
     next('/login')
   } else if (!to.meta.auth && isAuthenticated) {
-    next('/user/home')
+    next('/user')
   } else {
     next()
   }

@@ -2,6 +2,8 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import vuetify from './plugins/vuetify'
+import axios from 'axios'
+import VueAxios from 'vue-axios'
 import TextField from '@/components/TextField'
 import TextArea from '@/components/TextArea.vue'
 import RangeSlider from '@/components/RangeSliderField.vue'
@@ -11,6 +13,7 @@ import TripBtn from './components/ButtonComponent.vue'
 import VueScrollTo from 'vue-scrollto'
 import CardComponent from './components/CardComponent.vue'
 
+Vue.use(VueAxios, axios)
 Vue.component('TripBtn', TripBtn)
 Vue.component('TextField', TextField)
 Vue.component('TextArea', TextArea)

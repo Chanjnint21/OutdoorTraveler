@@ -9,7 +9,6 @@
     <slot name="icon">
       <v-icon>{{ Icons }}</v-icon>
     </slot>
- =======
     <v-icon :class="IconClass" >{{ Icons }}</v-icon>
     {{ BtnLabel }}
   </v-btn>

@@ -22,48 +22,49 @@
           sm="6"
           xs="12"
         >
-          <v-form>
+          <v-form ref="form">
             <v-row class="d-flex justify-center">
               <h1 style="color: #478c5c" >Sign In</h1>
               <v-col cols="12" class="mb-3">
-              <text-field
-                v-model="email"
-                label="E-mail"
-                outlined
-                color="#478c5c"
-                name="email"
-                hide-details="auto"
-                rounded
-                :rules='LoginRules'
-              />
-            </v-col>
-            <v-col cols="12" class="mb-3">
-              <text-field
-                label="Password"
-                name="password"
-                outlined
-                :icons="show ? 'mdi-eye' : 'mdi-eye-off'"
-                @click:append="show = !show"
-                hint="Password must be at least 8 characters"
-                required
-                color="#478c5c"
-                :rules='LoginRules'
-                :type="show ? 'text' : 'password'"
-                hide-details="auto"
-                rounded
-              />
-            </v-col>
-            <v-col cols="12">
-              <trip-btn
-                @click="LoginToken"
-                rounded
-                class="white--text"
-                BtnColor="#478c5c"
-                btn-label="Login"
-                x-large
-                block
-              />
-            </v-col>
+                <v-text-field
+                  v-model="email"
+                  label="E-mail"
+                  outlined
+                  color="#478c5c"
+                  name="email"
+                  hide-details="auto"
+                  rounded
+                  :rules='LoginRules'
+                />
+              </v-col>
+              <v-col cols="12" class="mb-3">
+                <v-text-field
+                  v-model="password"
+                  label="Password"
+                  name="password"
+                  outlined
+                  :icons="show ? 'mdi-eye' : 'mdi-eye-off'"
+                  @click:append="show = !show"
+                  hint="Password must be at least 8 characters"
+                  required
+                  color="#478c5c"
+                  :rules='LoginRules'
+                  :type="show ? 'text' : 'password'"
+                  hide-details="auto"
+                  rounded
+                />
+              </v-col>
+              <v-col cols="12">
+                <trip-btn
+                  @click="LoginToken"
+                  rounded
+                  class="white--text"
+                  BtnColor="#478c5c"
+                  btn-label="Login"
+                  x-large
+                  block
+                />
+              </v-col>
             </v-row>
           </v-form>
         </v-col>
@@ -77,15 +78,20 @@ export default {
   data () {
     return {
       show: false,
+      email: '',
+      password: '',
       LoginRules: [
-        value => !!value || 'This field Required.'
+        value => !!value || 'This field is required.'
       ]
     }
   },
+
   methods: {
     LoginToken () {
-      localStorage.setItem('authToken', true)
-      location.replace('/user/home')
+      if (this.$refs.form.validate()) {
+        localStorage.setItem('authToken', true)
+        location.replace('/user/home')
+      }
     }
   }
 }

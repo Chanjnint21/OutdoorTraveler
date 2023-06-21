@@ -47,9 +47,12 @@
         BtnColor="#478C5C"
         BtnLabel="Create"
         rounded
-        icons="mdi-plus-circle-outline"
         @click="toCreatepage"
-      />
+        >
+        <template v-slot:icon>
+          <v-icon>mdi-plus</v-icon>
+        </template>
+    </trip-btn>
     </v-app-bar>
     <v-main>
       <router-view />

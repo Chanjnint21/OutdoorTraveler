@@ -12,5 +12,112 @@
       "role": "admin",
       "password": "secret123"
     }
+  ],
+  "tripcards": [
+    {
+      "id": 1,
+      "title": "Classic European Tour",
+      "destination": "Europe",
+      "start_date": "2024-08-01",
+      "end_date": "2024-08-15",
+      "detail": "Embark on a journey through the heart of Europe and discover its rich history, culture and stunning scenery.",
+      "image": "https://example.com/european-tour.jpg",
+      "category": "Tour",
+      "departure": {
+        "meet_location": "London Heathrow Airport",
+        "leave_time": "8:00 AM"
+      },
+      "requirement": {
+        "min_age": null,
+        "max_age": null,
+        "cost": 3500,
+        "nationalId": true,
+        "phoneNumber": true
+      }
+    },
+    {
+      "id": 2,
+      "title": "Tropical Paradise Getaway",
+      "destination": "Hawaii",
+      "start_date": "2024-11-01",
+      "end_date": "2024-11-07",
+      "detail": "Escape to a tropical paradise and experience the beauty and tranquility of Hawaii's beaches, mountains and culture.",
+      "image": "https://example.com/hawaii-getaway.jpg",
+      "category": "Beach",
+      "departure": {
+        "meet_location": "Honolulu International Airport",
+        "leave_time": "10:00 AM"
+      },
+      "requirement": {
+        "min_age": 21,
+        "max_age": 65,
+        "cost": 5000,
+        "nationalId": false,
+        "phoneNumber": true
+      }
+    },
+    {
+      "id": 3,
+      "title": "African Safari Adventure",
+      "destination": "Kenya",
+      "start_date": "2025-03-01",
+      "end_date": "2025-03-08",
+      "detail": "Embark on an unforgettable safari adventure and witness the majesty of Africa's wildlife in their natural habitat.",
+      "image": "https://example.com/african-safari.jpg",
+      "category": "Safari",
+      "departure": {
+        "meet_location": "Jomo Kenyatta International Airport",
+        "leave_time": "6:00 AM"
+      },
+      "requirement": {
+        "min_age": null,
+        "max_age": null,
+        "cost": 8000,
+        "nationalId": true,
+        "phoneNumber": true
+      }
+    },
+    {
+      "id": 4,
+      "title": "Winter Wonderland Ski Trip",
+      "destination": "Switzerland",
+      "start_date": "2024-12-15",
+      "end_date": "2024-12-22",
+      "detail": "Experience the thrill of skiing in the Swiss Alps and enjoy the beauty of a winter wonderland.",
+      "image": "https://example.com/swiss-ski-trip.jpg",
+      "category": "Ski",
+      "departure": {
+        "meet_location": "Zurich Airport",
+        "leave_time": "2:00 PM"
+      },
+      "requirement": {
+        "min_age": 18,
+        "max_age": null,
+        "cost": 6000,
+        "nationalId": false,
+        "phoneNumber": true
+      }
+    }
+    ,{
+      "id": 5,
+      "title": "Cultural Immersion Tour",
+      "destination": "Japan",
+      "start_date": "2025-06-01",
+      "end_date": "2025-06-10",
+      "detail": "Immerse yourself in the traditions and culture of Japan and discover its unique blend of modernity and tradition.",
+      "image": "https://example.com/japan-tour.jpg",
+      "category": "Tour",
+      "departure": {
+        "meet_location": "Narita International Airport",
+        "leave_time": "9:00 AM"
+      },
+      "requirement": {
+        "min_age": null,
+        "max_age": null,
+        "cost": 4500,
+        "nationalId": true,
+        "phoneNumber": true
+      }
+    }
   ]
 }

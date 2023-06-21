@@ -31,18 +31,24 @@
           </v-col>
           <v-col class="d-flex align-center justify-center mb-2" cols="12" sm="12" md="6">
             <v-card-actions>
+              <slot name="bookmark">
               <trip-btn
                 :BtnColor="toggle ? 'success' : 'primary'"
                 Icons="mdi-bookmark"
                 icon/>
+              </slot>
+              <slot name="detail">
               <trip-btn
                 BtnColor="#276678"
                 class="white--text"
                 btn-label="Detail" />
+              </slot>
+              <slot name="register">
               <trip-btn
                 BtnColor="#1687A7"
                 class="white--text"
                 btn-label="Register" />
+              </slot>
             </v-card-actions>
           </v-col>
         </v-row>

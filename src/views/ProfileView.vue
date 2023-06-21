@@ -20,8 +20,11 @@
                 class="mr-6"
                 btn-label="Edit Profile"
                 outlined
-                rounded
-                Icons="mdi-account-edit" />
+                rounded>
+                <template v-slot:icon>
+                  <v-icon>"mdi-account-edit"</v-icon>
+                  </template>
+                </trip-btn>
             </v-col>
           </v-row>
         </v-col>

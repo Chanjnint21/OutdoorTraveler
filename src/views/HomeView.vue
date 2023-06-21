@@ -39,6 +39,7 @@
           </card-component>
         </v-col>
       </template>
+
     </v-container>
 </template>
 <script>

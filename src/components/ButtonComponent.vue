@@ -9,6 +9,8 @@
     <slot name="icon">
       <v-icon>{{ Icons }}</v-icon>
     </slot>
+ =======
+    <v-icon :class="IconClass" >{{ Icons }}</v-icon>
     {{ BtnLabel }}
   </v-btn>
 </template>
@@ -24,7 +26,8 @@ export default {
     },
     Icons: {
       type: String
-    }
+    },
+    IconClass: String
   }
 }
 </script>

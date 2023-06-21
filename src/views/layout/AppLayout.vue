@@ -5,36 +5,54 @@
       app
       dark
       v-if='authToken'
-      color='#013a25'
+      color='#1687A7'
     >
-      <v-row class='d-flex justify-center'>
+      <v-row class='d-flex justify-center' style="height: 50vh">
         <v-col cols='12' class='d-flex justify-center my-5'>
           <v-img
             contain
-            src='@/assets/Img/circle-logo-turbine-png.webp'
+            src='@/assets/Img/logoF6F5F5.png'
             max-height='400'
             max-width='200'
           />
         </v-col>
-        <v-col cols='9' class='routelink rounded-lg mt-5'>
-          <router-link to='/user/home' class='py-3 pl-5 pr-16 white--text text-decoration-none'>
-            <v-icon class='mr-2'>mdi-home</v-icon> Home
-          </router-link>
+        <v-col cols='9' class='pa-1 mx-1 my-2'>
+          <trip-btn
+            class="RouteBtn rounded-lg"
+            icon-class="pa-2"
+            BtnColor="#276678"
+            BtnLabel="Home"
+            icons="mdi-home"
+            @click="toHome"
+            block
+            x-large
+          />
         </v-col>
-        <v-col cols='9' class='routelink rounded-lg mt-5'>
-          <router-link to='/user/profile' class='py-3 pl-5 pr-16 white--text text-decoration-none'
-            ><v-icon class='mr-2'>mdi-account-circle-outline</v-icon> Profile
-          </router-link>
+        <v-col cols='9' class='pa-1 mx-1 my-2'>
+          <trip-btn
+            class="RouteBtn rounded-lg"
+            icon-class="pa-2"
+            BtnColor="#276678"
+            BtnLabel="Profile"
+            icons="mdi-account-circle-outline"
+            @click="ToProfile"
+            block
+            x-large
+          />
         </v-col>
       </v-row>
-      <v-row class="logout">
-        <v-col cols='12' offset='2' class='routelink rounded-lg mb-5 pr-4' >
-          <a
-            href='/login'
-            @click='LogOut'
-            class='py-3 pl-5 pr-16 white--text text-decoration-none'>
-            <v-icon class='mr-2'>mdi-logout</v-icon>Log out
-          </a>
+      <v-row class='d-flex justify-center align-end' style="height: 50vh">
+        <v-col cols='9' class='pa-1 mx-1' >
+          <trip-btn
+            class="RouteBtn rounded-lg"
+            icon-class="pa-2"
+            BtnColor="#276678"
+            BtnLabel="Log Out"
+            icons="mdi-logout"
+            @click="LogOut"
+            block
+            x-large
+          />
         </v-col>
       </v-row>
     </v-navigation-drawer>
@@ -44,7 +62,7 @@
       <v-spacer></v-spacer>
       <trip-btn
         class="white--text"
-        BtnColor="#478C5C"
+        BtnColor="#1687A7"
         BtnLabel="Create"
         rounded
         @click="toCreatepage"
@@ -72,24 +90,24 @@ export default {
   methods: {
     LogOut () {
       localStorage.removeItem('authToken')
+      location.replace('/login')
     },
     toCreatepage () {
       location.replace('/user/create')
+    },
+    toHome () {
+      location.replace('/user/home')
+    },
+    ToProfile () {
+      location.replace('/user/profile')
     }
   }
 }
 </script>
 
 <style scoped>
-.routelink {
-  font-size: 1.2rem;
-  background-color: #478c5c
-}
-.routelink:hover {
-  background-color: rgb(3, 91, 53)
-}
-.logout{
-  position: absolute;
-  bottom: 0;
+.RouteBtn{
+  display: flex;
+  justify-content: start;
 }
 </style>

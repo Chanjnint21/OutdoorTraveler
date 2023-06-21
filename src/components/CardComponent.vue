@@ -39,13 +39,13 @@
               </slot>
               <slot name="detail">
               <trip-btn
-                BtnColor="#607D8B"
+                BtnColor="#276678"
                 class="white--text"
                 btn-label="Detail" />
               </slot>
               <slot name="register">
               <trip-btn
-                BtnColor="#478c5c"
+                BtnColor="#1687A7"
                 class="white--text"
                 btn-label="Register" />
               </slot>

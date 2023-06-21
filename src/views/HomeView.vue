@@ -20,7 +20,7 @@
           <template v-for="n of 6">
             <trip-btn
               :key= 'n'
-              BtnColor="#478C5C"
+              BtnColor="#1687A7"
               :btn-label="Sortlabel[n]"
               rounded
               outlined

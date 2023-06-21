@@ -16,7 +16,7 @@
             </v-col>
             <v-col cols="6" class="d-flex justify-end">
               <trip-btn
-                BtnColor="#478C5C"
+                BtnColor="#1687A7"
                 class="mr-6"
                 btn-label="Edit Profile"
                 outlined
@@ -34,7 +34,7 @@
           v-model="tab"
           fixed-tabs
           centered
-          color="#478c5c"
+          color="#1687A7"
           >
             <v-tab
               v-for="t in tabs"

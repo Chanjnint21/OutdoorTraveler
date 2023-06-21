@@ -1,7 +1,7 @@
 <template>
   <v-container fluid class="Login d-flex align-center justify-center" style="height: 100%;">
     <v-card class="LoginCard d-flex rounded-xl" elevation="5">
-      <v-row class='pa-5 my-5'>
+      <v-row class='pa-5 my-1'>
         <v-col
           class="d-flex align-center justify-center mr-5"
           cols="12"
@@ -16,10 +16,10 @@
           />
         </v-col>
         <v-col cols="12" md="6" sm="6" xs="12">
-          <v-form ref="form">
+          <v-form ref="form" @submit.prevent="loginToken">
             <v-row class="d-flex justify-center">
               <h1 style="color: #1687A7; margin-bottom: 20px;">Sign In</h1>
-          </v-row>
+            </v-row>
             <v-col cols="12" class="mb-3">
               <v-text-field
                 v-model="email"
@@ -50,6 +50,7 @@
             </v-col>
             <v-col cols="12" class="mb-3">
               <trip-btn
+                type="submit"
                 @click="loginToken"
                 rounded
                 class="white--text"
@@ -58,6 +59,7 @@
                 x-large
                 block
               />
+              <p class="text-center text-small error--text" v-if="login">Invalid email or password </p>
             </v-col>
           </v-form>
         </v-col>
@@ -73,6 +75,7 @@ export default {
       show: false,
       email: '',
       password: '',
+      login: '',
       LoginRules: [
         value => !!value || 'This field is required.'
       ]
@@ -80,11 +83,30 @@ export default {
   },
 
   methods: {
+    // loginToken () {
+    //   if (this.$refs.form.validate()) {
+    //     localStorage.setItem('authToken', true)
+    //     location.replace('/user/home')
+    //   }
+    // }
     loginToken () {
-      if (this.$refs.form.validate()) {
-        localStorage.setItem('authToken', true)
-        location.replace('/user/home')
-      }
+      // send HTTP get request using axios to http://localhost:3000/users
+      this.$http.get('http://localhost:3000/users')
+        .then(response => {
+          // searching for password and email that match to input
+          const user = response.data.find(user => user.email === this.email && user.password === this.password)
+          // If match, redirect to the home page
+          if (user) {
+            localStorage.setItem('authToken', true)
+            location.replace('/user/home')
+          } else {
+            this.login = true
+            this.password = ''
+          }
+        })
+        .catch(error => {
+          console.log(error)
+        })
     }
   }
 }

@@ -16,7 +16,7 @@
             max-width='200'
           />
         </v-col>
-        <v-col cols='9' class='pa-1 mx-1 my-2'>
+        <v-col cols='9' class='pa-1 mx-1'>
           <trip-btn
             class="RouteBtn rounded-lg"
             icon-class="pa-2"
@@ -32,7 +32,7 @@
           </template>
           </trip-btn>
         </v-col>
-        <v-col cols='9' class='pa-1 mx-1 my-2'>
+        <v-col cols='9' class='pa-1 mx-1'>
           <trip-btn
             class="RouteBtn rounded-lg"
             BtnColor="#276678"

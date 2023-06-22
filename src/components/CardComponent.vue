@@ -19,14 +19,14 @@
       <v-col cols="12" sm="6" md="6" lg="8">
         <v-row class="d-flex align-start" style="height: 60%" no-gutters>
           <v-col cols="12">
-            <v-card-title class="text-h5">{{ cardTitleText }}</v-card-title>
-            <v-card-text class="text-left">{{ cardSubText }}</v-card-text>
+            <v-card-title class="text-h5">{{ item.title }}</v-card-title>
+            <v-card-text class="text-left">{{ item.detail }}</v-card-text>
           </v-col>
         </v-row>
         <v-row class="d-flex align-end" style="height: 40%" no-gutters>
           <v-col class="d-flex align-center " cols="12" sm="12" md="6">
             <v-card-subtitle class="grey--text">
-              {{ Text }} {{ cardText }}
+              {{ Text }} {{ item.author.name }}
             </v-card-subtitle>
           </v-col>
           <v-col class="d-flex align-center justify-center mb-2" cols="12" sm="12" md="6">
@@ -64,7 +64,6 @@
 </template>
 
 <script>
-
 export default {
   name: 'CardComponent',
   props: {
@@ -83,14 +82,16 @@ export default {
     imageUrl: {
       type: String,
       require: true
+    },
+    item: {
+      type: Object,
+      default: () => {}
     }
   },
-  data: () => ({
-    cardText: 'Jennie',
-    cardSubText:
-      "Bandos Maldives. North Male Atoll, Bandos Island. Free Cancellation. Reserve now, pay when you stay. $129. per night. Jul 1 - Jul 2. This luxury resort includes 4 restaurants, an outdoor pool, and a gym. There's fun for all ages with a children's club and a children's pool, and babysitting is an added bonus.",
-    cardTitleText: 'Maldive',
-    Text: 'By:'
-  })
+  data () {
+    return {
+      Text: 'By:'
+    }
+  }
 }
 </script>

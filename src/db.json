@@ -17,11 +17,15 @@
     {
       "id": 1,
       "title": "Classic European Tour",
+      "author": {
+        "id":1,
+        "name":"Jennie"
+      },
       "destination": "Europe",
       "start_date": "2024-08-01",
       "end_date": "2024-08-15",
       "detail": "Embark on a journey through the heart of Europe and discover its rich history, culture and stunning scenery.",
-      "image": "https://example.com/european-tour.jpg",
+      "image": "https://images.unsplash.com/photo-1554310603-d39d43033735?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGFuaW1lfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60",
       "category": "Tour",
       "departure": {
         "meet_location": "London Heathrow Airport",
@@ -38,11 +42,15 @@
     {
       "id": 2,
       "title": "Tropical Paradise Getaway",
+      "author": {
+        "id":2,
+        "name":"Jnint"
+      },
       "destination": "Hawaii",
       "start_date": "2024-11-01",
       "end_date": "2024-11-07",
       "detail": "Escape to a tropical paradise and experience the beauty and tranquility of Hawaii's beaches, mountains and culture.",
-      "image": "https://example.com/hawaii-getaway.jpg",
+      "image": "https://images.unsplash.com/photo-1578632749014-ca77efd052eb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGFuaW1lfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60",
       "category": "Beach",
       "departure": {
         "meet_location": "Honolulu International Airport",
@@ -59,11 +67,15 @@
     {
       "id": 3,
       "title": "African Safari Adventure",
+      "author": {
+        "id":3,
+        "name":"Monie"
+      },
       "destination": "Kenya",
       "start_date": "2025-03-01",
       "end_date": "2025-03-08",
       "detail": "Embark on an unforgettable safari adventure and witness the majesty of Africa's wildlife in their natural habitat.",
-      "image": "https://example.com/african-safari.jpg",
+      "image": "https://images.unsplash.com/photo-1580477667995-2b94f01c9516?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGFuaW1lfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60",
       "category": "Safari",
       "departure": {
         "meet_location": "Jomo Kenyatta International Airport",
@@ -80,11 +92,15 @@
     {
       "id": 4,
       "title": "Winter Wonderland Ski Trip",
+      "author": {
+        "id":4,
+        "name":"Jcennie"
+      },
       "destination": "Switzerland",
       "start_date": "2024-12-15",
       "end_date": "2024-12-22",
       "detail": "Experience the thrill of skiing in the Swiss Alps and enjoy the beauty of a winter wonderland.",
-      "image": "https://example.com/swiss-ski-trip.jpg",
+      "image": "https://images.unsplash.com/photo-1601850494422-3cf14624b0b3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGFuaW1lfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60",
       "category": "Ski",
       "departure": {
         "meet_location": "Zurich Airport",
@@ -101,11 +117,15 @@
     ,{
       "id": 5,
       "title": "Cultural Immersion Tour",
+      "author": {
+        "id":5,
+        "name":"Jessica"
+      },
       "destination": "Japan",
       "start_date": "2025-06-01",
       "end_date": "2025-06-10",
       "detail": "Immerse yourself in the traditions and culture of Japan and discover its unique blend of modernity and tradition.",
-      "image": "https://example.com/japan-tour.jpg",
+      "image": "https://images.unsplash.com/photo-1528360983277-13d401cdc186?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fGFuaW1lfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60",
       "category": "Tour",
       "departure": {
         "meet_location": "Narita International Airport",

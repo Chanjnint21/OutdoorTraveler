@@ -1,9 +1,9 @@
 <template>
   <v-container class="MainContain">
     <v-row>
-      <!-- Search field -->
       <v-col cols="12" class="d-flex align-center pb-1">
         <v-text-field
+          v-model="searchQuery"
           label="Search"
           outlined
           rounded
@@ -11,9 +11,8 @@
           prepend-inner-icon="mdi-magnify"
         />
       </v-col>
-      <!-- Sort buttons -->
       <v-col cols="12" class="d-flex justify-space-around mb-3">
-        <template v-for="n of 6">
+        <template v-for="n in 6">
           <trip-btn
             :key="n"
             BtnColor="#1687A7"
@@ -24,19 +23,20 @@
         </template>
       </v-col>
     </v-row>
-    <!-- Trip cards -->
-    <template v-for="item in items">
-      <v-col :key="item.id">
-        <card-component
-          height="auto"
-          class="pa-md-4 mx-lg-auto text-center"
-          elevation="8"
-          :item="item"
-          :image-url="item.image"
-          :title="item.title"
-        />
-      </v-col>
-    </template>
+    <v-row>
+      <template v-for="item in filteredCards" >
+        <v-col :key="item.id">
+          <card-component
+            height="auto"
+            class="pa-md-4 mx-lg-auto text-center"
+            elevation="8"
+            :item="item"
+            :image-url="item.image"
+            :title="item.title"
+          />
+        </v-col>
+      </template>
+    </v-row>
   </v-container>
 </template>
 
@@ -52,11 +52,26 @@ export default {
   },
   data () {
     return {
-      show: false,
       page: 1,
-      Sortlabel: ['', 'newest', 'oldest', 'Popular', 'Recommend', 'Price to High', 'Price to Low'],
+      Sortlabel: [
+        '',
+        'newest',
+        'oldest',
+        'Popular',
+        'Recommend',
+        'Price to High',
+        'Price to Low'
+      ],
       image: HomeImage,
-      items: []
+      items: [],
+      searchQuery: ''
+    }
+  },
+  computed: {
+    filteredCards () {
+      return this.items.filter((item) =>
+        item.title.toLowerCase().includes(this.searchQuery.toLowerCase())
+      )
     }
   },
   async created () {

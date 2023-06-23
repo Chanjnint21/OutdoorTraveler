@@ -28,6 +28,7 @@
             <v-card-subtitle class="grey--text">
               {{ Text }} {{ item.author.name }}
             </v-card-subtitle>
+            <v-card-subtitle class="grey--text">{{ Text1 }} {{ item.requirement.cost }} {{ Text2 }}</v-card-subtitle>
           </v-col>
           <v-col class="d-flex align-center justify-center mb-2" cols="12" sm="12" md="6">
             <v-card-actions>
@@ -90,7 +91,9 @@ export default {
   },
   data () {
     return {
-      Text: 'By:'
+      Text: 'By:',
+      Text1: 'Cost:',
+      Text2: '$/Person'
     }
   }
 }

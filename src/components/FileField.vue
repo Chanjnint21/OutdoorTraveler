@@ -5,7 +5,6 @@
     :label="label"
     prepend-icon=""
     :append-icon="icon"
-    :filled="filled"
     multiple
   />
 </template>
@@ -20,10 +19,6 @@ export default {
     },
     icon: {
       type: String
-    },
-    filled: {
-      type: Boolean,
-      default: false
     }
   }
 }

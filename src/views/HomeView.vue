@@ -4,6 +4,7 @@
       <v-col cols="12" class="d-flex align-center pb-1">
         <v-text-field
           v-model="searchQuery"
+          @input="handleSearchQuery(searchQuery)"
           label="Search"
           outlined
           rounded
@@ -24,11 +25,11 @@
       </v-col>
     </v-row>
     <v-row>
-      <template v-for="item in filteredCards" >
+      <template v-for="item in filteredCards">
         <v-col :key="item.id">
           <card-component
             height="auto"
-            class="pa-md-4 mx-lg-auto text-center"
+            class="pa-md-12 mx-lg-auto text-center"
             elevation="8"
             :item="item"
             :image-url="item.image"
@@ -43,7 +44,7 @@
 <script>
 import CardComponent from '@/components/CardComponent.vue'
 import HomeImage from '@/assets/HomeImage.jpeg'
-import axios from 'axios'
+import { Service } from '@/service/index.js'
 
 export default {
   name: 'HomePage',
@@ -74,10 +75,17 @@ export default {
       )
     }
   },
+  methods: {
+    // update the value of searchQuery data with current value of the search bar.
+    async search (q) {
+      const response = await Service.handleSearchQuery
+      console.log('response', response)
+    }
+  },
   async created () {
     try {
-      const response = await axios.get('http://localhost:3000/tripcards')
-      this.items = response.data
+      const response = await Service.getList()
+      this.items = response
     } catch (error) {
       console.log(error)
     }

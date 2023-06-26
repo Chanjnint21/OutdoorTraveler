@@ -18,8 +18,8 @@
       "id": 1,
       "title": "Classic European Tour",
       "author": {
-        "id":1,
-        "name":"Jennie"
+        "id": 1,
+        "name": "Jennie"
       },
       "destination": "Europe",
       "start_date": "2024-08-01",
@@ -43,8 +43,8 @@
       "id": 2,
       "title": "Tropical Paradise Getaway",
       "author": {
-        "id":2,
-        "name":"Jnint"
+        "id": 2,
+        "name": "Jnint"
       },
       "destination": "Hawaii",
       "start_date": "2024-11-01",
@@ -68,8 +68,8 @@
       "id": 3,
       "title": "African Safari Adventure",
       "author": {
-        "id":3,
-        "name":"Monie"
+        "id": 3,
+        "name": "Monie"
       },
       "destination": "Kenya",
       "start_date": "2025-03-01",
@@ -93,8 +93,8 @@
       "id": 4,
       "title": "Winter Wonderland Ski Trip",
       "author": {
-        "id":4,
-        "name":"Jcennie"
+        "id": 4,
+        "name": "Jcennie"
       },
       "destination": "Switzerland",
       "start_date": "2024-12-15",
@@ -113,13 +113,13 @@
         "nationalId": false,
         "phoneNumber": true
       }
-    }
-    ,{
+    },
+    {
       "id": 5,
       "title": "Cultural Immersion Tour",
       "author": {
-        "id":5,
-        "name":"Jessica"
+        "id": 5,
+        "name": "Jessica"
       },
       "destination": "Japan",
       "start_date": "2025-06-01",
@@ -137,6 +137,23 @@
         "cost": 4500,
         "nationalId": true,
         "phoneNumber": true
+      }
+    },
+    {
+      "id": 6,
+      "title": "Your Home",
+      "destination": "",
+      "startDate": "",
+      "endDate": "",
+      "details": "",
+      "imageSrc": "",
+      "categories": [],
+      "departure": {},
+      "requirements": {
+        "Age": [
+          15,
+          15
+        ]
       }
     }
   ]

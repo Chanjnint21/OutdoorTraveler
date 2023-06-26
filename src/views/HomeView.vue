@@ -4,6 +4,7 @@
       <v-col cols="12" class="d-flex align-center pb-1">
         <v-text-field
           v-model="searchQuery"
+          @input="search(searchQuery)"
           label="Search"
           outlined
           rounded
@@ -24,15 +25,13 @@
       </v-col>
     </v-row>
     <v-row>
-      <template v-for="item in filteredCards" >
+      <template v-for="item in items">
         <v-col :key="item.id">
           <card-component
             height="auto"
-            class="pa-md-4 mx-lg-auto text-center"
+            class="pa-md-12 mx-lg-auto text-center"
             elevation="8"
             :item="item"
-            :image-url="item.image"
-            :title="item.title"
           />
         </v-col>
       </template>
@@ -43,7 +42,7 @@
 <script>
 import CardComponent from '@/components/CardComponent.vue'
 import HomeImage from '@/assets/HomeImage.jpeg'
-import axios from 'axios'
+import { Service } from '@/service/index.js'
 
 export default {
   name: 'HomePage',
@@ -64,20 +63,21 @@ export default {
       ],
       image: HomeImage,
       items: [],
-      searchQuery: ''
+      searchQuery: '',
+      Busy: false
     }
   },
-  computed: {
-    filteredCards () {
-      return this.items.filter((item) =>
-        item.title.toLowerCase().includes(this.searchQuery.toLowerCase())
-      )
+  methods: {
+
+    search (q) {
+      setTimeout(async () => {
+        this.items = await Service.handleSearchQuery(q)
+      }, 1000)
     }
   },
   async created () {
     try {
-      const response = await axios.get('http://localhost:3000/tripcards')
-      this.items = response.data
+      this.items = await Service.getList()
     } catch (error) {
       console.log(error)
     }

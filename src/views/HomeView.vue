@@ -4,7 +4,7 @@
       <v-col cols="12" class="d-flex align-center pb-1">
         <v-text-field
           v-model="searchQuery"
-          @input="handleSearchQuery(searchQuery)"
+          @input="search(searchQuery)"
           label="Search"
           outlined
           rounded
@@ -25,15 +25,13 @@
       </v-col>
     </v-row>
     <v-row>
-      <template v-for="item in filteredCards">
+      <template v-for="item in items">
         <v-col :key="item.id">
           <card-component
             height="auto"
             class="pa-md-12 mx-lg-auto text-center"
             elevation="8"
             :item="item"
-            :image-url="item.image"
-            :title="item.title"
           />
         </v-col>
       </template>
@@ -65,27 +63,21 @@ export default {
       ],
       image: HomeImage,
       items: [],
-      searchQuery: ''
-    }
-  },
-  computed: {
-    filteredCards () {
-      return this.items.filter((item) =>
-        item.title.toLowerCase().includes(this.searchQuery.toLowerCase())
-      )
+      searchQuery: '',
+      Busy: false
     }
   },
   methods: {
-    // update the value of searchQuery data with current value of the search bar.
-    async search (q) {
-      const response = await Service.handleSearchQuery
-      console.log('response', response)
+
+    search (q) {
+      setTimeout(async () => {
+        this.items = await Service.handleSearchQuery(q)
+      }, 1000)
     }
   },
   async created () {
     try {
-      const response = await Service.getList()
-      this.items = response
+      this.items = await Service.getList()
     } catch (error) {
       console.log(error)
     }

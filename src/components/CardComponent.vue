@@ -14,7 +14,7 @@
           max-width="500"
           max-height="470"
           class="align-start"
-          :src="imageUrl"/>
+          :src="item.image"/>
       </v-col>
       <v-col cols="12" sm="6" md="6" lg="8">
         <v-row class="d-flex align-start" style="height: 60%" no-gutters>
@@ -26,15 +26,14 @@
         <v-row class="d-flex align-end" style="height: 40%" no-gutters>
           <v-col class="d-flex align-center " cols="12" sm="12" md="6">
             <v-card-subtitle class="grey--text">
-              {{ Text }} {{ item.author.name }}
+              {{ Text }} {{ item.author?.name }}
             </v-card-subtitle>
-            <v-card-subtitle class="grey--text">{{ Text1 }} {{ item.requirement.cost }} {{ Text2 }}</v-card-subtitle>
+            <v-card-subtitle class="grey--text">{{ Text1 }} {{ item.requirement?.cost }} {{ Text2 }}</v-card-subtitle>
           </v-col>
           <v-col class="d-flex align-center justify-center mb-2" cols="12" sm="12" md="6">
             <v-card-actions>
               <slot name="bookmark">
                 <trip-btn
-                  :BtnColor="toggle ? 'success' : 'primary'"
                   icon
                 >
                   <template #icon>
@@ -79,10 +78,6 @@ export default {
     },
     height: {
       type: String
-    },
-    imageUrl: {
-      type: String,
-      require: true
     },
     item: {
       type: Object,

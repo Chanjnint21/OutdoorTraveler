@@ -7,6 +7,7 @@
       :outlined="outlined"
       :items="SelectItem"
       :color="color"
+      dense
     />
   </div>
 </template>

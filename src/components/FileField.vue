@@ -7,6 +7,7 @@
     :append-icon="icon"
     :filled="filled"
     multiple
+    dense
   />
 </template>
 

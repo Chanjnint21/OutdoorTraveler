@@ -1,8 +1,8 @@
 <template>
   <v-container class="MainContain">
-    <v-card>
+    <v-card class="rounded-xl">
       <v-card-title class="d-flex justify-center text-h6">Trip Card</v-card-title>
-      <v-form @submit.prevent="Public">
+      <v-form v-model="validform" @submit.prevent="PublicPost">
         <v-card-text>
           <v-row>
             <v-col cols="12" sm="6" md="6">
@@ -13,7 +13,9 @@
                 outlined
                 rounded
                 icons="mdi-alpha-t"
-            /></v-col>
+                :rules="[rules.createrule]"
+              />
+            </v-col>
             <v-col cols="12" sm="6" md="6">
               <text-field
                 v-model="tripcard.destination"
@@ -22,26 +24,21 @@
                 outlined
                 rounded
                 icons="mdi-map-marker"
+                :rules="[rules.createrule]"
               />
             </v-col>
             <v-col cols="12" sm="6" md="6">
-              <text-field
-                v-model="tripcard.startDate"
-                label="Start Date"
-                color="#1687A7"
-                outlined
-                rounded
-                icons="mdi-calendar-start"
-            /></v-col>
+              <date-picker
+                @date-changed="StartDate"
+                :rules="[rules.createrule]"
+              />
+            </v-col>
             <v-col cols="12" sm="6" md="6">
-              <text-field
-                v-model="tripcard.endDate"
-                label="End Date"
-                color="#1687A7"
-                outlined
-                rounded
-                icons="mdi-calendar-end"
-            /></v-col>
+              <date-picker
+                @date-changed="EndDate"
+                :rules="[rules.createrule]"
+              />
+            </v-col>
             <v-col cols="12">
               <text-area
                 v-model="tripcard.details"
@@ -60,6 +57,7 @@
                 outlined
                 rounded
                 icon="mdi-image"
+                :rules="[rules.createrule]"
               />
             </v-col>
             <v-col cols="12">
@@ -72,6 +70,7 @@
                 multiple
                 rounded
                 small-chips
+                :rules="[rules.createrule, rules.category]"
               />
             </v-col>
             <v-col cols="12" class="d-flex justify-center text-h6">- Departure -</v-col>
@@ -83,16 +82,13 @@
                 outlined
                 rounded
                 icons="mdi-map-marker"
+                :rules="[rules.createrule]"
               />
             </v-col>
             <v-col cols="12" sm="6" md="6">
-              <text-field
-                v-model="tripcard.departure.leave_time"
-                label="Leave Time"
-                color="#1687A7"
-                outlined
-                rounded
-                icons="mdi-clock"
+              <time-picker
+                @time-save="LeaveTime"
+                :rules="[rules.createrule]"
               />
             </v-col>
             <v-col cols="12" class="d-flex justify-center text-h6">- Requirements -</v-col>
@@ -108,6 +104,7 @@
                   color="#1687A7"
                   ThumbLabel
                   persistent-hint
+                  :rules="[rules.createrule]"
                 />
               </v-col>
             </v-col>
@@ -119,6 +116,7 @@
                 outlined
                 rounded
                 icons="mdi-currency-usd"
+                :rules="[rules.createrule]"
               />
             </v-col>
             <v-col cols="12" sm="6" md="6">
@@ -128,16 +126,20 @@
                 color="#1687A7"
                 outlined
                 rounded
-                :SelectItem="Choice"/>
+                :SelectItem="Choice"
+                :rules="[rules.createrule]"
+              />
             </v-col>
             <v-col cols="12" sm="6" md="6">
               <select-field
-                v-model="tripcard.requirements.Phone"
+                v-model="tripcard.requirements.phoneNumber"
                 label="Phone Number"
                 color="#1687A7"
                 outlined
                 rounded
-                :SelectItem="Choice"/>
+                :SelectItem="Choice"
+                :rules="[rules.createrule]"
+              />
             </v-col>
           </v-row>
         </v-card-text>
@@ -148,6 +150,8 @@
               class="white--text mx-3"
               btn-color="#1687A7"
               btn-label="Public"
+              :disabled="!validform"
+              @click="validate"
             />
             <trip-btn
               class="white--text mx-3"
@@ -162,71 +166,50 @@
 </template>
 
 <script>
+import { defaultTripcard } from '../Model/tripcard.js'
 
 export default {
   data () {
     return {
+      validform: true,
       Choice: ['Not Require', 'Require'],
       Tags: ['One day Trip', 'Hiking', 'Sea', 'Camping'],
-      tripcard: {
-        id: '',
-        title: '',
-        destination: '',
-        startDate: '',
-        endDate: '',
-        details: '',
-        imageSrc: '',
-        categories: [],
-        departure: {
-        },
-        requirements: {
-        }
-      }
+      rules: {
+        createrule: value => !!value || 'field required'
+      },
+      // creates a new object with the same properties as defaulttripcard
+      tripcard: { ...defaultTripcard }
     }
   },
   methods: {
-    async Public () {
-      // const newcard = {
-      //   title: this.title,
-      //   destination: this.destination,
-      //   start_date: this.startDate,
-      //   end_date: this.endDate,
-      //   detail: this.details,
-      //   image: this.imageSrc,
-      //   category: this.categories,
-      //   departure: {
-      //     meet_location: this.meet_location,
-      //     leave_time: this.leave_time
-      //   },
-      //   requirement: {
-      //     min_age: null,
-      //     max_age: null,
-      //     cost: 350,
-      //     nationalId: true,
-      //     phoneNumber: true
-      //   }
-      // }
-      this.$http.post('http://localhost:3000/tripcards', this.tripcard)
-        .then(response => {
-          location.reload()
-        })
-        .catch(error => {
-          console.log(error)
-        })
+    StartDate (value) {
+      this.tripcard.startDate = value
+    },
+    EndDate (value) {
+      this.tripcard.endDate = value
+    },
+    LeaveTime (value) {
+      this.tripcard.departure.leave_time = value
+    },
+    validate () {
+      this.$refs.form.validate()
+    },
+    async PublicPost () {
+      try {
+        await this.$http.post('http://localhost:3000/tripcards', this.tripcard)
+        this.$router.push('/user/home')
+      } catch (e) {
+        console.log(e)
+      }
     }
   }
 }
 </script>
 
 <style >
-@media(min-width: 1500px ){
-  .MainContain{
-    padding: 2rem 5rem;
-  }
-}
 @media(min-width: 1800px ){
   .MainContain{
-    padding: 2rem 15rem;
+    padding: 2rem 12rem;
   }
 }
 </style>

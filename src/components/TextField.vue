@@ -11,6 +11,7 @@
     :name="name"
     :hint="hint"
     :counter="counter"
+    dense
   />
 </template>
 

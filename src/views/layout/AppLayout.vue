@@ -98,16 +98,17 @@ export default {
   methods: {
     LogOut () {
       localStorage.removeItem('authToken')
-      location.replace('/login')
+      this.$router.push('/login')
     },
     toCreatepage () {
-      location.replace('/user/create')
+      this.$router.push('/user/create')
+      // location.replace('/user/create')
     },
     toHome () {
-      location.replace('/user/home')
+      this.$router.push('/user/home')
     },
     ToProfile () {
-      location.replace('/user/profile')
+      this.$router.push('/user/profile')
     }
   }
 }

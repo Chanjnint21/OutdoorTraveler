@@ -6,6 +6,7 @@
     prepend-icon=""
     :append-icon="icon"
     multiple
+    dense
   />
 </template>
 

@@ -21,7 +21,7 @@
               <h1 style="color: #1687A7; margin-bottom: 20px;">Sign In</h1>
             </v-row>
             <v-col cols="12" class="mb-3">
-              <v-text-field
+              <text-field
                 v-model="email"
                 label="Email"
                 outlined
@@ -33,12 +33,12 @@
               />
             </v-col>
             <v-col cols="12" class="mb-3">
-              <v-text-field
+              <text-field
                 v-model="password"
                 label="Password"
                 name="password"
                 outlined
-                :append-icon="show ? 'mdi-eye' : 'mdi-eye-off'"
+                :icons="show ? 'mdi-eye' : 'mdi-eye-off'"
                 @click:append="show = !show"
                 hint="Password must be at least 8 characters"
                 required color="#1687A7"
@@ -56,7 +56,7 @@
                 class="white--text"
                 BtnColor="#1687A7"
                 btn-label="Login"
-                x-large
+                dense
                 block
               />
               <p class="text-center text-small error--text" v-if="login">Invalid email or password </p>
@@ -83,12 +83,6 @@ export default {
   },
 
   methods: {
-    // loginToken () {
-    //   if (this.$refs.form.validate()) {
-    //     localStorage.setItem('authToken', true)
-    //     location.replace('/user/home')
-    //   }
-    // }
     loginToken () {
       // send HTTP get request using axios to http://localhost:3000/users
       this.$http.get('http://localhost:3000/users')
@@ -98,7 +92,10 @@ export default {
           // If match, redirect to the home page
           if (user) {
             localStorage.setItem('authToken', true)
-            location.replace('/user/home')
+            // location.replace('/user/home')
+            this.$router.push({
+              name: 'home'
+            }).catch(() => {})
           } else {
             this.login = true
             this.password = ''

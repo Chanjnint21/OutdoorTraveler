@@ -7,6 +7,7 @@
       :label="label"
       :required="required"
       :counter="counter"
+      dense
     />
   </div>
 </template>

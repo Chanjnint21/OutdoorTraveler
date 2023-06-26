@@ -12,9 +12,13 @@ import FileField from '@/components/FileField.vue'
 import TripBtn from './components/ButtonComponent.vue'
 import VueScrollTo from 'vue-scrollto'
 import CardComponent from './components/CardComponent.vue'
+import DatePicker from './components/DatePicker.vue'
+import TimePicker from './components/TimePicker.vue'
 
 Vue.use(VueAxios, axios)
 Vue.component('TripBtn', TripBtn)
+Vue.component('DatePicker', DatePicker)
+Vue.component('TimePicker', TimePicker)
 Vue.component('TextField', TextField)
 Vue.component('TextArea', TextArea)
 Vue.component('RangeSliderField', RangeSlider)

@@ -7,6 +7,7 @@
       :color="color"
       :thumb-label="ThumbLabel"
       :label="label"
+      dense
     />
   </div>
 </template>

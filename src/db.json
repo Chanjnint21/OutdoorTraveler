@@ -15,31 +15,6 @@
   ],
   "tripcards": [
     {
-      "id": 1,
-      "title": "Classic European Tour",
-      "author": {
-        "id": 1,
-        "name": "Jennie"
-      },
-      "destination": "Europe",
-      "start_date": "2024-08-01",
-      "end_date": "2024-08-15",
-      "detail": "Embark on a journey through the heart of Europe and discover its rich history, culture and stunning scenery.",
-      "image": "https://images.unsplash.com/photo-1554310603-d39d43033735?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGFuaW1lfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60",
-      "category": "Tour",
-      "departure": {
-        "meet_location": "London Heathrow Airport",
-        "leave_time": "8:00 AM"
-      },
-      "requirement": {
-        "min_age": null,
-        "max_age": null,
-        "cost": 3500,
-        "nationalId": true,
-        "phoneNumber": true
-      }
-    },
-    {
       "id": 2,
       "title": "Tropical Paradise Getaway",
       "author": {
@@ -137,23 +112,6 @@
         "cost": 4500,
         "nationalId": true,
         "phoneNumber": true
-      }
-    },
-    {
-      "id": 6,
-      "title": "Your Home",
-      "destination": "",
-      "startDate": "",
-      "endDate": "",
-      "details": "",
-      "imageSrc": "",
-      "categories": [],
-      "departure": {},
-      "requirements": {
-        "Age": [
-          15,
-          15
-        ]
       }
     }
   ]

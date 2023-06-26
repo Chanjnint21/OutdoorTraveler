@@ -32,7 +32,7 @@
             class="pa-md-12 mx-lg-auto text-center"
             elevation="8"
             :item="item"
-          />
+            @delete="deleteItem(item.id)"/>
         </v-col>
       </template>
     </v-row>
@@ -73,6 +73,14 @@ export default {
       setTimeout(async () => {
         this.items = await Service.handleSearchQuery(q)
       }, 1000)
+    },
+    async deleteItem (id) {
+      try {
+        await Service.deleteItem(id)
+        this.items = this.items.filter(item => item.id !== id)
+      } catch (error) {
+        console.log(error)
+      }
     }
   },
   async created () {

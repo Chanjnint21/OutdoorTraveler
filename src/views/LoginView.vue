@@ -69,6 +69,8 @@
 </template>
 
 <script>
+import { Service } from '@/service/index.js'
+
 export default {
   data () {
     return {
@@ -83,27 +85,19 @@ export default {
   },
 
   methods: {
-    loginToken () {
-      // send HTTP get request using axios to http://localhost:3000/users
-      this.$http.get('http://localhost:3000/users')
-        .then(response => {
-          // searching for password and email that match to input
-          const user = response.data.find(user => user.email === this.email && user.password === this.password)
-          // If match, redirect to the home page
-          if (user) {
-            localStorage.setItem('authToken', true)
-            // location.replace('/user/home')
-            this.$router.push({
-              name: 'home'
-            }).catch(() => {})
-          } else {
-            this.login = true
-            this.password = ''
-          }
-        })
-        .catch(error => {
-          console.log(error)
-        })
+    async loginToken () {
+      try {
+        const Token = await Service.logIn(this.email, this.password)
+        if (Token) {
+          localStorage.setItem('authToken', true)
+          this.$router.push('/user/home').catch(() => {})
+        } else {
+          this.login = true
+          this.password = ''
+        }
+      } catch (e) {
+        console.log(e)
+      }
     }
   }
 }

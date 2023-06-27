@@ -69,6 +69,7 @@
       <v-toolbar-title class="text-h5 pl-1">{{ $route.meta.RouteName }}</v-toolbar-title>
       <v-spacer></v-spacer>
       <trip-btn
+        v-if="!!$route.meta.isCreate"
         class="white--text"
         BtnColor="#1687A7"
         BtnLabel="Create"
@@ -91,6 +92,8 @@ export default {
   name: 'BoilerPlate',
   data () {
     return {
+      currentRoute: '',
+      lol: this.$route.meta.RouteName,
       drawer: true,
       authToken: localStorage.getItem('authToken')
     }
@@ -101,14 +104,16 @@ export default {
       this.$router.push('/login')
     },
     toCreatepage () {
-      this.$router.push('/user/create')
-      // location.replace('/user/create')
+      // this.$router.push('/user/create')
+      location.replace('/user/create')
     },
     toHome () {
-      this.$router.push('/user/home')
+      // this.$router.push('/user/home')
+      this.$router.push('/user/home').catch(() => {})
+      // location.replace('/user/Home')
     },
     ToProfile () {
-      this.$router.push('/user/profile')
+      this.$router.push('/user/profile').catch(() => {})
     }
   }
 }

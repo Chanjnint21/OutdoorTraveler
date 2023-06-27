@@ -42,7 +42,8 @@ export default {
     date: '',
     menu: false,
     modal: false,
-    menu2: false
+    menu2: false,
+    time: ''
   }),
   methods: {
     savethistime (time) {

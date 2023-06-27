@@ -2,11 +2,12 @@
   <v-container class="MainContain">
     <v-card class="rounded-xl">
       <v-card-title class="d-flex justify-center text-h6">Trip Card</v-card-title>
-      <v-form v-model="validform" @submit.prevent="PublicPost">
+      <v-form v-model="validform" @submit.prevent="publicPost">
         <v-card-text>
           <v-row>
             <v-col cols="12" sm="6" md="6">
               <text-field
+                name="title"
                 v-model="tripcard.title"
                 label="Title"
                 color="#1687A7"
@@ -18,6 +19,7 @@
             </v-col>
             <v-col cols="12" sm="6" md="6">
               <text-field
+                name="destination"
                 v-model="tripcard.destination"
                 label="Destination"
                 color="#1687A7"
@@ -29,18 +31,21 @@
             </v-col>
             <v-col cols="12" sm="6" md="6">
               <date-picker
+                name="startDate"
                 @date-changed="StartDate"
                 :rules="[rules.createrule]"
               />
             </v-col>
             <v-col cols="12" sm="6" md="6">
               <date-picker
+                name="endDate"
                 @date-changed="EndDate"
                 :rules="[rules.createrule]"
               />
             </v-col>
             <v-col cols="12">
               <text-area
+                name="details"
                 v-model="tripcard.details"
                 outlined
                 rounded
@@ -51,7 +56,7 @@
             </v-col>
             <v-col cols="12">
               <file-field
-                v-model="tripcard.imageSrc"
+                name="imageSrc"
                 label="Image(s)"
                 color="#1687A7"
                 outlined
@@ -62,6 +67,7 @@
             </v-col>
             <v-col cols="12">
               <select-field
+                name="Categorise"
                 v-model="tripcard.categories"
                 label="Category"
                 color="#1687A7"
@@ -70,12 +76,13 @@
                 multiple
                 rounded
                 small-chips
-                :rules="[rules.createrule, rules.category]"
+                :rules="[rules.createrule]"
               />
             </v-col>
             <v-col cols="12" class="d-flex justify-center text-h6">- Departure -</v-col>
             <v-col cols="12" sm="6" md="6">
               <text-field
+                name="meetLocation"
                 v-model="tripcard.departure.meet_location"
                 label="Meet Location"
                 color="#1687A7"
@@ -87,6 +94,7 @@
             </v-col>
             <v-col cols="12" sm="6" md="6">
               <time-picker
+                name="timeLeave"
                 @time-save="LeaveTime"
                 :rules="[rules.createrule]"
               />
@@ -95,6 +103,7 @@
             <v-col cols="12" sm="6" md="6" class="d-flex align-center">
               <v-col cols=12>
                 <range-slider-field
+                  name="ageRange"
                   v-model="tripcard.requirements.Age"
                   label="Age"
                   hint="Im a hint"
@@ -110,6 +119,7 @@
             </v-col>
             <v-col cols="12" sm="6" md="6">
               <text-field
+                name="cost"
                 v-model="tripcard.requirements.cost"
                 label="Cost/Person"
                 color="#1687A7"
@@ -121,6 +131,7 @@
             </v-col>
             <v-col cols="12" sm="6" md="6">
               <select-field
+                name="nationalId"
                 v-model="tripcard.requirements.nationalId"
                 label="National ID"
                 color="#1687A7"
@@ -132,6 +143,7 @@
             </v-col>
             <v-col cols="12" sm="6" md="6">
               <select-field
+                name="phoneNumber"
                 v-model="tripcard.requirements.phoneNumber"
                 label="Phone Number"
                 color="#1687A7"
@@ -143,23 +155,24 @@
             </v-col>
           </v-row>
         </v-card-text>
-        <v-card-action>
+        <v-card-actions>
           <v-row class="d-flex justify-center pb-5">
             <trip-btn
               type='submit'
+              name="publicpost"
               class="white--text mx-3"
               btn-color="#1687A7"
               btn-label="Public"
-              :disabled="!validform"
               @click="validate"
             />
             <trip-btn
+            name="draftPost"
               class="white--text mx-3"
               btn-color="#276678"
               btn-label="Draft"
             />
           </v-row>
-        </v-card-action>
+        </v-card-actions>
       </v-form>
     </v-card>
   </v-container>
@@ -167,6 +180,7 @@
 
 <script>
 import { defaultTripcard } from '../Model/tripcard.js'
+import { Service } from '@/service/index.js'
 
 export default {
   data () {
@@ -194,9 +208,9 @@ export default {
     validate () {
       this.$refs.form.validate()
     },
-    async PublicPost () {
+    async publicPost () {
       try {
-        await this.$http.post('http://localhost:3000/tripcards', this.tripcard)
+        await Service.newTripCard(this.tripcard)
         this.$router.push('/user/home')
       } catch (e) {
         console.log(e)

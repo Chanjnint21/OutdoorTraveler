@@ -1,7 +1,7 @@
 import axios from 'axios'
 export const Service = {
   async getList () {
-    const data = await axios.get('http://localhost:3000/tripcards')
+    const data = await axios.get('http://localhost:3000/tripcards/')
 
     return data.data
   },
@@ -23,5 +23,9 @@ export const Service = {
     } catch (e) {
       console.log(e)
     }
+  },
+  async deleteItem (id) {
+    const deleteItem = await axios.delete(`http://localhost:3000/tripcards/${id}`)
+    return deleteItem.data
   }
 }

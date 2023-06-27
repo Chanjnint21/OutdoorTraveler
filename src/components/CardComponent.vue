@@ -55,6 +55,14 @@
                   btn-label="Register"
                 />
               </slot>
+              <slot name="Delete">
+                <trip-btn
+                  BtnColor="#F44336"
+                  class="white--text"
+                  btn-label="Delete"
+                  @click="deleteItem(item.id)"
+                />
+              </slot>
             </v-card-actions>
           </v-col>
         </v-row>
@@ -89,6 +97,11 @@ export default {
       Text: 'By:',
       Text1: 'Cost:',
       Text2: '$/Person'
+    }
+  },
+  methods: {
+    deleteItem (id) {
+      this.$emit('delete', id)
     }
   }
 }

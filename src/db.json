@@ -2,24 +2,34 @@
   "users": [
     {
       "id": 1,
+      "name": "jennie",
       "email": "example1@gmail.com",
       "role": "user",
       "password": "password123"
     },
     {
       "id": 2,
+      "name": "user0101",
       "email": "example2@gmail.com",
-      "role": "admin",
+      "role": "user",
       "password": "secret123"
+    },
+    {
+      "id": 3,
+      "name": "admin007",
+      "email": "example3@gmail.com",
+      "role": "admin",
+      "password": "admin123"
     }
   ],
   "tripcards": [
     {
-      "id": 2,
+      "id": "yhcsjeh34",
+      "postDate": "2023-06-28T09:16:22.604Z",
       "title": "Tropical Paradise Getaway",
       "author": {
         "id": 2,
-        "name": "Jnint"
+        "name": "user0101"
       },
       "destination": "Hawaii",
       "start_date": "2024-11-01",
@@ -40,11 +50,12 @@
       }
     },
     {
-      "id": 3,
+      "id": "testing01",
+      "postDate": "2023-06-28T09:18:05.907Z",
       "title": "African Safari Adventure",
       "author": {
-        "id": 3,
-        "name": "Monie"
+        "id": 1,
+        "name": "jennie"
       },
       "destination": "Kenya",
       "start_date": "2025-03-01",
@@ -65,11 +76,12 @@
       }
     },
     {
-      "id": 4,
+      "id": "tducfrn424",
+      "postDate": "2023-06-28T09:17:44.990Z",
       "title": "Winter Wonderland Ski Trip",
       "author": {
-        "id": 4,
-        "name": "Jcennie"
+        "id": 1,
+        "name": "jennie"
       },
       "destination": "Switzerland",
       "start_date": "2024-12-15",
@@ -90,11 +102,12 @@
       }
     },
     {
-      "id": 5,
+      "id": "ydewf-3",
+      "postDate": "2023-06-28T09:17:13.939Z",
       "title": "Cultural Immersion Tour",
       "author": {
-        "id": 5,
-        "name": "Jessica"
+        "id": 2,
+        "name": "user0101"
       },
       "destination": "Japan",
       "start_date": "2025-06-01",
@@ -113,6 +126,39 @@
         "nationalId": true,
         "phoneNumber": true
       }
+    },
+    {
+      "id": "jzqqUuO",
+      "postDate": "2023-06-28T10:27:02.796Z",
+      "title": "bro",
+      "author": {
+        "id": 2,
+        "name": "user0101"
+      },
+      "destination": "bro",
+      "start_date": "2023-06-01",
+      "end_date": "2023-06-08",
+      "detail": "das",
+      "image": "",
+      "category": [],
+      "departure": {
+        "meet_location": "phnom penh",
+        "leave_time": "03:14"
+      },
+      "requirement": {
+        "cost": "123",
+        "nationalId": "Require",
+        "phoneNumber": "Require",
+        "Age": [
+          28,
+          41
+        ]
+      },
+      "Category": [
+        "Sea",
+        "Hiking",
+        "Camping"
+      ]
     }
   ]
 }

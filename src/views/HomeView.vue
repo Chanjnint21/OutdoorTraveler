@@ -12,27 +12,33 @@
           prepend-inner-icon="mdi-magnify"
         />
       </v-col>
-      <v-col cols="12" class="d-flex justify-space-around mb-3">
-        <template v-for="n in 6">
-          <trip-btn
-            :key="n"
-            BtnColor="#1687A7"
-            :btn-label="Sortlabel[n]"
-            rounded
-            outlined
-          />
-        </template>
+      <v-col cols="12">
+        <v-btn-toggle v-model="selectedBtn" class="d-flex justify-space-around" dense :multiple="false">
+          <template v-for="n in 6" >
+            <div :key="n">
+              <trip-btn
+                BtnColor="#1687A7"
+                :btn-label="Sortlabel[n]"
+                rounded
+                outlined
+                :id="Sortlabel[n]"
+                @sort="sorting(Sortlabel[n])"
+              />
+            </div>
+          </template>
+        </v-btn-toggle>
       </v-col>
     </v-row>
     <v-row>
-      <template v-for="item in items">
-        <v-col :key="item.id">
+      <vue-load v-if="isLoading" />
+      <template v-for="item in items" v-else>
+        <v-col col="12" lg="12" xl="6" :key="item.id">
           <card-component
             height="auto"
-            class="pa-md-12 mx-lg-auto text-center"
             elevation="8"
             :item="item"
-            @delete="deleteItem(item.id)"/>
+            @delete="deleteItem(item.id)"
+          />
         </v-col>
       </template>
     </v-row>
@@ -40,15 +46,11 @@
 </template>
 
 <script>
-import CardComponent from '@/components/CardComponent.vue'
 import HomeImage from '@/assets/HomeImage.jpeg'
 import { Service } from '@/service/index.js'
 
 export default {
   name: 'HomePage',
-  components: {
-    CardComponent
-  },
   data () {
     return {
       page: 1,
@@ -64,11 +66,12 @@ export default {
       image: HomeImage,
       items: [],
       searchQuery: '',
-      Busy: false
+      Busy: false,
+      selectedBtn: null,
+      isLoading: true
     }
   },
   methods: {
-
     search (q) {
       setTimeout(async () => {
         this.items = await Service.handleSearchQuery(q)
@@ -81,6 +84,19 @@ export default {
       } catch (error) {
         console.log(error)
       }
+    },
+    async sorting (val) {
+      console.log(val)
+      try {
+        // this.isLoading = true
+        setTimeout(async () => {
+          const sortdata = await Service.sorting(val)
+          this.items = sortdata
+        // this.isLoading = false
+        }, 300)
+      } catch (e) {
+        console.log(e)
+      }
     }
   },
   async created () {
@@ -89,6 +105,11 @@ export default {
     } catch (error) {
       console.log(error)
     }
+  },
+  mounted () {
+    setTimeout(() => {
+      this.isLoading = false
+    }, 1000)
   }
 }
 </script>

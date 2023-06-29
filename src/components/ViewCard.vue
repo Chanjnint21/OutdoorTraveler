@@ -9,7 +9,16 @@
       <v-row no-gutters>
         <v-col cols="6" sm="6" md="6" lg="6">
           <v-row>
-            <v-col cols="12">
+            <v-col>
+              <v-col cols="1">
+                <trip-btn
+                  icon
+                  @click="back">
+                  <template #icon>
+                    <v-icon class="pa-2">mdi-arrow-left</v-icon>
+                  </template>
+                </trip-btn>
+              </v-col>
               <v-card-title class="text-h5"><b>{{ item.title }}</b></v-card-title>
               <v-card-text class="text-left">{{ item.detail }}</v-card-text>
               <v-card-subtitle class="text-left" style="font-size: larger; color:blue"> {{ Text1 }} </v-card-subtitle>
@@ -43,6 +52,7 @@
   </div>
 </template>
 <script>
+import router from '../router'
 export default {
   name: 'ViewCard',
   data () {
@@ -67,6 +77,11 @@ export default {
     item: {
       type: Object,
       default: () => {}
+    }
+  },
+  methods: {
+    back () {
+      router.push({ name: 'home' })
     }
   }
 }

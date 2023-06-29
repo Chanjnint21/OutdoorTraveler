@@ -52,6 +52,8 @@
     {
       "id": "testing01",
       "postDate": "2023-06-28T09:18:05.907Z",
+      "id": 3,
+
       "title": "African Safari Adventure",
       "author": {
         "id": 1,
@@ -68,11 +70,11 @@
         "leave_time": "6:00 AM"
       },
       "requirement": {
-        "min_age": null,
-        "max_age": null,
+        "min_age": 20,
+        "max_age": 50,
         "cost": 8000,
-        "nationalId": true,
-        "phoneNumber": true
+        "nationalId": "required",
+        "phoneNumber": "required"
       }
     },
     {
@@ -95,10 +97,10 @@
       },
       "requirement": {
         "min_age": 18,
-        "max_age": null,
+        "max_age": 50,
         "cost": 6000,
-        "nationalId": false,
-        "phoneNumber": true
+        "nationalId": "required",
+        "phoneNumber": "required"
       }
     },
     {
@@ -120,11 +122,11 @@
         "leave_time": "9:00 AM"
       },
       "requirement": {
-        "min_age": null,
-        "max_age": null,
+        "min_age": 18,
+        "max_age": 50,
         "cost": 4500,
-        "nationalId": true,
-        "phoneNumber": true
+        "nationalId": "required",
+        "phoneNumber": "required"
       }
     },
     {

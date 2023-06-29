@@ -51,7 +51,6 @@
             <v-col cols="12" class="mb-3">
               <trip-btn
                 type="submit"
-                @click="loginToken"
                 rounded
                 class="white--text"
                 BtnColor="#1687A7"

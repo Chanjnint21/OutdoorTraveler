@@ -25,7 +25,7 @@ export const Service = {
     }
   },
   async deleteItem (id) {
-    const deleteItem = await axios.delete(`http://localhost:3000/tripcards/${id}`)
+    const deleteItem = await axios.delete(`http://localhost:3000/tripcards/delete/${id}`)
     return deleteItem.data
   },
   async sorting (val) {

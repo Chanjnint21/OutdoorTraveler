@@ -28,7 +28,7 @@
             <v-card-subtitle class="grey--text">
               {{ Text }} {{ item.author?.name }}
             </v-card-subtitle>
-            <v-card-subtitle class="grey--text">{{ Text1 }} {{ item.requirement?.cost }} {{ Text2 }}</v-card-subtitle>
+            <v-card-subtitle class="grey--text">{{ Text1 }} {{ item.requirement.cost }} {{ Text2 }}</v-card-subtitle>
           </v-col>
           <v-col class="d-flex align-center justify-center mb-2" cols="12" sm="12" md="6" lg="6">
             <v-card-actions>
@@ -43,10 +43,11 @@
               </slot>
               <slot name="detail">
                 <trip-btn
-                  BtnColor="#276678"
-                  class="white--text"
-                  btn-label="Detail"
-                />
+                BtnColor="#276678"
+                class="white--text"
+                btn-label="Detail"
+                @click="ViewClick(item.id)"
+              />
               </slot>
               <slot name="register">
                 <trip-btn
@@ -57,11 +58,11 @@
               </slot>
               <slot name="Delete">
                 <trip-btn
-                  BtnColor="#F44336"
-                  class="white--text"
-                  btn-label="Delete"
-                  @click="deleteItem(item.id)"
-                />
+                BtnColor="#F44336"
+                class="white--text"
+                btn-label="Delete"
+                @click="deleteItem(item.id)"
+              />
               </slot>
             </v-card-actions>
           </v-col>
@@ -70,8 +71,8 @@
     </v-row>
   </v-card>
 </template>
-
 <script>
+import router from '../router'
 export default {
   name: 'CardComponent',
   props: {
@@ -102,6 +103,9 @@ export default {
   methods: {
     deleteItem (id) {
       this.$emit('delete', id)
+    },
+    ViewClick (id) {
+      router.push({ name: 'view', params: { id } })
     }
   }
 }

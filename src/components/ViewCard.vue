@@ -7,7 +7,7 @@
       class="pa-md-4 mx-lg-auto text-center"
     >
       <v-row no-gutters>
-        <v-col cols="6" sm="6" md="6" lg="4"></v-col>
+        <v-col cols="6" sm="6" md="6" lg="4">
           <v-row>
             <v-col cols="12">
               <v-card-title class="text-h5"><b>{{ item.title }}</b></v-card-title>

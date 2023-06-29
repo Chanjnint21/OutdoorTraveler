@@ -15,31 +15,6 @@
   ],
   "tripcards": [
     {
-      "id": 2,
-      "title": "Tropical Paradise Getaway",
-      "author": {
-        "id": 2,
-        "name": "Jnint"
-      },
-      "destination": "Hawaii",
-      "start_date": "2024-11-01",
-      "end_date": "2024-11-07",
-      "detail": "Escape to a tropical paradise and experience the beauty and tranquility of Hawaii's beaches, mountains and culture.",
-      "image": "https://images.unsplash.com/photo-1578632749014-ca77efd052eb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGFuaW1lfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60",
-      "category": "Beach",
-      "departure": {
-        "meet_location": "Honolulu International Airport",
-        "leave_time": "10:00 AM"
-      },
-      "requirement": {
-        "min_age": 21,
-        "max_age": 65,
-        "cost": 5000,
-        "nationalId": false,
-        "phoneNumber": true
-      }
-    },
-    {
       "id": 3,
       "title": "African Safari Adventure",
       "author": {
@@ -57,11 +32,11 @@
         "leave_time": "6:00 AM"
       },
       "requirement": {
-        "min_age": null,
-        "max_age": null,
+        "min_age": 20,
+        "max_age": 50,
         "cost": 8000,
-        "nationalId": true,
-        "phoneNumber": true
+        "nationalId": "required",
+        "phoneNumber": "required"
       }
     },
     {
@@ -83,10 +58,10 @@
       },
       "requirement": {
         "min_age": 18,
-        "max_age": null,
+        "max_age": 50,
         "cost": 6000,
-        "nationalId": false,
-        "phoneNumber": true
+        "nationalId": "required",
+        "phoneNumber": "required"
       }
     },
     {
@@ -107,11 +82,11 @@
         "leave_time": "9:00 AM"
       },
       "requirement": {
-        "min_age": null,
-        "max_age": null,
+        "min_age": 18,
+        "max_age": 50,
         "cost": 4500,
-        "nationalId": true,
-        "phoneNumber": true
+        "nationalId": "required",
+        "phoneNumber": "required"
       }
     }
   ]

@@ -7,6 +7,7 @@ import ProfileView from '../views/ProfileView.vue'
 import NotFound from '../views/NotFound.vue'
 import BoilerPlate from '../views/layout/AppLayout.vue'
 import AuthLayout from '../views/layout/AuthLayout.vue'
+import ViewTrip from '../views/ViewTrip.vue'
 
 Vue.use(VueRouter)
 
@@ -34,9 +35,14 @@ const routes = [
         component: HomeView,
         meta: {
           auth: true,
-          RouteName: 'Home',
+          routeName: 'Home',
           isCreate: true
         }
+      },
+      {
+        path: '/home/view/:id',
+        name: 'view',
+        component: ViewTrip
       },
       {
         path: 'create',
@@ -44,7 +50,7 @@ const routes = [
         component: TripCreate,
         meta: {
           auth: true,
-          RouteName: 'Create Trip',
+          routeName: 'Create Trip',
           isCreate: false
         }
       },
@@ -54,7 +60,7 @@ const routes = [
         component: ProfileView,
         meta: {
           auth: true,
-          RouteName: 'Profile',
+          routeName: 'Profile',
           isCreate: true
         }
       }
@@ -75,15 +81,16 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes
 })
-router.beforeEach((to, from, next) => {
-  const isAuthenticated = localStorage.getItem('authToken')
-  if (to.meta.auth && !isAuthenticated) {
-    next('/login')
-  } else if (!to.meta.auth && isAuthenticated) {
-    next('/user')
-  } else {
-    next()
-  }
-})
+
+// router.beforeEach((to, from, next) => {
+//   const isAuthenticated = localStorage.getItem('authToken')
+//   if (to.meta.auth && !isAuthenticated) {
+//     next('/login')
+//   } else if (!to.meta.auth && isAuthenticated) {
+//     next('/user')
+//   } else {
+//     next()
+//   }
+// })
 
 export default router

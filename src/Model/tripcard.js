@@ -1,17 +1,22 @@
 export const defaultTripcard = {
-  id: Number,
+  id: '',
+  postDate: '',
   title: '',
+  author: {
+    id: 2,
+    name: 'user0101'
+  },
   destination: '',
-  startDate: '',
-  endDate: '',
-  details: '',
-  imageSrc: '',
-  categories: [],
+  start_date: '',
+  end_date: '',
+  detail: '',
+  image: '',
+  category: [],
   departure: {
     meet_location: '',
     leave_time: ''
   },
-  requirements: {
+  requirement: {
     cost: '',
     nationalId: '',
     phoneNumber: ''

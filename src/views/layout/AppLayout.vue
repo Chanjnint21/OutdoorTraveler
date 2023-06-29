@@ -77,7 +77,7 @@
         @click="toCreatepage"
         >
         <template v-slot:icon>
-          <v-icon>mdi-plus</v-icon>
+          <v-icon class="pr-1">mdi-plus-circle-outline</v-icon>
         </template>
     </trip-btn>
     </v-app-bar>
@@ -104,11 +104,10 @@ export default {
       this.$router.push('/login')
     },
     toCreatepage () {
-      // this.$router.push('/user/create')
-      location.replace('/user/create')
+      this.$router.push('/user/create').catch(() => {})
+      // location.replace('/user/create')
     },
     toHome () {
-      // this.$router.push('/user/home')
       this.$router.push('/user/home').catch(() => {})
       // location.replace('/user/Home')
     },

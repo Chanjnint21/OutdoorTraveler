@@ -3,20 +3,20 @@
     v-bind="$attrs"
     v-on="$listeners"
     :elevation="elevation"
-    class="pa-md-4 mx-lg-auto text-center">
+    class="pa-2 mx-lg-auto text-center">
     <v-row no-gutters>
       <v-col
         cols="12"
-        sm="6"
-        md="6"
-        lg="4">
+        sm="5"
+        md="5"
+        lg="5"
+        xl="12"
+        class="pa-5">
         <v-img
-          max-width="500"
-          max-height="470"
           class="align-start"
           :src="item.image"/>
       </v-col>
-      <v-col cols="12" sm="6" md="6" lg="8">
+      <v-col cols="12" sm="7" md="7" lg="7" xl="12">
         <v-row class="d-flex align-start" style="height: 60%" no-gutters>
           <v-col cols="12">
             <v-card-title class="text-h5">{{ item.title }}</v-card-title>
@@ -24,13 +24,13 @@
           </v-col>
         </v-row>
         <v-row class="d-flex align-end" style="height: 40%" no-gutters>
-          <v-col class="d-flex align-center " cols="12" sm="12" md="6">
+          <v-col class="d-flex align-center " cols="12" sm="12" md="6" lg="6">
             <v-card-subtitle class="grey--text">
               {{ Text }} {{ item.author?.name }}
             </v-card-subtitle>
             <v-card-subtitle class="grey--text">{{ Text1 }} {{ item.requirement.cost }} {{ Text2 }}</v-card-subtitle>
           </v-col>
-          <v-col class="d-flex align-center justify-center mb-2" cols="12" sm="12" md="6">
+          <v-col class="d-flex align-center justify-center mb-2" cols="12" sm="12" md="6" lg="6">
             <v-card-actions>
               <slot name="bookmark">
                 <trip-btn

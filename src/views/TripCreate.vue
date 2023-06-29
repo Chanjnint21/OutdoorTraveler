@@ -2,7 +2,7 @@
   <v-container class="MainContain">
     <v-card class="rounded-xl">
       <v-card-title class="d-flex justify-center text-h6">Trip Card</v-card-title>
-      <v-form v-model="validform" @submit.prevent="publicPost">
+      <v-form v-model="validform" @submit.prevent="PublishPost">
         <v-card-text>
           <v-row>
             <v-col cols="12" sm="6" md="6">
@@ -46,7 +46,7 @@
             <v-col cols="12">
               <text-area
                 name="details"
-                v-model="tripcard.details"
+                v-model="tripcard.detail"
                 outlined
                 rounded
                 label="Details"
@@ -68,7 +68,7 @@
             <v-col cols="12">
               <select-field
                 name="Categorise"
-                v-model="tripcard.categories"
+                v-model="tripcard.category"
                 label="Category"
                 color="#1687A7"
                 outlined
@@ -104,7 +104,7 @@
               <v-col cols=12>
                 <range-slider-field
                   name="ageRange"
-                  v-model="tripcard.requirements.Age"
+                  v-model="tripcard.requirement.Age"
                   label="Age"
                   hint="Im a hint"
                   max="90"
@@ -120,7 +120,7 @@
             <v-col cols="12" sm="6" md="6">
               <text-field
                 name="cost"
-                v-model="tripcard.requirements.cost"
+                v-model="tripcard.requirement.cost"
                 label="Cost/Person"
                 color="#1687A7"
                 outlined
@@ -132,7 +132,7 @@
             <v-col cols="12" sm="6" md="6">
               <select-field
                 name="nationalId"
-                v-model="tripcard.requirements.nationalId"
+                v-model="tripcard.requirement.nationalId"
                 label="National ID"
                 color="#1687A7"
                 outlined
@@ -144,7 +144,7 @@
             <v-col cols="12" sm="6" md="6">
               <select-field
                 name="phoneNumber"
-                v-model="tripcard.requirements.phoneNumber"
+                v-model="tripcard.requirement.phoneNumber"
                 label="Phone Number"
                 color="#1687A7"
                 outlined
@@ -159,14 +159,14 @@
           <v-row class="d-flex justify-center pb-5">
             <trip-btn
               type='submit'
-              name="publicpost"
+              name="Publish"
               class="white--text mx-3"
               btn-color="#1687A7"
-              btn-label="Public"
-              @click="validate"
+              :disabled="!validform"
+              btn-label="Publish"
             />
             <trip-btn
-            name="draftPost"
+              name="draftPost"
               class="white--text mx-3"
               btn-color="#276678"
               btn-label="Draft"
@@ -197,10 +197,10 @@ export default {
   },
   methods: {
     StartDate (value) {
-      this.tripcard.startDate = value
+      this.tripcard.start_date = value
     },
     EndDate (value) {
-      this.tripcard.endDate = value
+      this.tripcard.end_date = value
     },
     LeaveTime (value) {
       this.tripcard.departure.leave_time = value
@@ -208,7 +208,8 @@ export default {
     validate () {
       this.$refs.form.validate()
     },
-    async publicPost () {
+    async PublishPost () {
+      this.tripcard.postDate = new Date()
       try {
         await Service.newTripCard(this.tripcard)
         this.$router.push('/user/home')
@@ -223,7 +224,7 @@ export default {
 <style >
 @media(min-width: 1800px ){
   .MainContain{
-    padding: 2rem 12rem;
+    padding: 2rem 10rem;
   }
 }
 </style>

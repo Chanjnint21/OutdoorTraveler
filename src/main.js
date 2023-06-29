@@ -14,6 +14,7 @@ import VueScrollTo from 'vue-scrollto'
 import CardComponent from './components/CardComponent.vue'
 import DatePicker from './components/DatePicker.vue'
 import TimePicker from './components/TimePicker.vue'
+import VueLoad from './components/VueLoad.vue'
 
 Vue.use(VueAxios, axios)
 Vue.component('TripBtn', TripBtn)
@@ -25,6 +26,7 @@ Vue.component('RangeSliderField', RangeSlider)
 Vue.component('SelectField', SelectField)
 Vue.component('FileField', FileField)
 Vue.component('CardComponent', CardComponent)
+Vue.component('VueLoad', VueLoad)
 Vue.use(VueScrollTo)
 Vue.config.productionTip = false
 

@@ -42,8 +42,10 @@
         "leave_time": "10:00 AM"
       },
       "requirement": {
-        "min_age": 21,
-        "max_age": 65,
+        "Age": [
+          28,
+          41
+        ],
         "cost": 5000,
         "nationalId": false,
         "phoneNumber": true
@@ -52,7 +54,6 @@
     {
       "id": "testing01",
       "postDate": "2023-06-28T09:18:05.907Z",
-      "id": 3,
 
       "title": "African Safari Adventure",
       "author": {
@@ -64,14 +65,16 @@
       "end_date": "2025-03-08",
       "detail": "Embark on an unforgettable safari adventure and witness the majesty of Africa's wildlife in their natural habitat.",
       "image": "https://images.unsplash.com/photo-1580477667995-2b94f01c9516?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGFuaW1lfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60",
-      "category": "Safari",
+      "category": ["SKI"],
       "departure": {
         "meet_location": "Jomo Kenyatta International Airport",
         "leave_time": "6:00 AM"
       },
       "requirement": {
-        "min_age": 20,
-        "max_age": 50,
+        "Age": [
+          28,
+          41
+        ],
         "cost": 8000,
         "nationalId": "required",
         "phoneNumber": "required"
@@ -90,14 +93,16 @@
       "end_date": "2024-12-22",
       "detail": "Experience the thrill of skiing in the Swiss Alps and enjoy the beauty of a winter wonderland.",
       "image": "https://images.unsplash.com/photo-1601850494422-3cf14624b0b3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGFuaW1lfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60",
-      "category": "Ski",
+      "category": [],
       "departure": {
         "meet_location": "Zurich Airport",
         "leave_time": "2:00 PM"
       },
       "requirement": {
-        "min_age": 18,
-        "max_age": 50,
+        "Age": [
+          28,
+          41
+        ],
         "cost": 6000,
         "nationalId": "required",
         "phoneNumber": "required"
@@ -122,8 +127,10 @@
         "leave_time": "9:00 AM"
       },
       "requirement": {
-        "min_age": 18,
-        "max_age": 50,
+        "Age": [
+          28,
+          41
+        ],
         "cost": 4500,
         "nationalId": "required",
         "phoneNumber": "required"

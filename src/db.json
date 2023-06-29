@@ -54,7 +54,6 @@
     {
       "id": "testing01",
       "postDate": "2023-06-28T09:18:05.907Z",
-
       "title": "African Safari Adventure",
       "author": {
         "id": 1,
@@ -65,7 +64,9 @@
       "end_date": "2025-03-08",
       "detail": "Embark on an unforgettable safari adventure and witness the majesty of Africa's wildlife in their natural habitat.",
       "image": "https://images.unsplash.com/photo-1580477667995-2b94f01c9516?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGFuaW1lfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60",
-      "category": ["SKI"],
+      "category": [
+        "SKI"
+      ],
       "departure": {
         "meet_location": "Jomo Kenyatta International Airport",
         "leave_time": "6:00 AM"
@@ -135,39 +136,6 @@
         "nationalId": "required",
         "phoneNumber": "required"
       }
-    },
-    {
-      "id": "jzqqUuO",
-      "postDate": "2023-06-28T10:27:02.796Z",
-      "title": "bro",
-      "author": {
-        "id": 2,
-        "name": "user0101"
-      },
-      "destination": "bro",
-      "start_date": "2023-06-01",
-      "end_date": "2023-06-08",
-      "detail": "das",
-      "image": "",
-      "category": [],
-      "departure": {
-        "meet_location": "phnom penh",
-        "leave_time": "03:14"
-      },
-      "requirement": {
-        "cost": "123",
-        "nationalId": "Require",
-        "phoneNumber": "Require",
-        "Age": [
-          28,
-          41
-        ]
-      },
-      "Category": [
-        "Sea",
-        "Hiking",
-        "Camping"
-      ]
     }
   ]
 }

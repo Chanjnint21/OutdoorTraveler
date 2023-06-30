@@ -119,8 +119,9 @@
             </v-col>
             <v-col cols="12" sm="6" md="6">
               <text-field
+                type="number"
                 name="cost"
-                v-model="tripcard.requirement.cost"
+                v-model.number="tripcard.requirement.cost"
                 label="Cost/Person"
                 color="#1687A7"
                 outlined

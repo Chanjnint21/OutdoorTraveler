@@ -17,9 +17,11 @@ export const Service = {
   },
   async logIn (em, pw) {
     try {
-      const users = await axios.get('http://localhost:3000/users')
-      const user = users.data.find(user => user.email === em && user.password === pw)
-      return user
+      const users = await axios.get(`http://localhost:3000/users?email=${em}&password=${pw}`)
+      // console.log(users.data)
+      if (users.data.length === 1) {
+        return 'founded'
+      }
     } catch (e) {
       console.log(e)
     }

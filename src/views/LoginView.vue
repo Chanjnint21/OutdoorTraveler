@@ -3,7 +3,7 @@
     <v-card class="LoginCard d-flex rounded-xl" elevation="5">
       <v-row class='pa-5 my-1'>
         <v-col
-          class="d-flex align-center justify-center mr-5"
+          class="d-flex align-center justify-center mx-5"
           cols="12"
           md="5"
           sm="5"
@@ -16,7 +16,7 @@
           />
         </v-col>
         <v-col cols="12" md="6" sm="6" xs="12">
-          <v-form ref="form" @submit.prevent="loginToken">
+          <v-form ref="form">
             <v-row class="d-flex justify-center">
               <h1 style="color: #1687A7; margin-bottom: 20px;">Sign In</h1>
             </v-row>
@@ -50,7 +50,7 @@
             </v-col>
             <v-col cols="12" class="mb-3">
               <trip-btn
-                type="submit"
+                @click="loginToken"
                 rounded
                 class="white--text"
                 BtnColor="#1687A7"
@@ -87,9 +87,9 @@ export default {
     async loginToken () {
       try {
         const Token = await Service.logIn(this.email, this.password)
-        if (Token) {
+        if (Token === 'founded') {
           localStorage.setItem('authToken', true)
-          this.$router.push('/user/home').catch(() => {})
+          this.$router.push('/user/home')
         } else {
           this.login = true
           this.password = ''

@@ -65,5 +65,9 @@ export const Service = {
       }
     }
     return sorting
+  },
+  async thisIdDate (id) {
+    const Data = await axios.get(`http://localhost:3000/tripcards/${id}`)
+    return Data.data
   }
 }

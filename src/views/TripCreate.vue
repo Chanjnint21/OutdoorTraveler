@@ -165,7 +165,15 @@
               btn-color="#1687A7"
               :disabled="!validform"
               btn-label="Publish"
-            />
+              v-if="!!PostBtn"/>
+            <trip-btn
+              type='submit'
+              name="Publish"
+              class="white--text mx-3"
+              btn-color="#1687A7"
+              :disabled="!validform"
+              btn-label="Update"
+              v-else/>
             <trip-btn
               name="draftPost"
               class="white--text mx-3"
@@ -192,8 +200,15 @@ export default {
       rules: {
         createrule: value => !!value || 'field required'
       },
-      // creates a new object with the same properties as defaulttripcard
-      tripcard: { ...defaultTripcard }
+      tripcard: { ...defaultTripcard },
+      updateID: this.$route.params.id,
+      PostBtn: true
+    }
+  },
+  watch: {
+    $route (to, from) {
+      this.PostBtn = true
+      this.tripcard = { ...defaultTripcard }
     }
   },
   methods: {
@@ -217,6 +232,20 @@ export default {
       } catch (e) {
         console.log(e)
       }
+    },
+    async getData (id) {
+      try {
+        const ImportData = await Service.thisIdDate(id)
+        this.tripcard = { ...ImportData }
+      } catch (e) {
+        console.log(e)
+      }
+    }
+  },
+  mounted () {
+    if (this.updateID !== undefined) {
+      this.getData(this.updateID)
+      this.PostBtn = false
     }
   }
 }

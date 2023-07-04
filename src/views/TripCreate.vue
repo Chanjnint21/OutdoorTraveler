@@ -9,7 +9,7 @@
         </trip-btn>
       </v-col>
       <v-card-title class="d-flex justify-center text-h6">Trip Card</v-card-title>
-      <v-form ref='form' v-model="validform" @submit.prevent="PublishPost">
+      <v-form ref='form' v-model="validform">
         <v-card-text>
           <v-row>
             <v-col cols="12" sm="6" md="6">
@@ -38,6 +38,7 @@
             </v-col>
             <v-col cols="12" sm="6" md="6">
               <date-picker
+                :passData="DateDate[0]"
                 name="startDate"
                 @date-changed="StartDate"
                 :rules="[rules.createrule]"
@@ -45,6 +46,7 @@
             </v-col>
             <v-col cols="12" sm="6" md="6">
               <date-picker
+                :passData="DateDate[1]"
                 name="endDate"
                 @date-changed="EndDate"
                 :rules="[rules.createrule]"
@@ -101,6 +103,7 @@
             </v-col>
             <v-col cols="12" sm="6" md="6">
               <time-picker
+                :passData="timeData"
                 name="timeLeave"
                 @time-save="LeaveTime"
                 :rules="[rules.createrule]"
@@ -126,8 +129,9 @@
             </v-col>
             <v-col cols="12" sm="6" md="6">
               <text-field
+                type="number"
                 name="cost"
-                v-model="tripcard.requirement.cost"
+                v-model.number="tripcard.requirement.cost"
                 label="Cost/Person"
                 color="#1687A7"
                 outlined
@@ -165,13 +169,22 @@
         <v-card-actions>
           <v-row class="d-flex justify-center pb-5">
             <trip-btn
-            type='submit'
-            name="Publish"
-            class="white--text mx-3"
-            btn-color="#1687A7"
-            :disabled="!validform"
+              type='submit'
+              name="Publish"
+              @click="PublishPost()"
+              class="white--text mx-3"
+              btn-color="#1687A7"
               btn-label="Publish"
-              />
+            v-if="!!PostBtn"/>
+            <trip-btn
+              type='submit'
+              name="Publish"
+              @click="UpdateData(updateID)"
+              class="white--text mx-3"
+              btn-color="#1687A7"
+              :disabled="!validform"
+              btn-label="Update"
+              v-else/>
             <trip-btn
             name="draftPost"
             class="white--text mx-3"
@@ -187,7 +200,7 @@
 </template>
 
 <script>
-import { defaultTripcard } from '../Model/tripcard.js'
+// import { defaultTripcard } from '../Model/tripcard.js'
 import router from '../router'
 import { Service } from '@/service/index.js'
 
@@ -200,7 +213,10 @@ export default {
       rules: {
         createrule: value => !!value || 'field required'
       },
-      // creates a new object with the same properties as defaulttripcard
+      updateID: this.$route.params.id,
+      PostBtn: true,
+      timeData: '',
+      DateDate: [],
       tripcard: {
         id: '',
         postDate: '',
@@ -224,9 +240,7 @@ export default {
           nationalId: null,
           phoneNumber: ''
         }
-      },
-      originaltripcard: { ...defaultTripcard },
-      userData: []
+      }
     }
   },
   methods: {
@@ -296,10 +310,33 @@ export default {
     discardChanges () {
       // this.tripcard = this.originaltripcard
       // this.$refs.form.reset()
+    },
+    async getData (id) {
+      try {
+        const ImportData = await Service.thisIdDate(id)
+        this.tripcard = { ...ImportData }
+        this.timeData = ImportData.departure.leave_time
+        this.DateDate.push(ImportData.start_date, ImportData.end_date)
+      } catch (e) {
+        console.log(e)
+      }
+    },
+    async UpdateData (id) {
+      this.tripcard.postDate = new Date()
+      try {
+        await Service.UpdateCard(id, this.tripcard)
+        this.$router.push('/user/profile')
+      } catch (e) {
+        console.log(e)
+      }
     }
   },
   mounted () {
     this.displayData()
+    if (this.updateID !== undefined) {
+      this.getData(this.updateID)
+      this.PostBtn = false
+    }
   },
   beforeRouteLeave (to, from, next) {
     if (this.isFormModified()) {

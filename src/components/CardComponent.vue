@@ -33,15 +33,13 @@
           <v-col class="d-flex align-center justify-center mb-2" cols="12" sm="12" md="6" lg="6">
             <v-card-actions>
               <slot name="bookmark">
-                <trip-btn
-                  icon
-                >
+                <trip-btn icon>
                   <template #icon>
                     <v-icon class="pa-2">mdi-bookmark-outline</v-icon>
                   </template>
                 </trip-btn>
               </slot>
-              <slot name="detail">
+              <slot name="btn1">
                 <trip-btn
                 BtnColor="#276678"
                 class="white--text"
@@ -49,21 +47,14 @@
                 @click="ViewClick(item.id)"
               />
               </slot>
-              <slot name="register">
+              <slot name="btn2">
                 <trip-btn
                   BtnColor="#1687A7"
                   class="white--text"
                   btn-label="Register"
                 />
               </slot>
-              <slot name="Delete">
-                <trip-btn
-                BtnColor="#F44336"
-                class="white--text"
-                btn-label="Delete"
-                @click="deleteItem(item.id)"
-              />
-              </slot>
+              <slot name="btn3"></slot>
             </v-card-actions>
           </v-col>
         </v-row>

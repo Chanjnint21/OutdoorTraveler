@@ -2,7 +2,6 @@ import axios from 'axios'
 export const Service = {
   async getList () {
     const data = await axios.get('http://localhost:3000/tripcards/')
-
     return data.data
   },
   async handleSearchQuery (q) {
@@ -17,9 +16,11 @@ export const Service = {
   },
   async logIn (em, pw) {
     try {
-      const users = await axios.get('http://localhost:3000/users')
-      const user = users.data.find(user => user.email === em && user.password === pw)
-      return user
+      const users = await axios.get(`http://localhost:3000/users?email=${em}&password=${pw}`)
+      // console.log(users.data)
+      if (users.data.length === 1) {
+        return 'founded'
+      }
     } catch (e) {
       console.log(e)
     }
@@ -63,5 +64,12 @@ export const Service = {
       }
     }
     return sorting
+  },
+  async thisIdDate (id) {
+    const Data = await axios.get(`http://localhost:3000/tripcards/${id}`)
+    return Data.data
+  },
+  async UpdateCard (id, cardinfo) {
+    axios.put(`http://localhost:3000/tripcards/${id}`, cardinfo)
   }
 }

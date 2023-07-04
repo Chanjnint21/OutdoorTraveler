@@ -2,7 +2,8 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import LoginView from '../views/LoginView.vue'
-import ProfileView from '../views/ProfileView.vue'
+import TripCreate from '../views/TripCreate.vue'
+import ProfileView from '../views/Profile/ProfileView.vue'
 import NotFound from '../views/NotFound.vue'
 import BoilerPlate from '../views/layout/AppLayout.vue'
 import AuthLayout from '../views/layout/AuthLayout.vue'
@@ -34,7 +35,7 @@ const routes = [
         component: HomeView,
         meta: {
           auth: true,
-          routeName: 'Home',
+          RouteName: 'Home',
           isCreate: true
         }
       },
@@ -49,7 +50,7 @@ const routes = [
         component: () => import('../views/TripCreate.vue'),
         meta: {
           auth: true,
-          routeName: 'Create Trip',
+          RouteName: 'Create Trip',
           isCreate: false
         }
       },
@@ -59,7 +60,17 @@ const routes = [
         component: ProfileView,
         meta: {
           auth: true,
-          routeName: 'Profile',
+          RouteName: 'Profile',
+          isCreate: true
+        }
+      },
+      {
+        path: 'update/:id',
+        name: 'update',
+        component: TripCreate,
+        meta: {
+          auth: true,
+          RouteName: 'Update Trip',
           isCreate: true
         }
       }

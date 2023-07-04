@@ -2,7 +2,6 @@ import axios from 'axios'
 export const Service = {
   async getList () {
     const data = await axios.get('http://localhost:3000/tripcards/')
-
     return data.data
   },
   async handleSearchQuery (q) {
@@ -69,5 +68,8 @@ export const Service = {
   async thisIdDate (id) {
     const Data = await axios.get(`http://localhost:3000/tripcards/${id}`)
     return Data.data
+  },
+  async UpdateCard (id, cardinfo) {
+    axios.put(`http://localhost:3000/tripcards/${id}`, cardinfo)
   }
 }

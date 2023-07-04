@@ -2,7 +2,7 @@
   <v-container class="MainContain">
     <v-card class="rounded-xl">
       <v-card-title class="d-flex justify-center text-h6">Trip Card</v-card-title>
-      <v-form v-model="validform" @submit.prevent="PublishPost">
+      <v-form v-model="validform">
         <v-card-text>
           <v-row>
             <v-col cols="12" sm="6" md="6">
@@ -31,6 +31,7 @@
             </v-col>
             <v-col cols="12" sm="6" md="6">
               <date-picker
+                :passData="DateDate[0]"
                 name="startDate"
                 @date-changed="StartDate"
                 :rules="[rules.createrule]"
@@ -38,6 +39,7 @@
             </v-col>
             <v-col cols="12" sm="6" md="6">
               <date-picker
+                :passData="DateDate[1]"
                 name="endDate"
                 @date-changed="EndDate"
                 :rules="[rules.createrule]"
@@ -94,6 +96,7 @@
             </v-col>
             <v-col cols="12" sm="6" md="6">
               <time-picker
+                :passData="timeData"
                 name="timeLeave"
                 @time-save="LeaveTime"
                 :rules="[rules.createrule]"
@@ -161,6 +164,7 @@
             <trip-btn
               type='submit'
               name="Publish"
+              @click="PublishPost()"
               class="white--text mx-3"
               btn-color="#1687A7"
               :disabled="!validform"
@@ -169,6 +173,7 @@
             <trip-btn
               type='submit'
               name="Publish"
+              @click="UpdateData(updateID)"
               class="white--text mx-3"
               btn-color="#1687A7"
               :disabled="!validform"
@@ -202,7 +207,9 @@ export default {
       },
       tripcard: { ...defaultTripcard },
       updateID: this.$route.params.id,
-      PostBtn: true
+      PostBtn: true,
+      timeData: '',
+      DateDate: []
     }
   },
   watch: {
@@ -237,6 +244,17 @@ export default {
       try {
         const ImportData = await Service.thisIdDate(id)
         this.tripcard = { ...ImportData }
+        this.timeData = ImportData.departure.leave_time
+        this.DateDate.push(ImportData.start_date, ImportData.end_date)
+      } catch (e) {
+        console.log(e)
+      }
+    },
+    async UpdateData (id) {
+      this.tripcard.postDate = new Date()
+      try {
+        await Service.UpdateCard(id, this.tripcard)
+        this.$router.push('/user/profile')
       } catch (e) {
         console.log(e)
       }

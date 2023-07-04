@@ -42,12 +42,23 @@
 <script>
 export default {
   name: 'DatePicker',
+  props: {
+    passData: {
+      type: String,
+      require: true
+    }
+  },
   data: () => ({
     date: '',
     menu: false,
     modal: false,
     menu2: false
   }),
+  watch: {
+    passData (newVal) {
+      this.date = newVal
+    }
+  },
   methods: {
     savethisdate (date) {
       this.$emit('date-changed', date)

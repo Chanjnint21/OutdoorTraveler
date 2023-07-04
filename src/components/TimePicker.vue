@@ -30,23 +30,33 @@
       v-if="menu2"
       v-model="time"
       full-width
-      @click:minute="$refs.menu.save(time); savethistime(time)"
+      @click:minute="$refs.menu.save(time); saveThisTime(time)"
     ></v-time-picker>
   </v-menu>
 </template>
 
 <script>
 export default {
-  name: 'DatePicker',
+  name: 'TimePicker',
+  props: {
+    passData: {
+      type: String,
+      require: true
+    }
+  },
   data: () => ({
-    date: '',
     menu: false,
     modal: false,
     menu2: false,
     time: ''
   }),
+  watch: {
+    passData (newVal) {
+      this.time = newVal
+    }
+  },
   methods: {
-    savethistime (time) {
+    saveThisTime (time) {
       this.$emit('time-save', time)
     }
   }

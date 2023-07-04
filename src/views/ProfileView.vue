@@ -20,7 +20,8 @@
                 class="mr-6"
                 btn-label="Edit Profile"
                 outlined
-                rounded>
+                rounded
+                @click="openDialog">
                 <template v-slot:icon>
                   <v-icon>mdi-account-edit</v-icon>
                   </template>

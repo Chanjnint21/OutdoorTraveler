@@ -2,7 +2,6 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import LoginView from '../views/LoginView.vue'
-import TripCreate from '../views/TripCreate.vue'
 import ProfileView from '../views/ProfileView.vue'
 import NotFound from '../views/NotFound.vue'
 import BoilerPlate from '../views/layout/AppLayout.vue'
@@ -47,7 +46,7 @@ const routes = [
       {
         path: 'create',
         name: 'create',
-        component: TripCreate,
+        component: () => import('../views/TripCreate.vue'),
         meta: {
           auth: true,
           routeName: 'Create Trip',

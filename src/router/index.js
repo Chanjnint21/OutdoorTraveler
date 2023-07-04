@@ -47,7 +47,7 @@ const routes = [
       {
         path: 'create',
         name: 'create',
-        component: TripCreate,
+        component: () => import('../views/TripCreate.vue'),
         meta: {
           auth: true,
           RouteName: 'Create Trip',

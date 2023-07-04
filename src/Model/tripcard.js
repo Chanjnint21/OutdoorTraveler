@@ -18,7 +18,7 @@ export const defaultTripcard = {
   },
   requirement: {
     cost: '',
-    nationalId: '',
+    nationalId: null,
     phoneNumber: ''
   }
 }

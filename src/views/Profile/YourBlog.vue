@@ -19,7 +19,11 @@
             </trip-btn>
           </template>
           <template #btn3>
-            <c-dialog @delete="deleteItem(item.id)"/>
+            <c-dialog @delete="deleteItem(item.id)"
+            label1="Are you sure?"
+            label2="You can't undo this action.Are you sure , you wanna delete this card?"
+            DioLabel="Delete"
+            />
           </template>
         </card-component>
       </v-col>

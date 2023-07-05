@@ -4,6 +4,9 @@
       v-model="dialog"
       persistent
       max-width="400"
+      v-bind="$attrs"
+      v-on="$listeners"
+      :label="DioLabel"
     >
       <template v-slot:activator="{ on, attrs }">
         <trip-btn
@@ -11,17 +14,18 @@
           v-bind="attrs"
           v-on="on"
           class="ml-5"
+          :btn-label="DioLabel"
         >
-          <template #icon>
+          <!-- <template #icon>
             <v-icon color="white">mdi-delete</v-icon>
-          </template>
+          </template> -->
         </trip-btn>
       </template>
       <v-card>
         <v-card-title class="text-h6">
-          You're about to delete this card !
+          {{ label1 }}
         </v-card-title>
-        <v-card-text>You can't undo this action. Are you sure you want to delete this card? </v-card-text>
+        <v-card-text>{{label2}}</v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
           <v-btn
@@ -54,6 +58,15 @@ export default {
         default: () => {}
       }
     }
+  },
+  props: {
+    label1: {
+      type: String
+    },
+    label2: {
+      type: String
+    },
+    DioLabel: String
   },
   methods: {
     deleteItem (id) {

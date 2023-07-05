@@ -168,13 +168,13 @@
         </v-card-text>
         <v-card-actions>
           <v-row class="d-flex justify-center pb-5">
-            <trip-btn
-              type='submit'
-              name="Publish"
-              @click="PublishPost()"
-              class="white--text mx-3"
-              btn-color="#1687A7"
-              btn-label="Publish"
+              <trip-btn
+                type='submit'
+                name="Publish"
+                @click="PublishPost()"
+                class="white--text mx-3"
+                btn-color="#1687A7"
+                btn-label="Publish"
             v-if="!!PostBtn"/>
             <trip-btn
               type='submit'
@@ -258,8 +258,11 @@ export default {
     },
     async PublishPost () {
       this.tripcard.postDate = new Date()
+      const currentUser = JSON.parse(localStorage.getItem('authUser'))
+      this.tripcard.author.id = currentUser[0].id
+      this.tripcard.author.name = currentUser[0].name
       // save the user data
-      this.userData.push(this.tripcard)
+      // this.userData.push(this.tripcard)
       try {
         await Service.newTripCard(this.tripcard)
         this.$router.push('/user/home')
@@ -308,7 +311,7 @@ export default {
       return this.originaltripcard !== this.tripcard
     },
     discardChanges () {
-      // this.tripcard = this.originaltripcard
+      localStorage.removeItem('objectData')
       // this.$refs.form.reset()
     },
     async getData (id) {
@@ -331,11 +334,12 @@ export default {
       }
     }
   },
-  mounted () {
-    this.displayData()
+  created () {
     if (this.updateID !== undefined) {
       this.getData(this.updateID)
       this.PostBtn = false
+    } else {
+      this.displayData()
     }
   },
   beforeRouteLeave (to, from, next) {

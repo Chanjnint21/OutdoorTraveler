@@ -33,9 +33,9 @@
           <v-col class="d-flex align-center justify-center mb-2" cols="12" sm="12" md="6" lg="6">
             <v-card-actions>
               <slot name="bookmark">
-                <trip-btn icon>
+                <trip-btn @click='ToFav' icon>
                   <template #icon>
-                    <v-icon class="pa-2">mdi-bookmark-outline</v-icon>
+                    <v-icon class="pa-2">{{ FavIcon }}</v-icon>
                   </template>
                 </trip-btn>
               </slot>
@@ -88,7 +88,18 @@ export default {
     return {
       Text: 'By:',
       Text1: 'Cost:',
-      Text2: '$/Person'
+      Text2: '$/Person',
+      Fav: false,
+      FavIcon: 'mdi-bookmark-outline'
+    }
+  },
+  watch: {
+    Fav (newVal) {
+      if (newVal) {
+        this.FavIcon = 'mdi-bookmark'
+        return this.FavIcon
+      }
+      this.FavIcon = 'mdi-bookmark-outline'
     }
   },
   methods: {
@@ -97,6 +108,9 @@ export default {
     },
     ViewClick (id) {
       router.push({ name: 'view', params: { id } })
+    },
+    ToFav () {
+      this.Fav = !this.Fav
     }
   }
 }

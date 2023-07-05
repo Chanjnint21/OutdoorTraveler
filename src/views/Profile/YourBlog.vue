@@ -36,14 +36,19 @@ import { Service } from '@/service/index.js'
 
 export default {
   name: 'HomePage',
+  props: {
+    UserID: {
+      type: String
+    }
+  },
   data () {
     return {
       items: []
     }
   },
-  async created () {
+  async mounted () {
     try {
-      this.items = await Service.getList()
+      this.items = await Service.thisUserCard(this.UserID)
     } catch (error) {
       console.log(error)
     }
@@ -59,12 +64,10 @@ export default {
     },
     async toUpdate (id) {
       this.$router.push(`/user/update/${id}`)
-      // try {
-      //   await Service.toUpdate(id)
-      // } catch (error) {
-      //   console.log(error)
-      // }
     }
   }
+  // mounted () {
+  //   console.log(this.UserID)
+  // }
 }
 </script>

@@ -1,21 +1,21 @@
 {
   "users": [
     {
-      "id": 1,
+      "id": "1x2345",
       "name": "jennie",
       "email": "example1@gmail.com",
       "role": "user",
       "password": "password123"
     },
     {
-      "id": 2,
+      "id": "2x3456",
       "name": "user0101",
       "email": "example2@gmail.com",
       "role": "user",
       "password": "secret123"
     },
     {
-      "id": 3,
+      "id": "34567",
       "name": "admin007",
       "email": "example3@gmail.com",
       "role": "admin",
@@ -25,16 +25,16 @@
   "tripcards": [
     {
       "id": "yhcsjeh34",
-      "postDate": "2023-07-04T07:16:40.409Z",
+      "postDate": "2023-07-04T10:15:41.692Z",
       "title": "Tropical Paradise Getaway",
       "author": {
-        "id": 2,
+        "id": "2x3456",
         "name": "user0101"
       },
       "destination": "Hawaii",
       "start_date": "2024-11-01",
       "end_date": "2024-11-07",
-      "detail": "Escape to a tropical paradise and experience the beauty and tranquility of Hawaii's beaches, mountains and culture.",
+      "detail": "Parents are supposed to push you past your goals, or at least, that’s what I always believed. I was raised in the generation of “you can do anything if you put your mind to it.” My parents did not follow that philosophy, and they saw little value in a formal education. It was their lack of passion that led me to my educational goals.\nFrom as far back as I can remember, I knew I didn’t want to follow in the footsteps of my parents, at least not when it came to work. My father had worked on the family farm all his life and my mother had been a housewife since graduation. They were both content with the simplicity of their lives and wanted the same for me. I remember my father telling me that college was “expensive and a waste of four years”.  I knew however, that I wanted a career in the city that would be more challenging than simple farm life could provide. The only way to make that possible would be through formal education and a college degree. \nWhile my parents may not understand the value of formal education, I know it is essential for my future. ",
       "image": "https://images.unsplash.com/photo-1578632749014-ca77efd052eb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGFuaW1lfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60",
       "category": [
         "One day Trip",
@@ -59,7 +59,7 @@
       "postDate": "2023-07-03T10:57:51.129Z",
       "title": "African Safari Adventure",
       "author": {
-        "id": 1,
+        "id": "1x2345",
         "name": "jennie"
       },
       "destination": "Kenya",
@@ -87,7 +87,7 @@
       "postDate": "2023-06-28T09:17:44.990Z",
       "title": "Winter Wonderland Ski Trip",
       "author": {
-        "id": 1,
+        "id": "1x2345",
         "name": "jennie"
       },
       "destination": "Switzerland",
@@ -115,7 +115,7 @@
       "postDate": "2023-06-28T09:17:13.939Z",
       "title": "Cultural Immersion Tour",
       "author": {
-        "id": 2,
+        "id": "2x3456",
         "name": "user0101"
       },
       "destination": "Japan",
@@ -143,7 +143,7 @@
       "postDate": "2023-07-03T10:57:32.645Z",
       "title": "heylool",
       "author": {
-        "id": 2,
+        "id": "2x3456",
         "name": "user0101"
       },
       "destination": "hey",
@@ -173,10 +173,10 @@
     },
     {
       "id": "e9Pd6F-",
-      "postDate": "2023-07-04T07:15:46.375Z",
-      "title": "lolaaaa",
+      "postDate": "2023-07-04T08:25:44.826Z",
+      "title": "nono",
       "author": {
-        "id": 2,
+        "id": "2x3456",
         "name": "user0101"
       },
       "destination": "lola",
@@ -194,11 +194,123 @@
       },
       "requirement": {
         "cost": 4569,
-        "nationalId": "Require",
+        "nationalId": "Not Require",
         "phoneNumber": "Not Require",
         "Age": [
           15,
           72
+        ]
+      }
+    },
+    {
+      "id": "xTQPeIZ",
+      "postDate": "2023-07-05T08:43:49.781Z",
+      "title": "heyhey",
+      "author": {
+        "id": 2,
+        "name": "user0101"
+      },
+      "destination": "",
+      "start_date": "",
+      "end_date": "",
+      "detail": "csaasdasd",
+      "image": "",
+      "category": [],
+      "departure": {
+        "meet_location": "",
+        "leave_time": ""
+      },
+      "requirement": {
+        "cost": "",
+        "nationalId": null,
+        "phoneNumber": "",
+        "Age": [
+          15,
+          15
+        ]
+      }
+    },
+    {
+      "id": "sEVdSh3",
+      "postDate": "2023-07-05T08:48:56.064Z",
+      "title": "filooa",
+      "author": {
+        "id": "jennie",
+        "name": "1x2345"
+      },
+      "destination": "",
+      "start_date": "",
+      "end_date": "",
+      "detail": "",
+      "image": "",
+      "category": [],
+      "departure": {
+        "meet_location": "",
+        "leave_time": ""
+      },
+      "requirement": {
+        "cost": "",
+        "nationalId": null,
+        "phoneNumber": "",
+        "Age": [
+          15,
+          15
+        ]
+      }
+    },
+    {
+      "id": "pxg1NBa",
+      "postDate": "2023-07-05T08:49:26.962Z",
+      "title": "hsdasdasdsa",
+      "author": {
+        "id": "1x2345",
+        "name": "jennie"
+      },
+      "destination": "",
+      "start_date": "",
+      "end_date": "",
+      "detail": "xxxxxxx",
+      "image": "",
+      "category": [],
+      "departure": {
+        "meet_location": "",
+        "leave_time": ""
+      },
+      "requirement": {
+        "cost": "",
+        "nationalId": null,
+        "phoneNumber": "",
+        "Age": [
+          15,
+          15
+        ]
+      }
+    },
+    {
+      "id": "AoTYJ-Q",
+      "postDate": "2023-07-05T08:51:29.830Z",
+      "title": "dasdas",
+      "author": {
+        "id": "1x2345",
+        "name": "jennie"
+      },
+      "destination": "",
+      "start_date": "",
+      "end_date": "",
+      "detail": "",
+      "image": "",
+      "category": [],
+      "departure": {
+        "meet_location": "",
+        "leave_time": ""
+      },
+      "requirement": {
+        "cost": "",
+        "nationalId": null,
+        "phoneNumber": "",
+        "Age": [
+          15,
+          15
         ]
       }
     }

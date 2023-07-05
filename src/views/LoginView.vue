@@ -87,8 +87,9 @@ export default {
     async loginToken () {
       try {
         const Token = await Service.logIn(this.email, this.password)
-        if (Token === 'founded') {
+        if (Token.length === 1) {
           localStorage.setItem('authToken', true)
+          localStorage.setItem('authUser', JSON.stringify(Token))
           this.$router.push('/user/home')
         } else {
           this.login = true

@@ -13,7 +13,7 @@
               </v-avatar>
             </v-col>
             <v-col cols="4">
-              <p class="text-h5">_Username007</p>
+              <p class="text-h5">{{ userName }}</p>
             </v-col>
             <v-col cols="6" class="d-flex justify-end">
               <trip-btn
@@ -48,7 +48,7 @@
           <v-divider></v-divider>
         <v-container class="MainContain">
           <v-tabs-items v-model="tab">
-            <your-blog/>
+            <your-blog :UserID="userID"/>
             <favorit-post/>
             <up-coming/>
             <joined-trip/>
@@ -80,8 +80,15 @@ export default {
   data () {
     return {
       tab: null,
-      tabs: ['Your Blog', 'Favorite', 'Upcoming', 'Joined']
+      tabs: ['Your Blog', 'Favorite', 'Upcoming', 'Joined'],
+      userName: '',
+      userID: ''
     }
+  },
+  created () {
+    const currentUser = JSON.parse(localStorage.getItem('authUser'))
+    this.userName = currentUser[0].name
+    this.userID = currentUser[0].id
   }
 }
 </script>

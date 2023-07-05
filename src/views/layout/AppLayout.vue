@@ -101,6 +101,7 @@ export default {
   methods: {
     LogOut () {
       localStorage.removeItem('authToken')
+      localStorage.removeItem('authUser')
       this.$router.push('/login')
     },
     toCreatepage () {

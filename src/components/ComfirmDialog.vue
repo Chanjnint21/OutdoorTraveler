@@ -1,25 +1,23 @@
 <template>
-  <v-row justify="center">
+  <v-row dense>
     <v-dialog
       v-model="dialog"
       persistent
       max-width="400"
       v-bind="$attrs"
       v-on="$listeners"
-      :label="DioLabel"
     >
       <template v-slot:activator="{ on, attrs }">
-        <trip-btn
-          BtnColor="#F44336"
-          v-bind="attrs"
-          v-on="on"
-          class="ml-5"
-          :btn-label="DioLabel"
-        >
-          <!-- <template #icon>
-            <v-icon color="white">mdi-delete</v-icon>
-          </template> -->
-        </trip-btn>
+          <v-btn
+            :color="DioColor"
+            v-bind="attrs"
+            v-on="on"
+            :class="DioBtnClass"
+            :icon='icon'
+          >
+            {{ DioLabel }}
+            <slot name='icon'></slot>
+          </v-btn>
       </template>
       <v-card>
         <v-card-title class="text-h6">
@@ -35,13 +33,7 @@
           >
             No
           </v-btn>
-          <v-btn
-            color="#1687A7"
-            text
-            @click="dialog = false; deleteItem(item.id)"
-          >
-            Yes
-          </v-btn>
+          <slot name="agree"></slot>
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -66,12 +58,21 @@ export default {
     label2: {
       type: String
     },
-    DioLabel: String
-  },
-  methods: {
-    deleteItem (id) {
-      this.$emit('delete', id)
-    }
+    DioBtnClass: {
+      type: String,
+      default: 'white--text icon'
+    },
+    icon: {
+      type: Boolean,
+      default: false
+    },
+    DioLabel: String,
+    DioColor: String
   }
+  // methods: {
+  //   deleteItem (id) {
+  //     this.$emit('delete', id)
+  //   }
+  // }
 }
 </script>

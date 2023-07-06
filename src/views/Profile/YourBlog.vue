@@ -19,11 +19,25 @@
             </trip-btn>
           </template>
           <template #btn3>
-            <c-dialog @delete="deleteItem(item.id)"
-            label1="Are you sure?"
-            label2="You can't undo this action.Are you sure , you wanna delete this card?"
-            DioLabel="Delete"
-            />
+            <c-dialog
+              label1="Are you sure?"
+              label2="You can't undo this action.Are you sure , you wanna delete this card?"
+              DioColor="error"
+              DioBtnClass="ml-3"
+            >
+              <template #agree>
+                <v-btn
+                  color="#1687A7"
+                  text
+                  @click="dialog = false; deleteItem(item.id)"
+                >
+                  Yes
+                </v-btn>
+              </template>
+              <template #icon>
+                <v-icon>mdi-delete</v-icon>
+              </template>
+            </c-dialog>
           </template>
         </card-component>
       </v-col>
@@ -66,8 +80,5 @@ export default {
       this.$router.push(`/user/update/${id}`)
     }
   }
-  // mounted () {
-  //   console.log(this.UserID)
-  // }
 }
 </script>

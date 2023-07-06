@@ -5,6 +5,7 @@ import vuetify from './plugins/vuetify'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 import TextField from '@/components/TextField'
+import FormComponent from '@/components/FormComponent'
 import TextArea from '@/components/TextArea.vue'
 import RangeSlider from '@/components/RangeSliderField.vue'
 import SelectField from '@/components/SelectField.vue'
@@ -18,6 +19,7 @@ import VueLoad from './components/VueLoad.vue'
 import CDialog from './components/ComfirmDialog.vue'
 
 Vue.use(VueAxios, axios)
+Vue.component('FormComponent', FormComponent)
 Vue.component('TripBtn', TripBtn)
 Vue.component('DatePicker', DatePicker)
 Vue.component('TimePicker', TimePicker)

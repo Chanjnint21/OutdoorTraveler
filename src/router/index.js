@@ -2,7 +2,8 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import LoginView from '../views/LoginView.vue'
-import TripCreate from '../views/TripCreate.vue'
+// import TripCreate from '../views/Trip/TripCreate.vue'
+// import TripUpdate from '../views/Trip/TripUpdate.vue'
 import ProfileView from '../views/Profile/ProfileView.vue'
 import NotFound from '../views/NotFound.vue'
 import BoilerPlate from '../views/layout/AppLayout.vue'
@@ -42,12 +43,17 @@ const routes = [
       {
         path: '/home/view/:id',
         name: 'view',
-        component: ViewTrip
+        component: ViewTrip,
+        meta: {
+          auth: true,
+          RouteName: 'View Trip',
+          isCreate: false
+        }
       },
       {
         path: 'create',
         name: 'create',
-        component: () => import('../views/TripCreate.vue'),
+        component: () => import('../views/Trip/TripCreate.vue'),
         meta: {
           auth: true,
           RouteName: 'Create Trip',
@@ -67,7 +73,7 @@ const routes = [
       {
         path: 'update/:id',
         name: 'update',
-        component: TripCreate,
+        component: () => import('../views/Trip/TripUpdate.vue'),
         meta: {
           auth: true,
           RouteName: 'Update Trip',

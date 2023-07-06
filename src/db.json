@@ -70,7 +70,7 @@
       "category": [],
       "departure": {
         "meet_location": "Jomo Kenyatta International Airport",
-        "leave_time": "6:00 AM"
+        "leave_time": "6:00"
       },
       "requirement": {
         "Age": [
@@ -126,7 +126,7 @@
       "category": "Tour",
       "departure": {
         "meet_location": "Narita International Airport",
-        "leave_time": "9:00 AM"
+        "leave_time": "9:00"
       },
       "requirement": {
         "Age": [
@@ -136,182 +136,6 @@
         "cost": 4500,
         "nationalId": "required",
         "phoneNumber": "required"
-      }
-    },
-    {
-      "id": "mtOMykd",
-      "postDate": "2023-07-03T10:57:32.645Z",
-      "title": "heylool",
-      "author": {
-        "id": "2x3456",
-        "name": "user0101"
-      },
-      "destination": "hey",
-      "start_date": "2023-07-07",
-      "end_date": "2023-07-12",
-      "detail": "hey",
-      "image": "",
-      "category": [
-        "One day Trip",
-        "Hiking",
-        "Sea",
-        "Camping"
-      ],
-      "departure": {
-        "meet_location": "phnom penh",
-        "leave_time": "11:53"
-      },
-      "requirement": {
-        "cost": 7000000,
-        "nationalId": "Not Require",
-        "phoneNumber": "Not Require",
-        "Age": [
-          32,
-          82
-        ]
-      }
-    },
-    {
-      "id": "e9Pd6F-",
-      "postDate": "2023-07-04T08:25:44.826Z",
-      "title": "nono",
-      "author": {
-        "id": "2x3456",
-        "name": "user0101"
-      },
-      "destination": "lola",
-      "start_date": "2023-07-02",
-      "end_date": "2023-07-13",
-      "detail": "12312",
-      "image": "",
-      "category": [
-        "One day Trip",
-        "Hiking"
-      ],
-      "departure": {
-        "meet_location": "phnom penh",
-        "leave_time": "01:10"
-      },
-      "requirement": {
-        "cost": 4569,
-        "nationalId": "Not Require",
-        "phoneNumber": "Not Require",
-        "Age": [
-          15,
-          72
-        ]
-      }
-    },
-    {
-      "id": "xTQPeIZ",
-      "postDate": "2023-07-05T08:43:49.781Z",
-      "title": "heyhey",
-      "author": {
-        "id": 2,
-        "name": "user0101"
-      },
-      "destination": "",
-      "start_date": "",
-      "end_date": "",
-      "detail": "csaasdasd",
-      "image": "",
-      "category": [],
-      "departure": {
-        "meet_location": "",
-        "leave_time": ""
-      },
-      "requirement": {
-        "cost": "",
-        "nationalId": null,
-        "phoneNumber": "",
-        "Age": [
-          15,
-          15
-        ]
-      }
-    },
-    {
-      "id": "sEVdSh3",
-      "postDate": "2023-07-05T08:48:56.064Z",
-      "title": "filooa",
-      "author": {
-        "id": "jennie",
-        "name": "1x2345"
-      },
-      "destination": "",
-      "start_date": "",
-      "end_date": "",
-      "detail": "",
-      "image": "",
-      "category": [],
-      "departure": {
-        "meet_location": "",
-        "leave_time": ""
-      },
-      "requirement": {
-        "cost": "",
-        "nationalId": null,
-        "phoneNumber": "",
-        "Age": [
-          15,
-          15
-        ]
-      }
-    },
-    {
-      "id": "pxg1NBa",
-      "postDate": "2023-07-05T08:49:26.962Z",
-      "title": "hsdasdasdsa",
-      "author": {
-        "id": "1x2345",
-        "name": "jennie"
-      },
-      "destination": "",
-      "start_date": "",
-      "end_date": "",
-      "detail": "xxxxxxx",
-      "image": "",
-      "category": [],
-      "departure": {
-        "meet_location": "",
-        "leave_time": ""
-      },
-      "requirement": {
-        "cost": "",
-        "nationalId": null,
-        "phoneNumber": "",
-        "Age": [
-          15,
-          15
-        ]
-      }
-    },
-    {
-      "id": "AoTYJ-Q",
-      "postDate": "2023-07-05T08:51:29.830Z",
-      "title": "dasdas",
-      "author": {
-        "id": "1x2345",
-        "name": "jennie"
-      },
-      "destination": "",
-      "start_date": "",
-      "end_date": "",
-      "detail": "",
-      "image": "",
-      "category": [],
-      "departure": {
-        "meet_location": "",
-        "leave_time": ""
-      },
-      "requirement": {
-        "cost": "",
-        "nationalId": null,
-        "phoneNumber": "",
-        "Age": [
-          15,
-          15
-        ]
       }
     }
   ]

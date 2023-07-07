@@ -31,9 +31,16 @@
             text
             @click="dialog = false"
           >
-            No
           </v-btn>
           <slot name="agree"></slot>
+          <v-spacer></v-spacer>
+              <v-btn
+              color="#276678"
+              text
+              @click="dialog = false"
+              >
+              </v-btn>
+              <slot name="disagree"> </slot>
         </v-card-actions>
       </v-card>
     </v-dialog>

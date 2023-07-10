@@ -159,12 +159,8 @@
       </v-card-text>
       <v-card-actions>
         <v-row class="d-flex justify-center pb-5">
-          <v-col cols="6">
-            <slot name="FormBtn1"></slot>
-          </v-col>
-          <v-col >
-            <slot name="FormBtn2"></slot>
-          </v-col>
+          <slot name="FormBtn1"></slot>
+          <slot name="FormBtn2"></slot>
         </v-row>
       </v-card-actions>
     </v-form>

@@ -47,11 +47,15 @@ export const Service = {
     const sorting = Sortdata.data
     return sorting
   },
-  async thisIdDate (id) {
+  async thisIdData (id) {
     const Data = await axios.get(`http://localhost:3000/tripcards/${id}`)
     return Data.data
   },
   async UpdateCard (id, cardinfo) {
     axios.put(`http://localhost:3000/tripcards/${id}`, cardinfo)
+  },
+  async thisUserFav (UserId) {
+    const FavData = await axios.get(`http://localhost:3000/Favorite?q=${UserId}`)
+    return FavData.data
   }
 }

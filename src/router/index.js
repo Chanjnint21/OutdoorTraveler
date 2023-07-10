@@ -9,6 +9,7 @@ import NotFound from '../views/NotFound.vue'
 import BoilerPlate from '../views/layout/AppLayout.vue'
 import AuthLayout from '../views/layout/AuthLayout.vue'
 import ViewTrip from '../views/ViewTrip.vue'
+import axios from 'axios'
 
 Vue.use(VueRouter)
 
@@ -44,6 +45,7 @@ const routes = [
         path: '/home/view/:id',
         name: 'view',
         component: ViewTrip,
+        // props: true,
         meta: {
           auth: true,
           RouteName: 'View Trip',
@@ -78,6 +80,23 @@ const routes = [
           auth: true,
           RouteName: 'Update Trip',
           isCreate: true
+        },
+        beforeEnter: (to, from, next) => {
+          const Cardid = to.params.id
+          const EnterUpdate = async (Cardid) => {
+            const authorId = await axios.get(`http://localhost:3000/tripcards/${Cardid}`)
+            const currentUser = JSON.parse(localStorage.getItem('authUser'))
+            if (currentUser[0].id === authorId.data.author.id) {
+              next()
+            } else {
+              console.log('---')
+              next({
+                path: `/home/view/${Cardid}`,
+                props: { alert: 'myProp' }
+              })
+            }
+          }
+          EnterUpdate(Cardid)
         }
       }
     ]

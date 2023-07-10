@@ -1,11 +1,16 @@
 <template>
+  <!-- <v-container class="MainContain"> -->
   <div>
-    <v-col class="d-flex align-center" cols="12">
-      <v-avatar class="mr-3" size="40">
-        <img src="../assets/Img/pf2.jpg" alt="Patrick">
-      </v-avatar>
-      <p class="mt-3">Naruto_001</p>
-    </v-col>
+    <!-- <v-col class="d-flex justify-center align-center" cols="12">
+      <v-alert
+        border="left"
+        type="error"
+        dismissible
+        block
+      >
+        You don't have permision to do that
+      </v-alert>
+    </v-col> -->
     <view-card
       v-if="selectedItem"
       height="auto"
@@ -39,6 +44,7 @@ export default {
   methods: {
     async fetchData () {
       try {
+        console.log(this.alert)
         this.items = await Service.getList()
         // Find the selected item based on param.id
         this.selectedItem = this.items.find(item => item.id === this.userId)

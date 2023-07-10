@@ -25,7 +25,7 @@
       </v-col>
       <v-card-title class="d-flex justify-center text-h6">Trip Card</v-card-title>
       <form-component ref="form" v-model="form">
-            <template v-slot:FormBtn1>
+          <template v-slot:FormBtn1>
             <trip-btn
               type="submit"
               name="Publish"
@@ -38,7 +38,6 @@
             />
           </template>
         <template v-slot:FormBtn2>
-          <v-row class="d-flex justify-center">
             <c-dialog
               label1="Save or Discard?"
               label2="These changes can't be undone!"
@@ -56,46 +55,6 @@
                 </v-btn>
               </template>
             </c-dialog>
-          </v-row>
-        </template>
-        <v-card-actions>
-          <v-row class="d-flex justify-center pb-5">
-            <trip-btn
-              type='submit'
-              name="Publish"
-              @click="PublishPost()"
-              class="white--text mx-3"
-              btn-color="#1687A7"
-              btn-label="Publish"
-            />
-            <trip-btn
-            name="draftPost"
-            class="white--text mx-3"
-            btn-color="#1687A7"
-            btn-label="Publish"
-            @display-data="displayData"
-          />
-        </template>
-        <template v-slot:FormBtn2>
-          <v-row class="d-flex justify-center pb-5">
-            <c-dialog
-              label1="Save or Discard?"
-              label2="These changes can't be undone!"
-              DioBtnClass="#1687A7"
-              DioLabel="Draft"
-            >
-              <template #agree>
-                <v-btn color="#1687A7" text @click="saveChanges(); dialog = false">
-                  Save
-                </v-btn>
-              </template>
-              <template #disagree>
-                <v-btn color="#1687A7" text @click="discardChanges(); dialog = false">
-                  Don't Save
-                </v-btn>
-              </template>
-            </c-dialog>
-          </v-row>
         </template>
       </form-component>
     </v-card>

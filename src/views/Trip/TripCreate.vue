@@ -306,11 +306,3 @@ export default {
   }
 }
 </script>
-
-<style>
-@media(min-width: 1800px) {
-  .MainContain {
-    padding: 2rem 10rem;
-  }
-}
-</style>

@@ -5,7 +5,7 @@
         <c-dialog
           label1="Leave this page"
           label2="You are about to leave this page"
-          icon='true'
+          :icon='true'
           DioBtnClass='grey-text'
         >
           <template #agree>
@@ -74,7 +74,6 @@
                 rounded
                 label="Details"
                 color="#1687A7"
-                counter="1000"
               />
             </v-col>
             <v-col cols="12">
@@ -256,22 +255,21 @@ export default {
     }
   },
   methods: {
+    StartDate (value) {
+      this.tripcard.start_date = value
+    },
+    EndDate (value) {
+      this.tripcard.end_date = value
+    },
+    LeaveTime (value) {
+      this.tripcard.departure.leave_time = value
+    },
     validate () {
       this.$refs.form.validate()
     },
     back () {
       this.$router.back()
     },
-    // async getData (id) {
-    //   try {
-    //     const ImportData = await Service.thisIdDate(id)
-    //     this.tripcard = { ...ImportData }
-    //     this.timeData = ImportData.departure.leave_time
-    //     this.DateDate.push(ImportData.start_date, ImportData.end_date)
-    //   } catch (e) {
-    //     console.log(e)
-    //   }
-    // },
     async UpdateData (id) {
       this.tripcard.postDate = new Date()
       try {
@@ -283,9 +281,8 @@ export default {
     }
   },
   async created () {
-    // this.getData(this.updateID)
     try {
-      const ImportData = await Service.thisIdDate(this.updateID)
+      const ImportData = await Service.thisIdData(this.updateID)
       this.tripcard = { ...ImportData }
       this.timeData = ImportData.departure.leave_time
       this.DateDate.push(ImportData.start_date, ImportData.end_date)
@@ -293,14 +290,5 @@ export default {
       console.log(e)
     }
   }
-  // beforeRouteEnter (to, from, next) {
-  //   const currentUser = JSON.parse(localStorage.getItem('authUser'))
-  //   if (currentUser[0].id !== this.tripcard.author.id) {
-  //     console.log('user/update')
-  //     next('/user/home')
-  //   } else {
-  //     next()
-  //   }
-  // }
 }
 </script>

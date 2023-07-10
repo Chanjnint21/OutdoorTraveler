@@ -49,7 +49,7 @@
         <v-container class="MainContain">
           <v-tabs-items v-model="tab">
             <your-blog :UserID="userID"/>
-            <favorit-post/>
+            <favorit-post :UserID="userID"/>
             <up-coming/>
             <joined-trip/>
           </v-tabs-items>
@@ -86,9 +86,9 @@ export default {
     }
   },
   created () {
-    const currentUser = JSON.parse(localStorage.getItem('authUser'))
-    this.userName = currentUser[0].name
-    this.userID = currentUser[0].id
+    const crrUser = JSON.parse(localStorage.getItem('authUser'))
+    this.userName = crrUser[0].name
+    this.userID = crrUser[0].id
   }
 }
 </script>

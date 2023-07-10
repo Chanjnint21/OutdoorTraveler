@@ -34,8 +34,8 @@
       "destination": "Hawaii",
       "start_date": "2024-11-01",
       "end_date": "2024-11-07",
-      "detail": "Parents are supposed to push you past your goals, or at least, that’s what I always believed. I was raised in the generation of “you can do anything if you put your mind to it.” My parents did not follow that philosophy, and they saw little value in a formal education. It was their lack of passion that led me to my educational goals.\nFrom as far back as I can remember, I knew I didn’t want to follow in the footsteps of my parents, at least not when it came to work. My father had worked on the family farm all his life and my mother had been a housewife since graduation. They were both content with the simplicity of their lives and wanted the same for me. I remember my father telling me that college was “expensive and a waste of four years”.  I knew however, that I wanted a career in the city that would be more challenging than simple farm life could provide. The only way to make that possible would be through formal education and a college degree. \nWhile my parents may not understand the value of formal education, I know it is essential for my future. ",
-      "image": "https://images.unsplash.com/photo-1578632749014-ca77efd052eb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGFuaW1lfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60",
+      "detail": "Parents are supposed to push you past your goals, or at least, that’s what I always believed. I was raised in the generation of “you can do anything if you.",
+      "image": "https://media.istockphoto.com/id/1480668717/photo/beach-travel-vacation-tropical-paradise-getaway-on-coral-reef-island-atoll-with-idyllic.jpg?s=612x612&w=0&k=20&c=GFhXNWZw6D3F2fGwPd8D41k4qi7ZCFHVjXHd1cvYbgE=",
       "category": [
         "One day Trip",
         "Hiking"
@@ -56,45 +56,45 @@
     },
     {
       "id": "testing01",
-      "postDate": "2023-07-03T10:57:51.129Z",
+      "postDate": "2023-07-07T09:25:12.483Z",
       "title": "African Safari Adventure",
       "author": {
         "id": "1x2345",
         "name": "jennie"
       },
       "destination": "Kenya",
-      "start_date": "2025-03-01",
-      "end_date": "2025-03-08",
+      "start_date": "2025-03-27",
+      "end_date": "2025-03-22",
       "detail": "Embark on an unforgettable safari adventure and witness the majesty of Africa's wildlife in their natural habitat.",
-      "image": "https://images.unsplash.com/photo-1580477667995-2b94f01c9516?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGFuaW1lfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60",
+      "image": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iAwx0Hxr8fm0/v0/-1x-1.jpg",
       "category": [],
       "departure": {
         "meet_location": "Jomo Kenyatta International Airport",
-        "leave_time": "6:00"
+        "leave_time": "00:10"
       },
       "requirement": {
         "Age": [
           28,
           41
         ],
-        "cost": 8009,
+        "cost": 8000,
         "nationalId": "required",
         "phoneNumber": "Require"
       }
     },
     {
       "id": "tducfrn424",
-      "postDate": "2023-06-28T09:17:44.990Z",
+      "postDate": "2023-07-06T08:06:08.793Z",
       "title": "Winter Wonderland Ski Trip",
       "author": {
         "id": "1x2345",
         "name": "jennie"
       },
       "destination": "Switzerland",
-      "start_date": "2024-12-15",
-      "end_date": "2024-12-22",
+      "start_date": "2024-12-12",
+      "end_date": "2024-12-01",
       "detail": "Experience the thrill of skiing in the Swiss Alps and enjoy the beauty of a winter wonderland.",
-      "image": "https://images.unsplash.com/photo-1601850494422-3cf14624b0b3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGFuaW1lfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60",
+      "image": "https://images.lifestyleasia.com/wp-content/uploads/sites/6/2022/12/06110018/22-23_ASC_Skiing_025-4418x2945-3106eb97-7e35-4f0d-912f-91911c2b34b0-min-scaled.jpg",
       "category": [],
       "departure": {
         "meet_location": "Zurich Airport",
@@ -122,7 +122,7 @@
       "start_date": "2025-06-01",
       "end_date": "2025-06-10",
       "detail": "Immerse yourself in the traditions and culture of Japan and discover its unique blend of modernity and tradition.",
-      "image": "https://images.unsplash.com/photo-1528360983277-13d401cdc186?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fGFuaW1lfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60",
+      "image": "https://www.travelpediaonline.com/wp-content/uploads/2022/05/cultural-immersion-ideas-travelpediaonline.jpg",
       "category": "Tour",
       "departure": {
         "meet_location": "Narita International Airport",
@@ -137,6 +137,18 @@
         "nationalId": "required",
         "phoneNumber": "required"
       }
+    }
+  ],
+  "Favorite": [
+    {
+      "id": "zie_D4P",
+      "user_id": "2x3456",
+      "card_id": "ydewf-3"
+    },
+    {
+      "id": "EjeVM2X",
+      "user_id": "2x3456",
+      "card_id": "yhcsjeh34"
     }
   ]
 }

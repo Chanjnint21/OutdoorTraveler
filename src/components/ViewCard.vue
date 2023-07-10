@@ -4,31 +4,36 @@
       v-bind="$attrs"
       v-on="$listeners"
       :elevation="elevation"
-      class="pa-md-4 mx-lg-auto text-center rounded-xl"
+      class="pa-4 rounded-xl"
     >
       <v-row no-gutters>
-        <v-col cols="6" sm="6" md="6" lg="6">
-          <v-row>
+        <v-col cols="12" xs='12' sm="6" md="6" lg="6">
+          <v-row no-gutters>
+            <v-col cols="12" class='d-flex justify-start'>
+              <trip-btn
+                icon
+                @click="back">
+                <template #icon>
+                  <v-icon class="pa-2">mdi-arrow-left</v-icon>
+                </template>
+              </trip-btn>
+              <v-avatar class="ml-3" size="40">
+                <img src="../assets/Img/pf2.jpg" alt="Patrick">
+              </v-avatar>
+              <p class="ma-2">{{ item.author.name }}</p>
+            </v-col>
             <v-col>
-              <v-col cols="1">
-                <trip-btn
-                  icon
-                  @click="back">
-                  <template #icon>
-                    <v-icon class="pa-2">mdi-arrow-left</v-icon>
-                  </template>
-                </trip-btn>
-              </v-col>
               <v-card-title class="text-h5"><b>{{ item.title }}</b></v-card-title>
               <v-card-text class="text-left">{{ item.detail }}</v-card-text>
-              <v-card-subtitle class="text-left" style="font-size: larger; color:blue"> {{ Text1 }} </v-card-subtitle>
+              <v-card-subtitle class="text-left" style="font-size: larger; color:blue"> About Trip </v-card-subtitle>
               <v-card-text class="text-left"><v-icon>mdi-map-marker</v-icon> Destination:     {{ item. destination}}</v-card-text>
               <v-card-text class="text-left"><v-icon>mdi-calendar-range</v-icon> Start Date:      {{ item. start_date}}</v-card-text>
               <v-card-text class="text-left"><v-icon>mdi-calendar-range</v-icon> End Date:       {{ item. end_date}}</v-card-text>
               <v-card-text class="text-left"><v-icon>mdi-heart</v-icon> Categorize:      {{ item. category}}</v-card-text>
-              <v-card-text class="text-left"><v-icon>mdi-clock</v-icon> Departure Location:      {{ item. departure.meet_location}}</v-card-text>
-              <v-card-text class="text-left"><v-icon>mdi-clock</v-icon> Departure Leave Time:       {{ item. departure.leave_time}}</v-card-text>
-              <v-card-subtitle class="text-left " style="font-size: larger ; color:green"> {{ Text }} </v-card-subtitle>
+              <v-card-subtitle class="text-left" style="font-size: larger ; color:green"> Departure </v-card-subtitle>
+              <v-card-text class="text-left"><v-icon>mdi-map</v-icon> Location:      {{ item. departure.meet_location}}</v-card-text>
+              <v-card-text class="text-left"><v-icon>mdi-clock</v-icon> Time:       {{ item. departure.leave_time}}</v-card-text>
+              <v-card-subtitle class="text-left" style="font-size: larger ; color:green"> Requirements </v-card-subtitle>
               <v-card-text class="text-left"><v-icon> mdi-check-underline-circle</v-icon>Minimum Age:     {{ item.requirement.Age[0]}}</v-card-text>
               <v-card-text class="text-left"><v-icon> mdi-check-underline-circle</v-icon>Maximum Age:     {{ item.requirement.Age[1]}}</v-card-text>
               <v-card-text class="text-left"><v-icon> mdi-check-underline-circle</v-icon>Cost:     {{ item.requirement.cost}}</v-card-text>
@@ -37,7 +42,7 @@
             </v-col>
           </v-row>
         </v-col>
-        <v-col cols="12" sm="6" md="6" lg="6">
+        <v-col cols="12" xs='12' sm="6" md="6" lg="6">
           <v-row class="d-flex align-start" style="height: 100% " no-gutters>
             <v-img
             width="100%"
@@ -52,13 +57,11 @@
   </div>
 </template>
 <script>
-import router from '../router'
+// import router from '../router'
 export default {
   name: 'ViewCard',
   data () {
     return {
-      Text: 'Requirements',
-      Text1: 'About Trip'
     }
   },
   props: {
@@ -81,7 +84,7 @@ export default {
   },
   methods: {
     back () {
-      router.push({ name: 'home' })
+      this.$router.back()
     }
   }
 }

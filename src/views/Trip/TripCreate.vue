@@ -2,11 +2,26 @@
   <v-container class="MainContain">
     <v-card class="rounded-xl">
       <v-col cols="1">
-        <trip-btn icon @click="back">
-          <template #icon>
-            <v-icon class="pa-2">mdi-arrow-left</v-icon>
+        <c-dialog
+          label1="Save or Discard?"
+          label2="These changes can't be undone!"
+          :icon="true"
+          DioBtnClass="grey-text"
+        >
+          <template #agree>
+            <v-btn color="#1687A7" text @click="saveChanges(); dialog = false">
+              Save
+            </v-btn>
           </template>
-        </trip-btn>
+          <template #disagree>
+            <v-btn color="#1687A7" text @click="discardChanges(); dialog = false">
+              Don't Save
+            </v-btn>
+          </template>
+          <template #icon>
+            <v-icon>mdi-arrow-left</v-icon>
+          </template>
+        </c-dialog>
       </v-col>
       <v-card-title class="d-flex justify-center text-h6">Trip Card</v-card-title>
       <form-component ref="form" v-model="form">
@@ -56,20 +71,38 @@
             <trip-btn
             name="draftPost"
             class="white--text mx-3"
-            btn-color="#276678"
-            btn-label="Draft"
-            @click="draftPost"
-            />
+            btn-color="#1687A7"
+            btn-label="Publish"
+            @display-data="displayData"
+          />
+        </template>
+        <template v-slot:FormBtn2>
+          <v-row class="d-flex justify-center pb-5">
+            <c-dialog
+              label1="Save or Discard?"
+              label2="These changes can't be undone!"
+              DioBtnClass="#1687A7"
+              DioLabel="Draft"
+            >
+              <template #agree>
+                <v-btn color="#1687A7" text @click="saveChanges(); dialog = false">
+                  Save
+                </v-btn>
+              </template>
+              <template #disagree>
+                <v-btn color="#1687A7" text @click="discardChanges(); dialog = false">
+                  Don't Save
+                </v-btn>
+              </template>
+            </c-dialog>
           </v-row>
-        </v-card-actions>
+        </template>
       </form-component>
     </v-card>
   </v-container>
 </template>
 
 <script>
-// import { defaultTripcard } from '../Model/tripcard.js'
-// import router from '../../router'
 import { Service } from '@/service/index.js'
 import FormComponent from './Component/FormComponent.vue'
 
@@ -86,15 +119,6 @@ export default {
     }
   },
   methods: {
-    StartDate (value) {
-      this.tripcard.start_date = value
-    },
-    EndDate (value) {
-      this.tripcard.end_date = value
-    },
-    LeaveTime (value) {
-      this.tripcard.departure.leave_time = value
-    },
     validate () {
       this.isFormValid = this.$refs.form.validate()
     },
@@ -145,13 +169,14 @@ export default {
         console.log(e)
       }
     },
-    displayData () {
+    displayData (value) {
       const storedData = JSON.parse(localStorage.getItem('objectData'))
       if (storedData) {
         this.form = { ...storedData }
         this.form.title = storedData.title
         this.form.destination = storedData.destination
       }
+      this.originalTripCard = { ...value }
     },
     draftPost () {
       this.$router.back()
@@ -164,34 +189,13 @@ export default {
     },
     discardChanges () {
       localStorage.removeItem('objectData')
-      // this.$refs.form.reset()
+      this.$router.back()
+      console.log(this.originalTripCard)
+      console.log('Data not saved!')
     }
   },
   created () {
     this.displayData()
-  },
-  beforeRouteLeave (to, from, next) {
-    if (this.isFormModified()) {
-      const answer = window.confirm("Save or Don't Save ?")
-      console.log(answer)
-      if (answer) {
-        this.saveChanges()
-        next()
-      } else {
-        this.discardChanges()
-        next()
-      }
-    } else {
-      next()
-    }
   }
 }
 </script>
-
-<style>
-@media(min-width: 1800px) {
-  .MainContain {
-    padding: 2rem 10rem;
-  }
-}
-</style>

@@ -35,7 +35,7 @@
               <slot name="bookmark">
                 <trip-btn @click='ToFav' icon>
                   <template #icon>
-                    <v-icon class="pa-2">{{ FavIcon }}</v-icon>
+                    <v-icon color="#97D8EB" class="pa-2">{{ FavIcon }}</v-icon>
                   </template>
                 </trip-btn>
               </slot>
@@ -64,6 +64,9 @@
 </template>
 <script>
 import router from '../router'
+import axios from 'axios'
+// import { Service } from '@/service/index.js'
+
 export default {
   name: 'CardComponent',
   props: {
@@ -90,16 +93,8 @@ export default {
       Text1: 'Cost:',
       Text2: '$/Person',
       Fav: false,
-      FavIcon: 'mdi-bookmark-outline'
-    }
-  },
-  watch: {
-    Fav (newVal) {
-      if (newVal) {
-        this.FavIcon = 'mdi-bookmark'
-        return this.FavIcon
-      }
-      this.FavIcon = 'mdi-bookmark-outline'
+      FavIcon: 'mdi-bookmark-outline',
+      crrUser: JSON.parse(localStorage.getItem('authUser'))
     }
   },
   methods: {
@@ -109,8 +104,48 @@ export default {
     ViewClick (id) {
       router.push({ name: 'view', params: { id } })
     },
+    async addFav () {
+      this.FavIcon = 'mdi-bookmark'
+      await axios.post('http://localhost:3000/Favorite', {
+        id: '',
+        user_id: this.crrUser[0].id,
+        card_id: this.item.id
+      })
+    },
+    async removeFav () {
+      this.FavIcon = 'mdi-bookmark-outline'
+      const FavId = await axios.get(`http://localhost:3000/Favorite?user_id=${this.crrUser[0].id}&card_id=${this.item.id}`)
+      await axios.delete(`http://localhost:3000/Favorite/${FavId.data[0].id}`)
+    },
     ToFav () {
       this.Fav = !this.Fav
+      if (this.Fav) {
+        this.addFav()
+      } else {
+        this.removeFav()
+      }
+    }
+  },
+  // watch: {
+  //   Fav (newVal) {
+  //     if (newVal) {
+  //       return this.addFav()
+  //     }
+  //     return this.removeFav()
+  //   }
+  // },
+  async mounted () {
+    try {
+      const FavOn = await axios.get(`http://localhost:3000/Favorite?user_id=${this.crrUser[0].id}&card_id=${this.item.id}`)
+      if (FavOn.data.length === 1) {
+        this.FavIcon = 'mdi-bookmark'
+        this.Fav = true
+      } else {
+        this.FavIcon = 'mdi-bookmark-outline'
+        this.Fav = false
+      }
+    } catch (error) {
+      console.log(error)
     }
   }
 }

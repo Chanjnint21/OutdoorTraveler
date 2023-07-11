@@ -76,10 +76,5 @@ export default {
     DioLabel: String,
     DioColor: String
   }
-  // methods: {
-  //   deleteItem (id) {
-  //     this.$emit('delete', id)
-  //   }
-  // }
 }
 </script>

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-form ref="form">
+    <v-form ref="form" @input="val => $emit('update:validity',val)">
       <v-card-text>
         <v-row>
           <v-col cols="12" sm="6" md="6">
@@ -94,11 +94,11 @@
           </v-col>
           <v-col cols="12" sm="6" md="6">
             <time-picker
-              :passData="timeData"
-              name="timeLeave"
-              @time-save="LeaveTime"
-              :rules="[rules.createrule]"
-            />
+                :passData="timeData"
+                name="timeLeave"
+                @time-save="LeaveTime"
+                :rules="[rules.createrule]"
+              />
           </v-col>
           <v-col cols="12" class="d-flex justify-center text-h6">- Requirements -</v-col>
           <v-col cols="12" sm="6" md="6" class="d-flex align-center">
@@ -183,6 +183,10 @@ export default {
     DateData: {
       type: Array,
       default: () => []
+    },
+    validity: {
+      type: Boolean,
+      default: false
     }
   },
   data () {
@@ -206,6 +210,7 @@ export default {
         meet_location: '',
         age: [],
         leave_time: '',
+        age: '',
         cost: '',
         nationalId: '',
         phoneNumber: ''
@@ -218,10 +223,20 @@ export default {
       deep: true,
       handler (val) {
         this.form = val
+      },
+      form: {
+        deep: true, // Watch nested properties inside the expression
+        handler () {
+          this.validate() // call validate method when form data changes
+        }
       }
     }
   },
   methods: {
+    validate () {
+      this.isFormComplete = this.$refs.form.validate()
+      this.$emit('form-complete', this.isFormComplete)
+    },
     StartDate (value) {
       this.form.start_date = value
     },
@@ -230,9 +245,6 @@ export default {
     },
     LeaveTime (value) {
       this.form.leave_time = value
-    },
-    validate () {
-      this.$refs.form.validate()
     }
   }
 }

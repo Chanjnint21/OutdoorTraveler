@@ -1,16 +1,5 @@
 <template>
-  <!-- <v-container class="MainContain"> -->
   <div>
-    <!-- <v-col class="d-flex justify-center align-center" cols="12">
-      <v-alert
-        border="left"
-        type="error"
-        dismissible
-        block
-      >
-        You don't have permision to do that
-      </v-alert>
-    </v-col> -->
     <view-card
       v-if="selectedItem"
       height="auto"

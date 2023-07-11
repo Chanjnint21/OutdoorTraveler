@@ -41,6 +41,7 @@ export default {
     return {
       originalTripCard: null,
       form: {},
+      crrUser: JSON.parse(localStorage.getItem('authUser'))
       isFormComplete: false
     }
   },
@@ -95,8 +96,8 @@ export default {
       const storedData = JSON.parse(localStorage.getItem('objectData'))
       if (storedData) {
         this.form = { ...storedData }
-        this.form.title = storedData.title
-        this.form.destination = storedData.destination
+        // this.form.title = storedData.title
+        // this.form.destination = storedData.destination
       }
       this.originalTripCard = { ...value }
     },

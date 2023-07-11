@@ -26,21 +26,16 @@
         <v-card-text>{{label2}}</v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn
-            color="#276678"
-            text
-            @click="dialog = false"
-          >
-          </v-btn>
-          <slot name="agree"></slot>
-          <v-spacer></v-spacer>
-              <v-btn
+          <slot name="disagree">
+            <v-btn
               color="#276678"
               text
               @click="dialog = false"
-              >
-              </v-btn>
-              <slot name="disagree"> </slot>
+            > No
+            </v-btn>
+          </slot>
+          <slot name="agree">
+          </slot>
         </v-card-actions>
       </v-card>
     </v-dialog>

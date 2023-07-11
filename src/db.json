@@ -24,16 +24,15 @@
   ],
   "tripcards": [
     {
-      "id": "yhcsjeh34",
-      "postDate": "2023-07-04T10:15:41.692Z",
-      "title": "Tropical Paradise Getaway",
       "author": {
         "id": "2x3456",
         "name": "user0101"
       },
+      "postDate": "2023-07-11T07:31:55.929Z",
+      "title": "Tropical Paradise Getaway",
       "destination": "Hawaii",
       "start_date": "2024-11-01",
-      "end_date": "2024-11-07",
+      "end_date": "2024-11-14",
       "detail": "Parents are supposed to push you past your goals, or at least, that’s what I always believed. I was raised in the generation of “you can do anything if you.",
       "image": "https://media.istockphoto.com/id/1480668717/photo/beach-travel-vacation-tropical-paradise-getaway-on-coral-reef-island-atoll-with-idyllic.jpg?s=612x612&w=0&k=20&c=GFhXNWZw6D3F2fGwPd8D41k4qi7ZCFHVjXHd1cvYbgE=",
       "category": [
@@ -42,17 +41,18 @@
       ],
       "departure": {
         "meet_location": "Honolulu International Airport",
-        "leave_time": "10:00"
+        "leave_time": "00:05"
       },
       "requirement": {
-        "Age": [
-          28,
-          41
+        "age": [
+          40,
+          59
         ],
         "cost": 5000,
         "nationalId": "Require",
         "phoneNumber": "Require"
-      }
+      },
+      "id": "yhcsjeh34"
     },
     {
       "id": "testing01",
@@ -73,12 +73,12 @@
         "leave_time": "00:10"
       },
       "requirement": {
-        "Age": [
+        "age": [
           28,
           41
         ],
         "cost": 8000,
-        "nationalId": "required",
+        "nationalId": "Require",
         "phoneNumber": "Require"
       }
     },
@@ -101,42 +101,38 @@
         "leave_time": "2:00"
       },
       "requirement": {
-        "Age": [
+        "age": [
           28,
           41
         ],
         "cost": 6000,
-        "nationalId": "required",
-        "phoneNumber": "required"
+        "nationalId": "Require",
+        "phoneNumber": "Require"
       }
     },
     {
-      "id": "ydewf-3",
-      "postDate": "2023-06-28T09:17:13.939Z",
-      "title": "Cultural Immersion Tour",
       "author": {
         "id": "2x3456",
         "name": "user0101"
       },
+      "postDate": "2023-07-11T07:05:46.486Z",
+      "title": "Cultural Immersion Tour",
       "destination": "Japan",
       "start_date": "2025-06-01",
       "end_date": "2025-06-10",
       "detail": "Immerse yourself in the traditions and culture of Japan and discover its unique blend of modernity and tradition.",
       "image": "https://www.travelpediaonline.com/wp-content/uploads/2022/05/cultural-immersion-ideas-travelpediaonline.jpg",
-      "category": "Tour",
+      "category": [],
       "departure": {
         "meet_location": "Narita International Airport",
         "leave_time": "9:00"
       },
       "requirement": {
-        "Age": [
-          28,
-          41
-        ],
         "cost": 4500,
-        "nationalId": "required",
-        "phoneNumber": "required"
-      }
+        "nationalId": "Require",
+        "phoneNumber": "Require"
+      },
+      "id": "ydewf-3"
     }
   ],
   "Favorite": [
@@ -144,11 +140,6 @@
       "id": "zie_D4P",
       "user_id": "2x3456",
       "card_id": "ydewf-3"
-    },
-    {
-      "id": "EjeVM2X",
-      "user_id": "2x3456",
-      "card_id": "yhcsjeh34"
     }
   ]
 }

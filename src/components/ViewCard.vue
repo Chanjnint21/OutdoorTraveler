@@ -34,8 +34,8 @@
               <v-card-text class="text-left"><v-icon>mdi-map</v-icon> Location:      {{ item. departure.meet_location}}</v-card-text>
               <v-card-text class="text-left"><v-icon>mdi-clock</v-icon> Time:       {{ item. departure.leave_time}}</v-card-text>
               <v-card-subtitle class="text-left" style="font-size: larger ; color:green"> Requirements </v-card-subtitle>
-              <v-card-text class="text-left"><v-icon> mdi-check-underline-circle</v-icon>Minimum Age:     {{ item.requirement.Age[0]}}</v-card-text>
-              <v-card-text class="text-left"><v-icon> mdi-check-underline-circle</v-icon>Maximum Age:     {{ item.requirement.Age[1]}}</v-card-text>
+              <v-card-text class="text-left"><v-icon> mdi-check-underline-circle</v-icon>Minimum Age:     {{ item.requirement.age[0]}}</v-card-text>
+              <v-card-text class="text-left"><v-icon> mdi-check-underline-circle</v-icon>Maximum Age:     {{ item.requirement.age[1]}}</v-card-text>
               <v-card-text class="text-left"><v-icon> mdi-check-underline-circle</v-icon>Cost:     {{ item.requirement.cost}}</v-card-text>
               <v-card-text class="text-left"><v-icon>mdi-check-underline-circle</v-icon>phoneNumber: {{ item.requirement.phoneNumber}}</v-card-text>
               <v-card-text class="text-left"><v-icon>mdi-check-underline-circle</v-icon>National ID: {{ item.requirement.nationalId}}</v-card-text>

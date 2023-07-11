@@ -14,7 +14,7 @@
             </v-btn>
           </template>
           <template #disagree>
-            <v-btn color="#1687A7" text @click="discardChanges(); dialog = false">
+            <v-btn color="#276678" text @click="discardChanges(); dialog = false">
               Don't Save
             </v-btn>
           </template>
@@ -30,18 +30,18 @@
               type="submit"
               name="Publish"
               @click="publishPost()"
-              class="white--text mx-3"
+              class="white--text"
               btn-color="#1687A7"
               btn-label="Publish"
               @display-data="displayData"
-              :disabled="!isFormValid"
             />
           </template>
         <template v-slot:FormBtn2>
             <c-dialog
+              class="d-flex align-center ml-3"
               label1="Save or Discard?"
               label2="These changes can't be undone!"
-              DioBtnClass="#1687A7"
+              DioColor="#276678"
               DioLabel="Draft"
             >
               <template #agree>
@@ -50,7 +50,7 @@
                 </v-btn>
               </template>
               <template #disagree>
-                <v-btn color="#1687A7" text @click="discardChanges(); dialog = false">
+                <v-btn color="#276678" text @click="discardChanges(); dialog = false">
                   Don't Save
                 </v-btn>
               </template>
@@ -74,7 +74,8 @@ export default {
     return {
       originalTripCard: null,
       form: {},
-      isFormValid: false
+      isFormValid: false,
+      crrUser: JSON.parse(localStorage.getItem('authUser'))
     }
   },
   methods: {
@@ -86,9 +87,10 @@ export default {
         id: this.form.id,
         postDate: this.form.postDate,
         title: this.form.title,
+        destination: this.forn.destination,
         author: {
-          id: 2,
-          name: 'user0101'
+          id: this.crrUser[0].id,
+          name: this.crrUser[0].name
         },
         start_date: this.form.start_date,
         end_date: this.form.end_date,
@@ -132,8 +134,8 @@ export default {
       const storedData = JSON.parse(localStorage.getItem('objectData'))
       if (storedData) {
         this.form = { ...storedData }
-        this.form.title = storedData.title
-        this.form.destination = storedData.destination
+        // this.form.title = storedData.title
+        // this.form.destination = storedData.destination
       }
       this.originalTripCard = { ...value }
     },

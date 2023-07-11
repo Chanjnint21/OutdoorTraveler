@@ -29,7 +29,7 @@
           </v-col>
           <v-col cols="12" sm="6" md="6">
             <date-picker
-              :passData="DateDate[0]"
+              :passData="DateData[0]"
               name="startDate"
               @date-changed="StartDate"
               :rules="[rules.createrule]"
@@ -37,7 +37,7 @@
           </v-col>
           <v-col cols="12" sm="6" md="6">
             <date-picker
-              :passData="DateDate[1]"
+              :passData="DateData[1]"
               name="endDate"
               @date-changed="EndDate"
               :rules="[rules.createrule]"
@@ -159,8 +159,10 @@
       </v-card-text>
       <v-card-actions>
         <v-row class="d-flex justify-center pb-5">
-          <slot name="FormBtn1"></slot>
-          <slot name="FormBtn2"></slot>
+          <v-col cols='1' class="d-flex justify-center">
+            <slot name="FormBtn1"></slot>
+            <slot name="FormBtn2"></slot>
+          </v-col>
         </v-row>
       </v-card-actions>
     </v-form>
@@ -173,6 +175,14 @@ export default {
   props: {
     value: {
       type: Object
+    },
+    timeData: {
+      type: String,
+      default: ''
+    },
+    DateData: {
+      type: Array,
+      default: () => []
     }
   },
   data () {
@@ -183,16 +193,10 @@ export default {
         createrule: value => !!value || 'field required'
       },
       PostBtn: true,
-      timeData: '',
-      DateDate: [],
       form: {
         id: '',
         postDate: '',
         title: '',
-        author: {
-          id: 2,
-          name: 'user0101'
-        },
         destination: '',
         start_date: '',
         end_date: '',
@@ -200,7 +204,7 @@ export default {
         image: '',
         category: null,
         meet_location: '',
-        age: '',
+        age: [],
         leave_time: '',
         cost: '',
         nationalId: '',
@@ -225,7 +229,7 @@ export default {
       this.form.end_date = value
     },
     LeaveTime (value) {
-      this.form.departure.leave_time = value
+      this.form.leave_time = value
     },
     validate () {
       this.$refs.form.validate()

@@ -41,7 +41,7 @@ export default {
     return {
       originalTripCard: null,
       form: {},
-      crrUser: JSON.parse(localStorage.getItem('authUser'))
+      crrUser: JSON.parse(localStorage.getItem('authUser')),
       isFormComplete: false
     }
   },
@@ -66,6 +66,7 @@ export default {
             leave_time: this.form.leave_time
           },
           requirement: {
+            age: this.form.age,
             cost: this.form.cost,
             nationalId: this.form.nationalId,
             phoneNumber: this.form.phoneNumber

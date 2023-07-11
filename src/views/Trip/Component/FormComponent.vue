@@ -210,7 +210,6 @@ export default {
         meet_location: '',
         age: [],
         leave_time: '',
-        age: '',
         cost: '',
         nationalId: '',
         phoneNumber: ''

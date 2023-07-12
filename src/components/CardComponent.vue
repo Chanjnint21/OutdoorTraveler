@@ -48,11 +48,12 @@
               />
               </slot>
               <slot name="btn2">
-                <trip-btn
+                <!-- <trip-btn
                   BtnColor="#1687A7"
                   class="white--text"
                   btn-label="Register"
-                />
+                /> -->
+                <r-dialog :this-card='item.id'/>
               </slot>
               <slot name="btn3"></slot>
             </v-card-actions>
@@ -62,13 +63,17 @@
     </v-row>
   </v-card>
 </template>
+
 <script>
 import router from '../router'
 import axios from 'axios'
-// import { Service } from '@/service/index.js'
+import RDialog from './RegisterDialog.vue'
 
 export default {
   name: 'CardComponent',
+  components: {
+    RDialog
+  },
   props: {
     elevation: {
       type: String
@@ -126,14 +131,6 @@ export default {
       }
     }
   },
-  // watch: {
-  //   Fav (newVal) {
-  //     if (newVal) {
-  //       return this.addFav()
-  //     }
-  //     return this.removeFav()
-  //   }
-  // },
   async mounted () {
     try {
       const FavOn = await axios.get(`http://localhost:3000/Favorite?user_id=${this.crrUser[0].id}&card_id=${this.item.id}`)

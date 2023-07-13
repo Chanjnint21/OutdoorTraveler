@@ -15,7 +15,6 @@
             btn-color="#1687A7"
             btn-label="Publish"
             @display-data="displayData"
-            :disabled="!isFormComplete"
           />
         </template>
         <template v-slot:FormBtn2>
@@ -42,7 +41,9 @@ export default {
       originalTripCard: null,
       form: {},
       crrUser: JSON.parse(localStorage.getItem('authUser')),
-      isFormComplete: false
+      isFormComplete: false,
+      tripDate: [],
+      time: ''
     }
   },
   methods: {
@@ -69,9 +70,16 @@ export default {
             age: this.form.age,
             cost: this.form.cost,
             nationalId: this.form.nationalId,
-            phoneNumber: this.form.phoneNumber
+            phoneNumber: this.form.phoneNumber,
+            amount: this.form.amount,
+            transportation: this.form.transportation
           }
         }
+        // console.log('hi, barbie')
+        // console.log(this.form.departure.leave_time)
+        // this.time = form.departure.leave_time
+        // console.log(this.form.start_date, this.form.end_date)
+        // this.tripDate.push(form.start_date, form.end_date)
         try {
           await Service.newTripCard(form)
           this.form.postDate = new Date()
@@ -97,8 +105,7 @@ export default {
       const storedData = JSON.parse(localStorage.getItem('objectData'))
       if (storedData) {
         this.form = { ...storedData }
-        // this.form.title = storedData.title
-        // this.form.destination = storedData.destination
+        console.log(this.form, 'hi')
       }
       this.originalTripCard = { ...value }
     },
@@ -117,6 +124,8 @@ export default {
     }
   },
   created () {
+    // const storedData = JSON.parse(localStorage.getItem('objectData'))
+    // console.log(storedData)
     this.displayData()
   }
 }

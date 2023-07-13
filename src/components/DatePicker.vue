@@ -34,6 +34,7 @@
       <v-btn
         text
         color="#1687A7"
+        v-model="date"
         @click="$refs.menu.save(date);
         savethisdate(date)"> OK </v-btn>
     </v-date-picker>

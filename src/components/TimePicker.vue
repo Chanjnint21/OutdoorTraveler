@@ -13,7 +13,7 @@
   >
     <template v-slot:activator="{ on, attrs }">
       <v-text-field
-        v-model="time"
+        :value="time"
         label="Leave Time"
         append-icon="mdi-clock"
         readonly
@@ -27,10 +27,9 @@
     </template>
     <v-time-picker
       color="#276678"
-      v-if="menu2"
       v-model="time"
       full-width
-      @click:minute="$refs.menu.save(time); saveThisTime(time)"
+      @click:minute="saveThisTime(time)"
     ></v-time-picker>
   </v-menu>
 </template>
@@ -39,9 +38,9 @@
 export default {
   name: 'TimePicker',
   props: {
-    passData: {
+    value: {
       type: String,
-      require: true
+      default: null
     }
   },
   data: () => ({
@@ -51,13 +50,14 @@ export default {
     time: ''
   }),
   watch: {
-    passData (newVal) {
+    value (newVal) {
       this.time = newVal
     }
   },
   methods: {
     saveThisTime (time) {
-      this.$emit('time-save', time)
+      this.$refs.menu.save(time)
+      this.$emit('input', time)
     }
   }
 }

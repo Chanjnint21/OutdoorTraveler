@@ -94,9 +94,8 @@
           </v-col>
           <v-col cols="12" sm="6" md="6">
             <time-picker
-                :passData="timeData"
                 name="timeLeave"
-                @time-save="LeaveTime"
+                v-model="form.leave_time"
                 :rules="[rules.createrule]"
               />
           </v-col>

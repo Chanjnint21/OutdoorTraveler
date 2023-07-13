@@ -5,7 +5,7 @@
         <save-dialog @saveChanges="SaveChanges" @discardChanges="DiscardChanges"/>
       </v-col>
       <v-card-title class="d-flex justify-center text-h6">Trip Card</v-card-title>
-      <form-component ref="form" v-model="form" :validity.sync="isFormComplete" :DateData="tripDate" :timeData="time">
+      <form-component ref="form" v-model="form" :validity.sync="isFormComplete">
         <template v-slot:FormBtn1>
           <trip-btn
             type="submit"
@@ -101,16 +101,13 @@ export default {
         console.log(e)
       }
     },
-    displayData () {
+    displayData (value) {
       const storedData = JSON.parse(localStorage.getItem('objectData'))
-      console.log(storedData[0])
       if (storedData) {
         this.form = { ...storedData }
-        // this.time = storedData.leave_time
-        console.log(storedData.leave_time)
-        this.tripDate.push(storedData.start_date, storedData.end_date)
+        console.log(this.form, 'hi')
       }
-      // this.originalTripCard = { ...value }
+      this.originalTripCard = { ...value }
     },
     draftPost () {
       this.$router.back()
@@ -127,8 +124,8 @@ export default {
     }
   },
   created () {
-    const storedData = JSON.parse(localStorage.getItem('objectData'))
-    console.log(storedData)
+    // const storedData = JSON.parse(localStorage.getItem('objectData'))
+    // console.log(storedData)
     this.displayData()
   }
 }

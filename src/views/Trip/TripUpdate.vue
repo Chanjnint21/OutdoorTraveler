@@ -80,11 +80,13 @@ export default {
     },
     async UpdateData (id) {
       const form = {
+        id: '',
+        postDate: new Date().toLocaleDateString(),
+        postTime: new Date().toLocaleTimeString('en-US', { hour12: false }),
         author: {
           id: this.crrUser[0].id,
           name: this.crrUser[0].name
         },
-        postDate: new Date(),
         title: this.form.title,
         destination: this.form.destination,
         start_date: this.form.start_date,
@@ -131,7 +133,6 @@ export default {
         nationalId: ImportData.requirement.nationalId,
         phoneNumber: ImportData.requirement.phoneNumber
       }
-      console.log(this.time)
     } catch (e) {
       console.log(e)
     }

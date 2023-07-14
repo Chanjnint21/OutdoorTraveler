@@ -43,13 +43,33 @@
           </v-row>
         </v-col>
         <v-col cols="12" xs='12' sm="6" md="6" lg="6">
-          <v-row class="d-flex align-start" style="height: 100% " no-gutters>
-            <v-img
-            width="100%"
-            height="100%"
-            class="align-end"
-            :src="item.image"
-          />
+          <v-row class="d-flex align-start" no-gutters>
+            <v-col cols='12'>
+              <v-img
+                width="100%"
+                height="100%"
+                class="align-end"
+                :src="item.image"
+              />
+            </v-col>
+            <v-col cols='12'>
+              <p class="text-left text-h5 my-5">Participator : 5/10</p>
+              <v-list>
+                <v-list-item
+                  class="rounded-xxl mb-3"
+                  v-for="list in lists"
+                  :key="list.title"
+                  style="background-color: rgba(151, 216, 235, 0.5); "
+                >
+                  <v-list-item-avatar>
+                    <v-img :src="list.avatar"></v-img>
+                  </v-list-item-avatar>
+                  <v-list-item-content>
+                    <v-list-item-title > {{ list.title }} </v-list-item-title>
+                  </v-list-item-content>
+                </v-list-item>
+              </v-list>
+            </v-col>
           </v-row>
         </v-col>
       </v-row>
@@ -62,6 +82,14 @@ export default {
   name: 'ViewCard',
   data () {
     return {
+      lists: [
+        { title: 'Jason Oner', avatar: 'https://cdn.vuetifyjs.com/images/lists/1.jpg' },
+        { title: 'Travis Howard', avatar: 'https://cdn.vuetifyjs.com/images/lists/2.jpg' },
+        { title: 'Ali Connors', avatar: 'https://cdn.vuetifyjs.com/images/lists/3.jpg' },
+        { title: 'Cindy Baker', avatar: 'https://cdn.vuetifyjs.com/images/lists/4.jpg' },
+        { title: 'ba canel', avatar: 'https://cdn.vuetifyjs.com/images/lists/5.jpg' },
+        { title: 'Jake bone', avatar: 'https://picsum.photos/250/300?image=839' }
+      ]
     }
   },
   props: {

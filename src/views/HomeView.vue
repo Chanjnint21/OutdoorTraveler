@@ -28,6 +28,29 @@
           </template>
         </v-btn-toggle>
       </v-col>
+      <!-- <v-list>
+        <v-list-group
+          v-for="sort in Sorter"
+          :key="sort.title"
+          v-model="sort.active"
+          :prepend-icon="sort.action"
+          no-action
+        >
+          <template v-slot:activator>
+            <v-list-item-content>
+              <v-list-item-title >{{ sort.title }}</v-list-item-title>
+            </v-list-item-content>
+          </template>
+          <v-list-item
+            v-for="child in sort.sortlol"
+            :key="child.title"
+          >
+            <v-list-item-content>
+              <v-list-item-title >{{ child.title }}</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+        </v-list-group>
+      </v-list> -->
     </v-row>
     <v-row>
       <vue-load v-if="isLoading" />
@@ -37,8 +60,8 @@
             height="auto"
             elevation="8"
             :item="item"
-            @delete="deleteItem(item.id)"
-          />
+          ></card-component>
+          <!-- @delete="deleteItem" -->
         </v-col>
       </template>
     </v-row>
@@ -69,6 +92,21 @@ export default {
       Busy: false,
       selectedBtn: null,
       isLoading: true
+      // Sorter: [
+      //   {
+      //     action: 'mdi-sort',
+      //     active: true,
+      //     sortlol: [
+      //       { title: 'newest' },
+      //       { title: 'oldest' },
+      //       { title: 'Popular' },
+      //       { title: 'Recommend' },
+      //       { title: 'Price to High' },
+      //       { title: 'Price to Low' }
+      //     ],
+      //     title: 'Sorting'
+      //   }
+      // ]
     }
   },
   methods: {
@@ -77,22 +115,19 @@ export default {
         this.items = await Service.handleSearchQuery(q)
       }, 1000)
     },
-    async deleteItem (id) {
-      try {
-        await Service.deleteItem(id)
-        this.items = this.items.filter(item => item.id !== id)
-      } catch (error) {
-        console.log(error)
-      }
-    },
+    // async deleteItem (id) {
+    //   try {
+    //     await Service.deleteItem(id)
+    //     this.items = this.items.filter(item => item.id !== id)
+    //   } catch (error) {
+    //     console.log(error)
+    //   }
+    // },
     async sorting (val) {
-      console.log(val)
       try {
-        // this.isLoading = true
         setTimeout(async () => {
           const sortdata = await Service.sorting(val)
           this.items = sortdata
-        // this.isLoading = false
         }, 300)
       } catch (e) {
         console.log(e)

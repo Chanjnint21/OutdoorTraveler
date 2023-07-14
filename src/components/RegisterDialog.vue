@@ -18,7 +18,7 @@
       </template>
       <v-card>
         <v-card-title>
-          <span class="text-h5">Registration Form</span>
+          <span class="text-h5 mb-5">Registration Form</span>
         </v-card-title>
         <v-card-text>
           <v-form ref='form' v-model="registerCard">
@@ -27,12 +27,11 @@
                 cols="12"
               >
                 <text-field
-                  v-model="Username"
+                  v-model="subForm.userName"
                   label="Username"
                   required
                   readonly
                   :rules="[rules.createrule]"
-
                 />
               </v-col>
               <v-col
@@ -40,6 +39,7 @@
                 sm="6"
               >
                 <text-field
+                  v-model="subForm.firstName"
                   label="First name"
                   required
                   :rules="[rules.createrule]"
@@ -51,6 +51,7 @@
                 sm="6"
               >
                 <text-field
+                  v-model="subForm.lastName"
                   label="Last name"
                   :rules="[rules.createrule]"
 
@@ -61,6 +62,7 @@
                 sm="6"
               >
                 <text-field
+                  v-model="subForm.phoneNumber"
                   label="Phone number"
                   required
                   :rules="[rules.createrule]"
@@ -71,6 +73,7 @@
                 sm="6"
               >
                 <text-field
+                  v-model="subForm.age"
                   label="Age"
                   required
                   :rules="[rules.createrule]"
@@ -85,13 +88,12 @@
                   outlined
                   rounded
                   icon="mdi-image"
-                  hint="Upload your national ID card here"
+                  hint="Click to upload your national ID Card"
                   persistent-hint
                 />
               </v-col>
             </v-row>
           </v-form>
-          <!-- <small>*indicates required field</small> -->
         </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
@@ -120,6 +122,12 @@
 import { Service } from '@/service/index.js'
 
 export default {
+  props: {
+    this_card: {
+      type: String,
+      require: true
+    }
+  },
   data: () => ({
     registerCard: true,
     dialog: false,
@@ -128,23 +136,32 @@ export default {
     rules: {
       createrule: value => !!value || 'field required'
     },
-    form: {
+    subForm: {
       id: '',
-      userid: '',
-      cardid: '',
-      date: ''
+      user_id: '',
+      userName: '',
+      firstName: '',
+      lastName: '',
+      age: '',
+      phoneNumber: '',
+      card_id: '',
+      reg_date: new Date().toLocaleDateString(),
+      reg_time: new Date().toLocaleTimeString('en-US', { hour12: false })
     }
   }),
   watch: {
     dialog (newVal) {
       if (newVal) {
-        this.Username = this.crrUser[0].name
+        this.subForm.userName = this.crrUser[0].name
+        this.subForm.user_id = this.crrUser[0].id
+        this.subForm.card_id = this.this_card
       }
     }
   },
   methods: {
     async submit () {
-      await Service.submitRegister()
+      await Service.submitRegister(this.subForm)
+      this.$emit('register', true)
     },
     validate () {
       this.$refs.form.validate()

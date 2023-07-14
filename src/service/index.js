@@ -8,6 +8,14 @@ export const Service = {
     const data = await axios.get(`http://localhost:3000/tripcards?author.id=${id}`)
     return data.data
   },
+  async thisOwnerCard (cardId, uId) {
+    try {
+      const data = await axios.get(`http://localhost:3000/tripcards?id=${cardId}&author.id=${uId}`)
+      return data.data
+    } catch (e) {
+      console.log(e)
+    }
+  },
   async handleSearchQuery (q) {
     const searchData = await axios.get(`http://localhost:3000/tripcards?q=${q}`)
     return searchData.data
@@ -24,11 +32,15 @@ export const Service = {
     }
   },
   async deleteItem (id) {
-    const deleteItem = await axios.delete(`http://localhost:3000/tripcards/${id}`)
-    return deleteItem.data
+    try {
+      await axios.delete(`http://localhost:3000/tripcards/${id}`)
+    } catch (error) {
+      console.log(error)
+    }
   },
   async sorting (val) {
     let sortVal
+    let sortVal2
     let sortOrd
     if (val === 'Price to High') {
       sortVal = 'requirement.cost'
@@ -38,12 +50,14 @@ export const Service = {
       sortOrd = 'desc'
     } else if (val === 'newest') {
       sortVal = 'postDate'
+      sortVal2 = 'postTime'
       sortOrd = 'desc'
     } else if (val === 'oldest') {
       sortVal = 'postDate'
+      sortVal2 = 'postTime'
       sortOrd = 'asc'
     }
-    const Sortdata = await axios.get(`http://localhost:3000/tripcards?_sort=${sortVal}&_order=${sortOrd}`)
+    const Sortdata = await axios.get(`http://localhost:3000/tripcards?_sort=${sortVal},${sortVal2}&_order=${sortOrd},${sortOrd}`)
     const sorting = Sortdata.data
     return sorting
   },
@@ -57,5 +71,36 @@ export const Service = {
   async thisUserFav (UserId) {
     const FavData = await axios.get(`http://localhost:3000/Favorite?q=${UserId}`)
     return FavData.data
+  },
+  async getFav (uId, itemId) {
+    try {
+      const FavData = await axios.get(`http://localhost:3000/Favorite?user_id=${uId}&card_id=${itemId}`)
+      return FavData.data
+    } catch (e) {
+      console.log(e)
+    }
+  },
+  async submitRegister (subForm) {
+    await axios.post('http://localhost:3000/UpcomingTrip', subForm)
+  },
+  async getRegister (uId, cId) {
+    try {
+      const regData = await axios.get(`http://localhost:3000/UpcomingTrip?user_id=${uId}&card_id=${cId}`)
+      return regData.data
+    } catch (e) {
+      console.log(e)
+    }
+  },
+  async unRegister (id) {
+    await axios.delete(`http://localhost:3000/UpcomingTrip/${id}`)
+  },
+  async showRegister (uId) {
+    try {
+      const regData = await axios.get(`http://localhost:3000/UpcomingTrip?user_id=${uId}`)
+      console.log(regData.data)
+      return regData.data
+    } catch (e) {
+      console.log(e)
+    }
   }
 }

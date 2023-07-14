@@ -50,7 +50,7 @@
           <v-tabs-items v-model="tab">
             <your-blog :UserID="userID"/>
             <favorit-post :UserID="userID"/>
-            <up-coming/>
+            <up-coming :UserID="userID"/>
             <joined-trip/>
           </v-tabs-items>
         </v-container>

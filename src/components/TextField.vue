@@ -6,7 +6,7 @@
     rounded
     outlined
     :append-icon="icons"
-    :color="color"
+    color="#1687A7"
     :required="required"
     :name="name"
     :hint="hint"

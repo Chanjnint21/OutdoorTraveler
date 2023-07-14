@@ -50,12 +50,14 @@ export default {
       if (this.isFormComplete) {
         const form = {
           id: '',
-          postDate: this.form.postDate,
-          title: this.form.title,
+          postDate: new Date().toLocaleDateString(),
+          postTime: new Date().toLocaleTimeString('en-US', { hour12: false }),
           author: {
-            id: 2,
-            name: 'user0101'
+            id: this.crrUser[0].id,
+            name: this.crrUser[0].name
           },
+          title: this.form.title,
+          destination: this.form.destination,
           start_date: this.form.start_date,
           end_date: this.form.end_date,
           detail: this.form.detail,
@@ -74,7 +76,6 @@ export default {
         }
         try {
           await Service.newTripCard(form)
-          this.form.postDate = new Date()
           this.$router.back()
           this.displayData()
           localStorage.removeItem('objectData')

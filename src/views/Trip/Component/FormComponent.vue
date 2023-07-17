@@ -31,7 +31,6 @@
             <date-picker
             v-model="form.start_date"
               label="Start Date"
-              name="startDate"
               :rules="[rules.createrule]"
             />
           </v-col>
@@ -39,7 +38,6 @@
             <date-picker
               v-model="form.end_date"
               label="End Date"
-              name="endDate"
               :rules="[rules.createrule]"
             />
           </v-col>

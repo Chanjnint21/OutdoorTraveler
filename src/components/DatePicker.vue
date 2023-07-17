@@ -7,8 +7,6 @@
     transition="scale-transition"
     offset-y
     min-width="auto"
-    v-bind="$attrs"
-    v-on="$listeners"
   >
     <template v-slot:activator="{ on, attrs }">
       <v-text-field
@@ -58,27 +56,21 @@ export default {
   },
   data () {
     return {
-      date: '',
+      date: ' ',
       menu: false,
       modal: false,
       menu2: false
 
     }
   },
-  // watch: {
-  //   value (val) {
-  //     this.date = val
-  //   }
-  // },
-
-  // watch: {
-  //   value: {
-  //     immediate: true,
-  //     handler (val) {
-  //       this.date = val
-  //     }
-  //   }
-  // },
+  watch: {
+    value: {
+      immediate: true,
+      handler (val) {
+        this.date = val
+      }
+    }
+  },
   methods: {
     savethisdate (date) {
       console.log(date)

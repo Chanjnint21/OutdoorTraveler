@@ -309,6 +309,38 @@
         "amount": "12",
         "transportation": "Require"
       }
+    },
+    {
+      "id": "4P0z2cg",
+      "title": "hii",
+      "author": {
+        "id": 2,
+        "name": "user0101"
+      },
+      "start_date": "2023-07-11",
+      "end_date": "2023-07-11",
+      "detail": "yo",
+      "image": "",
+      "category": [
+        "Hiking",
+        "Sea",
+        "Camping"
+      ],
+      "departure": {
+        "meet_location": "s",
+        "leave_time": "11:11"
+      },
+      "requirement": {
+        "age": [
+          15,
+          21
+        ],
+        "cost": 2,
+        "nationalId": "Not Require",
+        "phoneNumber": "Require",
+        "amount": "12",
+        "transportation": "Not Require"
+      }
     }
   ],
   "Favorite": [

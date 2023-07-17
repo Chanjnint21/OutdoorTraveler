@@ -15,6 +15,7 @@
             btn-color="#1687A7"
             btn-label="Publish"
             @display-data="displayData"
+            :disabled="!isFormComplete"
           />
         </template>
         <template v-slot:FormBtn2>
@@ -78,7 +79,7 @@ export default {
         try {
           await Service.newTripCard(form)
           this.form.postDate = new Date()
-          this.$router.back()
+          this.$router.push('/user/home')
           this.displayData()
           localStorage.removeItem('objectData')
           console.log('Data cleared from localStorage')
@@ -91,7 +92,7 @@ export default {
       try {
         this.originalTripCard = { ...this.form }
         localStorage.setItem('objectData', JSON.stringify(this.originalTripCard))
-        this.$router.back()
+        this.$router.push('/user/home')
       } catch (e) {
         console.log(e)
       }

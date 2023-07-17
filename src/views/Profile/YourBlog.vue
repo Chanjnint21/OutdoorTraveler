@@ -7,38 +7,6 @@
           elevation="8"
           :item="item"
         >
-          <template #btn2>
-            <trip-btn
-              BtnColor="#1687A7"
-              class="white--text"
-              @click="toUpdate(item.id)"
-            >
-              <template #icon>
-                <v-icon>mdi-pencil</v-icon>
-              </template>
-            </trip-btn>
-          </template>
-          <template #btn3>
-            <c-dialog
-              label1="Are you sure?"
-              label2="You can't undo this action.Are you sure , you wanna delete this card?"
-              DioColor="error"
-              DioBtnClass="ml-3"
-            >
-              <template #agree>
-                <v-btn
-                  color="#1687A7"
-                  text
-                  @click="dialog = false; deleteItem(item.id)"
-                >
-                  Yes
-                </v-btn>
-              </template>
-              <template #icon>
-                <v-icon>mdi-delete</v-icon>
-              </template>
-            </c-dialog>
-          </template>
         </card-component>
       </v-col>
     </template>
@@ -66,19 +34,16 @@ export default {
     } catch (error) {
       console.log(error)
     }
-  },
-  methods: {
-    async deleteItem (id) {
-      try {
-        await Service.deleteItem(id)
-        this.items = this.items.filter(item => item.id !== id)
-      } catch (error) {
-        console.log(error)
-      }
-    },
-    async toUpdate (id) {
-      this.$router.push(`/user/update/${id}`)
-    }
   }
+  // methods: {
+  //   async deleteItem (id) {
+  //     try {
+  //       await Service.deleteItem(id)
+  //       this.items = this.items.filter(item => item.id !== id)
+  //     } catch (error) {
+  //       console.log(error)
+  //     }
+  //   }
+  // }
 }
 </script>

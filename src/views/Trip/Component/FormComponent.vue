@@ -9,8 +9,6 @@
               v-model="form.title"
               label="Title"
               color="#1687A7"
-              outlined
-              rounded
               icons="mdi-alpha-t"
               :rules="[rules.createrule]"
             />
@@ -21,8 +19,6 @@
               v-model="form.destination"
               label="Destination"
               color="#1687A7"
-              outlined
-              rounded
               icons="mdi-map-marker"
               :rules="[rules.createrule]"
             />
@@ -84,8 +80,6 @@
               v-model="form.meet_location"
               label="Meet Location"
               color="#1687A7"
-              outlined
-              rounded
               icons="mdi-map-marker"
               :rules="[rules.createrule]"
             />
@@ -107,7 +101,6 @@
                 hint="Im a hint"
                 max="90"
                 min="15"
-                outlined
                 color="#1687A7"
                 thumb-label
                 persistent-hint
@@ -122,8 +115,6 @@
               v-model.number="form.cost"
               label="Cost/Person"
               color="#1687A7"
-              outlined
-              rounded
               icons="mdi-currency-usd"
               :rules="[rules.createrule]"
             />

@@ -31,7 +31,7 @@
       "postDate": "2023-07-11T07:31:55.929Z",
       "title": "Tropical Paradise Getaway",
       "destination": "Hawaii",
-      "start_date": "2024-11-01",
+      "start_date": "2024-11-02",
       "end_date": "2024-11-14",
       "detail": "Parents are supposed to push you past your goals, or at least, that’s what I always believed. I was raised in the generation of “you can do anything if you.",
       "image": "https://media.istockphoto.com/id/1480668717/photo/beach-travel-vacation-tropical-paradise-getaway-on-coral-reef-island-atoll-with-idyllic.jpg?s=612x612&w=0&k=20&c=GFhXNWZw6D3F2fGwPd8D41k4qi7ZCFHVjXHd1cvYbgE=",
@@ -48,7 +48,7 @@
           40,
           59
         ],
-        "cost": 5000,
+        "cost": 50,
         "nationalId": "Require",
         "phoneNumber": "Require"
       },
@@ -56,12 +56,13 @@
     },
     {
       "id": "testing01",
-      "postDate": "2023-07-07T09:25:12.483Z",
-      "title": "African Safari Adventure",
+      "postDate": "7/14/2023",
+      "postTime": "15:52:17",
       "author": {
         "id": "1x2345",
         "name": "jennie"
       },
+      "title": "African Safari Adventure",
       "destination": "Kenya",
       "start_date": "2025-03-27",
       "end_date": "2025-03-22",
@@ -70,26 +71,27 @@
       "category": [],
       "departure": {
         "meet_location": "Jomo Kenyatta International Airport",
-        "leave_time": "00:10"
+        "leave_time": "02:09"
       },
       "requirement": {
         "age": [
           28,
           41
         ],
-        "cost": 8000,
+        "cost": 80,
         "nationalId": "Require",
         "phoneNumber": "Require"
       }
     },
     {
       "id": "tducfrn424",
-      "postDate": "2023-07-06T08:06:08.793Z",
-      "title": "Winter Wonderland Ski Trip",
+      "postDate": "7/14/2023",
+      "postTime": "15:52:10",
       "author": {
         "id": "1x2345",
         "name": "jennie"
       },
+      "title": "Winter Wonderland Ski Trip",
       "destination": "Switzerland",
       "start_date": "2024-12-12",
       "end_date": "2024-12-01",
@@ -98,24 +100,26 @@
       "category": [],
       "departure": {
         "meet_location": "Zurich Airport",
-        "leave_time": "2:00"
+        "leave_time": "11:56"
       },
       "requirement": {
         "age": [
           28,
           41
         ],
-        "cost": 6000,
+        "cost": 60,
         "nationalId": "Require",
         "phoneNumber": "Require"
       }
     },
     {
+      "id": "ydewf-3",
+      "postDate": "7/14/2023",
+      "postTime": "15:53:05",
       "author": {
         "id": "2x3456",
         "name": "user0101"
       },
-      "postDate": "2023-07-11T07:05:46.486Z",
       "title": "Cultural Immersion Tour",
       "destination": "Japan",
       "start_date": "2025-06-01",
@@ -125,12 +129,36 @@
       "category": [],
       "departure": {
         "meet_location": "Narita International Airport",
-        "leave_time": "9:00"
+        "leave_time": "06:31"
       },
       "requirement": {
-        "cost": 4500,
+        "age": [
+          15,
+          15
+        ],
+        "cost": 40,
         "nationalId": "Require",
         "phoneNumber": "Require"
+      }
+    },
+    {
+      "id": "tydbwj-3",
+      "postDate": "7/14/2023",
+      "postTime": "15:53:12",
+      "author": {
+        "id": "2x3456",
+        "name": "user0101"
+      },
+      "title": "Main Town of Tour",
+      "destination": "Japan",
+      "start_date": "2025-06-01",
+      "end_date": "2025-06-10",
+      "detail": "Immerse yourself in the traditions and culture of Japan and discover its unique blend of modernity and tradition.",
+      "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/06/a4/13/b2/the-vintage-village.jpg?w=1200&h=1200&s=1",
+      "category": [],
+      "departure": {
+        "meet_location": "Narita International Airport",
+        "leave_time": "03:14"
       },
       "id": "ydewf-3"
     },
@@ -241,6 +269,7 @@
         "meet_location": "adsf",
         "leave_time": "09:18"
       },
+
       "requirement": {
         "age": [
           15,
@@ -345,19 +374,33 @@
   ],
   "Favorite": [
     {
-      "id": "zie_D4P",
+      "id": 1,
       "user_id": "2x3456",
       "card_id": "ydewf-3"
     },
     {
-      "id": "X0p8Cm0",
-      "user_id": "1x2345",
-      "card_id": "testing01"
+      "id": 2,
+      "user_id": "2x3456",
+      "card_id": "yhcsjeh34"
     },
     {
-      "id": "C7tED48",
-      "user_id": "1x2345",
+      "id": 3,
+      "user_id": "2x3456",
       "card_id": "tducfrn424"
+    }
+  ],
+  "UpcomingTrip": [
+    {
+      "id": 1,
+      "user_id": "2x3456",
+      "userName": "user0101",
+      "firstName": "Chanjnint",
+      "lastName": "Lim",
+      "age": "18",
+      "phoneNumber": "081808091",
+      "card_id": "tducfrn424",
+      "reg_date": "7/14/2023",
+      "reg_time": "16:36:56"
     }
   ]
 }

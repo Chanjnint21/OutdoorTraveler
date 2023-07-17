@@ -12,10 +12,10 @@
               rounded icons="mdi-map-marker" :rules="[rules.createrule]" />
           </v-col>
           <v-col cols="12" sm="6" md="6">
-            <date-picker :passData="DateDate[0]" name="startDate" @date-changed="StartDate" :rules="[rules.createrule]" />
+            <date-picker :value="DateDate[0]" name="startDate" @date-changed="StartDate" :rules="[rules.createrule]" />
           </v-col>
           <v-col cols="12" sm="6" md="6">
-            <date-picker :passData="DateDate[1]" name="endDate" @date-changed="EndDate" :rules="[rules.createrule]" />
+            <date-picker :value="DateDate[1]" name="endDate" @date-changed="EndDate" :rules="[rules.createrule]" />
           </v-col>
           <v-col cols="12">
             <text-area name="details" v-model="tripcard.detail" outlined rounded label="Details" color="#1687A7"

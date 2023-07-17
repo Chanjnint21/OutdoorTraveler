@@ -25,17 +25,15 @@
           </v-col>
           <v-col cols="12" sm="6" md="6">
             <date-picker
-              :passData="DateData[0]"
-              name="startDate"
-              @date-changed="StartDate"
+            v-model="form.start_date"
+              label="Start Date"
               :rules="[rules.createrule]"
             />
           </v-col>
           <v-col cols="12" sm="6" md="6">
             <date-picker
-              :passData="DateData[1]"
-              name="endDate"
-              @date-changed="EndDate"
+              v-model="form.end_date"
+              label="End Date"
               :rules="[rules.createrule]"
             />
           </v-col>
@@ -88,9 +86,8 @@
           </v-col>
           <v-col cols="12" sm="6" md="6">
             <time-picker
-                :passData="timeData"
                 name="timeLeave"
-                @time-save="LeaveTime"
+                v-model="form.leave_time"
                 :rules="[rules.createrule]"
               />
           </v-col>
@@ -144,6 +141,30 @@
             rounded
             :SelectItem="Choice"
             :rules="[rules.createrule]"
+            />
+          </v-col>
+          <v-col cols="12" sm="6" md="6">
+            <text-field
+              name="amount"
+              v-model="form.amount"
+              label="Amount"
+              color="#1687A7"
+              outlined
+              rounded
+              icons="mdi-account-multiple-outline"
+              :rules="[rules.createrule]"
+            />
+          </v-col>
+          <v-col cols="12" sm="6" md="6">
+            <select-field
+              name="transportation"
+              v-model="form.transportation"
+              label=" Transportation"
+              color="#1687A7"
+              outlined
+              rounded
+              :SelectItem="Choice"
+              :rules="[rules.createrule]"
             />
           </v-col>
         </v-row>
@@ -203,7 +224,9 @@ export default {
         leave_time: '',
         cost: '',
         nationalId: '',
-        phoneNumber: ''
+        phoneNumber: '',
+        amount: '',
+        transportation: ''
       }
     }
   },
@@ -213,12 +236,6 @@ export default {
       deep: true,
       handler (val) {
         this.form = val
-      },
-      form: {
-        deep: true, // Watch nested properties inside the expression
-        handler () {
-          this.validate() // call validate method when form data changes
-        }
       }
     }
   },

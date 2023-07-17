@@ -42,7 +42,9 @@ export default {
       originalTripCard: null,
       form: {},
       crrUser: JSON.parse(localStorage.getItem('authUser')),
-      isFormComplete: false
+      isFormComplete: false,
+      tripDate: [],
+      time: ''
     }
   },
   methods: {
@@ -71,12 +73,15 @@ export default {
             age: this.form.age,
             cost: this.form.cost,
             nationalId: this.form.nationalId,
-            phoneNumber: this.form.phoneNumber
+            phoneNumber: this.form.phoneNumber,
+            amount: this.form.amount,
+            transportation: this.form.transportation
           }
         }
         try {
           await Service.newTripCard(form)
-          this.$router.back()
+          this.form.postDate = new Date()
+          this.$router.push('/user/home')
           this.displayData()
           localStorage.removeItem('objectData')
           console.log('Data cleared from localStorage')
@@ -89,7 +94,7 @@ export default {
       try {
         this.originalTripCard = { ...this.form }
         localStorage.setItem('objectData', JSON.stringify(this.originalTripCard))
-        this.$router.back()
+        this.$router.push('/user/home')
       } catch (e) {
         console.log(e)
       }
@@ -98,8 +103,6 @@ export default {
       const storedData = JSON.parse(localStorage.getItem('objectData'))
       if (storedData) {
         this.form = { ...storedData }
-        // this.form.title = storedData.title
-        // this.form.destination = storedData.destination
       }
       this.originalTripCard = { ...value }
     },

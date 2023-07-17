@@ -75,11 +75,6 @@ export default {
             transportation: this.form.transportation
           }
         }
-        // console.log('hi, barbie')
-        // console.log(this.form.departure.leave_time)
-        // this.time = form.departure.leave_time
-        // console.log(this.form.start_date, this.form.end_date)
-        // this.tripDate.push(form.start_date, form.end_date)
         try {
           await Service.newTripCard(form)
           this.form.postDate = new Date()
@@ -105,7 +100,6 @@ export default {
       const storedData = JSON.parse(localStorage.getItem('objectData'))
       if (storedData) {
         this.form = { ...storedData }
-        console.log(this.form, 'hi')
       }
       this.originalTripCard = { ...value }
     },
@@ -124,8 +118,6 @@ export default {
     }
   },
   created () {
-    // const storedData = JSON.parse(localStorage.getItem('objectData'))
-    // console.log(storedData)
     this.displayData()
   }
 }

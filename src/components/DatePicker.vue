@@ -12,8 +12,8 @@
   >
     <template v-slot:activator="{ on, attrs }">
       <v-text-field
-        v-model="date"
-        label="Start Date"
+        :value="date"
+        :label="label"
         append-icon="mdi-calendar"
         readonly
         color="#1687A7"
@@ -23,46 +23,67 @@
         outlined
         rounded
         dense
-      ></v-text-field>
+      />
     </template>
-    <v-date-picker color="#276678" v-model="date" no-title scrollable>
+    <v-date-picker
+      v-model="date"
+      color="#276678"
+      no-title
+      scrollable
+    >
       <v-spacer></v-spacer>
+      <v-btn text color="#1687A7" @click="menu = false">Cancel</v-btn>
       <v-btn
-        text
-        color="#1687A7"
-        @click="menu = false"> Cancel </v-btn>
-      <v-btn
-        text
-        color="#1687A7"
-        v-model="date"
-        @click="$refs.menu.save(date);
-        savethisdate(date)"> OK </v-btn>
+      text
+      color="#1687A7"
+      @click="savethisdate(date)"
+    >
+      OK
+    </v-btn>
     </v-date-picker>
   </v-menu>
 </template>
+
 <script>
 export default {
   name: 'DatePicker',
   props: {
-    passData: {
+    value: {
+      type: String
+    },
+    label: {
       type: String,
-      require: true
+      required: true
     }
   },
-  data: () => ({
-    date: '',
-    menu: false,
-    modal: false,
-    menu2: false
-  }),
-  watch: {
-    passData (newVal) {
-      this.date = newVal
+  data () {
+    return {
+      date: '',
+      menu: false,
+      modal: false,
+      menu2: false
+
     }
   },
+  // watch: {
+  //   value (val) {
+  //     this.date = val
+  //   }
+  // },
+
+  // watch: {
+  //   value: {
+  //     immediate: true,
+  //     handler (val) {
+  //       this.date = val
+  //     }
+  //   }
+  // },
   methods: {
     savethisdate (date) {
-      this.$emit('date-changed', date)
+      console.log(date)
+      this.$refs.menu.save(date)
+      this.$emit('input', date)
     }
   }
 }

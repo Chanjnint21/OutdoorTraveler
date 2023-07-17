@@ -30,7 +30,7 @@
       v-model="time"
       full-width
       @click:minute="saveThisTime(time)"
-    ></v-time-picker>
+    />
   </v-menu>
 </template>
 
@@ -50,8 +50,11 @@ export default {
     time: ''
   }),
   watch: {
-    value (newVal) {
-      this.time = newVal
+    value: {
+      immediate: true,
+      handler (val) {
+        this.time = val
+      }
     }
   },
   methods: {

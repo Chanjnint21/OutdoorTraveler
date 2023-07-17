@@ -29,17 +29,17 @@
           </v-col>
           <v-col cols="12" sm="6" md="6">
             <date-picker
-              :passData="DateData[0]"
+            v-model="form.start_date"
+              label="Start Date"
               name="startDate"
-              @date-changed="StartDate"
               :rules="[rules.createrule]"
             />
           </v-col>
           <v-col cols="12" sm="6" md="6">
             <date-picker
-              :passData="DateData[1]"
+              v-model="form.end_date"
+              label="End Date"
               name="endDate"
-              @date-changed="EndDate"
               :rules="[rules.createrule]"
             />
           </v-col>
@@ -247,12 +247,6 @@ export default {
       deep: true,
       handler (val) {
         this.form = val
-      },
-      form: {
-        deep: true, // Watch nested properties inside the expression
-        handler () {
-          this.validate() // call validate method when form data changes
-        }
       }
     }
   },

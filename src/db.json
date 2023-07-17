@@ -309,36 +309,6 @@
         "amount": "12",
         "transportation": "Require"
       }
-    },
-    {
-      "id": "Mtkfdth",
-      "title": "yo",
-      "author": {
-        "id": 2,
-        "name": "user0101"
-      },
-      "start_date": "2023-07-24",
-      "end_date": "2023-07-23",
-      "detail": "yo",
-      "image": "",
-      "category": [
-        "Sea"
-      ],
-      "departure": {
-        "meet_location": "adsf",
-        "leave_time": "08:45"
-      },
-      "requirement": {
-        "age": [
-          15,
-          30
-        ],
-        "cost": 2000,
-        "nationalId": "Require",
-        "phoneNumber": "Require",
-        "amount": "12",
-        "transportation": "Not Require"
-      }
     }
   ],
   "Favorite": [

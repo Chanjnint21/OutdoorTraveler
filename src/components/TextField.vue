@@ -3,10 +3,10 @@
     v-bind="$attrs"
     v-on="$listeners"
     :label="label"
-    :rounded="rounded"
-    :outlined="outlined"
+    rounded
+    outlined
     :append-icon="icons"
-    :color="color"
+    color="#1687A7"
     :required="required"
     :name="name"
     :hint="hint"

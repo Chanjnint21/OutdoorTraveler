@@ -51,7 +51,7 @@
             <your-blog :UserID="userID"/>
             <favorit-post :UserID="userID"/>
             <up-coming :UserID="userID"/>
-            <joined-trip/>
+            <joined-trip :UserID="userID" />
           </v-tabs-items>
         </v-container>
       </v-row>

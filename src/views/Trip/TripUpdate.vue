@@ -103,7 +103,8 @@ export default {
           cost: this.form.cost,
           nationalId: this.form.nationalId,
           phoneNumber: this.form.phoneNumber
-        }
+        },
+        expiry: false
       }
       try {
         await Service.UpdateCard(id, form)

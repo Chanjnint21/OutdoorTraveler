@@ -76,7 +76,8 @@ export default {
             phoneNumber: this.form.phoneNumber,
             amount: this.form.amount,
             transportation: this.form.transportation
-          }
+          },
+          expiry: false
         }
         try {
           await Service.newTripCard(form)

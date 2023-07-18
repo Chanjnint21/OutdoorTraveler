@@ -10,12 +10,12 @@
   >
     <template v-slot:activator="{ on, attrs }">
       <v-text-field
-        :value="date"
+        v-model="dateFormatted"
         :label="label"
         append-icon="mdi-calendar"
         readonly
         color="#1687A7"
-        hint="YYYY-MM-DD"
+        hint="DD/MM/YYYY"
         v-bind="attrs"
         v-on="on"
         outlined
@@ -32,12 +32,12 @@
       <v-spacer></v-spacer>
       <v-btn text color="#1687A7" @click="menu = false">Cancel</v-btn>
       <v-btn
-      text
-      color="#1687A7"
-      @click="savethisdate(date)"
-    >
-      OK
-    </v-btn>
+        text
+        color="#1687A7"
+        @click="savethisdate(date)"
+      >
+        OK
+      </v-btn>
     </v-date-picker>
   </v-menu>
 </template>
@@ -56,11 +56,10 @@ export default {
   },
   data () {
     return {
-      date: ' ',
+      date: (new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10),
+      dateFormatted: '',
       menu: false,
-      modal: false,
-      menu2: false
-
+      modal: false
     }
   },
   watch: {
@@ -69,13 +68,26 @@ export default {
       handler (val) {
         this.date = val
       }
+    },
+    date: {
+      immediate: true,
+      handler (val) {
+        this.dateFormatted = this.formatDate(val)
+      }
     }
   },
   methods: {
-    savethisdate (date) {
-      console.log(date)
-      this.$refs.menu.save(date)
-      this.$emit('input', date)
+    formatDate (date) {
+      if (!date) {
+        return null
+      }
+      const [year, month, day] = date.split('-')
+      return `${day}/${month}/${year}`
+    },
+    savethisdate () {
+      console.log(this.dateFormatted)
+      this.$refs.menu.save(this.dateFormatted)
+      this.$emit('input', this.dateFormatted)
     }
   }
 }

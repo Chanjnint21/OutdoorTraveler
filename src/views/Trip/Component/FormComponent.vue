@@ -25,7 +25,7 @@
           </v-col>
           <v-col cols="12" sm="6" md="6">
             <date-picker
-            v-model="form.start_date"
+              v-model="form.start_date"
               label="Start Date"
               :rules="[rules.createrule]"
             />

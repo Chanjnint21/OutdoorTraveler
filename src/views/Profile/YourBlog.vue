@@ -29,21 +29,12 @@ export default {
     }
   },
   async mounted () {
+    // get the card belong to only this user
     try {
       this.items = await Service.thisUserCard(this.UserID)
     } catch (error) {
       console.log(error)
     }
   }
-  // methods: {
-  //   async deleteItem (id) {
-  //     try {
-  //       await Service.deleteItem(id)
-  //       this.items = this.items.filter(item => item.id !== id)
-  //     } catch (error) {
-  //       console.log(error)
-  //     }
-  //   }
-  // }
 }
 </script>

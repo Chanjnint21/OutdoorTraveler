@@ -102,5 +102,13 @@ export const Service = {
     } catch (e) {
       console.log(e)
     }
+  },
+  async registeredCard (id) {
+    try {
+      const regMatch = await axios.get(`http://localhost:3000/upcomingtrip?card_id=${id}`)
+      return regMatch.data
+    } catch (e) {
+      console.log(e)
+    }
   }
 }

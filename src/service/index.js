@@ -20,8 +20,8 @@ export const Service = {
     const searchData = await axios.get(`http://localhost:3000/tripcards?q=${q}`)
     return searchData.data
   },
-  async newTripCard (cardinfo) {
-    await axios.post('http://localhost:3000/tripcards', cardinfo)
+  async newTripCard (card) {
+    await axios.post('http://localhost:3000/tripcards', card)
   },
   async logIn (em, pw) {
     try {
@@ -97,12 +97,26 @@ export const Service = {
   async showRegister (uId) {
     try {
       const regData = await axios.get(`http://localhost:3000/UpcomingTrip?user_id=${uId}`)
-      console.log(regData.data)
       return regData.data
     } catch (e) {
       console.log(e)
     }
   },
+
+  async pastTripCard (card) {
+    await axios.post('http://localhost:3000/joined', card)
+  },
+  async expiryCard (id) {
+    try {
+      await axios.patch(`http://localhost:3000/tripcards/${id}`, { expiry: true })
+    } catch (e) {
+      console.log(e)
+    }
+  },
+  async getExpCard () {
+    try {
+      const expCard = await axios.get('http://localhost:3000/tripcards?expiry=true')
+      return expCard.data
   async registeredCard (id) {
     try {
       const regMatch = await axios.get(`http://localhost:3000/upcomingtrip?card_id=${id}`)

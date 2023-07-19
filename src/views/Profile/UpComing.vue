@@ -34,6 +34,7 @@ export default {
     }
   },
   watch: {
+    // if there is no upcoming just display a text
     RegCard () {
       if (this.RegCard.length === 0) {
         this.EmptyReg = true
@@ -41,14 +42,18 @@ export default {
     }
   },
   methods: {
+    // push the upcoming data that's not yet expired
     async thisRegCard (RegCard) {
       for (let i = 0; i < RegCard.length; i++) {
         const Data = await Service.thisIdData(RegCard[i].card_id)
-        this.items.push(Data)
+        if (!Data.expiry) {
+          this.items.push(Data)
+        }
       }
     }
   },
   async mounted () {
+    // get the card that this user have register
     try {
       this.RegCard = await Service.showRegister(this.UserID)
       this.thisRegCard(this.RegCard)

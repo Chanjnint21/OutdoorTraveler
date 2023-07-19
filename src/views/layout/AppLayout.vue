@@ -4,7 +4,7 @@
       v-model='drawer'
       app
       dark
-      v-if='authToken'
+      v-if='crrUser'
       color='#1687A7'
     >
       <v-row class='d-flex justify-center' style="height: 50vh">
@@ -64,7 +64,7 @@
         </v-col>
       </v-row>
     </v-navigation-drawer>
-    <v-app-bar app elevation="0" v-if='authToken' color="white">
+    <v-app-bar app elevation="0" v-if='crrUser' color="white">
       <v-app-bar-nav-icon @click='drawer = !drawer'></v-app-bar-nav-icon>
       <v-toolbar-title class="text-h5 pl-1">{{ $route.meta.RouteName }}</v-toolbar-title>
       <v-spacer></v-spacer>
@@ -88,6 +88,8 @@
 </template>
 
 <script>
+import { Service } from '@/service/index.js'
+
 export default {
   name: 'BoilerPlate',
   data () {
@@ -95,26 +97,37 @@ export default {
       currentRoute: '',
       lol: this.$route.meta.RouteName,
       drawer: true,
-      authToken: localStorage.getItem('authToken')
+      crrUser: JSON.parse(localStorage.getItem('authToken'))
     }
   },
   methods: {
+    async JoinedTrip () {
+      // check if this card have expire or not
+      const card = await Service.getList()
+      const todayDate = new Date().toJSON().slice(0, 10)
+      for (let i = 0; i < card.length; i++) {
+        if (card[i].start_date < todayDate && !card[i].expiry) {
+          await Service.expiryCard(card[i].id)
+        }
+      }
+    },
     LogOut () {
       localStorage.removeItem('authToken')
       localStorage.removeItem('authUser')
       this.$router.push('/login')
     },
     toCreatepage () {
-      this.$router.push('/user/create').catch(() => {})
-      // location.replace('/user/create')
+      this.$router.push('/user/create')
     },
     toHome () {
       this.$router.push('/user/home').catch(() => {})
-      // location.replace('/user/Home')
     },
     ToProfile () {
       this.$router.push('/user/profile').catch(() => {})
     }
+  },
+  created () {
+    this.JoinedTrip()
   }
 }
 </script>

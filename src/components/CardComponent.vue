@@ -48,10 +48,34 @@
               />
               </slot>
               <slot name="btn2">
+                <trip-btn
+                  BtnColor="#1687A7"
+                  class="white--text"
+                  @click="toUpdate(item.id)"
+                  v-if="!expireCard && cardOwner"
+                >
+                  <template #icon>
+                    <v-icon>mdi-pencil</v-icon>
+                  </template>
+                </trip-btn>
+                <trip-btn
+                  BtnColor="#1687A7"
+                  class="white--text"
+                  BtnLabel="expire"
+                  disabled
+                  v-else-if="expireCard && !joined"
+                />
+                <trip-btn
+                  BtnColor="#1687A7"
+                  class="white--text"
+                  BtnLabel="Joined"
+                  disabled
+                  v-else-if='expireCard && joined'
+                />
                 <r-dialog
                   :this_card='item.id'
                   @register="submitRegis"
-                  v-if='!cardOwner && !register'
+                  v-else-if='!cardOwner && !register'
                 />
                 <c-dialog
                   label1="Are you sure?"
@@ -65,23 +89,12 @@
                     <v-btn
                       color="#1687A7"
                       text
-                      @click="dislog = false, unRegister(crrUser[0].id, item.id)"
+                      @click="dialog = false, unRegister(crrUser[0].id, item.id)"
                     >
                       Yes
                     </v-btn>
                   </template>
                 </c-dialog>
-                <template v-else>
-                  <trip-btn
-                    BtnColor="#1687A7"
-                    class="white--text"
-                    @click="toUpdate(item.id)"
-                  >
-                    <template #icon>
-                      <v-icon>mdi-pencil</v-icon>
-                    </template>
-                  </trip-btn>
-                </template>
               </slot>
               <slot name="btn3">
                 <c-dialog
@@ -143,6 +156,8 @@ export default {
   },
   data () {
     return {
+      expireCard: false,
+      joined: false,
       register: true,
       cardOwner: false,
       Fav: false,
@@ -151,9 +166,6 @@ export default {
     }
   },
   methods: {
-    // deleteItem (id) {
-    //   this.$emit('delete', id)
-    // },
     async deleteItem (id) {
       await Service.deleteItem(id)
       this.$router.go()
@@ -208,7 +220,7 @@ export default {
     },
     async showRegister () {
       const regCard = await Service.getRegister(this.crrUser[0].id, this.item.id)
-      if (regCard.length === 1) {
+      if (regCard.length) {
         this.register = true
       } else {
         this.register = false
@@ -218,12 +230,28 @@ export default {
       const regCard = await Service.getRegister(this.crrUser[0].id, this.item.id)
       await Service.unRegister(regCard[0].id)
       this.register = false
+    },
+    async joinedCard () {
+      const regCard = await Service.getRegister(this.crrUser[0].id, this.item.id)
+      const owner = await Service.thisOwnerCard(this.item.id, this.crrUser[0].id)
+      if (this.item.expiry === true && !regCard.length) {
+        this.register = true
+        this.expireCard = true
+      } else if (this.item.expiry === true && regCard.length) {
+        this.joined = true
+        this.expireCard = true
+      } else if (this.item.expiry === true && owner.length) {
+        this.joined = true
+        this.expireCard = true
+        this.cardOwner = true
+      }
     }
   },
   async mounted () {
-    this.showRegister()
-    this.showFav()
     this.ownerCard()
+    this.showRegister()
+    this.joinedCard()
+    this.showFav()
   }
 }
 </script>

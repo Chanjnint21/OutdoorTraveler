@@ -155,6 +155,9 @@ export default {
         this.subForm.userName = this.crrUser[0].name
         this.subForm.user_id = this.crrUser[0].id
         this.subForm.card_id = this.this_card
+        this.subForm.firstName = this.crrUser[0].firstName
+        this.subForm.lastName = this.crrUser[0].lastName
+        this.subForm.phoneNumber = this.crrUser[0].phone
       }
     }
   },

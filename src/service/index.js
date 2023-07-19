@@ -1,5 +1,6 @@
 import axios from 'axios'
 export const Service = {
+
   async getList () {
     const data = await axios.get('http://localhost:3000/tripcards/')
     return data.data
@@ -113,10 +114,6 @@ export const Service = {
       console.log(e)
     }
   },
-  async getExpCard () {
-    try {
-      const expCard = await axios.get('http://localhost:3000/tripcards?expiry=true')
-      return expCard.data
   async registeredCard (id) {
     try {
       const regMatch = await axios.get(`http://localhost:3000/upcomingtrip?card_id=${id}`)
@@ -125,4 +122,5 @@ export const Service = {
       console.log(e)
     }
   }
+
 }

@@ -39,6 +39,8 @@
               <v-card-text class="text-left"><v-icon> mdi-check-underline-circle</v-icon>Cost:     {{ item.requirement.cost}}</v-card-text>
               <v-card-text class="text-left"><v-icon>mdi-check-underline-circle</v-icon>phoneNumber: {{ item.requirement.phoneNumber}}</v-card-text>
               <v-card-text class="text-left"><v-icon>mdi-check-underline-circle</v-icon>National ID: {{ item.requirement.nationalId}}</v-card-text>
+              <v-card-text class="text-left"><v-icon>mdi-currency-usd</v-icon>Amount: {{ item.requirement.amount }}</v-card-text>
+              <v-card-text class="text-left"><v-icon>mdi-car-side</v-icon>Transportation: {{ item.requirement.transportation }}</v-card-text>
             </v-col>
           </v-row>
         </v-col>
@@ -52,9 +54,12 @@
                 :src="item.image"
               />
             </v-col>
-            <v-col cols='12'>
-              <p class="text-left text-h5 my-5">Participator : 5/10</p>
-              <v-list>
+            <v-col cols="12">
+              <p class="text-left text-h5 my-5">Participator : {{ countUser }}</p>
+            </v-col>
+            <div class="container">
+              <v-col cols='12'>
+              <v-list class="scrollable-list">
                 <v-list-item
                   class="rounded-xxl mb-3"
                   v-for="list in lists"
@@ -70,6 +75,7 @@
                 </v-list-item>
               </v-list>
             </v-col>
+          </div>
           </v-row>
         </v-col>
       </v-row>
@@ -77,21 +83,9 @@
   </div>
 </template>
 <script>
-// import router from '../router'
+import { Service } from '@/service/index.js'
 export default {
   name: 'ViewCard',
-  data () {
-    return {
-      lists: [
-        { title: 'Jason Oner', avatar: 'https://cdn.vuetifyjs.com/images/lists/1.jpg' },
-        { title: 'Travis Howard', avatar: 'https://cdn.vuetifyjs.com/images/lists/2.jpg' },
-        { title: 'Ali Connors', avatar: 'https://cdn.vuetifyjs.com/images/lists/3.jpg' },
-        { title: 'Cindy Baker', avatar: 'https://cdn.vuetifyjs.com/images/lists/4.jpg' },
-        { title: 'ba canel', avatar: 'https://cdn.vuetifyjs.com/images/lists/5.jpg' },
-        { title: 'Jake bone', avatar: 'https://picsum.photos/250/300?image=839' }
-      ]
-    }
-  },
   props: {
     elevation: {
       type: String
@@ -110,10 +104,59 @@ export default {
       default: () => {}
     }
   },
+  data () {
+    return {
+      lists: [
+        { title: 'ad', avatar: 'https://cdn.vuetifyjs.com/images/lists/1.jpg' },
+        { title: 'Travis Howard', avatar: 'https://cdn.vuetifyjs.com/images/lists/2.jpg' },
+        { title: 'Ali Connors', avatar: 'https://cdn.vuetifyjs.com/images/lists/3.jpg' },
+        { title: 'Cindy Baker', avatar: 'https://cdn.vuetifyjs.com/images/lists/4.jpg' },
+        { title: 'ba canel', avatar: 'https://cdn.vuetifyjs.com/images/lists/5.jpg' },
+        { title: 'Jake bone', avatar: 'https://picsum.photos/250/300?image=839' },
+        { title: 'Ali Connors', avatar: 'https://cdn.vuetifyjs.com/images/lists/3.jpg' },
+        { title: 'Cindy Baker', avatar: 'https://cdn.vuetifyjs.com/images/lists/4.jpg' },
+        { title: 'ba canel', avatar: 'https://cdn.vuetifyjs.com/images/lists/5.jpg' },
+        { title: 'Jake bone', avatar: 'https://picsum.photos/250/300?image=839' },
+        { title: 'Cindy Baker', avatar: 'https://cdn.vuetifyjs.com/images/lists/4.jpg' },
+        { title: 'ba canel', avatar: 'https://cdn.vuetifyjs.com/images/lists/5.jpg' },
+        { title: 'Jake bone', avatar: 'https://picsum.photos/250/300?image=839' },
+        { title: 'Ali Connors', avatar: 'https://cdn.vuetifyjs.com/images/lists/3.jpg' },
+        { title: 'Cindy Baker', avatar: 'https://cdn.vuetifyjs.com/images/lists/4.jpg' },
+        { title: 'ba canel', avatar: 'https://cdn.vuetifyjs.com/images/lists/5.jpg' }
+      ],
+      emptyMatching: false,
+      countUser: 0
+
+    }
+  },
   methods: {
     back () {
       this.$router.back()
+    },
+    pushData (data) {
+      for (let i = 0; i < data.length; i++) {
+        console.log(data[i].userName)
+        this.lists.push({ title: `${data[i].firstName} ${data[i].lastName} `, avatar: 'https://cdn.vuetifyjs.com/images/lists/2.jpg' })
+      }
+      this.countUser = this.lists.length
+      console.log(this.countUser)
     }
+  },
+  // call service to get data
+  async mounted () {
+    const users = await Service.registeredCard(this.item.id)
+    // bos data from users to pushData func
+    this.pushData(users)
   }
 }
 </script>
+<style scoped>
+.container {
+  height: calc(100% - 100px);
+  overflow-y: scroll;
+}
+
+.scrollable-list {
+  height: 400px;
+}
+</style>

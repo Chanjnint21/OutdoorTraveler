@@ -107,22 +107,22 @@ export default {
   data () {
     return {
       lists: [
-        { title: 'ad', avatar: 'https://cdn.vuetifyjs.com/images/lists/1.jpg' },
-        { title: 'Travis Howard', avatar: 'https://cdn.vuetifyjs.com/images/lists/2.jpg' },
-        { title: 'Ali Connors', avatar: 'https://cdn.vuetifyjs.com/images/lists/3.jpg' },
-        { title: 'Cindy Baker', avatar: 'https://cdn.vuetifyjs.com/images/lists/4.jpg' },
-        { title: 'ba canel', avatar: 'https://cdn.vuetifyjs.com/images/lists/5.jpg' },
-        { title: 'Jake bone', avatar: 'https://picsum.photos/250/300?image=839' },
-        { title: 'Ali Connors', avatar: 'https://cdn.vuetifyjs.com/images/lists/3.jpg' },
-        { title: 'Cindy Baker', avatar: 'https://cdn.vuetifyjs.com/images/lists/4.jpg' },
-        { title: 'ba canel', avatar: 'https://cdn.vuetifyjs.com/images/lists/5.jpg' },
-        { title: 'Jake bone', avatar: 'https://picsum.photos/250/300?image=839' },
-        { title: 'Cindy Baker', avatar: 'https://cdn.vuetifyjs.com/images/lists/4.jpg' },
-        { title: 'ba canel', avatar: 'https://cdn.vuetifyjs.com/images/lists/5.jpg' },
-        { title: 'Jake bone', avatar: 'https://picsum.photos/250/300?image=839' },
-        { title: 'Ali Connors', avatar: 'https://cdn.vuetifyjs.com/images/lists/3.jpg' },
-        { title: 'Cindy Baker', avatar: 'https://cdn.vuetifyjs.com/images/lists/4.jpg' },
-        { title: 'ba canel', avatar: 'https://cdn.vuetifyjs.com/images/lists/5.jpg' }
+        // { title: 'ad', avatar: 'https://cdn.vuetifyjs.com/images/lists/1.jpg' },
+        // { title: 'Travis Howard', avatar: 'https://cdn.vuetifyjs.com/images/lists/2.jpg' },
+        // { title: 'Ali Connors', avatar: 'https://cdn.vuetifyjs.com/images/lists/3.jpg' },
+        // { title: 'Cindy Baker', avatar: 'https://cdn.vuetifyjs.com/images/lists/4.jpg' },
+        // { title: 'ba canel', avatar: 'https://cdn.vuetifyjs.com/images/lists/5.jpg' },
+        // { title: 'Jake bone', avatar: 'https://picsum.photos/250/300?image=839' },
+        // { title: 'Ali Connors', avatar: 'https://cdn.vuetifyjs.com/images/lists/3.jpg' },
+        // { title: 'Cindy Baker', avatar: 'https://cdn.vuetifyjs.com/images/lists/4.jpg' },
+        // { title: 'ba canel', avatar: 'https://cdn.vuetifyjs.com/images/lists/5.jpg' },
+        // { title: 'Jake bone', avatar: 'https://picsum.photos/250/300?image=839' },
+        // { title: 'Cindy Baker', avatar: 'https://cdn.vuetifyjs.com/images/lists/4.jpg' },
+        // { title: 'ba canel', avatar: 'https://cdn.vuetifyjs.com/images/lists/5.jpg' },
+        // { title: 'Jake bone', avatar: 'https://picsum.photos/250/300?image=839' },
+        // { title: 'Ali Connors', avatar: 'https://cdn.vuetifyjs.com/images/lists/3.jpg' },
+        // { title: 'Cindy Baker', avatar: 'https://cdn.vuetifyjs.com/images/lists/4.jpg' },
+        // { title: 'ba canel', avatar: 'https://cdn.vuetifyjs.com/images/lists/5.jpg' }
       ],
       emptyMatching: false,
       countUser: 0

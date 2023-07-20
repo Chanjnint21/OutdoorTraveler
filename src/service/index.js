@@ -107,6 +107,7 @@ export const Service = {
   async pastTripCard (card) {
     await axios.post('http://localhost:3000/joined', card)
   },
+  // update the card to be expired
   async expiryCard (id) {
     try {
       await axios.patch(`http://localhost:3000/tripcards/${id}`, { expiry: true })
@@ -118,6 +119,15 @@ export const Service = {
     try {
       const regMatch = await axios.get(`http://localhost:3000/upcomingtrip?card_id=${id}`)
       return regMatch.data
+    } catch (e) {
+      console.log(e)
+    }
+  },
+  // get expired card
+  async getExpCard () {
+    try {
+      const expCard = await axios.get('http://localhost:3000/tripcards?expiry=true')
+      return expCard.data
     } catch (e) {
       console.log(e)
     }

@@ -231,30 +231,6 @@
       "card_id": "2x3456",
       "reg_date": "7/14/2023",
       "reg_time": "16:36:56"
-    },
-    {
-      "id": 2,
-      "user_id": "2x3457",
-      "userName": "user0102",
-      "firstName": "Chansovanmony",
-      "lastName": "Yoeun",
-      "age": "19",
-      "phoneNumber": "085605126",
-      "card_id": "2x3456",
-      "reg_date": "8/14/2023",
-      "reg_time": "17:36:56"
-    },
-    {
-      "id": 3,
-      "user_id": "1x2345",
-      "userName": "jennie",
-      "firstName": "Chansovanmony",
-      "lastName": "Yoeun",
-      "age": "12",
-      "phoneNumber": "085605126",
-      "card_id": "tydbwj-3",
-      "reg_date": "7/19/2023",
-      "reg_time": "16:56:41"
     }
   ]
 }

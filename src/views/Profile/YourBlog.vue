@@ -1,5 +1,8 @@
 <template>
   <v-tab-item>
+    <div v-if='EmptyPost' class='d-flex justify-center pt-5 text--disabled'>
+      <p>You haven't posted any blogs yet !</p>
+    </div>
     <template v-for="item in items">
       <v-col col="12" lg="12" xl="6" :key="item.id">
         <card-component
@@ -25,7 +28,20 @@ export default {
   },
   data () {
     return {
-      items: []
+      items: [],
+      EmptyPost: false
+    }
+  },
+  watch: {
+    items: {
+      immediate: true,
+      handler () {
+        if (this.items.length === 0) {
+          this.EmptyPost = true
+        } else {
+          this.EmptyPost = false
+        }
+      }
     }
   },
   async mounted () {

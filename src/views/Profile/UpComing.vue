@@ -34,13 +34,19 @@ export default {
     }
   },
   watch: {
-    // if there is no upcoming just display a text
-    RegCard () {
-      if (this.RegCard.length === 0) {
-        this.EmptyReg = true
+    RegCard: {
+      deep: true, // Watch for changes in nested properties of RegCard (if applicable)
+      handler () {
+        if (this.RegCard.length === 0) {
+          console.log(this.RegCard.length)
+          this.EmptyReg = true
+        } else {
+          this.EmptyReg = false
+        }
       }
     }
   },
+
   methods: {
     // push the upcoming data that's not yet expired
     async thisRegCard (RegCard) {

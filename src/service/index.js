@@ -103,7 +103,6 @@ export const Service = {
       console.log(e)
     }
   },
-
   async pastTripCard (card) {
     await axios.post('http://localhost:3000/joined', card)
   },
@@ -123,7 +122,6 @@ export const Service = {
       console.log(e)
     }
   },
-  // get expired card
   async getExpCard () {
     try {
       const expCard = await axios.get('http://localhost:3000/tripcards?expiry=true')

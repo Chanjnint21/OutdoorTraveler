@@ -5,14 +5,20 @@
       "name": "jennie",
       "email": "example1@gmail.com",
       "role": "user",
-      "password": "password123"
+      "password": "password123",
+      "phone": "01225680",
+      "firstName": "Chansovanmony",
+      "lastName": "Youen"
     },
     {
       "id": "2x3456",
       "name": "user0101",
       "email": "example2@gmail.com",
       "role": "user",
-      "password": "secret123"
+      "password": "secret123",
+      "phone": "081808091",
+      "firstName": "Chanjnint",
+      "lastName": "Lim"
     },
     {
       "id": "34567",
@@ -31,8 +37,8 @@
       "postDate": "2023-07-11T07:31:55.929Z",
       "title": "Tropical Paradise Getaway",
       "destination": "Hawaii",
-      "start_date": "2024-11-02",
-      "end_date": "2024-11-14",
+      "start_date": "2022-11-02",
+      "end_date": "2022-11-14",
       "detail": "Parents are supposed to push you past your goals, or at least, that’s what I always believed. I was raised in the generation of “you can do anything if you.",
       "image": "https://media.istockphoto.com/id/1480668717/photo/beach-travel-vacation-tropical-paradise-getaway-on-coral-reef-island-atoll-with-idyllic.jpg?s=612x612&w=0&k=20&c=GFhXNWZw6D3F2fGwPd8D41k4qi7ZCFHVjXHd1cvYbgE=",
       "category": [
@@ -50,8 +56,11 @@
         ],
         "cost": 50,
         "nationalId": "Require",
-        "phoneNumber": "Require"
+        "phoneNumber": "Require",
+        "amount": "12",
+        "transportation": "Require"
       },
+      "expiry": true,
       "id": "yhcsjeh34"
     },
     {
@@ -64,8 +73,8 @@
       },
       "title": "African Safari Adventure",
       "destination": "Kenya",
-      "start_date": "2025-03-27",
-      "end_date": "2025-03-22",
+      "start_date": "2023-03-27",
+      "end_date": "2023-03-22",
       "detail": "Embark on an unforgettable safari adventure and witness the majesty of Africa's wildlife in their natural habitat.",
       "image": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iAwx0Hxr8fm0/v0/-1x-1.jpg",
       "category": [],
@@ -80,8 +89,11 @@
         ],
         "cost": 80,
         "nationalId": "Require",
-        "phoneNumber": "Require"
-      }
+        "phoneNumber": "Require",
+        "amount": "12",
+        "transportation": "Require"
+      },
+      "expiry": true
     },
     {
       "id": "tducfrn424",
@@ -93,8 +105,8 @@
       },
       "title": "Winter Wonderland Ski Trip",
       "destination": "Switzerland",
-      "start_date": "2024-12-12",
-      "end_date": "2024-12-01",
+      "start_date": "2022-12-12",
+      "end_date": "2022-12-01",
       "detail": "Experience the thrill of skiing in the Swiss Alps and enjoy the beauty of a winter wonderland.",
       "image": "https://images.lifestyleasia.com/wp-content/uploads/sites/6/2022/12/06110018/22-23_ASC_Skiing_025-4418x2945-3106eb97-7e35-4f0d-912f-91911c2b34b0-min-scaled.jpg",
       "category": [],
@@ -109,16 +121,19 @@
         ],
         "cost": 60,
         "nationalId": "Require",
-        "phoneNumber": "Require"
-      }
+        "phoneNumber": "Require",
+        "amount": "12",
+        "transportation": "Require"
+      },
+      "expiry": true
     },
     {
       "id": "ydewf-3",
       "postDate": "7/14/2023",
       "postTime": "15:53:05",
       "author": {
-        "id": "2x3456",
-        "name": "user0101"
+        "id": "1x2345",
+        "name": "jennie"
       },
       "title": "Cultural Immersion Tour",
       "destination": "Japan",
@@ -138,12 +153,14 @@
         ],
         "cost": 40,
         "nationalId": "Require",
-        "phoneNumber": "Require"
+        "phoneNumber": "Require",
+        "amount": "12",
+        "transportation": "Require"
       },
       "expiry": false
     },
     {
-      "id": "ydewf-3",
+      "id": "tydbwj-3",
       "postDate": "7/14/2023",
       "postTime": "15:53:12",
       "author": {
@@ -152,15 +169,27 @@
       },
       "title": "Main Town of Tour",
       "destination": "Japan",
-      "start_date": "2025-06-01",
-      "end_date": "2025-06-10",
+      "start_date": "2024-06-01",
+      "end_date": "2024-06-10",
       "detail": "Immerse yourself in the traditions and culture of Japan and discover its unique blend of modernity and tradition.",
       "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/06/a4/13/b2/the-vintage-village.jpg?w=1200&h=1200&s=1",
       "category": [],
       "departure": {
         "meet_location": "Narita International Airport",
         "leave_time": "03:14"
-      }
+      },
+      "requirement": {
+        "age": [
+          15,
+          15
+        ],
+        "cost": 45,
+        "nationalId": "Require",
+        "phoneNumber": "Require",
+        "amount": "12",
+        "transportation": "Require"
+      },
+      "expiry": false
     }
   ],
   "Favorite": [
@@ -185,9 +214,9 @@
       "card_id": "yhcsjeh34"
     },
     {
-      "id": 5,
+      "id": 6,
       "user_id": "1x2345",
-      "card_id": "testing01"
+      "card_id": "tducfrn424"
     }
   ],
   "UpcomingTrip": [
@@ -199,21 +228,9 @@
       "lastName": "Lim",
       "age": "18",
       "phoneNumber": "081808091",
-      "card_id": "tducfrn424",
+      "card_id": "2x3456",
       "reg_date": "7/14/2023",
       "reg_time": "16:36:56"
-    },
-    {
-      "id": 2,
-      "user_id": "1x2345",
-      "userName": "jennie",
-      "firstName": "Chansovanmony",
-      "lastName": "Yoeun",
-      "age": "50",
-      "phoneNumber": "085605126",
-      "card_id": "yhcsjeh34",
-      "reg_date": "7/20/2023",
-      "reg_time": "15:36:40"
     }
   ]
 }

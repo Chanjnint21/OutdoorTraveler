@@ -12,9 +12,12 @@
         lg="5"
         xl="12"
         class="pa-5">
-        <v-img
-          class="align-start"
-          :src="item.image[0]"/>
+        <cloud-image
+          max-width="1000"
+          max-height="500"
+          aspect-ratio="1.7"
+          :files='item.image'
+        />
       </v-col>
       <v-col cols="12" sm="7" md="7" lg="7" xl="12">
         <v-row class="d-flex align-start" style="height: 60%" no-gutters>
@@ -129,12 +132,14 @@
 <script>
 import axios from 'axios'
 import RDialog from './RegisterDialog.vue'
+import CloudImage from './CloudImage.vue'
 import { Service } from '@/service/index.js'
 
 export default {
   name: 'CardComponent',
   components: {
-    RDialog
+    RDialog,
+    CloudImage
   },
   props: {
     elevation: {

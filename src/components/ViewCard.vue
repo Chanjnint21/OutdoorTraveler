@@ -47,11 +47,12 @@
         <v-col cols="12" xs='12' sm="6" md="6" lg="6">
           <v-row class="d-flex align-start" no-gutters>
             <v-col cols='12'>
-              <v-img
-                width="100%"
-                height="100%"
+              <cloud-image
+                max-width="1000"
+                max-height="500"
+                aspect-ratio="1.7"
                 class="align-end"
-                :src="item.image[0]"
+                :files='item.image'
               />
             </v-col>
             <v-col cols="12">
@@ -84,8 +85,13 @@
 </template>
 <script>
 import { Service } from '@/service/index.js'
+import CloudImage from './CloudImage.vue'
+
 export default {
   name: 'ViewCard',
+  components: {
+    CloudImage
+  },
   props: {
     elevation: {
       type: String
@@ -125,8 +131,21 @@ export default {
         // { title: 'ba canel', avatar: 'https://cdn.vuetifyjs.com/images/lists/5.jpg' }
       ],
       emptyMatching: false,
-      countUser: 0
-
+      countUser: 0,
+      imgitems: [
+        {
+          src: 'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg'
+        },
+        {
+          src: 'https://cdn.vuetifyjs.com/images/carousel/sky.jpg'
+        },
+        {
+          src: 'https://cdn.vuetifyjs.com/images/carousel/bird.jpg'
+        },
+        {
+          src: 'https://cdn.vuetifyjs.com/images/carousel/planet.jpg'
+        }
+      ]
     }
   },
   methods: {

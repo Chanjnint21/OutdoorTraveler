@@ -204,6 +204,7 @@ export default {
       rules: {
         createrule: value => !!value || 'field required'
       },
+      crrUser: JSON.parse(localStorage.getItem('authUser')),
       emitImageData: [],
       PostBtn: true,
       form: {
@@ -259,7 +260,7 @@ export default {
       for (let i = 0; i < newVal.length; i++) {
         const date = new Date().toJSON().slice(0, 10)
         const time = new Date().toLocaleTimeString('en-US', { hour12: false })
-        const fileName = `${date}${time}_${i}`
+        const fileName = `${this.crrUser[0].name}${date}${time}_${i}`
         getImage.push(fileName)
       }
       this.form.image = getImage

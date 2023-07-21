@@ -34,14 +34,13 @@
         "id": "2x3456",
         "name": "user0101"
       },
-      "postDate": "2023-07-11T07:31:55.929Z",
       "title": "Tropical Paradise Getaway",
       "destination": "Hawaii",
       "start_date": "2022-11-02",
       "end_date": "2022-11-14",
       "detail": "Parents are supposed to push you past your goals, or at least, that’s what I always believed. I was raised in the generation of “you can do anything if you.",
       "image": [
-        "https://media.istockphoto.com/id/1480668717/photo/beach-travel-vacation-tropical-paradise-getaway-on-coral-reef-island-atoll-with-idyllic.jpg?s=612x612&w=0&k=20&c=GFhXNWZw6D3F2fGwPd8D41k4qi7ZCFHVjXHd1cvYbgE="
+        "user01012023-07-2114:52:22_0"
       ],
       "category": [
         "One day Trip",
@@ -67,8 +66,8 @@
     },
     {
       "id": "testing01",
-      "postDate": "7/14/2023",
-      "postTime": "15:52:17",
+      "postDate": "7/21/2023",
+      "postTime": "16:36:20",
       "author": {
         "id": "1x2345",
         "name": "jennie"
@@ -79,9 +78,12 @@
       "end_date": "2023-03-22",
       "detail": "Embark on an unforgettable safari adventure and witness the majesty of Africa's wildlife in their natural habitat.",
       "image": [
-        "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iAwx0Hxr8fm0/v0/-1x-1.jpg"
+        "jennie2023-07-2116:36:18_0",
+        "jennie2023-07-2116:36:18_1"
       ],
-      "category": [],
+      "category": [
+        "Hiking"
+      ],
       "departure": {
         "meet_location": "Jomo Kenyatta International Airport",
         "leave_time": "02:09"
@@ -93,9 +95,7 @@
         ],
         "cost": 80,
         "nationalId": "Require",
-        "phoneNumber": "Require",
-        "amount": "12",
-        "transportation": "Require"
+        "phoneNumber": "Require"
       },
       "expiry": true
     },
@@ -113,9 +113,11 @@
       "end_date": "2022-12-01",
       "detail": "Experience the thrill of skiing in the Swiss Alps and enjoy the beauty of a winter wonderland.",
       "image": [
-        "https://images.lifestyleasia.com/wp-content/uploads/sites/6/2022/12/06110018/22-23_ASC_Skiing_025-4418x2945-3106eb97-7e35-4f0d-912f-91911c2b34b0-min-scaled.jpg"
+        "jennie2023-07-2114:57:17_0"
       ],
-      "category": [],
+      "category": [
+        "Camping"
+      ],
       "departure": {
         "meet_location": "Zurich Airport",
         "leave_time": "11:56"
@@ -135,8 +137,8 @@
     },
     {
       "id": "ydewf-3",
-      "postDate": "7/14/2023",
-      "postTime": "15:53:05",
+      "postDate": "7/21/2023",
+      "postTime": "16:50:33",
       "author": {
         "id": "1x2345",
         "name": "jennie"
@@ -147,9 +149,12 @@
       "end_date": "2025-06-10",
       "detail": "Immerse yourself in the traditions and culture of Japan and discover its unique blend of modernity and tradition.",
       "image": [
-        "https://www.travelpediaonline.com/wp-content/uploads/2022/05/cultural-immersion-ideas-travelpediaonline.jpg"
+        "jennie2023-07-2116:50:31_0",
+        "jennie2023-07-2116:50:31_1"
       ],
-      "category": [],
+      "category": [
+        "Camping"
+      ],
       "departure": {
         "meet_location": "Narita International Airport",
         "leave_time": "06:31"
@@ -161,16 +166,14 @@
         ],
         "cost": 40,
         "nationalId": "Require",
-        "phoneNumber": "Require",
-        "amount": "12",
-        "transportation": "Require"
+        "phoneNumber": "Require"
       },
       "expiry": false
     },
     {
       "id": "tydbwj-3",
-      "postDate": "7/14/2023",
-      "postTime": "15:53:12",
+      "postDate": "7/21/2023",
+      "postTime": "16:55:09",
       "author": {
         "id": "2x3456",
         "name": "user0101"
@@ -181,9 +184,11 @@
       "end_date": "2024-06-10",
       "detail": "Immerse yourself in the traditions and culture of Japan and discover its unique blend of modernity and tradition.",
       "image": [
-        "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/06/a4/13/b2/the-vintage-village.jpg?w=1200&h=1200&s=1"
+        "user01012023-07-2116:55:06_0"
       ],
-      "category": [],
+      "category": [
+        "One day Trip"
+      ],
       "departure": {
         "meet_location": "Narita International Airport",
         "leave_time": "03:14"
@@ -195,11 +200,43 @@
         ],
         "cost": 45,
         "nationalId": "Require",
-        "phoneNumber": "Require",
-        "amount": "12",
-        "transportation": "Require"
+        "phoneNumber": "Require"
       },
       "expiry": false
+    },
+    {
+      "id": "H-HwO6H",
+      "postDate": "7/21/2023",
+      "postTime": "14:54:41",
+      "author": {
+        "id": "2x3456",
+        "name": "user0101"
+      },
+      "title": "Bokor Trip",
+      "destination": "testing",
+      "start_date": "05/07/2023",
+      "end_date": "11/07/2023",
+      "detail": "hey man",
+      "image": [
+        "user01012023-07-2114:54:38_0"
+      ],
+      "category": [
+        "One day Trip"
+      ],
+      "departure": {
+        "meet_location": "Veng sreng",
+        "leave_time": "10:49"
+      },
+      "requirement": {
+        "age": [
+          15,
+          56
+        ],
+        "cost": 10,
+        "nationalId": "Require",
+        "phoneNumber": "Require"
+      },
+      "expiry": true
     }
   ],
   "Favorite": [
@@ -230,30 +267,6 @@
     }
   ],
   "UpcomingTrip": [
-    {
-      "id": 1,
-      "user_id": "2x3456",
-      "userName": "user0101",
-      "firstName": "Chanjnint",
-      "lastName": "Lim",
-      "age": "18",
-      "phoneNumber": "081808091",
-      "card_id": "2x3456",
-      "reg_date": "7/14/2023",
-      "reg_time": "16:36:56"
-    },
-    {
-      "id": 2,
-      "user_id": "2x3457",
-      "userName": "user0102",
-      "firstName": "Chansovanmony",
-      "lastName": "Yoeun",
-      "age": "19",
-      "phoneNumber": "085605126",
-      "card_id": "2x3456",
-      "reg_date": "8/14/2023",
-      "reg_time": "17:36:56"
-    },
     {
       "id": 3,
       "user_id": "1x2345",

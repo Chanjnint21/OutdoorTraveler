@@ -51,7 +51,7 @@
                 width="100%"
                 height="100%"
                 class="align-end"
-                :src="item.image"
+                :src="item.image[0]"
               />
             </v-col>
             <v-col cols="12">

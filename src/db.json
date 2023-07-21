@@ -40,7 +40,9 @@
       "start_date": "2022-11-02",
       "end_date": "2022-11-14",
       "detail": "Parents are supposed to push you past your goals, or at least, that’s what I always believed. I was raised in the generation of “you can do anything if you.",
-      "image": "https://media.istockphoto.com/id/1480668717/photo/beach-travel-vacation-tropical-paradise-getaway-on-coral-reef-island-atoll-with-idyllic.jpg?s=612x612&w=0&k=20&c=GFhXNWZw6D3F2fGwPd8D41k4qi7ZCFHVjXHd1cvYbgE=",
+      "image": [
+        "https://media.istockphoto.com/id/1480668717/photo/beach-travel-vacation-tropical-paradise-getaway-on-coral-reef-island-atoll-with-idyllic.jpg?s=612x612&w=0&k=20&c=GFhXNWZw6D3F2fGwPd8D41k4qi7ZCFHVjXHd1cvYbgE="
+      ],
       "category": [
         "One day Trip",
         "Hiking"
@@ -76,7 +78,9 @@
       "start_date": "2023-03-27",
       "end_date": "2023-03-22",
       "detail": "Embark on an unforgettable safari adventure and witness the majesty of Africa's wildlife in their natural habitat.",
-      "image": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iAwx0Hxr8fm0/v0/-1x-1.jpg",
+      "image": [
+        "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iAwx0Hxr8fm0/v0/-1x-1.jpg"
+      ],
       "category": [],
       "departure": {
         "meet_location": "Jomo Kenyatta International Airport",
@@ -108,7 +112,9 @@
       "start_date": "2022-12-12",
       "end_date": "2022-12-01",
       "detail": "Experience the thrill of skiing in the Swiss Alps and enjoy the beauty of a winter wonderland.",
-      "image": "https://images.lifestyleasia.com/wp-content/uploads/sites/6/2022/12/06110018/22-23_ASC_Skiing_025-4418x2945-3106eb97-7e35-4f0d-912f-91911c2b34b0-min-scaled.jpg",
+      "image": [
+        "https://images.lifestyleasia.com/wp-content/uploads/sites/6/2022/12/06110018/22-23_ASC_Skiing_025-4418x2945-3106eb97-7e35-4f0d-912f-91911c2b34b0-min-scaled.jpg"
+      ],
       "category": [],
       "departure": {
         "meet_location": "Zurich Airport",
@@ -140,7 +146,9 @@
       "start_date": "2025-06-01",
       "end_date": "2025-06-10",
       "detail": "Immerse yourself in the traditions and culture of Japan and discover its unique blend of modernity and tradition.",
-      "image": "https://www.travelpediaonline.com/wp-content/uploads/2022/05/cultural-immersion-ideas-travelpediaonline.jpg",
+      "image": [
+        "https://www.travelpediaonline.com/wp-content/uploads/2022/05/cultural-immersion-ideas-travelpediaonline.jpg"
+      ],
       "category": [],
       "departure": {
         "meet_location": "Narita International Airport",
@@ -172,7 +180,9 @@
       "start_date": "2024-06-01",
       "end_date": "2024-06-10",
       "detail": "Immerse yourself in the traditions and culture of Japan and discover its unique blend of modernity and tradition.",
-      "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/06/a4/13/b2/the-vintage-village.jpg?w=1200&h=1200&s=1",
+      "image": [
+        "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/06/a4/13/b2/the-vintage-village.jpg?w=1200&h=1200&s=1"
+      ],
       "category": [],
       "departure": {
         "meet_location": "Narita International Airport",

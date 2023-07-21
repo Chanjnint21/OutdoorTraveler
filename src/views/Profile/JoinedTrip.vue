@@ -34,9 +34,14 @@ export default {
     }
   },
   watch: {
-    items () {
-      if (this.items.length === 0) {
-        this.emptyJoined = true
+    items: {
+      immediate: true,
+      handler () {
+        if (this.items.length === 0) {
+          this.emptyJoined = true
+        } else {
+          this.emptyJoined = false
+        }
       }
     }
   },
@@ -51,6 +56,7 @@ export default {
           }
         }
       }
+      console.log(this.items)
     }
   },
   async mounted () {

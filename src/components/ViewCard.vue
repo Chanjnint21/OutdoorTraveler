@@ -25,15 +25,27 @@
             <v-col>
               <v-card-title class="text-h5"><b>{{ item.title }}</b></v-card-title>
               <v-card-text class="text-left">{{ item.detail }}</v-card-text>
-              <v-card-subtitle class="text-left" style="font-size: larger; color:blue"> About Trip </v-card-subtitle>
+              <v-card-title class="text-left" style="font-size: larger; color:#276678"> About Trip </v-card-title>
               <v-card-text class="text-left"><v-icon>mdi-map-marker</v-icon> Destination:     {{ item. destination}}</v-card-text>
               <v-card-text class="text-left"><v-icon>mdi-calendar-range</v-icon> Start Date:      {{ item. start_date}}</v-card-text>
               <v-card-text class="text-left"><v-icon>mdi-calendar-range</v-icon> End Date:       {{ item. end_date}}</v-card-text>
-              <v-card-text class="text-left"><v-icon>mdi-heart</v-icon> Categorize:      {{ item. category}}</v-card-text>
-              <v-card-subtitle class="text-left" style="font-size: larger ; color:green"> Departure </v-card-subtitle>
+              <v-card-text class="text-left"><v-icon>mdi-heart</v-icon>
+                Categorize:
+                <v-chip-group>
+                  <v-chip
+                    color="#1687A7"
+                    v-for="tag in item.category"
+                    :key="tag"
+                    class="white--text"
+                  >
+                    {{ tag }}
+                  </v-chip>
+                </v-chip-group>
+              </v-card-text>
+              <v-card-title class="text-left" style="font-size: larger ; color:#276678"> Departure </v-card-title>
               <v-card-text class="text-left"><v-icon>mdi-map</v-icon> Location:      {{ item. departure.meet_location}}</v-card-text>
               <v-card-text class="text-left"><v-icon>mdi-clock</v-icon> Time:       {{ item. departure.leave_time}}</v-card-text>
-              <v-card-subtitle class="text-left" style="font-size: larger ; color:green"> Requirements </v-card-subtitle>
+              <v-card-title class="text-left" style="font-size: larger ; color:#276678"> Requirements </v-card-title>
               <v-card-text class="text-left"><v-icon> mdi-check-underline-circle</v-icon>Minimum Age:     {{ item.requirement.age[0]}}</v-card-text>
               <v-card-text class="text-left"><v-icon> mdi-check-underline-circle</v-icon>Maximum Age:     {{ item.requirement.age[1]}}</v-card-text>
               <v-card-text class="text-left"><v-icon> mdi-check-underline-circle</v-icon>Cost:     {{ item.requirement.cost}}</v-card-text>
@@ -48,9 +60,7 @@
           <v-row class="d-flex align-start" no-gutters>
             <v-col cols='12'>
               <cloud-image
-                max-width="1000"
-                max-height="500"
-                aspect-ratio="1.7"
+                height= "450"
                 class="align-end"
                 :files='item.image'
               />

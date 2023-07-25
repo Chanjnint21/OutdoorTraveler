@@ -13,6 +13,7 @@
         xl="12"
         class="pa-5">
         <cloud-image
+          height="auto"
           :files='item.image'
         />
       </v-col>

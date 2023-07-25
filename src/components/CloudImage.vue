@@ -1,5 +1,7 @@
 <template>
     <v-carousel
+      v-bind="$attrs"
+      v-on="$listeners"
       cycle
       :show-arrows="arrow"
       :hide-delimiters="delimiters"

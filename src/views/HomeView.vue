@@ -136,7 +136,7 @@ export default {
   },
   async created () {
     try {
-      this.items = await Service.getList()
+      this.items = await Service.sorting('newest')
     } catch (error) {
       console.log(error)
     }

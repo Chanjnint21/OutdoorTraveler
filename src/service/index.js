@@ -82,22 +82,22 @@ export const Service = {
     }
   },
   async submitRegister (subForm) {
-    await axios.post('http://localhost:3000/UpcomingTrip', subForm)
+    await axios.post('http://localhost:3000/RegisterTrip', subForm)
   },
   async getRegister (uId, cId) {
     try {
-      const regData = await axios.get(`http://localhost:3000/UpcomingTrip?user_id=${uId}&card_id=${cId}`)
+      const regData = await axios.get(`http://localhost:3000/RegisterTrip?user_id=${uId}&card_id=${cId}`)
       return regData.data
     } catch (e) {
       console.log(e)
     }
   },
   async unRegister (id) {
-    await axios.delete(`http://localhost:3000/UpcomingTrip/${id}`)
+    await axios.delete(`http://localhost:3000/RegisterTrip/${id}`)
   },
   async showRegister (uId) {
     try {
-      const regData = await axios.get(`http://localhost:3000/UpcomingTrip?user_id=${uId}`)
+      const regData = await axios.get(`http://localhost:3000/RegisterTrip?user_id=${uId}`)
       return regData.data
     } catch (e) {
       console.log(e)
@@ -116,7 +116,7 @@ export const Service = {
   },
   async registeredCard (id) {
     try {
-      const regMatch = await axios.get(`http://localhost:3000/upcomingtrip?card_id=${id}`)
+      const regMatch = await axios.get(`http://localhost:3000/RegisterTrip?card_id=${id}`)
       return regMatch.data
     } catch (e) {
       console.log(e)

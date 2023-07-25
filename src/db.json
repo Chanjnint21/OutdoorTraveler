@@ -25,7 +25,10 @@
       "name": "admin007",
       "email": "example3@gmail.com",
       "role": "admin",
-      "password": "admin123"
+      "password": "admin123",
+      "phone": "012241101",
+      "firstName": "Michael",
+      "lastName": "Jackson"
     }
   ],
   "tripcards": [
@@ -34,6 +37,8 @@
         "id": "2x3456",
         "name": "user0101"
       },
+      "postDate": "1/22/2023",
+      "postTime": "16:36:20",
       "title": "Tropical Paradise Getaway",
       "destination": "Hawaii",
       "start_date": "2022-11-02",
@@ -241,11 +246,6 @@
   ],
   "Favorite": [
     {
-      "id": 1,
-      "user_id": "2x3456",
-      "card_id": "ydewf-3"
-    },
-    {
       "id": 2,
       "user_id": "2x3456",
       "card_id": "yhcsjeh34"
@@ -266,7 +266,7 @@
       "card_id": "tducfrn424"
     }
   ],
-  "UpcomingTrip": [
+  "RegisterTrip": [
     {
       "id": 3,
       "user_id": "1x2345",
@@ -278,6 +278,42 @@
       "card_id": "tydbwj-3",
       "reg_date": "7/19/2023",
       "reg_time": "16:56:41"
+    },
+    {
+      "id": 5,
+      "user_id": "2x3456",
+      "userName": "user0101",
+      "firstName": "Chanjnint",
+      "lastName": "Lim",
+      "age": "18",
+      "phoneNumber": "081808091",
+      "card_id": "tducfrn424",
+      "reg_date": "7/25/2023",
+      "reg_time": "15:03:23"
+    },
+    {
+      "id": 5,
+      "user_id": "2x3456",
+      "userName": "admin",
+      "firstName": "Michael",
+      "lastName": "Jackson",
+      "age": "18",
+      "phoneNumber": "012241101",
+      "card_id": "tducfrn424",
+      "reg_date": "7/25/2023",
+      "reg_time": "15:03:23"
+    },
+    {
+      "id": 6,
+      "user_id": "2x3456",
+      "userName": "user0101",
+      "firstName": "Chanjnint",
+      "lastName": "Lim",
+      "age": "18",
+      "phoneNumber": "081808091",
+      "card_id": "ydewf-3",
+      "reg_date": "7/25/2023",
+      "reg_time": "16:39:49"
     }
   ]
 }

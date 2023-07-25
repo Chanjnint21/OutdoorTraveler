@@ -3,23 +3,20 @@
     v-bind="$attrs"
     v-on="$listeners"
     :elevation="elevation"
-    class="pa-2 mx-lg-auto text-center">
+    class="pa-2 ma-lg-2 text-center">
     <v-row no-gutters>
       <v-col
         cols="12"
-        sm="5"
+        sm="12"
         md="5"
         lg="5"
         xl="12"
         class="pa-5">
         <cloud-image
-          max-width="1000"
-          max-height="500"
-          aspect-ratio="1.7"
           :files='item.image'
         />
       </v-col>
-      <v-col cols="12" sm="7" md="7" lg="7" xl="12">
+      <v-col cols="12" sm="12" md="7" lg="7" xl="12">
         <v-row class="d-flex align-start" style="height: 60%" no-gutters>
           <v-col cols="12">
             <v-card-title class="text-h5">{{ item.title }}</v-card-title>

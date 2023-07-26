@@ -141,8 +141,9 @@
           </v-col>
           <v-col cols="12" sm="6" md="6">
             <text-field
+              type="number"
               name="amount"
-              v-model="form.amount"
+              v-model.number="form.amount"
               label="Amount"
               color="#1687A7"
               outlined

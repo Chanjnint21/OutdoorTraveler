@@ -74,7 +74,7 @@
                   v-else-if='expireCard && joined'
                 />
                 <r-dialog
-                  :this_card='item.id'
+                :this_id="item.id"
                   @register="submitRegis"
                   v-else-if='!cardOwner && !register'
                 />

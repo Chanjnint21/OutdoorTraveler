@@ -39,6 +39,8 @@ export default {
     FavCard () {
       if (this.FavCard.length === 0) {
         this.EmptyFav = true
+      } else {
+        this.EmptyFav = false
       }
     }
   },

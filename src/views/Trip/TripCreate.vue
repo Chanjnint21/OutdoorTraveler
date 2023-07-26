@@ -82,7 +82,7 @@ export default {
         try {
           await Service.newTripCard(form)
           this.form.postDate = new Date()
-          this.$router.push('/user/home')
+          this.$router.back()
           this.displayData()
           localStorage.removeItem('objectData')
           console.log('Data cleared from localStorage')
@@ -95,7 +95,7 @@ export default {
       try {
         this.originalTripCard = { ...this.form }
         localStorage.setItem('objectData', JSON.stringify(this.originalTripCard))
-        this.$router.push('/user/home')
+        this.$router.back()
       } catch (e) {
         console.log(e)
       }

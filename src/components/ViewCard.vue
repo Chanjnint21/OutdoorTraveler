@@ -106,6 +106,23 @@ export default {
   },
   data () {
     return {
+      detailData: [
+        {
+          name: 'about',
+          children: [
+            {
+              icon: 'Clock',
+              title: 'Time',
+              value: 'item.time'
+            }
+          ]
+        },
+        {
+          icon: 'Clock',
+          title: 'Time',
+          value: 'item.time'
+        }
+      ],
       lists: [
         // { title: 'ad', avatar: 'https://cdn.vuetifyjs.com/images/lists/1.jpg' },
         // { title: 'Travis Howard', avatar: 'https://cdn.vuetifyjs.com/images/lists/2.jpg' },

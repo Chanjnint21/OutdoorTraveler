@@ -1,3 +1,4 @@
+
 <template>
     <v-dialog
       v-model="dialog"
@@ -26,7 +27,7 @@
                 cols="12"
               >
               <text-field
-                v-model="userName"
+                v-model="regisForm.userName"
                   label="Username"
                   required
                   readonly
@@ -38,7 +39,7 @@
                 sm="6"
               >
                 <text-field
-                  v-model="firstName"
+                  v-model="regisForm.firstName"
                   label="First name"
                   required
                   :rules="[rules.createrule]"
@@ -50,7 +51,7 @@
                 sm="6"
               >
                 <text-field
-                  v-model="lastName"
+                  v-model="regisForm.lastName"
                   label="Last name"
                   :rules="[rules.createrule]"
 
@@ -62,7 +63,7 @@
               >
                 <text-field
                   type="number"
-                  v-model="phoneNumber"
+                  v-model="regisForm.phoneNumber"
                   label="Phone number"
                   required
                   :rules="[rules.createrule]"
@@ -73,11 +74,11 @@
                 sm="6"
               >
                 <text-field
-                  v-model="age"
+                  v-model="regisForm.age"
                   type="number"
                   label="Age"
                   required
-                  :rules="[rules.createrule ]"
+                  :rules="[rules.ageRule]"
 
                 />
               </v-col>
@@ -91,7 +92,7 @@
                   icon="mdi-image"
                   hint="Click to upload your national ID Card"
                   persistent-hint
-                  :rules="[rules.createrule]"
+                  :rules="[]"
                 />
               </v-col>
             </v-row>
@@ -110,20 +111,21 @@
                 color="#1687A7"
                 text
                 @click="submit(); dialog = false"
-                :disabled='!isFormComplete'
+                :disabled='!isFormComplete '
               > Submit
               </v-btn>
             </v-card-actions>
       </v-card>
     </v-dialog>
-</template>
+
+  </template>
 
 <script>
 import { Service } from '@/service/index.js'
 
 export default {
   props: {
-    this_card: {
+    this_id: {
       type: String,
       required: true
     }
@@ -132,51 +134,66 @@ export default {
     isFormComplete: false,
     isAgeValid: false,
     dialog: false,
+    validAge: [],
     crrUser: JSON.parse(localStorage.getItem('authUser')),
-    rules: {
-      createrule: value => !!value || 'field required'
-      // ageRule: value => !!value || 'age is invalid'
-    },
-    Username: '',
-    user_id: '',
-    userName: '',
-    firstName: '',
-    age: '',
-    lastName: '',
-    phoneNumber: '',
-    card_id: '',
-    reg_date: new Date().toLocaleDateString(),
-    reg_time: new Date().toLocaleTimeString('en-US', { hour12: false })
-    // regisForm: {
-    //   id: '',
-    //   user_id: '',
-    //   userName: '',
-    //   firstName: '',
-    //   age: '',
-    //   lastName: '',
-    //   phoneNumber: '',
-    //   card_id: '',
-    //   reg_date: new Date().toLocaleDateString(),
-    //   reg_time: new Date().toLocaleTimeString('en-US', { hour12: false })
-    // }
+    // rules: {
+    //   createrule: value => !!value || 'field required',
+    //   ageRule: value => {
+    //     const tripData = Service.thisIdData(this.this_id)
+    //     if (!value || isNaN(value)) {
+    //       return "your age isn't valid !"
+    //     }
+    //     const age = parseInt(value)
+    //     if (age >= tripData.requirement.age[0] && age <= tripData.requirement.age[1]) {
+    //       return true
+    //     } else {
+    //       return false
+    //     }
+    //   }
+    // },
+    regisForm: {
+      id: '',
+      user_id: '',
+      userName: '',
+      firstName: '',
+      age: '',
+      lastName: '',
+      phoneNumber: '',
+      card_id: '',
+      reg_date: new Date().toLocaleDateString(),
+      reg_time: new Date().toLocaleTimeString('en-US', { hour12: false })
+    }
   }),
-  // computed: {
-  //   rules () {
-  //     return {
-  //       createrule: [value =>geRule: [this.valida !!value || 'Field required'],
-  //       ateAge]
-  //     }
-  //   }
-  // },
+  computed: {
+    rules () {
+      return {
+        createrule: this.validateCreateRule,
+        ageRule: value => {
+          const age = parseInt(value)
+          if (age >= this.validAge[0] && age <= this.validAge[1]) {
+            return true
+          } else {
+            return false
+          }
+        }
+      }
+    }
+  },
   watch: {
     dialog (newVal) {
       if (newVal) {
-        this.userName = this.crrUser[0].name
-        this.user_id = this.crrUser[0].id
-        this.card_id = this.item.id
-        this.firstName = this.crrUser[0].firstName
-        this.lastName = this.crrUser[0].lastName
-        this.phoneNumber = this.crrUser[0].phone
+        this.regisForm.userName = this.crrUser[0].name
+        this.regisForm.user_id = this.crrUser[0].id
+        this.regisForm.card_id = this.this_id
+        this.regisForm.firstName = this.crrUser[0].firstName
+        this.regisForm.lastName = this.crrUser[0].lastName
+        this.regisForm.phoneNumber = this.crrUser[0].phone
+      }
+    },
+    age: {
+      immediate: true,
+      handler (newVal) {
+        this.ageRule = newVal
       }
     },
     age (newVal) {
@@ -187,42 +204,62 @@ export default {
   methods: {
     async submit () {
       if (this.isFormComplete) {
-        const regisForm = {
-          id: '',
-          user_id: '',
-          userName: '',
-          firstName: '',
-          age: '',
-          lastName: '',
-          phoneNumber: '',
-          card_id: '',
-          reg_date: new Date().toLocaleDateString(),
-          reg_time: new Date().toLocaleTimeString('en-US', { hour12: false })
-        }
         try {
-          await Service.submitRegister(regisForm)
+          await Service.submitRegister(this.regisForm)
+          this.clearForm()
           this.$emit('register', true)
         } catch (e) {
           console.log(e)
         }
       }
     },
+    async validateAge () {
+      try {
+        const tripData = await Service.thisIdData(this.this_id)
+        this.validAge = tripData.requirement.age
+        console.log(this.validAge)
+        // const age = parseInt(value)
+        // if (!isNaN(age) && age >= tripData.requirement.age[0] && age <= tripData.requirement.age[1]) {
+        //   return 'Your age is valid!'
+        // } else {
+        //   return 'Age must be within the valid range.'
+        // }
+      } catch (e) {
+        console.log(e)
+        return 'Failed to fetch trip data.'
+      }
+    },
     validate () {
       this.isFormComplete = this.$refs.form.validate()
     },
-    validateAge (value) {
-      const tripData = JSON.parse(this.this_card)
-      const age = parseInt(value)
+    validateCreateRule (value) {
+      return !!value || 'field required'
+    },
 
-      if (!isNaN(age) && age >= tripData.requirement.age[0] && age <= tripData.requirement.age[1]) {
-        this.isAgeValid = true
-        console.log('hey its ur first step')
-        return true // Return true when age is valid
-      } else {
-        this.isAgeValid = false
-        return 'Age must be within the valid range.' // Return error message when age is not valid
-      }
+    // validateAge (value) {
+    //   const tripData = JSON.parse(this.this_card)
+    //   const age = parseInt(value)
+
+    //   if (!isNaN(age) && age >= tripData.requirement.age[0] && age <= tripData.requirement.age[1]) {
+    //     this.isAgeValid = true
+    //     console.log('hey its ur first step')
+    //     return true // Return true when age is valid
+    //   } else {
+    //     this.isAgeValid = false
+    //     return 'Age must be within the valid range.' // Return error message when age is not valid
+    //   }
+    // },
+    clearForm () {
+      this.userName = ''
+      this.firstName = ''
+      this.age = ''
+      this.lastName = ''
+      this.phoneNumber = ''
+      this.card_id = ''
     }
+  },
+  mounted () {
+    this.validateAge()
   }
 }
 </script>

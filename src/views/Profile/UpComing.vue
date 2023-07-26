@@ -38,7 +38,6 @@ export default {
       deep: true, // Watch for changes in nested properties of RegCard (if applicable)
       handler () {
         if (this.RegCard.length === 0) {
-          console.log(this.RegCard.length)
           this.EmptyReg = true
         } else {
           this.EmptyReg = false

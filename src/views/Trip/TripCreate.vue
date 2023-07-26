@@ -55,6 +55,46 @@ export default {
       this.IMageData = newVal
     },
     async publishPost () {
+      if (this.isFormComplete) {
+        const form = {
+          id: '',
+          postDate: new Date().toLocaleDateString(),
+          postTime: new Date().toLocaleTimeString('en-US', { hour12: false }),
+          author: {
+            id: this.crrUser[0].id,
+            name: this.crrUser[0].name
+          },
+          title: this.form.title,
+          destination: this.form.destination,
+          start_date: this.form.start_date,
+          end_date: this.form.end_date,
+          detail: this.form.detail,
+          image: '',
+          category: this.form.category,
+          departure: {
+            meet_location: this.form.meet_location,
+            leave_time: this.form.leave_time
+          },
+          requirement: {
+            age: this.form.age,
+            cost: this.form.cost,
+            nationalId: this.form.nationalId,
+            phoneNumber: this.form.phoneNumber,
+            amount: this.form.amount,
+            transportation: this.form.transportation
+          },
+          expiry: false
+        }
+        try {
+          await Service.newTripCard(form)
+          this.form.postDate = new Date()
+          this.$router.back()
+          this.displayData()
+          localStorage.removeItem('objectData')
+          console.log('Data cleared from localStorage')
+        } catch (e) {
+          console.log(e)
+        }
       const Pubform = {
         id: '',
         postDate: new Date().toLocaleDateString(),
@@ -98,13 +138,14 @@ export default {
         console.log('Data cleared from localStorage')
       } catch (e) {
         console.log(e)
+
       }
     },
     async SaveChanges () {
       try {
         this.originalTripCard = { ...this.form }
         localStorage.setItem('objectData', JSON.stringify(this.originalTripCard))
-        this.$router.push('/user/home')
+        this.$router.back()
       } catch (e) {
         console.log(e)
       }

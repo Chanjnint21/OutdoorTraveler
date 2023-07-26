@@ -5,10 +5,9 @@
         <save-dialog @saveChanges="SaveChanges" @discardChanges="DiscardChanges"/>
       </v-col>
       <v-card-title class="d-flex justify-center text-h6">Trip Card</v-card-title>
-      <form-component ref="form" v-model="form" :validity.sync="isFormComplete">
+      <form-component ref="form" v-model="form" :validity.sync="isFormComplete" @testing="passimagedata">
         <template v-slot:FormBtn1>
           <trip-btn
-            type="submit"
             name="Publish"
             @click="publishPost()"
             class="white--text mx-3"
@@ -30,6 +29,8 @@
 import { Service } from '@/service/index.js'
 import FormComponent from './Component/FormComponent.vue'
 import SaveDialog from './Component/SaveDialog.vue'
+import { storage } from '@/firebase'
+import { ref, uploadBytes } from 'firebase/storage'
 
 export default {
   name: 'TripCard',
@@ -44,10 +45,15 @@ export default {
       crrUser: JSON.parse(localStorage.getItem('authUser')),
       isFormComplete: false,
       tripDate: [],
-      time: ''
+      time: '',
+      Images: [],
+      IMageData: null
     }
   },
   methods: {
+    passimagedata (newVal) {
+      this.IMageData = newVal
+    },
     async publishPost () {
       if (this.isFormComplete) {
         const form = {
@@ -89,6 +95,50 @@ export default {
         } catch (e) {
           console.log(e)
         }
+      const Pubform = {
+        id: '',
+        postDate: new Date().toLocaleDateString(),
+        postTime: new Date().toLocaleTimeString('en-US', { hour12: false }),
+        author: {
+          id: this.crrUser[0].id,
+          name: this.crrUser[0].name
+        },
+        title: this.form.title,
+        destination: this.form.destination,
+        start_date: this.form.start_date,
+        end_date: this.form.end_date,
+        detail: this.form.detail,
+        image: this.form.image,
+        category: this.form.category,
+        departure: {
+          meet_location: this.form.meet_location,
+          leave_time: this.form.leave_time
+        },
+        requirement: {
+          age: this.form.age,
+          cost: this.form.cost,
+          nationalId: this.form.nationalId,
+          phoneNumber: this.form.phoneNumber,
+          amount: this.form.amount,
+          transportation: this.form.transportation
+        },
+        expiry: false
+      }
+      for (let i = 0; i < this.IMageData.length; i++) {
+        const file = this.IMageData[i]
+        const storageRef = ref(storage, `folder/${this.form.image[i]}`)
+        uploadBytes(storageRef, file).then((snapshot) => {
+          console.log(snapshot)
+        })
+      }
+      try {
+        await Service.newTripCard(Pubform)
+        this.displayData()
+        localStorage.removeItem('objectData')
+        console.log('Data cleared from localStorage')
+      } catch (e) {
+        console.log(e)
+
       }
     },
     async SaveChanges () {

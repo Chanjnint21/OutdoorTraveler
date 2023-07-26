@@ -14,7 +14,7 @@
         class="pa-5">
         <v-img
           class="align-start"
-          :src="item.image"/>
+          :src="item.image[0]"/>
       </v-col>
       <v-col cols="12" sm="7" md="7" lg="7" xl="12">
         <v-row class="d-flex align-start" style="height: 60%" no-gutters>

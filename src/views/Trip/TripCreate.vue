@@ -69,7 +69,7 @@ export default {
           start_date: this.form.start_date,
           end_date: this.form.end_date,
           detail: this.form.detail,
-          image: '',
+          image: this.form.image,
           category: this.form.category,
           departure: {
             meet_location: this.form.meet_location,
@@ -85,60 +85,21 @@ export default {
           },
           expiry: false
         }
+        for (let i = 0; i < this.IMageData.length; i++) {
+          const file = this.IMageData[i]
+          const storageRef = ref(storage, `folder/${this.form.image[i]}`)
+          uploadBytes(storageRef, file).then((snapshot) => {
+            console.log(snapshot)
+          })
+        }
         try {
           await Service.newTripCard(form)
-          this.form.postDate = new Date()
-          this.$router.back()
           this.displayData()
           localStorage.removeItem('objectData')
-          console.log('Data cleared from localStorage')
+          this.$router.back()
         } catch (e) {
           console.log(e)
         }
-      const Pubform = {
-        id: '',
-        postDate: new Date().toLocaleDateString(),
-        postTime: new Date().toLocaleTimeString('en-US', { hour12: false }),
-        author: {
-          id: this.crrUser[0].id,
-          name: this.crrUser[0].name
-        },
-        title: this.form.title,
-        destination: this.form.destination,
-        start_date: this.form.start_date,
-        end_date: this.form.end_date,
-        detail: this.form.detail,
-        image: this.form.image,
-        category: this.form.category,
-        departure: {
-          meet_location: this.form.meet_location,
-          leave_time: this.form.leave_time
-        },
-        requirement: {
-          age: this.form.age,
-          cost: this.form.cost,
-          nationalId: this.form.nationalId,
-          phoneNumber: this.form.phoneNumber,
-          amount: this.form.amount,
-          transportation: this.form.transportation
-        },
-        expiry: false
-      }
-      for (let i = 0; i < this.IMageData.length; i++) {
-        const file = this.IMageData[i]
-        const storageRef = ref(storage, `folder/${this.form.image[i]}`)
-        uploadBytes(storageRef, file).then((snapshot) => {
-          console.log(snapshot)
-        })
-      }
-      try {
-        await Service.newTripCard(Pubform)
-        this.displayData()
-        localStorage.removeItem('objectData')
-        console.log('Data cleared from localStorage')
-      } catch (e) {
-        console.log(e)
-
       }
     },
     async SaveChanges () {

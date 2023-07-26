@@ -52,11 +52,7 @@
             <file-field
               name="imageSrc"
               label="Image(s)"
-              color="#1687A7"
-              outlined
-              rounded
-              icon="mdi-image"
-              :rules="[rules.createrule]"
+              @files_item="imageData"
             />
           </v-col>
           <v-col cols="12">
@@ -145,8 +141,9 @@
           </v-col>
           <v-col cols="12" sm="6" md="6">
             <text-field
+              type="number"
               name="amount"
-              v-model="form.amount"
+              v-model.number="form.amount"
               label="Amount"
               color="#1687A7"
               outlined
@@ -208,6 +205,8 @@ export default {
       rules: {
         createrule: value => !!value || 'field required'
       },
+      crrUser: JSON.parse(localStorage.getItem('authUser')),
+      emitImageData: [],
       PostBtn: true,
       form: {
         id: '',
@@ -217,7 +216,7 @@ export default {
         start_date: '',
         end_date: '',
         detail: '',
-        image: '',
+        image: [],
         category: null,
         meet_location: '',
         age: [],
@@ -237,6 +236,9 @@ export default {
       handler (val) {
         this.form = val
       }
+    },
+    emitImageData (newVal) {
+      this.$emit('testing', newVal)
     }
   },
   methods: {
@@ -252,6 +254,17 @@ export default {
     },
     LeaveTime (value) {
       this.form.leave_time = value
+    },
+    imageData (newVal) {
+      this.emitImageData = newVal
+      const getImage = []
+      for (let i = 0; i < newVal.length; i++) {
+        const date = new Date().toJSON().slice(0, 10)
+        const time = new Date().toLocaleTimeString('en-US', { hour12: false })
+        const fileName = `${this.crrUser[0].name}${date}${time}_${i}`
+        getImage.push(fileName)
+      }
+      this.form.image = getImage
     }
   }
 }

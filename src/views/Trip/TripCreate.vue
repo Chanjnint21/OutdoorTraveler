@@ -5,10 +5,9 @@
         <save-dialog @saveChanges="SaveChanges" @discardChanges="DiscardChanges"/>
       </v-col>
       <v-card-title class="d-flex justify-center text-h6">Trip Card</v-card-title>
-      <form-component ref="form" v-model="form" :validity.sync="isFormComplete">
+      <form-component ref="form" v-model="form" :validity.sync="isFormComplete" @testing="passimagedata">
         <template v-slot:FormBtn1>
           <trip-btn
-            type="submit"
             name="Publish"
             @click="publishPost()"
             class="white--text mx-3"
@@ -30,6 +29,8 @@
 import { Service } from '@/service/index.js'
 import FormComponent from './Component/FormComponent.vue'
 import SaveDialog from './Component/SaveDialog.vue'
+import { storage } from '@/firebase'
+import { ref, uploadBytes } from 'firebase/storage'
 
 export default {
   name: 'TripCard',
@@ -44,10 +45,15 @@ export default {
       crrUser: JSON.parse(localStorage.getItem('authUser')),
       isFormComplete: false,
       tripDate: [],
-      time: ''
+      time: '',
+      Images: [],
+      IMageData: null
     }
   },
   methods: {
+    passimagedata (newVal) {
+      this.IMageData = newVal
+    },
     async publishPost () {
       if (this.isFormComplete) {
         const form = {
@@ -63,7 +69,7 @@ export default {
           start_date: this.form.start_date,
           end_date: this.form.end_date,
           detail: this.form.detail,
-          image: '',
+          image: this.form.image,
           category: this.form.category,
           departure: {
             meet_location: this.form.meet_location,
@@ -79,13 +85,18 @@ export default {
           },
           expiry: false
         }
+        for (let i = 0; i < this.IMageData.length; i++) {
+          const file = this.IMageData[i]
+          const storageRef = ref(storage, `folder/${this.form.image[i]}`)
+          uploadBytes(storageRef, file).then((snapshot) => {
+            console.log(snapshot)
+          })
+        }
         try {
           await Service.newTripCard(form)
-          this.form.postDate = new Date()
-          this.$router.push('/user/home')
           this.displayData()
           localStorage.removeItem('objectData')
-          console.log('Data cleared from localStorage')
+          this.$router.back()
         } catch (e) {
           console.log(e)
         }
@@ -95,7 +106,7 @@ export default {
       try {
         this.originalTripCard = { ...this.form }
         localStorage.setItem('objectData', JSON.stringify(this.originalTripCard))
-        this.$router.push('/user/home')
+        this.$router.back()
       } catch (e) {
         console.log(e)
       }

@@ -23,7 +23,7 @@
         </c-dialog>
       </v-col>
       <v-card-title class="d-flex justify-center text-h6">Trip Card</v-card-title>
-      <form-component ref="form" v-model="form" :timeData="time" :DateData="tripDate">
+      <form-component ref="form" v-model="form" :timeData="time" :DateData="tripDate" @testing="passimagedata">
         <template v-slot:FormBtn1>
           <c-dialog
             class=""
@@ -51,6 +51,8 @@
 <script>
 import { Service } from '@/service/index.js'
 import FormComponent from './Component/FormComponent.vue'
+import { storage } from '@/firebase'
+import { ref, uploadBytes } from 'firebase/storage'
 
 export default {
   components: {
@@ -68,10 +70,15 @@ export default {
       updateID: this.$route.params.id,
       time: '',
       tripDate: [],
-      form: {}
+      form: {},
+      Images: [],
+      IMageData: null
     }
   },
   methods: {
+    passimagedata (newVal) {
+      this.IMageData = newVal
+    },
     validate () {
       this.$refs.form.validate()
     },
@@ -106,9 +113,16 @@ export default {
         },
         expiry: false
       }
+      for (let i = 0; i < this.IMageData.length; i++) {
+        const file = this.IMageData[i]
+        const storageRef = ref(storage, `folder/${this.form.image[i]}`)
+        uploadBytes(storageRef, file).then((snapshot) => {
+          console.log(snapshot)
+        })
+      }
       try {
         await Service.UpdateCard(id, form)
-        this.$router.push('/user/profile')
+        this.$router.back()
       } catch (e) {
         console.log(e)
       }

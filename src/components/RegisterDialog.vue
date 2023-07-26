@@ -1,4 +1,5 @@
-  <template>
+
+<template>
     <v-dialog
       v-model="dialog"
       persistent
@@ -116,6 +117,7 @@
             </v-card-actions>
       </v-card>
     </v-dialog>
+
   </template>
 
 <script>
@@ -193,6 +195,9 @@ export default {
       handler (newVal) {
         this.ageRule = newVal
       }
+    },
+    age (newVal) {
+      this.validateAge(newVal)
     }
 
   },

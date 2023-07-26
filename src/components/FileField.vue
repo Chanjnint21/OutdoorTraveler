@@ -5,8 +5,14 @@
     :label="label"
     prepend-icon=""
     :append-icon="icon"
-    multiple
+    accept="image/*"
+    color="#1687A7"
+    v-model="imagesi"
+    outlined
+    rounded
     dense
+    multiple
+    @change="handleFileChange"
   />
 </template>
 
@@ -20,6 +26,16 @@ export default {
     },
     icon: {
       type: String
+    }
+  },
+  data () {
+    return {
+      imagesi: []
+    }
+  },
+  methods: {
+    handleFileChange () {
+      this.$emit('files_item', this.imagesi)
     }
   }
 }

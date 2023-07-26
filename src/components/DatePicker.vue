@@ -10,7 +10,7 @@
   >
     <template v-slot:activator="{ on, attrs }">
       <v-text-field
-        v-model="dateFormatted"
+        :value="computedDateFormatted"
         :label="label"
         append-icon="mdi-calendar"
         readonly
@@ -56,10 +56,15 @@ export default {
   },
   data () {
     return {
-      date: (new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10),
+      date: null,
       dateFormatted: '',
       menu: false,
       modal: false
+    }
+  },
+  computed: {
+    computedDateFormatted () {
+      return this.formatDate(this.date)
     }
   },
   watch: {
@@ -68,26 +73,30 @@ export default {
       handler (val) {
         this.date = val
       }
-    },
-    date: {
-      immediate: true,
-      handler (val) {
-        this.dateFormatted = this.formatDate(val)
-      }
     }
+    // date: {
+    //   // immediate: true,
+    //   handler (val) {
+    //     this.dateFormatted = this.formatDate(val)
+    //   }
+    // }
   },
   methods: {
     formatDate (date) {
       if (!date) {
         return null
       }
+      console.log('date', date)
       const [year, month, day] = date.split('-')
+
+      console.log(`newDate ${day}/${month}/${year}`)
       return `${day}/${month}/${year}`
     },
-    savethisdate () {
-      console.log(this.dateFormatted)
-      this.$refs.menu.save(this.dateFormatted)
-      this.$emit('input', this.dateFormatted)
+    savethisdate (date) {
+      const formatDate = this.formatDate(date)
+      console.log('saveDate', formatDate)
+      this.$refs.menu.save(date)
+      this.$emit('input', formatDate)
     }
   }
 }

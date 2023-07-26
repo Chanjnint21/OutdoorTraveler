@@ -25,15 +25,27 @@
             <v-col>
               <v-card-title class="text-h5"><b>{{ item.title }}</b></v-card-title>
               <v-card-text class="text-left">{{ item.detail }}</v-card-text>
-              <v-card-subtitle class="text-left" style="font-size: larger; color:blue"> About Trip </v-card-subtitle>
+              <v-card-title class="text-left" style="font-size: larger; color:#276678"> About Trip </v-card-title>
               <v-card-text class="text-left"><v-icon>mdi-map-marker</v-icon> Destination:     {{ item. destination}}</v-card-text>
               <v-card-text class="text-left"><v-icon>mdi-calendar-range</v-icon> Start Date:      {{ item. start_date}}</v-card-text>
               <v-card-text class="text-left"><v-icon>mdi-calendar-range</v-icon> End Date:       {{ item. end_date}}</v-card-text>
-              <v-card-text class="text-left"><v-icon>mdi-heart</v-icon> Categorize:      {{ item. category}}</v-card-text>
-              <v-card-subtitle class="text-left" style="font-size: larger ; color:green"> Departure </v-card-subtitle>
+              <v-card-text class="text-left"><v-icon>mdi-heart</v-icon>
+                Categorize:
+                <v-chip-group>
+                  <v-chip
+                    color="#1687A7"
+                    v-for="tag in item.category"
+                    :key="tag"
+                    class="white--text"
+                  >
+                    {{ tag }}
+                  </v-chip>
+                </v-chip-group>
+              </v-card-text>
+              <v-card-title class="text-left" style="font-size: larger ; color:#276678"> Departure </v-card-title>
               <v-card-text class="text-left"><v-icon>mdi-map</v-icon> Location:      {{ item. departure.meet_location}}</v-card-text>
               <v-card-text class="text-left"><v-icon>mdi-clock</v-icon> Time:       {{ item. departure.leave_time}}</v-card-text>
-              <v-card-subtitle class="text-left" style="font-size: larger ; color:green"> Requirements </v-card-subtitle>
+              <v-card-title class="text-left" style="font-size: larger ; color:#276678"> Requirements </v-card-title>
               <v-card-text class="text-left"><v-icon> mdi-check-underline-circle</v-icon>Minimum Age:     {{ item.requirement.age[0]}}</v-card-text>
               <v-card-text class="text-left"><v-icon> mdi-check-underline-circle</v-icon>Maximum Age:     {{ item.requirement.age[1]}}</v-card-text>
               <v-card-text class="text-left"><v-icon> mdi-check-underline-circle</v-icon>Cost:     {{ item.requirement.cost}}</v-card-text>
@@ -47,11 +59,10 @@
         <v-col cols="12" xs='12' sm="6" md="6" lg="6">
           <v-row class="d-flex align-start" no-gutters>
             <v-col cols='12'>
-              <v-img
-                width="100%"
-                height="100%"
+              <cloud-image
+                height= "450"
                 class="align-end"
-                :src="item.image"
+                :files='item.image'
               />
             </v-col>
             <v-col cols="12">
@@ -84,8 +95,13 @@
 </template>
 <script>
 import { Service } from '@/service/index.js'
+import CloudImage from './CloudImage.vue'
+
 export default {
   name: 'ViewCard',
+  components: {
+    CloudImage
+  },
   props: {
     elevation: {
       type: String
@@ -106,6 +122,23 @@ export default {
   },
   data () {
     return {
+      detailData: [
+        {
+          name: 'about',
+          children: [
+            {
+              icon: 'Clock',
+              title: 'Time',
+              value: 'item.time'
+            }
+          ]
+        },
+        {
+          icon: 'Clock',
+          title: 'Time',
+          value: 'item.time'
+        }
+      ],
       lists: [
         // { title: 'ad', avatar: 'https://cdn.vuetifyjs.com/images/lists/1.jpg' },
         // { title: 'Travis Howard', avatar: 'https://cdn.vuetifyjs.com/images/lists/2.jpg' },
@@ -125,8 +158,21 @@ export default {
         // { title: 'ba canel', avatar: 'https://cdn.vuetifyjs.com/images/lists/5.jpg' }
       ],
       emptyMatching: false,
-      countUser: 0
-
+      countUser: 0,
+      imgitems: [
+        {
+          src: 'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg'
+        },
+        {
+          src: 'https://cdn.vuetifyjs.com/images/carousel/sky.jpg'
+        },
+        {
+          src: 'https://cdn.vuetifyjs.com/images/carousel/bird.jpg'
+        },
+        {
+          src: 'https://cdn.vuetifyjs.com/images/carousel/planet.jpg'
+        }
+      ]
     }
   },
   methods: {

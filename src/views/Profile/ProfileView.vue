@@ -8,7 +8,7 @@
           <v-row no-gutters>
             <v-col cols="12" sm="2" class="d-flex justify-center ">
               <v-avatar size="200" style="top: -15%;">
-                <v-img src="../../assets/Img/pf2.jpg" alt="Naruto"/>
+                <v-img :src="userImg" alt="Naruto"/>
               </v-avatar>
             </v-col>
             <v-col cols="7" class="d-flex align-center mt-10">
@@ -34,18 +34,6 @@
                 </template>
               </trip-btn>
             </v-col>
-            <!-- <v-col cols="6" class="d-flex justify-end">
-              <trip-btn
-                BtnColor="#1687A7"
-                class="mr-6"
-                btn-label="Edit Profile"
-                outlined
-                rounded>
-                <template v-slot:icon>
-                  <v-icon>mdi-account-edit</v-icon>
-                  </template>
-              </trip-btn>
-            </v-col> -->
           </v-row>
         </v-col>
         <v-col cols="12" id="tab">
@@ -107,13 +95,15 @@ export default {
       tab: null,
       tabs: ['Your Blog', 'Favorite', 'Upcoming', 'Joined'],
       userName: '',
-      userID: ''
+      userID: '',
+      userImg: ''
     }
   },
   created () {
     const crrUser = JSON.parse(localStorage.getItem('authUser'))
     this.userName = crrUser[0].name
     this.userID = crrUser[0].id
+    this.userImg = crrUser[0].image
   }
 }
 </script>

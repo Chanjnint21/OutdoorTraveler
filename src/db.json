@@ -3,6 +3,7 @@
     {
       "id": "1x2345",
       "name": "jennie",
+      "image": "https://startefacts.com/upload//upload/news/978217760396.jpg",
       "email": "example1@gmail.com",
       "role": "user",
       "password": "password123",
@@ -13,6 +14,7 @@
     {
       "id": "2x3456",
       "name": "user0101",
+      "image": "https://logos-world.net/wp-content/uploads/2021/08/Among-Us-Logo.png",
       "email": "example2@gmail.com",
       "role": "user",
       "password": "secret123",
@@ -23,6 +25,7 @@
     {
       "id": "34567",
       "name": "admin007",
+      "image": "https://i.pinimg.com/1200x/80/a9/71/80a97197cbcfc9bdc68e511e7da75380.jpg",
       "email": "example3@gmail.com",
       "role": "admin",
       "password": "admin123",

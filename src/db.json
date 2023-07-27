@@ -3,35 +3,38 @@
     {
       "id": "1x2345",
       "name": "jennie",
-      "image": "https://startefacts.com/upload//upload/news/978217760396.jpg",
+      "image": "jennie2023-07-2717:20:52_0",
       "email": "example1@gmail.com",
       "role": "user",
       "password": "password123",
       "phone": "01225680",
       "firstName": "Chansovanmony",
-      "lastName": "Youen"
+      "lastName": "Youen",
+      "bio": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque tenetur nobis sapiente incidunt cum voluptates aliquid nemo voluptatibus magnam. Neque magni culpa eaque nulla aperiam,"
     },
     {
       "id": "2x3456",
       "name": "user0101",
-      "image": "https://logos-world.net/wp-content/uploads/2021/08/Among-Us-Logo.png",
+      "image": "user01012023-07-2716-55-06_0.png",
       "email": "example2@gmail.com",
       "role": "user",
       "password": "secret123",
       "phone": "081808091",
       "firstName": "Chanjnint",
-      "lastName": "Lim"
+      "lastName": "Lim",
+      "bio": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque tenetur nobis sapiente incidunt cum voluptates aliquid nemo voluptatibus magnam. Neque magni culpa eaque nulla aperiam,"
     },
     {
       "id": "34567",
       "name": "admin007",
-      "image": "https://i.pinimg.com/1200x/80/a9/71/80a97197cbcfc9bdc68e511e7da75380.jpg",
+      "image": "admin0072023-07-2717:23:56_0",
       "email": "example3@gmail.com",
       "role": "admin",
       "password": "admin123",
       "phone": "012241101",
       "firstName": "Michael",
-      "lastName": "Jackson"
+      "lastName": "Jackson",
+      "bio": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque tenetur nobis sapiente incidunt cum voluptates aliquid nemo voluptatibus magnam. Neque magni culpa eaque nulla aperiam,"
     }
   ],
   "tripcards": [

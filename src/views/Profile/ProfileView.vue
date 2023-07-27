@@ -13,8 +13,11 @@
             </v-col>
             <v-col cols="7" class="d-flex align-center mt-10">
               <v-row no-gutters>
+                <v-col cols="12" class="mt-10">
+                  <p class="text-h5 font-weight-bold">{{ userName }} <v-icon color="blue">mdi-check-decagram</v-icon></p>
+                </v-col>
                 <v-col cols="12">
-                  <p class="text-h5">{{ userName }} <v-icon color="blue">mdi-check-decagram</v-icon></p>
+                  <p> {{ userBio }}</p>
                 </v-col>
                 <v-col cols="12" class="d-flex">
                   <p> 10 <span class="text--disabled mr-2"> following</span></p>
@@ -23,14 +26,13 @@
               </v-row>
             </v-col>
             <v-col cols="3" class="d-flex align-center justify-end">
+              <prof-dialog :pfPic="userImg"/>
               <trip-btn
-                class="white--text"
                 BtnColor="#1687A7"
-                btn-label="Edit Profile"
-                rounded
+                icon
                 >
                 <template v-slot:icon>
-                  <v-icon>mdi-account-edit</v-icon>
+                  <v-icon >mdi-dots-horizontal</v-icon>
                 </template>
               </trip-btn>
             </v-col>
@@ -73,7 +75,7 @@
 }
 #tab {
   position: absolute;
-  top: 420px
+  top: 480px
 }
 </style>
 
@@ -82,13 +84,17 @@ import YourBlog from './YourBlog.vue'
 import UpComing from './UpComing.vue'
 import FavoritPost from './FavoritePost.vue'
 import JoinedTrip from './JoinedTrip.vue'
+import ProfDialog from './components/ProfDialog.vue'
+import { storage } from '../../firebase'
+import { ref, getDownloadURL } from 'firebase/storage'
 
 export default {
   components: {
     YourBlog,
     FavoritPost,
     UpComing,
-    JoinedTrip
+    JoinedTrip,
+    ProfDialog
   },
   data () {
     return {
@@ -96,14 +102,19 @@ export default {
       tabs: ['Your Blog', 'Favorite', 'Upcoming', 'Joined'],
       userName: '',
       userID: '',
-      userImg: ''
+      userImg: '',
+      userBio: ''
     }
   },
   created () {
     const crrUser = JSON.parse(localStorage.getItem('authUser'))
+    const path = `profile/${crrUser[0].image}`
+    getDownloadURL(ref(storage, path)).then(
+      (downLoadUrl) => (this.userImg = downLoadUrl)
+    )
     this.userName = crrUser[0].name
     this.userID = crrUser[0].id
-    this.userImg = crrUser[0].image
+    this.userBio = crrUser[0].bio
   }
 }
 </script>

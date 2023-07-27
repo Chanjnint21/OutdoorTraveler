@@ -11,7 +11,6 @@
     outlined
     rounded
     dense
-    multiple
     @change="handleFileChange"
   />
 </template>

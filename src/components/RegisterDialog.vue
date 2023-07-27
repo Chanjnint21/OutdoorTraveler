@@ -195,11 +195,7 @@ export default {
       handler (newVal) {
         this.ageRule = newVal
       }
-    },
-    age (newVal) {
-      this.validateAge(newVal)
     }
-
   },
   methods: {
     async submit () {

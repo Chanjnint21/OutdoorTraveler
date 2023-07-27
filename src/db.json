@@ -268,18 +268,6 @@
   ],
   "RegisterTrip": [
     {
-      "id": 3,
-      "user_id": "1x2345",
-      "userName": "jennie",
-      "firstName": "Chansovanmony",
-      "lastName": "Yoeun",
-      "age": "12",
-      "phoneNumber": "085605126",
-      "card_id": "tydbwj-3",
-      "reg_date": "7/19/2023",
-      "reg_time": "16:56:41"
-    },
-    {
       "id": 5,
       "user_id": "2x3456",
       "userName": "user0101",
@@ -316,17 +304,6 @@
       "reg_time": "16:36:56"
     },
     {
-      "id": 2,
-      "user_id": "2x3456",
-      "userName": "user0101",
-      "firstName": "Chanjnint",
-      "age": "12",
-      "lastName": "Lim",
-      "phoneNumber": "081808091",
-      "reg_date": "7/26/2023",
-      "reg_time": "14:52:46"
-    },
-    {
       "id": 3,
       "firstName": "Chansovanmony",
       "age": "12",
@@ -351,37 +328,16 @@
       "reg_time": "15:03:13"
     },
     {
-      "id": 6,
-      "user_id": "2x3456",
-      "userName": "user0101",
-      "firstName": "Chanjnint",
-      "age": "",
-      "lastName": "Lim",
-      "phoneNumber": "081808091",
-      "reg_date": "7/26/2023",
-      "reg_time": "15:06:13"
-    },
-    {
       "id": 7,
-      "user_id": "2x3456",
-      "userName": "user0101",
-      "firstName": "Chanjnint",
-      "age": "12",
-      "lastName": "Lim",
-      "phoneNumber": "081808091",
-      "reg_date": "7/26/2023",
-      "reg_time": "15:08:35"
-    },
-    {
-      "id": 8,
-      "user_id": "2x3456",
-      "userName": "user0101",
-      "firstName": "Chanjnint",
-      "age": "12",
-      "lastName": "Lim",
-      "phoneNumber": "081808091",
-      "reg_date": "7/26/2023",
-      "reg_time": "15:10:49"
+      "user_id": "1x2345",
+      "userName": "jennie",
+      "firstName": "Chansovanmony",
+      "age": "15",
+      "lastName": "Youen",
+      "phoneNumber": "01225680",
+      "card_id": "tydbwj-3",
+      "reg_date": "7/27/2023",
+      "reg_time": "13:51:31"
     }
   ]
 }

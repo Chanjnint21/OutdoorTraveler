@@ -3,18 +3,16 @@
     <div v-if='EmptyReg' class='d-flex justify-center pt-5 text--disabled'>
       <p>There's no upcoming trip that you have register !</p>
     </div>
-    <v-row v-else>
-      <template v-for="item in items">
-        <v-col col="12" lg="12" xl="6" :key="item.id">
-          <card-component
-            height="auto"
-            elevation="8"
-            :item='item'
-          >
-          </card-component>
-        </v-col>
-      </template>
-    </v-row>
+    <template v-for="item in items">
+      <v-col col="12" lg="12" xl="6" :key="item.id">
+        <card-component
+          height="auto"
+          elevation="8"
+          :item='item'
+        >
+        </card-component>
+      </v-col>
+    </template>
   </v-tab-item>
 </template>
 
@@ -40,6 +38,7 @@ export default {
       deep: true, // Watch for changes in nested properties of RegCard (if applicable)
       handler () {
         if (this.RegCard.length === 0) {
+          console.log(this.RegCard.length)
           this.EmptyReg = true
         } else {
           this.EmptyReg = false

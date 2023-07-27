@@ -1,20 +1,18 @@
 <template>
   <v-tab-item>
     <div v-if='emptyJoined' class='d-flex justify-center pt-5 text--disabled'>
-      <p>You haven't joined any trip yet ! !</p>
+      <p>You haven't joined any trip yet !!!</p>
     </div>
-    <v-row v-else>
-      <template v-for="item in items">
-        <v-col col="12" lg="12" xl="6" :key="item.id">
-          <card-component
-            height="auto"
-            elevation="8"
-            :item='item'
-          >
-          </card-component>
-        </v-col>
-      </template>
-    </v-row>
+    <template v-for="item in items">
+      <v-col col="12" lg="12" xl="6" :key="item.id">
+        <card-component
+          height="auto"
+          elevation="8"
+          :item='item'
+        >
+        </card-component>
+      </v-col>
+    </template>
   </v-tab-item>
 </template>
 

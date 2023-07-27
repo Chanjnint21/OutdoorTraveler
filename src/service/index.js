@@ -32,6 +32,14 @@ export const Service = {
       console.log(e)
     }
   },
+  async updateUser (id, pfInfo) {
+    try {
+      const users = await axios.patch(`http://localhost:3000/users/${id}`, pfInfo)
+      return users.data
+    } catch (e) {
+      console.log(e)
+    }
+  },
   async deleteItem (id) {
     try {
       await axios.delete(`http://localhost:3000/tripcards/${id}`)

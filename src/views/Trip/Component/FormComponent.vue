@@ -52,6 +52,7 @@
             <file-field
               name="imageSrc"
               label="Image(s)"
+              multiple
               @files_item="imageData"
             />
           </v-col>

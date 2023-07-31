@@ -109,16 +109,20 @@ export default {
           age: this.form.age,
           cost: this.form.cost,
           nationalId: this.form.nationalId,
-          phoneNumber: this.form.phoneNumber
+          phoneNumber: this.form.phoneNumber,
+          amount: this.form.amount,
+          transportation: this.form.transportation
         },
         expiry: false
       }
-      for (let i = 0; i < this.IMageData.length; i++) {
-        const file = this.IMageData[i]
-        const storageRef = ref(storage, `folder/${this.form.image[i]}`)
-        uploadBytes(storageRef, file).then((snapshot) => {
-          console.log(snapshot)
-        })
+      if (this.IMageData !== null) {
+        for (let i = 0; i < this.IMageData.length; i++) {
+          const file = this.IMageData[i]
+          const storageRef = ref(storage, `folder/${this.form.image[i]}`)
+          uploadBytes(storageRef, file).then((snapshot) => {
+            console.log(snapshot)
+          })
+        }
       }
       try {
         await Service.UpdateCard(id, form)
@@ -146,7 +150,9 @@ export default {
         leave_time: ImportData.departure.leave_time,
         cost: ImportData.requirement.cost,
         nationalId: ImportData.requirement.nationalId,
-        phoneNumber: ImportData.requirement.phoneNumber
+        phoneNumber: ImportData.requirement.phoneNumber,
+        amount: ImportData.requirement.amount,
+        transportation: ImportData.requirement.transportation
       }
     } catch (e) {
       console.log(e)

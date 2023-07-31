@@ -85,12 +85,16 @@ export default {
           },
           expiry: false
         }
-        for (let i = 0; i < this.IMageData.length; i++) {
-          const file = this.IMageData[i]
-          const storageRef = ref(storage, `folder/${this.form.image[i]}`)
-          uploadBytes(storageRef, file).then((snapshot) => {
-            console.log(snapshot)
-          })
+        if (this.IMageData !== null) {
+          for (let i = 0; i < this.IMageData.length; i++) {
+            const file = this.IMageData[i]
+            const storageRef = ref(storage, `folder/${this.form.image[i]}`)
+            uploadBytes(storageRef, file).then((snapshot) => {
+              console.log(snapshot)
+            })
+          }
+        } else {
+          form.image = ['NoImage.png']
         }
         try {
           await Service.newTripCard(form)

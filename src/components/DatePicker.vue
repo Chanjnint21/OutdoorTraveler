@@ -28,6 +28,8 @@
       color="#276678"
       no-title
       scrollable
+      :min="applyMin()"
+      :max="applyMax()"
     >
       <v-spacer></v-spacer>
       <v-btn text color="#1687A7" @click="menu = false">Cancel</v-btn>
@@ -52,6 +54,14 @@ export default {
     label: {
       type: String,
       required: true
+    },
+    min: {
+      type: String,
+      required: true
+    },
+    max: {
+      type: String,
+      required: true
     }
   },
   data () {
@@ -74,23 +84,33 @@ export default {
         this.date = val
       }
     }
-    // date: {
-    //   // immediate: true,
-    //   handler (val) {
-    //     this.dateFormatted = this.formatDate(val)
-    //   }
-    // }
   },
   methods: {
     formatDate (date) {
       if (!date) {
         return null
       }
-      console.log('date', date)
       const [year, month, day] = date.split('-')
-
-      console.log(`newDate ${day}/${month}/${year}`)
       return `${day}/${month}/${year}`
+    },
+    formatCurrentDate (date) {
+      if (!date) {
+        return null
+      }
+      const [year, month, day] = date.split('-')
+      return `${day}/${month}/${year}`
+    },
+    applyMin () {
+      return this.parseDate(this.min)
+    },
+    applyMax () {
+      return this.parseDate(this.max)
+    },
+    parseDate (date) {
+      if (!date) return null
+
+      const [day, month, year] = date.split('/')
+      return `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`
     },
     savethisdate (date) {
       const formatDate = this.formatDate(date)

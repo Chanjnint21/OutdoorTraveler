@@ -248,6 +248,43 @@
         "phoneNumber": "Require"
       },
       "expiry": true
+    },
+    {
+      "id": "jPg4zps",
+      "postDate": "7/31/2023",
+      "postTime": "14:16:08",
+      "author": {
+        "id": "2x3456",
+        "name": "user0101"
+      },
+      "title": "testing1",
+      "destination": "Cali",
+      "start_date": "31/07/2023",
+      "end_date": "31/07/2023",
+      "detail": "this is the first trip.",
+      "image": [
+        "user01012023-07-3114:15:33_0"
+      ],
+      "category": [
+        "One day Trip",
+        "Hiking"
+      ],
+      "departure": {
+        "meet_location": "airpot",
+        "leave_time": "01:11"
+      },
+      "requirement": {
+        "age": [
+          15,
+          22
+        ],
+        "cost": 2000,
+        "nationalId": "Require",
+        "phoneNumber": "Not Require",
+        "amount": 3000,
+        "transportation": "Not Require"
+      },
+      "expiry": false
     }
   ],
   "Favorite": [

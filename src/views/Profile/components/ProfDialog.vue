@@ -27,7 +27,7 @@
           <v-row>
             <v-col cols="12" id="prof" class="d-flex justify-center ">
               <v-avatar size="200">
-                <v-img :src="changePic" alt="Naruto"/>
+                <v-img :src="userImg" alt="Naruto"/>
               </v-avatar>
             </v-col>
             <v-col cols="12">
@@ -110,7 +110,7 @@ export default {
     userBio: '',
     password: '',
     errorMessages: '',
-    changePic: '',
+    changePic: null,
     crrUser: JSON.parse(localStorage.getItem('authUser'))
   }),
   watch: {
@@ -127,14 +127,17 @@ export default {
       try {
         const Token = await Service.logIn(this.crrUser[0].email, this.password)
         if (Token.length === 1) {
+          if (this.changePic === null) {
+            this.changePic = this.crrUser[0].image
+          }
           const pfInfo = {
             name: this.userName,
             bio: this.userBio,
-            image: this.userImg
+            image: this.changePic
           }
-          this.crrUser[0].name = this.userName
-          this.crrUser[0].bio = this.userBio
-          this.crrUser[0].image = this.userImg
+          this.crrUser[0].name = pfInfo.name
+          this.crrUser[0].bio = pfInfo.bio
+          this.crrUser[0].image = pfInfo.image
           localStorage.setItem('authUser', JSON.stringify(this.crrUser))
           await Service.updateUser(this.crrUser[0].id, pfInfo)
           this.$router.go()
@@ -146,25 +149,31 @@ export default {
       }
     },
     imageData (newVal) {
-      this.changePic = URL.createObjectURL(newVal)
-      for (let i = 0; i < newVal.length; i++) {
-        const file = newVal[0]
-        const date = new Date().toJSON().slice(0, 10)
-        const time = new Date().toLocaleTimeString('en-US', { hour12: false })
-        const fileName = `${this.crrUser[0].name}${date}${time}_${i}`
-        const storageRef = ref(storage, `profile/${fileName}`)
-        uploadBytes(storageRef, file).then((snapshot) => {
-          console.log(snapshot)
-          this.userImg = fileName
-        })
+      try {
+        if (newVal === null) return
+        this.userImg = URL.createObjectURL(newVal)
+        console.log(this.userImg)
+        for (let i = 0; i < newVal.length; i++) {
+          const file = newVal[0]
+          const date = new Date().toJSON().slice(0, 10)
+          const time = new Date().toLocaleTimeString('en-US', { hour12: false })
+          const fileName = `${this.crrUser[0].name}${date}${time}_${i}`
+          const storageRef = ref(storage, `profile/${fileName}`)
+          uploadBytes(storageRef, file).then((snapshot) => {
+            console.log(snapshot)
+            this.changePic = fileName
+          })
+        }
+      } catch (e) {
+        console.log(e)
       }
     }
   },
   mounted () {
-    const path = `profile/${this.crrUser[0].image}`
-    getDownloadURL(ref(storage, path)).then(
-      (downLoadUrl) => (this.changePic = downLoadUrl)
-    )
+    getDownloadURL(ref(storage, `profile/${this.crrUser[0].image}`))
+      .then(
+        (downLoadUrl) => (this.userImg = downLoadUrl)
+      )
     this.userName = this.crrUser[0].name
     this.userBio = this.crrUser[0].bio
   }

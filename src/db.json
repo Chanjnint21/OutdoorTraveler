@@ -25,7 +25,7 @@
       "bio": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque tenetur nobis sapiente incidunt cum voluptates aliquid nemo voluptatibus magnam. Neque magni culpa eaque nulla aperiam,"
     },
     {
-      "id": "34567",
+      "id": "3x4567",
       "name": "admin007",
       "image": "admin0072023-07-2717:23:56_0",
       "email": "example3@gmail.com",
@@ -47,8 +47,8 @@
       "postTime": "16:36:20",
       "title": "Tropical Paradise Getaway",
       "destination": "Hawaii",
-      "start_date": "2022-11-02",
-      "end_date": "2022-11-14",
+      "start_date": "02/11/2022",
+      "end_date": "14/11/2022",
       "detail": "Parents are supposed to push you past your goals, or at least, that’s what I always believed. I was raised in the generation of “you can do anything if you.",
       "image": [
         "user01012023-07-2114:52:22_0"
@@ -85,8 +85,8 @@
       },
       "title": "African Safari Adventure",
       "destination": "Kenya",
-      "start_date": "2023-03-27",
-      "end_date": "2023-03-22",
+      "start_date": "27/03/2023",
+      "end_date": "22/03/2023",
       "detail": "Embark on an unforgettable safari adventure and witness the majesty of Africa's wildlife in their natural habitat.",
       "image": [
         "jennie2023-07-2116:36:18_0",
@@ -120,8 +120,8 @@
       },
       "title": "Winter Wonderland Ski Trip",
       "destination": "Switzerland",
-      "start_date": "2022-12-12",
-      "end_date": "2022-12-01",
+      "start_date": "12/11/2022",
+      "end_date": "01/12/2022",
       "detail": "Experience the thrill of skiing in the Swiss Alps and enjoy the beauty of a winter wonderland.",
       "image": [
         "jennie2023-07-2114:57:17_0"
@@ -156,8 +156,8 @@
       },
       "title": "Cultural Immersion Tour",
       "destination": "Japan",
-      "start_date": "2025-06-01",
-      "end_date": "2025-06-10",
+      "start_date": "16/08/2023",
+      "end_date": "18/08/2023",
       "detail": "Immerse yourself in the traditions and culture of Japan and discover its unique blend of modernity and tradition.",
       "image": [
         "jennie2023-07-2116:50:31_0",
@@ -191,8 +191,8 @@
       },
       "title": "Main Town of Tour",
       "destination": "Japan",
-      "start_date": "2024-06-01",
-      "end_date": "2024-06-10",
+      "start_date": "01/06/2024",
+      "end_date": "10/06/2024",
       "detail": "Immerse yourself in the traditions and culture of Japan and discover its unique blend of modernity and tradition.",
       "image": [
         "user01012023-07-2116:55:06_0"
@@ -245,43 +245,47 @@
         ],
         "cost": 10,
         "nationalId": "Require",
-        "phoneNumber": "Require"
+        "phoneNumber": "Require",
+        "amount": 12312312,
+        "transportation": "Not Require"
       },
       "expiry": true
     },
     {
-      "id": "jPg4zps",
+      "id": "AhANIwV",
       "postDate": "7/31/2023",
-      "postTime": "14:16:08",
+      "postTime": "14:32:24",
       "author": {
         "id": "2x3456",
-        "name": "user0101"
+        "name": "Imposter"
       },
-      "title": "testing1",
-      "destination": "Cali",
-      "start_date": "31/07/2023",
-      "end_date": "31/07/2023",
-      "detail": "this is the first trip.",
+      "title": "testing",
+      "destination": "teting",
+      "start_date": "07/09/2023",
+      "end_date": "18/09/2023",
+      "detail": "testing",
       "image": [
-        "user01012023-07-3114:15:33_0"
+        "NoImage.png"
       ],
       "category": [
         "One day Trip",
-        "Hiking"
+        "Hiking",
+        "Sea",
+        "Camping"
       ],
       "departure": {
-        "meet_location": "airpot",
-        "leave_time": "01:11"
+        "meet_location": "KOMPONG JAM",
+        "leave_time": "00:58"
       },
       "requirement": {
         "age": [
           15,
-          22
+          65
         ],
-        "cost": 2000,
+        "cost": 35,
         "nationalId": "Require",
-        "phoneNumber": "Not Require",
-        "amount": 3000,
+        "phoneNumber": "Require",
+        "amount": 12312312,
         "transportation": "Not Require"
       },
       "expiry": false
@@ -324,7 +328,7 @@
     },
     {
       "id": 5,
-      "user_id": "2x3456",
+      "user_id": "3x4567",
       "userName": "admin",
       "firstName": "Michael",
       "lastName": "Jackson",
@@ -333,18 +337,6 @@
       "card_id": "tducfrn424",
       "reg_date": "7/25/2023",
       "reg_time": "15:03:23"
-    },
-    {
-      "id": 6,
-      "user_id": "2x3456",
-      "userName": "user0101",
-      "firstName": "Chanjnint",
-      "lastName": "Lim",
-      "age": "18",
-      "phoneNumber": "081808091",
-      "card_id": "2x3456",
-      "reg_date": "7/14/2023",
-      "reg_time": "16:36:56"
     },
     {
       "id": 3,
@@ -363,12 +355,6 @@
       "phoneNumber": "085605126",
       "reg_date": "7/26/2023",
       "reg_time": "15:00:34"
-    },
-    {
-      "id": 5,
-      "age": "12",
-      "reg_date": "7/26/2023",
-      "reg_time": "15:03:13"
     },
     {
       "id": 7,

@@ -105,8 +105,11 @@ export default {
       // check if this card have expire or not
       const card = await Service.getList()
       const todayDate = new Date().toJSON().slice(0, 10)
+      // console.log(todayDate)
       for (let i = 0; i < card.length; i++) {
-        if (card[i].start_date < todayDate && !card[i].expiry) {
+        const cardDate = `${card[i].start_date.slice(6, 10)}-${card[i].start_date.slice(3, 5)}-${card[i].start_date.slice(0, 2)}`
+        // console.log(card[i].title, cardDate)
+        if (cardDate < todayDate && !card[i].expiry) {
           await Service.expiryCard(card[i].id)
         }
       }

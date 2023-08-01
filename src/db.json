@@ -10,7 +10,7 @@
       "phone": "01225680",
       "firstName": "Chansovanmony",
       "lastName": "Youen",
-      "bio": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque tenetur nobis sapiente incidunt cum voluptates aliquid nemo voluptatibus magnam. Neque magni culpa eaque nulla aperiam,"
+      "bio": "Hey there ! Wanna go for advanture with me ? join me now"
     },
     {
       "id": "2x3456",
@@ -22,7 +22,7 @@
       "phone": "081808091",
       "firstName": "Chanjnint",
       "lastName": "Lim",
-      "bio": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque tenetur nobis sapiente incidunt cum voluptates aliquid nemo voluptatibus magnam. Neque magni culpa eaque nulla aperiam,"
+      "bio": "Sticking along with me will be the best trip of you have ever joined !"
     },
     {
       "id": "3x4567",
@@ -34,7 +34,7 @@
       "phone": "012241101",
       "firstName": "Michael",
       "lastName": "Jackson",
-      "bio": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque tenetur nobis sapiente incidunt cum voluptates aliquid nemo voluptatibus magnam. Neque magni culpa eaque nulla aperiam,"
+      "bio": "Lorem ipsum dolor sits magnam. Neque magni culpa eaque nulla aperiam,"
     }
   ],
   "tripcards": [
@@ -337,24 +337,6 @@
       "card_id": "tducfrn424",
       "reg_date": "7/25/2023",
       "reg_time": "15:03:23"
-    },
-    {
-      "id": 3,
-      "firstName": "Chansovanmony",
-      "age": "12",
-      "lastName": "Yoeun",
-      "phoneNumber": "085605126",
-      "reg_date": "7/26/2023",
-      "reg_time": "15:00:13"
-    },
-    {
-      "id": 4,
-      "firstName": "Chansovanmony",
-      "age": "12",
-      "lastName": "Yoeun",
-      "phoneNumber": "085605126",
-      "reg_date": "7/26/2023",
-      "reg_time": "15:00:34"
     },
     {
       "id": 7,

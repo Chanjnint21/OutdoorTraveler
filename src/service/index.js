@@ -21,6 +21,10 @@ export const Service = {
     const searchData = await axios.get(`http://localhost:3000/tripcards?q=${q}`)
     return searchData.data
   },
+  async handleSearchUser (q) {
+    const searchData = await axios.get(`http://localhost:3000/users?q=${q}`)
+    return searchData.data
+  },
   async newTripCard (card) {
     await axios.post('http://localhost:3000/tripcards', card)
   },
@@ -65,6 +69,9 @@ export const Service = {
       sortVal = 'postDate'
       sortVal2 = 'postTime'
       sortOrd = 'asc'
+    } else if (val === 'User') {
+      const userData = await axios.get('http://localhost:3000/users')
+      return userData.data
     }
     const Sortdata = await axios.get(`http://localhost:3000/tripcards?_sort=${sortVal},${sortVal2}&_order=${sortOrd},${sortOrd}`)
     const sorting = Sortdata.data

@@ -1,7 +1,12 @@
 <template>
   <v-tab-item>
     <div v-if='emptyJoined' class='d-flex justify-center pt-5 text--disabled'>
-      <p>You haven't joined any trip yet !!!</p>
+      <v-container class="d-flex align-center justify-center vh-100">
+        <v-col cols="12" class="d-flex align-center justify-center flex-column">
+          <v-img max-height="500" src="../../assets/nth_found.png"></v-img>
+          <p>You haven't joined anything yet! </p>
+        </v-col>
+    </v-container>
     </div>
     <template v-for="item in items">
       <v-col col="12" lg="12" xl="6" :key="item.id">

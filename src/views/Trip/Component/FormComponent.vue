@@ -33,7 +33,7 @@
           </v-col>
           <v-col cols="12" sm="6" md="6">
             <date-picker
-            min="10/08/2023"
+              min="10/08/2023"
               v-model="form.end_date"
               label="End Date"
               :rules="[rules.createrule]"
@@ -194,10 +194,6 @@ export default {
     }
   },
   data () {
-    const currentDate = new Date()
-    const minDate = currentDate.toISOString().substring(0, 10)
-    console.log(minDate)
-    const maxDate = new Date().toJSON().slice(0, 10)
     return {
       Choice: ['Not Require', 'Require'],
       Tags: ['One day Trip', 'Hiking', 'Sea', 'Camping'],
@@ -225,16 +221,18 @@ export default {
         phoneNumber: '',
         amount: '',
         transportation: ''
-      },
-      minDate: minDate,
-      maxDate: maxDate
+      }
     }
   },
-  computed: {
-    getCurrentDate () {
-      return ''
-    }
-  },
+  // computed: {
+  //   getCurrentDate () {
+  //     const currentDate = new Date()
+  //     const day = String(currentDate.getDate()).padStart(2, '0')
+  //     const month = String(currentDate.getMonth() + 1).padStart(2, '0')
+  //     const year = currentDate.getFullYear()
+  //     return `${day}/${month}/${year}`
+  //   }
+  // },
   watch: {
     value: {
       immediate: true,

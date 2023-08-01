@@ -95,9 +95,9 @@ export default {
   data () {
     return {
       currentRoute: '',
-      lol: this.$route.meta.RouteName,
       drawer: true,
-      crrUser: JSON.parse(localStorage.getItem('authToken'))
+      crrUser: JSON.parse(localStorage.getItem('authToken')),
+      usser: JSON.parse(localStorage.getItem('authUser'))
     }
   },
   methods: {
@@ -126,7 +126,7 @@ export default {
       this.$router.push('/user/home').catch(() => {})
     },
     ToProfile () {
-      this.$router.push('/user/profile').catch(() => {})
+      this.$router.push(`/user/profile/${this.usser[0].name}`).catch(() => {})
     }
   },
   created () {

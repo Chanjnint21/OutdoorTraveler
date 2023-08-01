@@ -22,7 +22,7 @@ import { Service } from '@/service/index.js'
 export default {
   name: 'HomePage',
   props: {
-    UserID: {
+    crrUser: {
       type: String
     }
   },
@@ -30,7 +30,9 @@ export default {
     return {
       ExpCard: [],
       items: [],
-      emptyJoined: false
+      emptyJoined: false,
+      UserID: '',
+      RouteUser: this.$route.params.name
     }
   },
   watch: {
@@ -56,10 +58,15 @@ export default {
           }
         }
       }
-      console.log(this.items)
     }
   },
   async mounted () {
+    const userData = await Service.handleSearchUser(this.RouteUser)
+    if (this.crrUser === userData[0].id) {
+      this.UserID = this.crrUser
+    } else {
+      this.UserID = userData[0].id
+    }
     // get expired card
     try {
       this.ExpCard = await Service.getExpCard()

@@ -26,7 +26,18 @@
               </v-row>
             </v-col>
             <v-col cols="3" class="d-flex align-center justify-end">
-              <prof-dialog :pfPic="userImg"/>
+              <prof-dialog :pfPic="userImg" v-if="asOwner"/>
+              <trip-btn
+                class="white--text"
+                BtnColor="#1687A7"
+                btn-label="Follow"
+                rounded
+                v-else
+                >
+                <template v-slot:icon>
+                  <v-icon >mdi-account-plus</v-icon>
+                </template>
+              </trip-btn>
               <trip-btn
                 BtnColor="#1687A7"
                 icon
@@ -48,7 +59,7 @@
               <template v-for="t in tabs">
                 <v-tab
                 :key="t"
-              >
+                >
                   {{ t }}
                 </v-tab>
               </template>
@@ -56,10 +67,10 @@
             <v-divider></v-divider>
             <v-container class="MainContain">
               <v-tabs-items v-model="tab">
-                <your-blog :UserID="userID"/>
-                <favorit-post :UserID="userID"/>
-                <up-coming :UserID="userID"/>
-                <joined-trip :UserID="userID" />
+                <your-blog :crrUser="userID"/>
+                <favorit-post :crrUser="userID"/>
+                <up-coming :crrUser="userID"/>
+                <joined-trip :crrUser="userID" />
               </v-tabs-items>
             </v-container>
           </v-row>
@@ -85,6 +96,7 @@ import UpComing from './UpComing.vue'
 import FavoritPost from './FavoritePost.vue'
 import JoinedTrip from './JoinedTrip.vue'
 import ProfDialog from './components/ProfDialog.vue'
+import { Service } from '@/service/index.js'
 import { storage } from '../../firebase'
 import { ref, getDownloadURL } from 'firebase/storage'
 
@@ -103,18 +115,33 @@ export default {
       userName: '',
       userID: '',
       userImg: '',
-      userBio: ''
+      userBio: '',
+      RouteUser: this.$route.params.name,
+      crrUser: JSON.parse(localStorage.getItem('authUser'))[0],
+      asOwner: false
+    }
+  },
+  methods: {
+    async checkUser () {
+      const thisUser = await Service.handleSearchUser(this.RouteUser)
+      let path
+      if (thisUser[0].id === this.crrUser.id) {
+        this.userName = this.crrUser.name
+        this.userBio = this.crrUser.bio
+        path = `profile/${this.crrUser.image}`
+      } else {
+        this.userName = thisUser[0].name
+        this.userBio = thisUser[0].bio
+        path = `profile/${thisUser[0].image}`
+      }
+      getDownloadURL(ref(storage, path)).then(
+        (downLoadUrl) => (this.userImg = downLoadUrl)
+      )
     }
   },
   created () {
-    const crrUser = JSON.parse(localStorage.getItem('authUser'))
-    const path = `profile/${crrUser[0].image}`
-    getDownloadURL(ref(storage, path)).then(
-      (downLoadUrl) => (this.userImg = downLoadUrl)
-    )
-    this.userName = crrUser[0].name
-    this.userID = crrUser[0].id
-    this.userBio = crrUser[0].bio
+    this.checkUser()
+    this.userID = this.crrUser.id
   }
 }
 </script>

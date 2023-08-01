@@ -22,7 +22,7 @@ import { Service } from '@/service/index.js'
 export default {
   name: 'HomePage',
   props: {
-    UserID: {
+    crrUser: {
       type: String
     }
   },
@@ -30,7 +30,9 @@ export default {
     return {
       RegCard: [],
       items: [],
-      EmptyReg: false
+      EmptyReg: false,
+      UserID: '',
+      RouteUser: this.$route.params.name
     }
   },
   watch: {
@@ -59,6 +61,13 @@ export default {
     }
   },
   async mounted () {
+    const userData = await Service.handleSearchUser(this.RouteUser)
+    console.log(userData)
+    if (this.crrUser === userData[0].id) {
+      this.UserID = this.crrUser
+    } else {
+      this.UserID = userData[0].id
+    }
     // get the card that this user have register
     try {
       this.RegCard = await Service.showRegister(this.UserID)

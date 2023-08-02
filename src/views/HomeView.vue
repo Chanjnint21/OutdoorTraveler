@@ -37,7 +37,7 @@
         </v-col>
       </template>
       <template v-for="item in userlist" v-else-if="showUser && !isLoading">
-        <v-col cols="6" :key="item.id">
+        <v-col cols="12" sm="6" xl="4" :key="item.id">
           <user-card :item="item" />
         </v-col>
       </template>
@@ -71,10 +71,10 @@ export default {
         '',
         'newest',
         'oldest',
-        'User',
-        'Recommend',
         'Price to High',
-        'Price to Low'
+        'Price to Low',
+        'User',
+        'Recommend'
       ],
       image: HomeImage,
       items: [],

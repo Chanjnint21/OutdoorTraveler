@@ -10,7 +10,8 @@
       "phone": "01225680",
       "firstName": "Chansovanmony",
       "lastName": "Youen",
-      "bio": "Hey there ! Wanna go for advanture with me ? join me now"
+      "bio": "Hey there ! Wanna go for advanture with me ? join me now",
+      "verify": true
     },
     {
       "id": "2x3456",
@@ -22,7 +23,8 @@
       "phone": "081808091",
       "firstName": "Chanjnint",
       "lastName": "Lim",
-      "bio": "Sticking along with me will be the best trip of you have ever joined !"
+      "bio": "Sticking along with me will be the best trip of you have ever joined !",
+      "verify": true
     },
     {
       "id": "3x4567",
@@ -34,7 +36,8 @@
       "phone": "012241101",
       "firstName": "Michael",
       "lastName": "Jackson",
-      "bio": "Lorem ipsum dolor sits magnam. Neque magni culpa eaque nulla aperiam,"
+      "bio": "Lorem ipsum dolor sits magnam. Neque magni culpa eaque nulla aperiam,",
+      "verify": false
     }
   ],
   "tripcards": [
@@ -286,42 +289,6 @@
         "nationalId": "Require",
         "phoneNumber": "Require",
         "amount": 12312312,
-        "transportation": "Not Require"
-      },
-      "expiry": false
-    },
-    {
-      "id": "KwYZ0dm",
-      "postDate": "8/1/2023",
-      "postTime": "14:52:34",
-      "author": {
-        "id": "3x4567",
-        "name": "admin007"
-      },
-      "title": "Bali",
-      "destination": "Indonesia ",
-      "start_date": "10/08/2023",
-      "end_date": "10/08/2023",
-      "detail": "World Tour Round Trip",
-      "image": [
-        "admin0072023-08-0114:52:33_0"
-      ],
-      "category": [
-        "One day Trip"
-      ],
-      "departure": {
-        "meet_location": "PP airpot",
-        "leave_time": "01:05"
-      },
-      "requirement": {
-        "age": [
-          15,
-          15
-        ],
-        "cost": 2000,
-        "nationalId": "Not Require",
-        "phoneNumber": "Not Require",
-        "amount": 12,
         "transportation": "Not Require"
       },
       "expiry": false

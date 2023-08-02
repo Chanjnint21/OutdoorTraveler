@@ -133,6 +133,8 @@ import axios from 'axios'
 import RDialog from './RegisterDialog.vue'
 import CloudImage from './CloudImage.vue'
 import { Service } from '@/service/index.js'
+import { storage } from '../firebase'
+import { ref, deleteObject } from 'firebase/storage'
 
 export default {
   name: 'CardComponent',
@@ -171,6 +173,12 @@ export default {
   },
   methods: {
     async deleteItem (id) {
+      for (let i = 0; i < this.item.image.length; i++) {
+        const desertRef = ref(storage, `folder/${this.item.image[i]}`)
+        deleteObject(desertRef).catch((e) => {
+          console.log(e)
+        })
+      }
       await Service.deleteItem(id)
       this.$router.go()
     },

@@ -289,6 +289,115 @@
         "transportation": "Not Require"
       },
       "expiry": false
+    },
+    {
+      "id": "KwYZ0dm",
+      "postDate": "8/1/2023",
+      "postTime": "14:52:34",
+      "author": {
+        "id": "3x4567",
+        "name": "admin007"
+      },
+      "title": "Bali",
+      "destination": "Indonesia ",
+      "start_date": "10/08/2023",
+      "end_date": "10/08/2023",
+      "detail": "World Tour Round Trip",
+      "image": [
+        "admin0072023-08-0114:52:33_0"
+      ],
+      "category": [
+        "One day Trip"
+      ],
+      "departure": {
+        "meet_location": "PP airpot",
+        "leave_time": "01:05"
+      },
+      "requirement": {
+        "age": [
+          15,
+          15
+        ],
+        "cost": 2000,
+        "nationalId": "Not Require",
+        "phoneNumber": "Not Require",
+        "amount": 12,
+        "transportation": "Not Require"
+      },
+      "expiry": false
+    },
+    {
+      "id": "6r-2c-3",
+      "postDate": "8/1/2023",
+      "postTime": "17:45:38",
+      "author": {
+        "id": "1x2345",
+        "name": "jennie"
+      },
+      "title": "Testing1",
+      "destination": "Paris",
+      "start_date": "10/08/2023",
+      "end_date": "12/08/2023",
+      "detail": "Hi, this is a free round trip!",
+      "image": [
+        "jennie2023-08-0117:44:53_0"
+      ],
+      "category": [
+        "Camping",
+        "Sea"
+      ],
+      "departure": {
+        "meet_location": "SR airpot",
+        "leave_time": "06:29"
+      },
+      "requirement": {
+        "age": [
+          20,
+          30
+        ],
+        "cost": 10000,
+        "nationalId": "Require",
+        "phoneNumber": "Require",
+        "amount": 2,
+        "transportation": "Not Require"
+      },
+      "expiry": false
+    },
+    {
+      "id": "Y909VXI",
+      "postDate": "8/2/2023",
+      "postTime": "15:26:41",
+      "author": {
+        "id": "1x2345",
+        "name": "jennie"
+      },
+      "title": "testing3",
+      "destination": "New York",
+      "start_date": "10/08/2023",
+      "end_date": "12/08/2023",
+      "detail": "hi",
+      "image": [
+        "jennie2023-08-0215:26:14_0"
+      ],
+      "category": [
+        "One day Trip"
+      ],
+      "departure": {
+        "meet_location": "PP airpot",
+        "leave_time": "06:45"
+      },
+      "requirement": {
+        "age": [
+          24,
+          38
+        ],
+        "cost": 4000,
+        "nationalId": "Require",
+        "phoneNumber": "Require",
+        "amount": 3,
+        "transportation": "Require"
+      },
+      "expiry": false
     }
   ],
   "Favorite": [
@@ -311,6 +420,11 @@
       "id": 6,
       "user_id": "1x2345",
       "card_id": "tducfrn424"
+    },
+    {
+      "id": 7,
+      "user_id": "3x4567",
+      "card_id": "tydbwj-3"
     }
   ],
   "RegisterTrip": [
@@ -339,7 +453,49 @@
       "reg_time": "15:03:23"
     },
     {
+      "id": 3,
+      "firstName": "Chansovanmony",
+      "age": "12",
+      "lastName": "Yoeun",
+      "phoneNumber": "085605126",
+      "reg_date": "7/26/2023",
+      "reg_time": "15:00:13"
+    },
+    {
+      "id": 4,
+      "firstName": "Chansovanmony",
+      "age": "12",
+      "lastName": "Yoeun",
+      "phoneNumber": "085605126",
+      "reg_date": "7/26/2023",
+      "reg_time": "15:00:34"
+    },
+    {
+      "id": 6,
+      "user_id": "3x4567",
+      "userName": "admin007",
+      "firstName": "Michael",
+      "age": "19",
+      "lastName": "Jackson",
+      "phoneNumber": "012241101",
+      "card_id": "ydewf-3",
+      "reg_date": "8/1/2023",
+      "reg_time": "14:37:52"
+    },
+    {
       "id": 7,
+      "user_id": "2x3456",
+      "userName": "user0101",
+      "firstName": "Chanjnint",
+      "age": "20",
+      "lastName": "Lim",
+      "phoneNumber": "081808091",
+      "card_id": "ydewf-3",
+      "reg_date": "8/1/2023",
+      "reg_time": "14:49:50"
+    },
+    {
+      "id": 8,
       "user_id": "1x2345",
       "userName": "jennie",
       "firstName": "Chansovanmony",
@@ -347,8 +503,20 @@
       "lastName": "Youen",
       "phoneNumber": "01225680",
       "card_id": "tydbwj-3",
-      "reg_date": "7/27/2023",
-      "reg_time": "13:51:31"
+      "reg_date": "8/1/2023",
+      "reg_time": "16:15:34"
+    },
+    {
+      "id": 9,
+      "user_id": "1x2345",
+      "userName": "jennie",
+      "firstName": "Chansovanmony",
+      "age": "15",
+      "lastName": "Youen",
+      "phoneNumber": "01225680",
+      "card_id": "KwYZ0dm",
+      "reg_date": "8/2/2023",
+      "reg_time": "14:47:40"
     }
   ],
   "follow": [

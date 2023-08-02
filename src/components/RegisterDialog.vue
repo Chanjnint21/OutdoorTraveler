@@ -107,11 +107,13 @@
               >
                 Cancel
               </v-btn>
+
               <v-btn
                 color="#1687A7"
                 text
                 @click="submit(); dialog = false"
-                :disabled='!isFormComplete '
+                :disabled='!isFormComplete'
+                :rules="[]"
               > Submit
               </v-btn>
             </v-card-actions>
@@ -136,21 +138,6 @@ export default {
     dialog: false,
     validAge: [],
     crrUser: JSON.parse(localStorage.getItem('authUser')),
-    // rules: {
-    //   createrule: value => !!value || 'field required',
-    //   ageRule: value => {
-    //     const tripData = Service.thisIdData(this.this_id)
-    //     if (!value || isNaN(value)) {
-    //       return "your age isn't valid !"
-    //     }
-    //     const age = parseInt(value)
-    //     if (age >= tripData.requirement.age[0] && age <= tripData.requirement.age[1]) {
-    //       return true
-    //     } else {
-    //       return false
-    //     }
-    //   }
-    // },
     regisForm: {
       id: '',
       user_id: '',
@@ -230,20 +217,6 @@ export default {
     validateCreateRule (value) {
       return !!value || 'field required'
     },
-
-    // validateAge (value) {
-    //   const tripData = JSON.parse(this.this_card)
-    //   const age = parseInt(value)
-
-    //   if (!isNaN(age) && age >= tripData.requirement.age[0] && age <= tripData.requirement.age[1]) {
-    //     this.isAgeValid = true
-    //     console.log('hey its ur first step')
-    //     return true // Return true when age is valid
-    //   } else {
-    //     this.isAgeValid = false
-    //     return 'Age must be within the valid range.' // Return error message when age is not valid
-    //   }
-    // },
     clearForm () {
       this.userName = ''
       this.firstName = ''

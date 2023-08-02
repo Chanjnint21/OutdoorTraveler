@@ -213,7 +213,6 @@ export default {
       try {
         const tripData = await Service.thisIdData(this.this_id)
         this.validAge = tripData.requirement.age
-        console.log(this.validAge)
         // const age = parseInt(value)
         // if (!isNaN(age) && age >= tripData.requirement.age[0] && age <= tripData.requirement.age[1]) {
         //   return 'Your age is valid!'

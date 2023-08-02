@@ -51,7 +51,6 @@ export default {
   },
   async created () {
     const userData = await Service.handleSearchUser(this.RouteUser)
-    console.log(userData)
     if (this.crrUser === userData[0].id) {
       this.UserID = this.crrUser
     } else {

@@ -196,7 +196,6 @@ export default {
   data () {
     const currentDate = new Date()
     const minDate = currentDate.toISOString().substring(0, 10)
-    console.log(minDate)
     const maxDate = new Date().toJSON().slice(0, 10)
     return {
       Choice: ['Not Require', 'Require'],

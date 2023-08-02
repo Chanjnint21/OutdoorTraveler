@@ -48,7 +48,6 @@ export default {
       }
     }
   },
-
   methods: {
     // push the upcoming data that's not yet expired
     async thisRegCard (RegCard) {
@@ -62,7 +61,6 @@ export default {
   },
   async mounted () {
     const userData = await Service.handleSearchUser(this.RouteUser)
-    console.log(userData)
     if (this.crrUser === userData[0].id) {
       this.UserID = this.crrUser
     } else {

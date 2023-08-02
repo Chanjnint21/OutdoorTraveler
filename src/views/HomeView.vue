@@ -28,40 +28,26 @@
           </template>
         </v-btn-toggle>
       </v-col>
-      <!-- <v-list>
-        <v-list-group
-          v-for="sort in Sorter"
-          :key="sort.title"
-          v-model="sort.active"
-          :prepend-icon="sort.action"
-          no-action
-        >
-          <template v-slot:activator>
-            <v-list-item-content>
-              <v-list-item-title >{{ sort.title }}</v-list-item-title>
-            </v-list-item-content>
-          </template>
-          <v-list-item
-            v-for="child in sort.sortlol"
-            :key="child.title"
-          >
-            <v-list-item-content>
-              <v-list-item-title >{{ child.title }}</v-list-item-title>
-            </v-list-item-content>
-          </v-list-item>
-        </v-list-group>
-      </v-list> -->
     </v-row>
     <v-row>
       <vue-load v-if="isLoading" />
-      <template v-for="item in items" v-else>
+      <template v-else-if="itemEmpty && !isLoading">
+        <v-col cols="12" class="text-center">
+          <p class="text--disabled">No Matching Results</p>
+        </v-col>
+      </template>
+      <template v-for="item in userlist" v-else-if="showUser && !isLoading">
+        <v-col cols="6" :key="item.id">
+          <user-card :item="item" />
+        </v-col>
+      </template>
+      <template v-for="item in items" v-else-if="!showUser && !itemEmpty">
         <v-col col="12" lg="12" xl="6" :key="item.id">
           <card-component
             height="auto"
             elevation="8"
             :item="item"
           ></card-component>
-          <!-- @delete="deleteItem" -->
         </v-col>
       </template>
     </v-row>
@@ -70,10 +56,14 @@
 
 <script>
 import HomeImage from '@/assets/HomeImage.jpeg'
+import userCard from '@/components/userCard.vue'
 import { Service } from '@/service/index.js'
 
 export default {
   name: 'HomePage',
+  components: {
+    userCard
+  },
   data () {
     return {
       page: 1,
@@ -81,52 +71,52 @@ export default {
         '',
         'newest',
         'oldest',
-        'Popular',
+        'User',
         'Recommend',
         'Price to High',
         'Price to Low'
       ],
       image: HomeImage,
       items: [],
+      userlist: [],
       searchQuery: '',
       Busy: false,
       selectedBtn: null,
-      isLoading: true
-      // Sorter: [
-      //   {
-      //     action: 'mdi-sort',
-      //     active: true,
-      //     sortlol: [
-      //       { title: 'newest' },
-      //       { title: 'oldest' },
-      //       { title: 'Popular' },
-      //       { title: 'Recommend' },
-      //       { title: 'Price to High' },
-      //       { title: 'Price to Low' }
-      //     ],
-      //     title: 'Sorting'
-      //   }
-      // ]
+      isLoading: true,
+      showUser: false,
+      itemEmpty: false
     }
   },
   methods: {
+    checkEmpty (resultList) {
+      if (resultList.length === 0) {
+        this.itemEmpty = true
+        console.log(this.itemEmpty)
+        return
+      }
+      console.log(this.itemEmpty)
+      this.itemEmpty = false
+    },
     search (q) {
       setTimeout(async () => {
+        if (this.showUser) {
+          this.userlist = await Service.handleSearchUser(q)
+          return this.checkEmpty(this.userlist)
+        }
         this.items = await Service.handleSearchQuery(q)
+        return this.checkEmpty(this.items)
       }, 1000)
     },
-    // async deleteItem (id) {
-    //   try {
-    //     await Service.deleteItem(id)
-    //     this.items = this.items.filter(item => item.id !== id)
-    //   } catch (error) {
-    //     console.log(error)
-    //   }
-    // },
     async sorting (val) {
       try {
         setTimeout(async () => {
           const sortdata = await Service.sorting(val)
+          if (val === 'User') {
+            this.showUser = true
+            this.userlist = sortdata
+            return
+          }
+          this.showUser = false
           this.items = sortdata
         }, 300)
       } catch (e) {

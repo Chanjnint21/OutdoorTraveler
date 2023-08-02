@@ -24,14 +24,17 @@ import { Service } from '@/service/index.js'
 export default {
   name: 'HomePage',
   props: {
-    UserID: {
+    crrUser: {
       type: String
     }
   },
   data () {
     return {
       items: [],
-      EmptyPost: false
+      EmptyPost: false,
+      userName: this.$route.params.name,
+      UserID: '',
+      RouteUser: this.$route.params.name
     }
   },
   watch: {
@@ -46,7 +49,13 @@ export default {
       }
     }
   },
-  async mounted () {
+  async created () {
+    const userData = await Service.handleSearchUser(this.RouteUser)
+    if (this.crrUser === userData[0].id) {
+      this.UserID = this.crrUser
+    } else {
+      this.UserID = userData[0].id
+    }
     // get the card belong to only this user
     try {
       this.items = await Service.thisUserCard(this.UserID)

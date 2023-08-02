@@ -24,7 +24,7 @@ import { Service } from '@/service/index.js'
 export default {
   name: 'HomePage',
   props: {
-    UserID: {
+    crrUser: {
       type: String
     }
   },
@@ -32,7 +32,9 @@ export default {
     return {
       FavCard: [],
       items: [],
-      EmptyFav: false
+      EmptyFav: false,
+      UserID: '',
+      RouteUser: this.$route.params.name
     }
   },
   watch: {
@@ -53,6 +55,12 @@ export default {
     }
   },
   async mounted () {
+    const userData = await Service.handleSearchUser(this.RouteUser)
+    if (this.crrUser === userData[0].id) {
+      this.UserID = this.crrUser
+    } else {
+      this.UserID = userData[0].id
+    }
     try {
       this.FavCard = await Service.thisUserFav(this.UserID)
       this.thisFavCard(this.FavCard)

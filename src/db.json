@@ -10,7 +10,7 @@
       "phone": "01225680",
       "firstName": "Chansovanmony",
       "lastName": "Youen",
-      "bio": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque tenetur nobis sapiente incidunt cum voluptates aliquid nemo voluptatibus magnam. Neque magni culpa eaque nulla aperiam,"
+      "bio": "Hey there ! Wanna go for advanture with me ? join me now"
     },
     {
       "id": "2x3456",
@@ -22,7 +22,7 @@
       "phone": "081808091",
       "firstName": "Chanjnint",
       "lastName": "Lim",
-      "bio": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque tenetur nobis sapiente incidunt cum voluptates aliquid nemo voluptatibus magnam. Neque magni culpa eaque nulla aperiam,"
+      "bio": "Sticking along with me will be the best trip of you have ever joined !"
     },
     {
       "id": "3x4567",
@@ -34,7 +34,7 @@
       "phone": "012241101",
       "firstName": "Michael",
       "lastName": "Jackson",
-      "bio": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque tenetur nobis sapiente incidunt cum voluptates aliquid nemo voluptatibus magnam. Neque magni culpa eaque nulla aperiam,"
+      "bio": "Lorem ipsum dolor sits magnam. Neque magni culpa eaque nulla aperiam,"
     }
   ],
   "tripcards": [
@@ -517,6 +517,28 @@
       "card_id": "KwYZ0dm",
       "reg_date": "8/2/2023",
       "reg_time": "14:47:40"
+    }
+  ],
+  "follow": [
+    {
+      "user_id": "1x2345",
+      "following": "2x3456",
+      "id": 1
+    },
+    {
+      "user_id": "1x2345",
+      "following": "3x4567",
+      "id": 2
+    },
+    {
+      "user_id": "2x3456",
+      "following": "1x2345",
+      "id": 3
+    },
+    {
+      "user_id": "3x4567",
+      "following": "2x3456",
+      "id": 4
     }
   ]
 }

@@ -20,13 +20,29 @@
                   <p> {{ userBio }}</p>
                 </v-col>
                 <v-col cols="12" class="d-flex">
-                  <p> 10 <span class="text--disabled mr-2"> following</span></p>
+                  <p> {{ followingCount }} <span class="text--disabled mr-2"> following</span></p>
                   <p> 101k <span class="text--disabled"> follower</span></p>
                 </v-col>
               </v-row>
             </v-col>
             <v-col cols="3" class="d-flex align-center justify-end">
-              <prof-dialog :pfPic="userImg"/>
+              <prof-dialog :pfPic="userImg" v-if="asOwner"/>
+              <trip-btn
+                class="white--text"
+                BtnColor="#1687A7"
+                btn-label="Follow"
+                rounded
+                @click="follow()"
+                v-else-if="!asOwner && !following"
+              />
+              <trip-btn
+                class="white--text"
+                BtnColor="#1687A7"
+                btn-label="unfollow"
+                rounded
+                @click="unfollow()"
+                v-else
+              />
               <trip-btn
                 BtnColor="#1687A7"
                 icon
@@ -48,7 +64,7 @@
               <template v-for="t in tabs">
                 <v-tab
                 :key="t"
-              >
+                >
                   {{ t }}
                 </v-tab>
               </template>
@@ -56,10 +72,10 @@
             <v-divider></v-divider>
             <v-container class="MainContain">
               <v-tabs-items v-model="tab">
-                <your-blog :UserID="userID"/>
-                <favorit-post :UserID="userID"/>
-                <up-coming :UserID="userID"/>
-                <joined-trip :UserID="userID" />
+                <your-blog :crrUser="crrUser.id"/>
+                <favorit-post :crrUser="crrUser.id"/>
+                <up-coming :crrUser="crrUser.id"/>
+                <joined-trip :crrUser="crrUser.id" />
               </v-tabs-items>
             </v-container>
           </v-row>
@@ -85,6 +101,7 @@ import UpComing from './UpComing.vue'
 import FavoritPost from './FavoritePost.vue'
 import JoinedTrip from './JoinedTrip.vue'
 import ProfDialog from './components/ProfDialog.vue'
+import { Service } from '@/service/index.js'
 import { storage } from '../../firebase'
 import { ref, getDownloadURL } from 'firebase/storage'
 
@@ -103,18 +120,79 @@ export default {
       userName: '',
       userID: '',
       userImg: '',
-      userBio: ''
+      userBio: '',
+      RouteUser: this.$route.params.name,
+      crrUser: JSON.parse(localStorage.getItem('authUser'))[0],
+      asOwner: true,
+      following: false,
+      followId: '',
+      followingCount: 0
+    }
+  },
+  watch: {
+    $route (to, from) {
+      if (to.path !== from.path) {
+        this.$router.go()
+      }
+    }
+  },
+  methods: {
+    // follow function on visit profile
+    async follow () {
+      const thisUserProfile = await Service.handleSearchUser(this.RouteUser)
+      const data = {
+        user_id: this.crrUser.id,
+        following: thisUserProfile[0].id
+      }
+      await Service.follow(data)
+      this.following = true
+    },
+    // unfollow function on visit profile
+    async unfollow () {
+      this.following = false
+      await Service.unfollow(this.followId)
+    },
+    // check if the crrUser have follow the visit profile
+    async checkFollow () {
+      const thisUserFollow = await Service.getFollow(this.crrUser.id, this.userID)
+      if (thisUserFollow.length === 1) {
+        this.following = true
+        this.followId = thisUserFollow[0].id
+      } else {
+        this.following = false
+      }
+    },
+    // get the list of the crr visit pf following and follower
+    async followList (userid) {
+      const FollowingList = await Service.followingList(userid)
+      this.followingCount = FollowingList.length
+    },
+    // check the visit profile to display the corret personal data
+    async checkUser () {
+      const thisUser = await Service.handleSearchUser(this.RouteUser)
+      let path
+      if (thisUser[0].id === this.crrUser.id) {
+        this.userName = this.crrUser.name
+        this.userBio = this.crrUser.bio
+        path = `profile/${this.crrUser.image}`
+        this.asOwner = true
+        this.followList(this.crrUser.id)
+      } else {
+        this.userID = thisUser[0].id
+        this.userName = thisUser[0].name
+        this.userBio = thisUser[0].bio
+        path = `profile/${thisUser[0].image}`
+        this.asOwner = false
+        this.checkFollow()
+        this.followList(thisUser[0].id)
+      }
+      getDownloadURL(ref(storage, path)).then(
+        (downLoadUrl) => (this.userImg = downLoadUrl)
+      )
     }
   },
   created () {
-    const crrUser = JSON.parse(localStorage.getItem('authUser'))
-    const path = `profile/${crrUser[0].image}`
-    getDownloadURL(ref(storage, path)).then(
-      (downLoadUrl) => (this.userImg = downLoadUrl)
-    )
-    this.userName = crrUser[0].name
-    this.userID = crrUser[0].id
-    this.userBio = crrUser[0].bio
+    this.checkUser()
   }
 }
 </script>

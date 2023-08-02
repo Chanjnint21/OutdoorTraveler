@@ -26,9 +26,9 @@
               <v-card-title class="text-h5"><b>{{ item.title }}</b></v-card-title>
               <v-card-text class="text-left">{{ item.detail }}</v-card-text>
               <v-card-title class="text-left" style="font-size: larger; color:#276678"> About Trip </v-card-title>
-              <v-card-text class="text-left"><v-icon>mdi-map-marker</v-icon> Destination:     {{ item. destination}}</v-card-text>
-              <v-card-text class="text-left"><v-icon>mdi-calendar-range</v-icon> Start Date:      {{ item. start_date}}</v-card-text>
-              <v-card-text class="text-left"><v-icon>mdi-calendar-range</v-icon> End Date:       {{ item. end_date}}</v-card-text>
+              <v-card-text v-for="itemData in  aboutTripLists" :key="itemData.data" class="text-left">
+                <v-icon>{{ itemData.icon }}</v-icon> {{ itemData.text}} {{ itemData.data }}
+              </v-card-text>
               <v-card-text class="text-left"><v-icon>mdi-heart</v-icon>
                 Categorize:
                 <v-chip-group>
@@ -43,16 +43,13 @@
                 </v-chip-group>
               </v-card-text>
               <v-card-title class="text-left" style="font-size: larger ; color:#276678"> Departure </v-card-title>
-              <v-card-text class="text-left"><v-icon>mdi-map</v-icon> Location:      {{ item. departure.meet_location}}</v-card-text>
-              <v-card-text class="text-left"><v-icon>mdi-clock</v-icon> Time:       {{ item. departure.leave_time}}</v-card-text>
+              <v-card-text v-for="itemData in  departureLists" :key="itemData.data" class="text-left">
+                <v-icon>{{ itemData.icon }}</v-icon> {{ itemData.text }} {{ itemData.data }} {{ itemData.text1 }}
+              </v-card-text>
               <v-card-title class="text-left" style="font-size: larger ; color:#276678"> Requirements </v-card-title>
-              <v-card-text class="text-left"><v-icon> mdi-check-underline-circle</v-icon>Minimum Age:     {{ item.requirement.age[0]}}</v-card-text>
-              <v-card-text class="text-left"><v-icon> mdi-check-underline-circle</v-icon>Maximum Age:     {{ item.requirement.age[1]}}</v-card-text>
-              <v-card-text class="text-left"><v-icon> mdi-check-underline-circle</v-icon>Cost:     {{ item.requirement.cost}}</v-card-text>
-              <v-card-text class="text-left"><v-icon>mdi-check-underline-circle</v-icon>phoneNumber: {{ item.requirement.phoneNumber}}</v-card-text>
-              <v-card-text class="text-left"><v-icon>mdi-check-underline-circle</v-icon>National ID: {{ item.requirement.nationalId}}</v-card-text>
-              <v-card-text class="text-left"><v-icon>mdi-currency-usd</v-icon>Amount: {{ item.requirement.amount }}</v-card-text>
-              <v-card-text class="text-left"><v-icon>mdi-car-side</v-icon>Transportation: {{ item.requirement.transportation }}</v-card-text>
+              <v-card-text v-for="itemData in requirementLists" :key="itemData.data" class="text-left">
+                <v-icon>{{ itemData.icon }}</v-icon> {{ itemData.text }} {{ itemData.data }} {{ itemData.text1 }}
+              </v-card-text>
             </v-col>
           </v-row>
         </v-col>
@@ -60,7 +57,7 @@
           <v-row class="d-flex align-start" no-gutters>
             <v-col cols='12'>
               <cloud-image
-                height= "450"
+                height="450"
                 class="align-end"
                 :files='item.image'
               />
@@ -74,14 +71,14 @@
                 <v-list-item
                   class="rounded-xxl mb-3"
                   v-for="list in lists"
-                  :key="list.title"
+                  :key="list.fullName"
                   style="background-color: rgba(151, 216, 235, 0.5); "
                 >
                   <v-list-item-avatar>
                     <v-img :src="list.avatar"></v-img>
                   </v-list-item-avatar>
                   <v-list-item-content>
-                    <v-list-item-title > {{ list.title }} </v-list-item-title>
+                    <v-list-item-title > {{ list.fullName }} </v-list-item-title>
                   </v-list-item-content>
                 </v-list-item>
               </v-list>
@@ -140,38 +137,37 @@ export default {
         }
       ],
       lists: [
-        // { title: 'ad', avatar: 'https://cdn.vuetifyjs.com/images/lists/1.jpg' },
-        // { title: 'Travis Howard', avatar: 'https://cdn.vuetifyjs.com/images/lists/2.jpg' },
-        // { title: 'Ali Connors', avatar: 'https://cdn.vuetifyjs.com/images/lists/3.jpg' },
-        // { title: 'Cindy Baker', avatar: 'https://cdn.vuetifyjs.com/images/lists/4.jpg' },
-        // { title: 'ba canel', avatar: 'https://cdn.vuetifyjs.com/images/lists/5.jpg' },
-        // { title: 'Jake bone', avatar: 'https://picsum.photos/250/300?image=839' },
-        // { title: 'Ali Connors', avatar: 'https://cdn.vuetifyjs.com/images/lists/3.jpg' },
-        // { title: 'Cindy Baker', avatar: 'https://cdn.vuetifyjs.com/images/lists/4.jpg' },
-        // { title: 'ba canel', avatar: 'https://cdn.vuetifyjs.com/images/lists/5.jpg' },
-        // { title: 'Jake bone', avatar: 'https://picsum.photos/250/300?image=839' },
-        // { title: 'Cindy Baker', avatar: 'https://cdn.vuetifyjs.com/images/lists/4.jpg' },
-        // { title: 'ba canel', avatar: 'https://cdn.vuetifyjs.com/images/lists/5.jpg' },
-        // { title: 'Jake bone', avatar: 'https://picsum.photos/250/300?image=839' },
-        // { title: 'Ali Connors', avatar: 'https://cdn.vuetifyjs.com/images/lists/3.jpg' },
-        // { title: 'Cindy Baker', avatar: 'https://cdn.vuetifyjs.com/images/lists/4.jpg' },
-        // { title: 'ba canel', avatar: 'https://cdn.vuetifyjs.com/images/lists/5.jpg' }
+        // this is a default participator
+        { fullName: 'jcennie', avatar: 'https://cdn.vuetifyjs.com/images/lists/4.jpg' }
+      ],
+      aboutTripLists: [
+        { icon: 'mdi-map-marker', text: 'Destination:', data: this.item.destination },
+        { icon: 'mdi-calendar-range', text: 'Start_Date :', data: this.item.start_date },
+        { icon: 'mdi-calendar-range', text: 'End_Date :', data: this.item.end_date }
+      ],
+      departureLists: [
+        { icon: 'mdi-map', text: 'Location :', data: this.item.departure.meet_location },
+        { icon: 'mdi-clock', text: 'Time :', data: this.item.departure.leave_time },
+        { icon: 'mdi-check-underline-circle', text: 'Minimum Age :', data: this.item.requirement.age[0], text1: 'years old' },
+        { icon: 'mdi-check-underline-circle', text: 'Maximum Age :', data: this.item.requirement.age[1], text1: 'years old' },
+        { icon: 'mdi-check-underline-circle', text: 'Cost : ', data: this.item.requirement.cost, text1: '$' }
+      ],
+      requirementLists: [
+        { icon: 'mdi-check-underline-circle', text: 'Phone Number :', data: this.item.requirement.phoneNumber },
+        { icon: 'mdi-check-underline-circle', text: 'National ID :', data: this.item.requirement.nationalId },
+        { icon: 'mdi-account-group-outline', text: 'Amount :', data: this.item.requirement.amount, text1: 'people' },
+        { icon: 'mdi-car-side', text: 'Transportation :', data: this.item.requirement.transportation }
       ],
       emptyMatching: false,
-      countUser: 0,
-      imgitems: [
-        {
-          src: 'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg'
-        },
-        {
-          src: 'https://cdn.vuetifyjs.com/images/carousel/sky.jpg'
-        },
-        {
-          src: 'https://cdn.vuetifyjs.com/images/carousel/bird.jpg'
-        },
-        {
-          src: 'https://cdn.vuetifyjs.com/images/carousel/planet.jpg'
-        }
+      countUser: 0
+    }
+  },
+  computed: {
+    Lists () {
+      return [
+        { icon: 'mdi-map-marker', text: 'Destination:', data: this.item.destination },
+        { icon: 'mdi-calendar-range', text: 'Start_Date :', data: this.item.start_date },
+        { icon: 'mdi-calendar-range', text: 'End_Date :', data: this.item.end_date }
       ]
     }
   },
@@ -182,7 +178,7 @@ export default {
     pushData (data) {
       for (let i = 0; i < data.length; i++) {
         console.log(data[i].userName)
-        this.lists.push({ title: `${data[i].firstName} ${data[i].lastName} `, avatar: 'https://cdn.vuetifyjs.com/images/lists/2.jpg' })
+        this.lists.push({ fullName: `${data[i].firstName} ${data[i].lastName} `, avatar: 'https://cdn.vuetifyjs.com/images/lists/2.jpg' })
       }
       this.countUser = this.lists.length
       console.log(this.countUser)
@@ -201,7 +197,6 @@ export default {
   height: calc(100% - 100px);
   overflow-y: scroll;
 }
-
 .scrollable-list {
   height: 400px;
 }

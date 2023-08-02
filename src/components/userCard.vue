@@ -22,7 +22,7 @@
           {{ item.bio }}
         </v-card-subtitle>
         <v-card-subtitle class="py-1">
-          10 <span class="text--disabled mr-2"> following</span>101k <span class="text--disabled"> follower</span>
+          {{ followingCount }} <span class="text--disabled mr-2"> following</span>101k <span class="text--disabled"> follower</span>
         </v-card-subtitle>
       </v-col>
     </v-row>
@@ -30,6 +30,7 @@
 </template>
 
 <script>
+import { Service } from '@/service/index.js'
 import { storage } from '../firebase'
 import { ref, getDownloadURL } from 'firebase/storage'
 
@@ -42,11 +43,16 @@ export default {
     }
   },
   data: () => ({
-    userImg: ''
+    userImg: '',
+    followingCount: ''
   }),
   methods: {
     checkOutUser () {
       this.$router.push(`/user/profile/${this.item.name}`)
+    },
+    async followList () {
+      const FollowingList = await Service.followingList(this.item.id)
+      this.followingCount = FollowingList.length
     }
   },
   mounted () {
@@ -54,6 +60,7 @@ export default {
     getDownloadURL(ref(storage, path)).then(
       (downLoadUrl) => (this.userImg = downLoadUrl)
     )
+    this.followList()
   }
 }
 </script>

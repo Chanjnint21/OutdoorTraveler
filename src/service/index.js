@@ -144,6 +144,35 @@ export const Service = {
     } catch (e) {
       console.log(e)
     }
+  },
+  async follow (followData) {
+    try {
+      await axios.post('http://localhost:3000/follow', followData)
+    } catch (e) {
+      console.log(e)
+    }
+  },
+  async unfollow (followId) {
+    try {
+      await axios.delete(`http://localhost:3000/follow/${followId}`)
+    } catch (e) {
+      console.log(e)
+    }
+  },
+  async getFollow (crrUser, pfUser) {
+    try {
+      const followData = await axios.get(`http://localhost:3000/follow?user_id=${crrUser}&following=${pfUser}`)
+      return followData.data
+    } catch (e) {
+      console.log(e)
+    }
+  },
+  async followingList (crrUser, pfUser) {
+    try {
+      const followingData = await axios.get(`http://localhost:3000/follow?user_id=${crrUser}`)
+      return followingData.data
+    } catch (e) {
+      console.log(e)
+    }
   }
-
 }

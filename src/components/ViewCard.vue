@@ -137,8 +137,7 @@ export default {
         }
       ],
       lists: [
-        // this is a default participator
-        { fullName: 'jcennie', avatar: 'https://cdn.vuetifyjs.com/images/lists/4.jpg' }
+        // { fullName: 'jcennie', avatar: 'https://cdn.vuetifyjs.com/images/lists/4.jpg' }
       ],
       aboutTripLists: [
         { icon: 'mdi-map-marker', text: 'Destination:', data: this.item.destination },
@@ -187,6 +186,7 @@ export default {
   // call service to get data
   async mounted () {
     const users = await Service.registeredCard(this.item.id)
+    console.log(users)
     // bos data from users to pushData func
     this.pushData(users)
   }

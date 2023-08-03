@@ -174,5 +174,13 @@ export const Service = {
     } catch (e) {
       console.log(e)
     }
+  },
+  async getParticipator (tripId) {
+    try {
+      const partData = await axios.get(`http://localhost:3000/RegisterTrip?card_id=${tripId}`)
+      return partData.data
+    } catch (e) {
+      console.log(e)
+    }
   }
 }

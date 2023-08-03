@@ -5,17 +5,6 @@
       persistent
       max-width="600px"
     >
-      <template v-slot:activator="{ on, attrs }">
-        <v-btn
-          color="#1687A7"
-          dark
-          v-bind="attrs"
-          v-on="on"
-          class='ml-5'
-        >
-          Register
-        </v-btn>
-      </template>
       <v-card>
         <v-card-title>
           <span class="text-h5 mb-5">Registration Form</span>
@@ -103,7 +92,7 @@
               <v-btn
                 color="#276678"
                 text
-                @click="dialog = false"
+                @click="onCancel"
               >
                 Cancel
               </v-btn>
@@ -112,7 +101,7 @@
                 color="#1687A7"
                 text
                 @click="submit(); dialog = false"
-                :disabled='!isFormComplete'
+                :disabled='!isFormComplete || limitRegister'
                 :rules="[]"
               > Submit
               </v-btn>
@@ -127,16 +116,21 @@ import { Service } from '@/service/index.js'
 
 export default {
   props: {
-    this_id: {
-      type: String,
-      required: true
+    item: {
+      type: Object,
+      default: () => {}
+    },
+    value: {
+      type: Boolean,
+      default: false
     }
   },
   data: () => ({
     isFormComplete: false,
     isAgeValid: false,
     dialog: false,
-    validAge: [],
+    registeredUser: [],
+    limitRegister: false,
     crrUser: JSON.parse(localStorage.getItem('authUser')),
     regisForm: {
       id: '',
@@ -157,7 +151,7 @@ export default {
         createrule: this.validateCreateRule,
         ageRule: value => {
           const age = parseInt(value)
-          if (age >= this.validAge[0] && age <= this.validAge[1]) {
+          if (age >= this.item.requirement.age[0] && age <= this.item.requirement.age[1]) {
             return true
           } else {
             return false
@@ -171,10 +165,16 @@ export default {
       if (newVal) {
         this.regisForm.userName = this.crrUser[0].name
         this.regisForm.user_id = this.crrUser[0].id
-        this.regisForm.card_id = this.this_id
+        this.regisForm.card_id = this.item
         this.regisForm.firstName = this.crrUser[0].firstName
         this.regisForm.lastName = this.crrUser[0].lastName
         this.regisForm.phoneNumber = this.crrUser[0].phone
+      }
+    },
+    value (val) {
+      this.dialog = val
+      if (val) {
+        this.getParticipator()
       }
     },
     age: {
@@ -196,20 +196,17 @@ export default {
         }
       }
     },
-    async validateAge () {
-      try {
-        const tripData = await Service.thisIdData(this.this_id)
-        this.validAge = tripData.requirement.age
-        // const age = parseInt(value)
-        // if (!isNaN(age) && age >= tripData.requirement.age[0] && age <= tripData.requirement.age[1]) {
-        //   return 'Your age is valid!'
-        // } else {
-        //   return 'Age must be within the valid range.'
-        // }
-      } catch (e) {
-        console.log(e)
-        return 'Failed to fetch trip data.'
-      }
+    // async validateAge () {
+    //   try {
+    //     const tripData = await Service.thisIdData()
+    //     this.validAge = tripData.requirement.age
+    //   } catch (e) {
+    //     console.log(e)
+    //     return 'Failed to fetch trip data.'
+    //   }
+    // },
+    onCancel () {
+      this.$emit('onCancel')
     },
     validate () {
       this.isFormComplete = this.$refs.form.validate()
@@ -224,10 +221,36 @@ export default {
       this.lastName = ''
       this.phoneNumber = ''
       this.card_id = ''
+    },
+    countData (userData) {
+      for (let i = 0; i < userData.length; i++) {
+        this.registeredUser.push(userData[i])
+        console.log(this.registeredUser)
+      }
+    },
+    validateRegisUser () {
+      if (this.countData < this.item.requirement.amount) {
+        this.isFull = false
+      } else {
+        this.isFull = true
+      }
+    },
+    async getParticipator () {
+      try {
+        if (this.item) {
+          const data = await Service.getParticipator(this.item.id)
+          console.log(data)
+          this.limitRegister = data.length === this.item.requirement.amount
+          console.log(this.limitRegister)
+        }
+      } catch (e) {
+        console.log(e)
+      }
     }
   },
   mounted () {
     this.validateAge()
+    console.log('reg', this.item)
   }
 }
 </script>

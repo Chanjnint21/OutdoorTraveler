@@ -1,5 +1,6 @@
 <template>
-  <v-card
+  <div>
+    <v-card
     v-bind="$attrs"
     v-on="$listeners"
     :elevation="elevation"
@@ -84,11 +85,18 @@
                   disabled
                   v-else-if='expireCard && joined'
                 />
-                <r-dialog
+                <!-- <r-dialog
 
                   :this_id="item.id"
                   @register="submitRegis"
                   v-else-if='!cardOwner && !register'
+                /> -->
+                <trip-btn
+                BtnColor="#1687A7"
+                class="white--text"
+                BtnLabel="Register"
+                v-if='!cardOwner && !register'
+                @click="onRegister"
                 />
                 <c-dialog
                   label1="Are you sure?"
@@ -137,6 +145,12 @@
       </v-col>
     </v-row>
   </v-card>
+  <r-dialog
+    v-model="isToggledRegister"
+    @onCancel="onCancelRegister"
+    :item="tripItem"
+  />
+  </div>
 </template>
 
 <script>
@@ -174,6 +188,8 @@ export default {
   data () {
     return {
       expireCard: false,
+      isToggledRegister: false,
+      tripItem: null,
       joined: false,
       register: true,
       cardOwner: false,
@@ -193,6 +209,13 @@ export default {
       }
       await Service.deleteItem(id)
       this.$router.go()
+    },
+    onRegister () {
+      this.tripItem = this.item
+      this.isToggledRegister = true
+    },
+    onCancelRegister () {
+      this.isToggledRegister = false
     },
     toUpdate (id) {
       this.$router.push(`/user/update/${id}`)

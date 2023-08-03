@@ -214,7 +214,8 @@
         ],
         "cost": 45,
         "nationalId": "Require",
-        "phoneNumber": "Require"
+        "phoneNumber": "Require",
+        "amount": 3
       },
       "expiry": false
     },
@@ -420,55 +421,37 @@
       "reg_time": "15:03:23"
     },
     {
-      "id": 3,
-      "firstName": "Chansovanmony",
-      "age": "12",
-      "lastName": "Yoeun",
-      "phoneNumber": "085605126",
-      "reg_date": "7/26/2023",
-      "reg_time": "15:00:13"
-    },
-    {
-      "id": 4,
-      "firstName": "Chansovanmony",
-      "age": "12",
-      "lastName": "Yoeun",
-      "phoneNumber": "085605126",
-      "reg_date": "7/26/2023",
-      "reg_time": "15:00:34"
-    },
-    {
       "id": 6,
       "user_id": "3x4567",
       "userName": "admin007",
       "firstName": "Michael",
-      "age": "19",
+      "age": "20",
       "lastName": "Jackson",
       "phoneNumber": "012241101",
-      "card_id": "ydewf-3",
-      "reg_date": "8/1/2023",
-      "reg_time": "14:37:52"
+      "card_id": "AhANIwV",
+      "reg_date": "8/2/2023",
+      "reg_time": "16:30:39"
     },
     {
       "id": 7,
-      "user_id": "2x3456",
-      "userName": "user0101",
-      "firstName": "Chanjnint",
-      "age": "20",
-      "lastName": "Lim",
-      "phoneNumber": "081808091",
-      "card_id": "ydewf-3",
-      "reg_date": "8/1/2023",
-      "reg_time": "14:49:50"
+      "user_id": "3x4567",
+      "userName": "admin007",
+      "firstName": "Michael",
+      "age": "24",
+      "lastName": "Jackson",
+      "phoneNumber": "012241101",
+      "card_id": "Y909VXI",
+      "reg_date": "8/2/2023",
+      "reg_time": "16:36:51"
     },
     {
       "id": 8,
-      "user_id": "1x2345",
-      "userName": "jennie",
-      "firstName": "Chansovanmony",
-      "age": "15",
-      "lastName": "Youen",
-      "phoneNumber": "01225680",
+      "user_id": "2x3456",
+      "userName": "user0101",
+      "firstName": "Chanjnint",
+      "lastName": "Lim",
+      "age": "18",
+      "phoneNumber": "081808091",
       "card_id": "tydbwj-3",
       "reg_date": "8/1/2023",
       "reg_time": "16:15:34"
@@ -486,14 +469,96 @@
       "id": 2
     },
     {
-      "user_id": "2x3456",
-      "following": "1x2345",
-      "id": 3
+      "id": 10,
+      "user_id": "3x4567",
+      "userName": "admin007",
+      "firstName": "Michael",
+      "age": "16",
+      "lastName": "Jackson",
+      "phoneNumber": "012241101",
+      "card_id": {
+        "id": "ydewf-3",
+        "postDate": "7/21/2023",
+        "postTime": "16:50:33",
+        "author": {
+          "id": "1x2345",
+          "name": "jennie"
+        },
+        "title": "Cultural Immersion Tour",
+        "destination": "Japan",
+        "start_date": "16/08/2023",
+        "end_date": "18/08/2023",
+        "detail": "Immerse yourself in the traditions and culture of Japan and discover its unique blend of modernity and tradition.",
+        "image": [
+          "jennie2023-07-2116:50:31_0",
+          "jennie2023-07-2116:50:31_1"
+        ],
+        "category": [
+          "Camping"
+        ],
+        "departure": {
+          "meet_location": "Narita International Airport",
+          "leave_time": "06:31"
+        },
+        "requirement": {
+          "age": [
+            15,
+            30
+          ],
+          "cost": 40,
+          "nationalId": "Require",
+          "phoneNumber": "Require"
+        },
+        "expiry": false
+      },
+      "reg_date": "8/3/2023",
+      "reg_time": "16:48:34"
     },
     {
+      "id": 11,
       "user_id": "3x4567",
-      "following": "2x3456",
-      "id": 4
+      "userName": "admin007",
+      "firstName": "Michael",
+      "age": "16",
+      "lastName": "Jackson",
+      "phoneNumber": "012241101",
+      "card_id": {
+        "id": "ydewf-3",
+        "postDate": "7/21/2023",
+        "postTime": "16:50:33",
+        "author": {
+          "id": "1x2345",
+          "name": "jennie"
+        },
+        "title": "Cultural Immersion Tour",
+        "destination": "Japan",
+        "start_date": "16/08/2023",
+        "end_date": "18/08/2023",
+        "detail": "Immerse yourself in the traditions and culture of Japan and discover its unique blend of modernity and tradition.",
+        "image": [
+          "jennie2023-07-2116:50:31_0",
+          "jennie2023-07-2116:50:31_1"
+        ],
+        "category": [
+          "Camping"
+        ],
+        "departure": {
+          "meet_location": "Narita International Airport",
+          "leave_time": "06:31"
+        },
+        "requirement": {
+          "age": [
+            15,
+            30
+          ],
+          "cost": 40,
+          "nationalId": "Require",
+          "phoneNumber": "Require"
+        },
+        "expiry": false
+      },
+      "reg_date": "8/3/2023",
+      "reg_time": "16:50:18"
     }
   ]
 }

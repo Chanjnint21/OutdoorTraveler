@@ -18,9 +18,9 @@
                 </template>
               </trip-btn>
               <v-avatar class="ml-3" size="40">
-                <img src="../assets/Img/pf2.jpg" alt="Patrick">
+                <v-img :src="authorImg" :alt="item.author.name"/>
               </v-avatar>
-              <p class="ma-2">{{ item.author.name }}</p>
+              <p class="text-h5 mx-4 mt-1">{{ item.author.name }}</p>
             </v-col>
             <v-col>
               <v-card-title class="text-h5"><b>{{ item.title }}</b></v-card-title>
@@ -70,7 +70,7 @@
               <v-list class="scrollable-list">
                 <v-list-item
                   class="rounded-xxl mb-3"
-                  v-for="list in lists"
+                  v-for="list in userlists"
                   :key="list.fullName"
                   style="background-color: rgba(151, 216, 235, 0.5); "
                 >
@@ -93,6 +93,8 @@
 <script>
 import { Service } from '@/service/index.js'
 import CloudImage from './CloudImage.vue'
+import { storage } from '../firebase'
+import { ref, getDownloadURL } from 'firebase/storage'
 
 export default {
   name: 'ViewCard',
@@ -136,8 +138,8 @@ export default {
           value: 'item.time'
         }
       ],
-      lists: [
-        // { fullName: 'jcennie', avatar: 'https://cdn.vuetifyjs.com/images/lists/4.jpg' }
+
+      userlists: [
       ],
       aboutTripLists: [
         { icon: 'mdi-map-marker', text: 'Destination:', data: this.item.destination },
@@ -158,7 +160,9 @@ export default {
         { icon: 'mdi-car-side', text: 'Transportation :', data: this.item.requirement.transportation }
       ],
       emptyMatching: false,
-      countUser: 0
+      countUser: 0,
+      userImg: '',
+      authorImg: ''
     }
   },
   computed: {
@@ -170,23 +174,39 @@ export default {
       ]
     }
   },
+  // watch: {
+  //   userlists () {
+  //     this.countUser = this.userlists.length
+  //   }
+  // },
   methods: {
     back () {
       this.$router.back()
     },
-    pushData (data) {
+    async pushData (data) {
       for (let i = 0; i < data.length; i++) {
-        console.log(data[i].userName)
-        this.lists.push({ fullName: `${data[i].firstName} ${data[i].lastName} `, avatar: 'https://cdn.vuetifyjs.com/images/lists/2.jpg' })
+        const thisUserImg = await Service.handleSearchUser(data[i].user_id)
+        const path = `profile/${thisUserImg[0].image}`
+        console.log(path)
+        getDownloadURL(ref(storage, path)).then(
+          (downLoadUrl) => {
+            this.userlists.push({ fullName: `${data[i].firstName} ${data[i].lastName} `, avatar: downLoadUrl })
+            this.countUser = this.userlists.length
+          }
+        )
       }
-      this.countUser = this.lists.length
-      console.log(this.countUser)
     }
   },
   // call service to get data
   async mounted () {
     const users = await Service.registeredCard(this.item.id)
-    console.log(users)
+    const authorInfo = await Service.handleSearchUser(this.item.author.id)
+    const path = `profile/${authorInfo[0].image}`
+    getDownloadURL(ref(storage, path)).then(
+      (downLoadUrl) => {
+        this.authorImg = downLoadUrl
+      }
+    )
     // bos data from users to pushData func
     this.pushData(users)
   }

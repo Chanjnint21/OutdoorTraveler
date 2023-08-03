@@ -10,7 +10,8 @@
       "phone": "01225680",
       "firstName": "Chansovanmony",
       "lastName": "Youen",
-      "bio": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque tenetur nobis sapiente incidunt cum voluptates aliquid nemo voluptatibus magnam. Neque magni culpa eaque nulla aperiam,"
+      "bio": "Hey there ! Wanna go for advanture with me ? join me now",
+      "verify": true
     },
     {
       "id": "2x3456",
@@ -22,7 +23,8 @@
       "phone": "081808091",
       "firstName": "Chanjnint",
       "lastName": "Lim",
-      "bio": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque tenetur nobis sapiente incidunt cum voluptates aliquid nemo voluptatibus magnam. Neque magni culpa eaque nulla aperiam,"
+      "bio": "Sticking along with me will be the best trip of you have ever joined !",
+      "verify": true
     },
     {
       "id": "3x4567",
@@ -34,7 +36,8 @@
       "phone": "012241101",
       "firstName": "Michael",
       "lastName": "Jackson",
-      "bio": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque tenetur nobis sapiente incidunt cum voluptates aliquid nemo voluptatibus magnam. Neque magni culpa eaque nulla aperiam,"
+      "bio": "Lorem ipsum dolor sits magnam. Neque magni culpa eaque nulla aperiam,",
+      "verify": false
     }
   ],
   "tripcards": [
@@ -450,20 +453,20 @@
       "age": "18",
       "phoneNumber": "081808091",
       "card_id": "tydbwj-3",
-      "reg_date": "7/25/2023",
-      "reg_time": "15:03:23"
+      "reg_date": "8/1/2023",
+      "reg_time": "16:15:34"
+    }
+  ],
+  "follow": [
+    {
+      "user_id": "1x2345",
+      "following": "2x3456",
+      "id": 1
     },
     {
-      "id": 9,
-      "user_id": "2x3456",
-      "userName": "user0101",
-      "firstName": "Chanjnint",
-      "lastName": "Lim",
-      "age": "18",
-      "phoneNumber": "081808091",
-      "card_id": "tydbwj-3",
-      "reg_date": "7/25/2023",
-      "reg_time": "15:03:23"
+      "user_id": "1x2345",
+      "following": "3x4567",
+      "id": 2
     },
     {
       "id": 10,

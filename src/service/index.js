@@ -167,7 +167,7 @@ export const Service = {
       console.log(e)
     }
   },
-  async followingList (crrUser, pfUser) {
+  async followingList (crrUser) {
     try {
       const followingData = await axios.get(`http://localhost:3000/follow?user_id=${crrUser}`)
       return followingData.data
@@ -179,6 +179,10 @@ export const Service = {
     try {
       const partData = await axios.get(`http://localhost:3000/RegisterTrip?card_id=${tripId}`)
       return partData.data
+  async followerList (crrUser) {
+    try {
+      const followerData = await axios.get(`http://localhost:3000/follow?following=${crrUser}`)
+      return followerData.data
     } catch (e) {
       console.log(e)
     }

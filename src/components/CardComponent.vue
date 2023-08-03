@@ -20,7 +20,18 @@
       <v-col cols="12" sm="12" md="7" lg="7" xl="12">
         <v-row class="d-flex align-start" style="height: 60%" no-gutters>
           <v-col cols="12">
-            <v-card-title class="text-h5">{{ item.title }}</v-card-title>
+            <v-card-title class="text-h5" v-if="!expireCard && register">
+              <v-badge
+                inline
+                color="#1687A7"
+                :content="badgeText"
+              >
+                <span @click="checkOutUser()" style="cursor: pointer">
+                  {{ item.title }}
+                </span>
+              </v-badge>
+            </v-card-title>
+            <v-card-title class="text-h5" v-else>{{ item.title }}</v-card-title>
             <v-card-text class="text-left">{{ item.detail }}</v-card-text>
           </v-col>
         </v-row>
@@ -168,6 +179,7 @@ export default {
       cardOwner: false,
       Fav: false,
       FavIcon: 'mdi-bookmark-outline',
+      badgeText: '',
       crrUser: JSON.parse(localStorage.getItem('authUser'))
     }
   },
@@ -230,10 +242,28 @@ export default {
         this.cardOwner = false
       }
     },
+    countDate () {
+      var todayDate = new Date().toJSON().slice(0, 10)
+      var date1 = new Date(todayDate)
+      const cardDate = `${this.item.start_date.slice(6, 10)}-${this.item.start_date.slice(3, 5)}-${this.item.start_date.slice(0, 2)}`
+      var date2 = new Date(cardDate)
+      // To calculate the time difference of two dates
+      var DifferenceInTime = date2.getTime() - date1.getTime()
+      // To calculate the no. of days between two dates
+      var DifferenceInDays = DifferenceInTime / (1000 * 3600 * 24)
+      if (DifferenceInDays === 0) {
+        this.badgeText = 'today'
+      } else if (DifferenceInDays > 0) {
+        this.badgeText = `${DifferenceInDays} days left`
+      } else {
+        this.badgeText = 'ended'
+      }
+    },
     async showRegister () {
       const regCard = await Service.getRegister(this.crrUser[0].id, this.item.id)
       if (regCard.length) {
         this.register = true
+        this.countDate()
       } else {
         this.register = false
       }

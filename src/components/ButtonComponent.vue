@@ -3,7 +3,6 @@
     v-bind="$attrs"
     v-on="$listeners"
     :color="BtnColor"
-    @click="Btnfunction(val)"
   >
     <slot name="icon"></slot>
     {{ BtnLabel }}
@@ -24,11 +23,6 @@ export default {
       type: String
     },
     IconClass: String
-  },
-  methods: {
-    Btnfunction (val) {
-      this.$emit('sort', val)
-    }
   }
 }
 </script>

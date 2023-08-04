@@ -22,7 +22,7 @@
                 rounded
                 outlined
                 :id="Sortlabel[n]"
-                @sort="sorting(Sortlabel[n])"
+                @click="sorting(Sortlabel[n])"
               />
             </div>
           </template>

@@ -1,7 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-import LoginView from '../views/LoginView.vue'
+import LoginView from '../views/Auth/LoginView.vue'
+import RegisterView from '../views/Auth/RegisterView.vue'
 // import TripCreate from '../views/Trip/TripCreate.vue'
 // import TripUpdate from '../views/Trip/TripUpdate.vue'
 import ProfileView from '../views/Profile/ProfileView.vue'
@@ -23,6 +24,10 @@ const routes = [
       {
         path: 'login',
         component: LoginView
+      },
+      {
+        path: 'register',
+        component: RegisterView
       }
     ]
   },

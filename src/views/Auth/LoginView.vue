@@ -20,7 +20,7 @@
             <v-row class="d-flex justify-center">
               <h1 style="color: #1687A7; margin-bottom: 20px;">Sign In</h1>
             </v-row>
-            <v-col cols="12" class="mb-3">
+            <v-col cols="12" class="mb-2">
               <text-field
                 v-model="email"
                 label="Email"
@@ -32,7 +32,7 @@
                 :rules="LoginRules"
               />
             </v-col>
-            <v-col cols="12" class="mb-3">
+            <v-col cols="12" class="mb-2">
               <text-field
                 v-model="password"
                 label="Password"
@@ -41,14 +41,15 @@
                 :icons="show ? 'mdi-eye' : 'mdi-eye-off'"
                 @click:append="show = !show"
                 hint="Password must be at least 8 characters"
-                required color="#1687A7"
+                required
+                color="#1687A7"
                 :rules="LoginRules"
                 :type="show ? 'text' : 'password'"
                 hide-details="auto"
                 rounded
               />
             </v-col>
-            <v-col cols="12" class="mb-3">
+            <v-col cols="12">
               <trip-btn
                 @click="loginToken"
                 rounded
@@ -60,6 +61,7 @@
               />
               <p class="text-center text-small error--text" v-if="login">Invalid email or password </p>
             </v-col>
+            <p class="text-center text-small" >Don't have account? <router-link to="/register" style="color: #1687A7">Register Now</router-link></p>
           </v-form>
         </v-col>
       </v-row>

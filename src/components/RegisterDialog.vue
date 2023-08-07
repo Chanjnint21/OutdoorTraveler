@@ -1,4 +1,3 @@
-
 <template>
     <v-dialog
       v-model="dialog"
@@ -169,6 +168,7 @@ export default {
         this.regisForm.firstName = this.crrUser[0].firstName
         this.regisForm.lastName = this.crrUser[0].lastName
         this.regisForm.phoneNumber = this.crrUser[0].phone
+        this.validate()
       }
     },
     value (val) {
@@ -196,15 +196,6 @@ export default {
         }
       }
     },
-    // async validateAge () {
-    //   try {
-    //     const tripData = await Service.thisIdData()
-    //     this.validAge = tripData.requirement.age
-    //   } catch (e) {
-    //     console.log(e)
-    //     return 'Failed to fetch trip data.'
-    //   }
-    // },
     onCancel () {
       this.$emit('onCancel')
     },
@@ -234,19 +225,20 @@ export default {
       } else {
         this.isFull = true
       }
-    },
-    async getParticipator () {
-      try {
-        if (this.item) {
-          const data = await Service.getParticipator(this.item.id)
-          console.log(data)
-          this.limitRegister = data.length === this.item.requirement.amount
-          console.log(this.limitRegister)
-        }
-      } catch (e) {
-        console.log(e)
-      }
     }
+    // async getParticipator () {
+    //   try {
+    //     if (this.item) {
+    //       const data = await Service.getParticipator(this.item.id)
+    //       console.log(data)
+    //       this.limitRegister = data.length === this.item.requirement.amount
+    //       console.log(this.limitRegister)
+    //       this.$emit('getParticipator')
+    //     }
+    //   } catch (e) {
+    //     console.log(e)
+    //   }
+    // }
   },
   mounted () {
     this.validateAge()

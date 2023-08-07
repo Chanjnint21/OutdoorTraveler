@@ -55,22 +55,6 @@ export default {
       type: String,
       required: true
     },
-    // min: {
-    //   arr: {
-    //     type: Date,
-    //     default: function () {
-    //       return new Date()
-    //     }
-    //   }
-    // },
-    // max: {
-    //   arr: {
-    //     type: Date,
-    //     default: function () {
-    //       return new Date()
-    //     }
-    //   }
-    // }
     min: {
       type: String,
       required: true

@@ -83,6 +83,7 @@
                   v-else-if='expireCard && joined'
                 />
             <trip-btn
+              BtnColor="#1687A7"
               :class="['white--text', { 'disabled': getParticipator()}]"
               :BtnLabel="showRegisterButton ? 'Register' : 'Full'"
               @click="showRegisterButton ? onRegister() : onFullRegister()"

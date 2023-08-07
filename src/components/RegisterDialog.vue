@@ -150,6 +150,9 @@ export default {
         createrule: this.validateCreateRule,
         ageRule: value => {
           const age = parseInt(value)
+          console.log(age, 'bruh')
+          console.log('min', this.item.requirement.age[0])
+          console.log('max', this.item.requirement.age[1])
           if (age >= this.item.requirement.age[0] && age <= this.item.requirement.age[1]) {
             return true
           } else {
@@ -181,6 +184,7 @@ export default {
       immediate: true,
       handler (newVal) {
         this.ageRule = newVal
+        console.log(this.age)
       }
     }
   },
@@ -226,23 +230,6 @@ export default {
         this.isFull = true
       }
     }
-    // async getParticipator () {
-    //   try {
-    //     if (this.item) {
-    //       const data = await Service.getParticipator(this.item.id)
-    //       console.log(data)
-    //       this.limitRegister = data.length === this.item.requirement.amount
-    //       console.log(this.limitRegister)
-    //       this.$emit('getParticipator')
-    //     }
-    //   } catch (e) {
-    //     console.log(e)
-    //   }
-    // }
-  },
-  mounted () {
-    this.validateAge()
-    console.log('reg', this.item)
   }
 }
 </script>

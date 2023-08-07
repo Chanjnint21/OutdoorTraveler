@@ -62,7 +62,6 @@
               </slot>
               <slot name="btn2">
                 <trip-btn
-                  BtnColor="#1687A7"
                   class="white--text"
                   @click="toUpdate(item.id)"
                   v-if="!expireCard && cardOwner"
@@ -72,26 +71,23 @@
                   </template>
                 </trip-btn>
                 <trip-btn
-                  BtnColor="#1687A7"
                   class="white--text"
                   BtnLabel="expire"
                   disabled
                   v-else-if="expireCard && !joined"
                 />
                 <trip-btn
-                  BtnColor="#1687A7"
                   class="white--text"
                   BtnLabel="Joined"
                   disabled
                   v-else-if='expireCard && joined'
                 />
             <trip-btn
-              BtnColor="#1687A7"
-              :class="['white--text', { 'disabled': getParticipator() }]"
+              :class="['white--text', { 'disabled': getParticipator()}]"
               :BtnLabel="showRegisterButton ? 'Register' : 'Full'"
               @click="showRegisterButton ? onRegister() : onFullRegister()"
               v-else-if='!cardOwner && !register'
-              :disabled="onFullRegister()"
+              :disabled="!showRegisterButton"
             />
                 <c-dialog
                   label1="Are you sure?"
@@ -99,7 +95,7 @@
                   DioColor="error"
                   DioBtnClass="ml-3"
                   DioLabel="Unregister"
-                  v-if="!cardOwner && register"
+                  v-else-if="!cardOwner && register"
                 >
                   <template #agree>
                     <v-btn
@@ -231,9 +227,6 @@ export default {
     ViewClick (id) {
       this.$router.push({ name: 'view', params: { id } })
     },
-    // cardIsFull () {
-    //   this.isFull = true
-    // },
     async addFav () {
       this.FavIcon = 'mdi-bookmark'
       await axios.post('http://localhost:3000/Favorite', {
@@ -251,9 +244,7 @@ export default {
       try {
         if (this.item) {
           const data = await Service.getParticipator(this.item.id)
-          console.log(data)
           this.limitRegister = data.length === this.item.requirement.amount
-          console.log(this.limitRegister, 'hi mony')
           return true
         }
       } catch (e) {
@@ -334,14 +325,6 @@ export default {
       }
     }
   },
-  // async click () {
-  //   if (this.item) { // Check if 'item' exists and is not null
-  //     const regCard = await Service.getRegister(this.crrUser[0].id, this.item.id)
-  //     await Service.unRegister(regCard[0].id);
-  //     this.register = false;
-  //   }
-  // },
-
   async mounted () {
     this.ownerCard()
     this.showRegister()

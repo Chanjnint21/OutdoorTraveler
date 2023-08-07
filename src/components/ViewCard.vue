@@ -138,7 +138,6 @@ export default {
           value: 'item.time'
         }
       ],
-
       userlists: [
       ],
       aboutTripLists: [

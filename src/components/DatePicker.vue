@@ -29,7 +29,6 @@
       no-title
       scrollable
       :min="applyMin()"
-      :max="applyMax()"
     >
       <v-spacer></v-spacer>
       <v-btn text color="#1687A7" @click="menu = false">Cancel</v-btn>
@@ -56,13 +55,13 @@ export default {
       required: true
     },
     min: {
-      type: String,
-      required: true
-    },
-    max: {
-      type: String,
+      type: Date,
       required: true
     }
+    // max: {
+    //   type: String,
+    //   required: true
+    // }
   },
   data () {
     return {
@@ -76,19 +75,13 @@ export default {
     computedDateFormatted () {
       return this.formatDate(this.date)
     }
-    // getCurrentDate () {
-    //   const currentDate = new Date()
-    //   const day = String(currentDate.getDate()).padStart(2, '0')
-    //   const month = String(currentDate.getMonth() + 1).padStart(2, '0')
-    //   const year = currentDate.getFullYear()
-    //   return `${day}/${month}/${year}`
-    // }
   },
   watch: {
     value: {
       immediate: true,
       handler (val) {
-        this.date = val
+        console.log(val)
+        this.date = this.parseDate(val)
       }
     }
   },
@@ -110,13 +103,13 @@ export default {
     applyMin () {
       return this.parseDate(this.min)
     },
-    applyMax () {
-      return this.parseDate(this.max)
-    },
-    parseDate (date) {
-      if (!date) return null
+    // applyMax () {
+    //   return this.parseDate(this.max)
+    // },
+    parseDate (currentDate) {
+      if (!currentDate) return null
 
-      const [day, month, year] = date.split('/')
+      const [day, month, year] = currentDate.split('/')
       return `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`
     },
     savethisdate (date) {

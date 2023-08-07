@@ -66,7 +66,7 @@
                   type="number"
                   label="Age"
                   required
-                  :rules="[rules.ageRule]"
+                  :rules="rules.ageRule"
 
                 />
               </v-col>
@@ -145,20 +145,34 @@ export default {
     }
   }),
   computed: {
+    getMinAge () {
+      return console.log('min', this.item.requirement?.age[1])
+    },
     rules () {
       return {
         createrule: this.validateCreateRule,
-        ageRule: value => {
-          const age = parseInt(value)
-          console.log(age, 'bruh')
-          console.log('min', this.item.requirement.age[0])
-          console.log('max', this.item.requirement.age[1])
-          if (age >= this.item.requirement.age[0] && age <= this.item.requirement.age[1]) {
-            return true
-          } else {
-            return false
-          }
-        }
+        ageRule: [
+          v => (v >= this.item.requirement.age[0] && v <= this.item.requirement.age[1]) || `Age must be between ${this.item.requirement.age[0]} and ${this.item.requirement.age[1]}`
+          // const age = parseInt(value)
+          // console.log(age, 'bruh')
+          // console.log('min', this.item.requirement.age[0])
+          // console.log('max', this.item.requirement.age[1])
+          // if (age >= this.item.requirement.age[0] && age <= this.item.requirement.age[1]) {
+          //   return true
+          // } else {
+          //   return false
+          // }
+        ]
+        // const age = parseInt(value)
+        // console.log(age, 'bruh')
+        // console.log('min', this.item.requirement.age[0])
+        // console.log('max', this.item.requirement.age[1])
+        // if (age >= this.item.requirement.age[0] && age <= this.item.requirement.age[1]) {
+        //   return true
+        // } else {
+        //   return false
+        // }
+        // }
       }
     }
   },
@@ -176,9 +190,9 @@ export default {
     },
     value (val) {
       this.dialog = val
-      if (val) {
-        this.getParticipator()
-      }
+      // if (val) {
+      //   this.getParticipator()
+      // }
     },
     age: {
       immediate: true,

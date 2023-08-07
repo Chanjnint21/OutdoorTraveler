@@ -13,7 +13,7 @@
         xl="12"
         class="pa-5">
         <cloud-image
-          height="auto"
+          height="400"
           :files='item.image'
         />
       </v-col>
@@ -32,7 +32,7 @@
               </v-badge>
             </v-card-title>
             <v-card-title class="text-h5" v-else>{{ item.title }}</v-card-title>
-            <v-card-text class="text-left">{{ item.detail }}</v-card-text>
+            <v-card-text class="text-left">{{ cardDetail }}</v-card-text>
           </v-col>
         </v-row>
         <v-row class="d-flex align-end" style="height: 40%" no-gutters>
@@ -180,7 +180,8 @@ export default {
       Fav: false,
       FavIcon: 'mdi-bookmark-outline',
       badgeText: '',
-      crrUser: JSON.parse(localStorage.getItem('authUser'))
+      crrUser: JSON.parse(localStorage.getItem('authUser')),
+      cardDetail: ''
     }
   },
   methods: {
@@ -287,6 +288,11 @@ export default {
         this.expireCard = true
         this.cardOwner = true
       }
+    },
+    shortenDetail () {
+      var text = this.item.detail
+      var count = 270
+      this.cardDetail = text.slice(0, count) + (text.length > count ? '...' : '')
     }
   },
   async mounted () {
@@ -294,6 +300,7 @@ export default {
     this.showRegister()
     this.joinedCard()
     this.showFav()
+    this.shortenDetail()
   }
 }
 </script>

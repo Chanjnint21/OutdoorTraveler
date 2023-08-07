@@ -153,26 +153,7 @@ export default {
         createrule: this.validateCreateRule,
         ageRule: [
           v => (v >= this.item.requirement.age[0] && v <= this.item.requirement.age[1]) || `Age must be between ${this.item.requirement.age[0]} and ${this.item.requirement.age[1]}`
-          // const age = parseInt(value)
-          // console.log(age, 'bruh')
-          // console.log('min', this.item.requirement.age[0])
-          // console.log('max', this.item.requirement.age[1])
-          // if (age >= this.item.requirement.age[0] && age <= this.item.requirement.age[1]) {
-          //   return true
-          // } else {
-          //   return false
-          // }
         ]
-        // const age = parseInt(value)
-        // console.log(age, 'bruh')
-        // console.log('min', this.item.requirement.age[0])
-        // console.log('max', this.item.requirement.age[1])
-        // if (age >= this.item.requirement.age[0] && age <= this.item.requirement.age[1]) {
-        //   return true
-        // } else {
-        //   return false
-        // }
-        // }
       }
     }
   },
@@ -190,9 +171,6 @@ export default {
     },
     value (val) {
       this.dialog = val
-      // if (val) {
-      //   this.getParticipator()
-      // }
     },
     age: {
       immediate: true,

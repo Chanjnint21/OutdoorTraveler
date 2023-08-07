@@ -72,7 +72,7 @@
         "cost": 50,
         "nationalId": "Require",
         "phoneNumber": "Require",
-        "amount": "12",
+        "amount": 1,
         "transportation": "Require"
       },
       "expiry": true,
@@ -108,6 +108,7 @@
           41
         ],
         "cost": 80,
+        "amount": 2,
         "nationalId": "Require",
         "phoneNumber": "Require"
       },
@@ -144,7 +145,7 @@
         "cost": 60,
         "nationalId": "Require",
         "phoneNumber": "Require",
-        "amount": "12",
+        "amount": 1,
         "transportation": "Require"
       },
       "expiry": true
@@ -179,6 +180,7 @@
           30
         ],
         "cost": 40,
+        "amount": 2,
         "nationalId": "Require",
         "phoneNumber": "Require"
       },
@@ -214,7 +216,8 @@
         ],
         "cost": 45,
         "nationalId": "Require",
-        "phoneNumber": "Require"
+        "phoneNumber": "Require",
+        "amount": 2
       },
       "expiry": false
     },
@@ -249,7 +252,7 @@
         "cost": 10,
         "nationalId": "Require",
         "phoneNumber": "Require",
-        "amount": 12312312,
+        "amount": 1,
         "transportation": "Not Require"
       },
       "expiry": true
@@ -288,7 +291,7 @@
         "cost": 35,
         "nationalId": "Require",
         "phoneNumber": "Require",
-        "amount": 12312312,
+        "amount": 1,
         "transportation": "Not Require"
       },
       "expiry": false
@@ -329,42 +332,6 @@
         "transportation": "Not Require"
       },
       "expiry": false
-    },
-    {
-      "id": "Y909VXI",
-      "postDate": "8/2/2023",
-      "postTime": "15:26:41",
-      "author": {
-        "id": "1x2345",
-        "name": "jennie"
-      },
-      "title": "testing3",
-      "destination": "New York",
-      "start_date": "10/08/2023",
-      "end_date": "12/08/2023",
-      "detail": "hi",
-      "image": [
-        "jennie2023-08-0215:26:14_0"
-      ],
-      "category": [
-        "One day Trip"
-      ],
-      "departure": {
-        "meet_location": "PP airpot",
-        "leave_time": "06:45"
-      },
-      "requirement": {
-        "age": [
-          24,
-          38
-        ],
-        "cost": 4000,
-        "nationalId": "Require",
-        "phoneNumber": "Require",
-        "amount": 3,
-        "transportation": "Require"
-      },
-      "expiry": false
     }
   ],
   "Favorite": [
@@ -392,21 +359,14 @@
       "id": 7,
       "user_id": "3x4567",
       "card_id": "tydbwj-3"
+    },
+    {
+      "id": 8,
+      "user_id": "3x4567",
+      "card_id": "Y909VXI"
     }
   ],
   "RegisterTrip": [
-    {
-      "id": 5,
-      "user_id": "2x3456",
-      "userName": "user0101",
-      "firstName": "Chanjnint",
-      "lastName": "Lim",
-      "age": "18",
-      "phoneNumber": "081808091",
-      "card_id": "tducfrn424",
-      "reg_date": "7/25/2023",
-      "reg_time": "15:03:23"
-    },
     {
       "id": 5,
       "user_id": "3x4567",
@@ -420,58 +380,145 @@
       "reg_time": "15:03:23"
     },
     {
-      "id": 3,
-      "firstName": "Chansovanmony",
-      "age": "12",
-      "lastName": "Yoeun",
-      "phoneNumber": "085605126",
-      "reg_date": "7/26/2023",
-      "reg_time": "15:00:13"
-    },
-    {
-      "id": 4,
-      "firstName": "Chansovanmony",
-      "age": "12",
-      "lastName": "Yoeun",
-      "phoneNumber": "085605126",
-      "reg_date": "7/26/2023",
-      "reg_time": "15:00:34"
-    },
-    {
-      "id": 6,
+      "id": 7,
       "user_id": "3x4567",
       "userName": "admin007",
       "firstName": "Michael",
-      "age": "19",
+      "age": "24",
       "lastName": "Jackson",
       "phoneNumber": "012241101",
-      "card_id": "ydewf-3",
-      "reg_date": "8/1/2023",
-      "reg_time": "14:37:52"
-    },
-    {
-      "id": 7,
-      "user_id": "2x3456",
-      "userName": "user0101",
-      "firstName": "Chanjnint",
-      "age": "20",
-      "lastName": "Lim",
-      "phoneNumber": "081808091",
-      "card_id": "ydewf-3",
-      "reg_date": "8/1/2023",
-      "reg_time": "14:49:50"
+      "card_id": "Y909VXI",
+      "reg_date": "8/2/2023",
+      "reg_time": "16:36:51"
     },
     {
       "id": 8,
-      "user_id": "1x2345",
-      "userName": "jennie",
-      "firstName": "Chansovanmony",
-      "age": "15",
-      "lastName": "Youen",
-      "phoneNumber": "01225680",
+      "user_id": "2x3456",
+      "userName": "user0101",
+      "firstName": "Chanjnint",
+      "lastName": "Lim",
+      "age": "18",
+      "phoneNumber": "081808091",
       "card_id": "tydbwj-3",
       "reg_date": "8/1/2023",
       "reg_time": "16:15:34"
+    },
+    {
+      "id": 9,
+      "user_id": "3x4567",
+      "userName": "admin007",
+      "firstName": "Michael",
+      "age": "20",
+      "lastName": "Jackson",
+      "phoneNumber": "012241101",
+      "card_id": {
+        "id": "6r-2c-3",
+        "postDate": "8/1/2023",
+        "postTime": "17:45:38",
+        "author": {
+          "id": "1x2345",
+          "name": "jennie"
+        },
+        "title": "Testing1",
+        "destination": "Paris",
+        "start_date": "10/08/2023",
+        "end_date": "12/08/2023",
+        "detail": "Hi, this is a free round trip!",
+        "image": [
+          "jennie2023-08-0117:44:53_0"
+        ],
+        "category": [
+          "Camping",
+          "Sea"
+        ],
+        "departure": {
+          "meet_location": "SR airpot",
+          "leave_time": "06:29"
+        },
+        "requirement": {
+          "age": [
+            20,
+            30
+          ],
+          "cost": 10000,
+          "nationalId": "Require",
+          "phoneNumber": "Require",
+          "amount": 2,
+          "transportation": "Not Require"
+        },
+        "expiry": false
+      },
+      "reg_date": "8/4/2023",
+      "reg_time": "16:20:12"
+    },
+    {
+      "id": 11,
+      "user_id": "1x2345",
+      "userName": "jennie",
+      "firstName": "Chansovanmony",
+      "age": "1",
+      "lastName": "Youen",
+      "phoneNumber": "01225680",
+      "card_id": "AhANIwV",
+      "reg_date": "8/7/2023",
+      "reg_time": "14:36:15"
+    },
+    {
+      "id": 12,
+      "user_id": "3x4567",
+      "userName": "admin007",
+      "firstName": "Michael",
+      "age": "1",
+      "lastName": "Jackson",
+      "phoneNumber": "012241101",
+      "card_id": "tydbwj-3",
+      "reg_date": "8/7/2023",
+      "reg_time": "14:37:57"
+    },
+    {
+      "id": 13,
+      "user_id": "3x4567",
+      "userName": "admin007",
+      "firstName": "Michael",
+      "age": "1",
+      "lastName": "Jackson",
+      "phoneNumber": "012241101",
+      "card_id": "ydewf-3",
+      "reg_date": "8/7/2023",
+      "reg_time": "14:46:12"
+    },
+    {
+      "id": 14,
+      "user_id": "3x4567",
+      "userName": "admin007",
+      "firstName": "Michael",
+      "age": "12",
+      "lastName": "Jackson",
+      "phoneNumber": "012241101",
+      "reg_date": "8/7/2023",
+      "reg_time": "15:30:08"
+    },
+    {
+      "id": 15,
+      "user_id": "3x4567",
+      "userName": "admin007",
+      "firstName": "Michael",
+      "age": "12",
+      "lastName": "Jackson",
+      "phoneNumber": "012241101",
+      "reg_date": "8/7/2023",
+      "reg_time": "15:33:35"
+    },
+    {
+      "id": 16,
+      "user_id": "3x4567",
+      "userName": "admin007",
+      "firstName": "Michael",
+      "age": "12",
+      "lastName": "Jackson",
+      "phoneNumber": "012241101",
+      "reg_date": "8/7/2023",
+      "reg_time": "15:34:21"
     }
   ],
   "follow": [
@@ -486,14 +533,96 @@
       "id": 2
     },
     {
-      "user_id": "2x3456",
-      "following": "1x2345",
-      "id": 3
+      "id": 10,
+      "user_id": "3x4567",
+      "userName": "admin007",
+      "firstName": "Michael",
+      "age": "16",
+      "lastName": "Jackson",
+      "phoneNumber": "012241101",
+      "card_id": {
+        "id": "ydewf-3",
+        "postDate": "7/21/2023",
+        "postTime": "16:50:33",
+        "author": {
+          "id": "1x2345",
+          "name": "jennie"
+        },
+        "title": "Cultural Immersion Tour",
+        "destination": "Japan",
+        "start_date": "16/08/2023",
+        "end_date": "18/08/2023",
+        "detail": "Immerse yourself in the traditions and culture of Japan and discover its unique blend of modernity and tradition.",
+        "image": [
+          "jennie2023-07-2116:50:31_0",
+          "jennie2023-07-2116:50:31_1"
+        ],
+        "category": [
+          "Camping"
+        ],
+        "departure": {
+          "meet_location": "Narita International Airport",
+          "leave_time": "06:31"
+        },
+        "requirement": {
+          "age": [
+            15,
+            30
+          ],
+          "cost": 40,
+          "nationalId": "Require",
+          "phoneNumber": "Require"
+        },
+        "expiry": false
+      },
+      "reg_date": "8/3/2023",
+      "reg_time": "16:48:34"
     },
     {
+      "id": 11,
       "user_id": "3x4567",
-      "following": "2x3456",
-      "id": 4
+      "userName": "admin007",
+      "firstName": "Michael",
+      "age": "16",
+      "lastName": "Jackson",
+      "phoneNumber": "012241101",
+      "card_id": {
+        "id": "ydewf-3",
+        "postDate": "7/21/2023",
+        "postTime": "16:50:33",
+        "author": {
+          "id": "1x2345",
+          "name": "jennie"
+        },
+        "title": "Cultural Immersion Tour",
+        "destination": "Japan",
+        "start_date": "16/08/2023",
+        "end_date": "18/08/2023",
+        "detail": "Immerse yourself in the traditions and culture of Japan and discover its unique blend of modernity and tradition.",
+        "image": [
+          "jennie2023-07-2116:50:31_0",
+          "jennie2023-07-2116:50:31_1"
+        ],
+        "category": [
+          "Camping"
+        ],
+        "departure": {
+          "meet_location": "Narita International Airport",
+          "leave_time": "06:31"
+        },
+        "requirement": {
+          "age": [
+            15,
+            30
+          ],
+          "cost": 40,
+          "nationalId": "Require",
+          "phoneNumber": "Require"
+        },
+        "expiry": false
+      },
+      "reg_date": "8/3/2023",
+      "reg_time": "16:50:18"
     }
   ]
 }

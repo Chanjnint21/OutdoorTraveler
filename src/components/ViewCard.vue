@@ -139,8 +139,6 @@ export default {
         }
       ],
       userlists: [
-        // // this is a default participator
-        // { fullName: 'jcennie', avatar: 'https://cdn.vuetifyjs.com/images/lists/4.jpg' }
       ],
       aboutTripLists: [
         { icon: 'mdi-map-marker', text: 'Destination:', data: this.item.destination },

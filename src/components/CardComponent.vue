@@ -1,5 +1,6 @@
 <template>
-  <v-card
+  <div>
+    <v-card
     v-bind="$attrs"
     v-on="$listeners"
     :elevation="elevation"
@@ -61,7 +62,6 @@
               </slot>
               <slot name="btn2">
                 <trip-btn
-                  BtnColor="#1687A7"
                   class="white--text"
                   @click="toUpdate(item.id)"
                   v-if="!expireCard && cardOwner"
@@ -71,32 +71,32 @@
                   </template>
                 </trip-btn>
                 <trip-btn
-                  BtnColor="#1687A7"
                   class="white--text"
                   BtnLabel="expire"
                   disabled
                   v-else-if="expireCard && !joined"
                 />
                 <trip-btn
-                  BtnColor="#1687A7"
                   class="white--text"
                   BtnLabel="Joined"
                   disabled
                   v-else-if='expireCard && joined'
                 />
-                <r-dialog
-
-                  :this_id="item.id"
-                  @register="submitRegis"
-                  v-else-if='!cardOwner && !register'
-                />
+            <trip-btn
+              BtnColor="#1687A7"
+              :class="['white--text', { 'disabled': getParticipator()}]"
+              :BtnLabel="showRegisterButton ? 'Register' : 'Full'"
+              @click="showRegisterButton ? onRegister() : onFullRegister()"
+              v-else-if='!cardOwner && !register'
+              :disabled="!showRegisterButton"
+            />
                 <c-dialog
                   label1="Are you sure?"
                   label2="Are you sure you want to unregister this trip?"
                   DioColor="error"
                   DioBtnClass="ml-3"
                   DioLabel="Unregister"
-                  v-else-if='!cardOwner && register'
+                  v-else-if="!cardOwner && register"
                 >
                   <template #agree>
                     <v-btn
@@ -121,7 +121,7 @@
                     <v-btn
                       color="#1687A7"
                       text
-                      @click="dialog = false; deleteItem(item.id)"
+                      @click="dialog = false; deleteItem(this.item.id)"
                     >
                       Yes
                     </v-btn>
@@ -137,6 +137,12 @@
       </v-col>
     </v-row>
   </v-card>
+  <r-dialog
+    v-model="isToggledRegister"
+    @onCancel="onCancelRegister"
+    :item="tripItem"
+  />
+  </div>
 </template>
 
 <script>
@@ -174,6 +180,9 @@ export default {
   data () {
     return {
       expireCard: false,
+      isToggledRegister: false,
+      limitRegister: false,
+      tripItem: null,
       joined: false,
       register: true,
       cardOwner: false,
@@ -182,6 +191,12 @@ export default {
       badgeText: '',
       crrUser: JSON.parse(localStorage.getItem('authUser')),
       cardDetail: ''
+    }
+  },
+  computed: {
+    showRegisterButton () {
+      // return !this.getParticipator(this.item)
+      return !this.limitRegister
     }
   },
   methods: {
@@ -194,6 +209,16 @@ export default {
       }
       await Service.deleteItem(id)
       this.$router.go()
+    },
+    onRegister () {
+      this.tripItem = this.item.id
+      this.isToggledRegister = true
+    },
+    onFullRegister () {
+      console.log('this card is already full !!!')
+    },
+    onCancelRegister () {
+      this.isToggledRegister = false
     },
     toUpdate (id) {
       this.$router.push(`/user/update/${id}`)
@@ -216,6 +241,18 @@ export default {
       this.FavIcon = 'mdi-bookmark-outline'
       const FavId = await Service.getFav(this.crrUser[0].id, this.item.id)
       await axios.delete(`http://localhost:3000/Favorite/${FavId[0].id}`)
+    },
+    async getParticipator () {
+      try {
+        if (this.item) {
+          const data = await Service.getParticipator(this.item.id)
+          this.limitRegister = data.length === this.item.requirement.amount
+          return true
+        }
+      } catch (e) {
+        console.log(e)
+        return false
+      }
     },
     async showFav () {
       const FavId = await Service.getFav(this.crrUser[0].id, this.item.id)
@@ -244,14 +281,14 @@ export default {
       }
     },
     countDate () {
-      var todayDate = new Date().toJSON().slice(0, 10)
-      var date1 = new Date(todayDate)
+      const todayDate = new Date().toJSON().slice(0, 10)
+      const date1 = new Date(todayDate)
       const cardDate = `${this.item.start_date.slice(6, 10)}-${this.item.start_date.slice(3, 5)}-${this.item.start_date.slice(0, 2)}`
-      var date2 = new Date(cardDate)
+      const date2 = new Date(cardDate)
       // To calculate the time difference of two dates
-      var DifferenceInTime = date2.getTime() - date1.getTime()
+      const DifferenceInTime = date2.getTime() - date1.getTime()
       // To calculate the no. of days between two dates
-      var DifferenceInDays = DifferenceInTime / (1000 * 3600 * 24)
+      const DifferenceInDays = DifferenceInTime / (1000 * 3600 * 24)
       if (DifferenceInDays === 0) {
         this.badgeText = 'today'
       } else if (DifferenceInDays > 0) {
@@ -301,6 +338,7 @@ export default {
     this.joinedCard()
     this.showFav()
     this.shortenDetail()
+    this.getParticipator()
   }
 }
 </script>

@@ -167,10 +167,18 @@ export const Service = {
       console.log(e)
     }
   },
-  async followingList (crrUser) {
+  async followingList (crrUser, pfUser) {
     try {
       const followingData = await axios.get(`http://localhost:3000/follow?user_id=${crrUser}`)
       return followingData.data
+    } catch (e) {
+      console.log(e)
+    }
+  },
+  async getParticipator (tripId) {
+    try {
+      const partData = await axios.get(`http://localhost:3000/RegisterTrip?card_id=${tripId}`)
+      return partData.data
     } catch (e) {
       console.log(e)
     }

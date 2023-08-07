@@ -152,7 +152,6 @@ export default {
       try {
         if (newVal === null) return
         this.userImg = URL.createObjectURL(newVal)
-        console.log(this.userImg)
         for (let i = 0; i < newVal.length; i++) {
           const file = newVal[0]
           const date = new Date().toJSON().slice(0, 10)

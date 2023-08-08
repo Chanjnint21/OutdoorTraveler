@@ -33,7 +33,7 @@
         </v-col>
         <v-col cols="6" class="pa-2">
           <text-field
-            v-model="personalForm.Email"
+            v-model="personalForm.email"
             color="#1687A7"
             label="Email"
             :rules="[rules.email]"
@@ -64,7 +64,6 @@
           <trip-btn
             class="white--text mx-2"
             btn-color="#1687A7"
-            href="#mobile-tabs-5-3"
             :disabled="!regForm"
             @click="nextTab"
           >
@@ -97,7 +96,7 @@ export default {
       personalForm: {
         firstName: '',
         lastName: '',
-        Email: '',
+        email: '',
         phoneNumber: '',
         password: ''
       },

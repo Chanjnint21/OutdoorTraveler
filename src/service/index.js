@@ -190,5 +190,12 @@ export const Service = {
     } catch (e) {
       console.log(e)
     }
+  },
+  async onRegisterUser (userInfo) {
+    try {
+      await axios.post('http://localhost:3000/users', userInfo)
+    } catch (e) {
+      console.log(e)
+    }
   }
 }

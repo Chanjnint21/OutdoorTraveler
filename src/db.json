@@ -464,18 +464,6 @@
       "reg_time": "14:36:15"
     },
     {
-      "id": 12,
-      "user_id": "3x4567",
-      "userName": "admin007",
-      "firstName": "Michael",
-      "age": "1",
-      "lastName": "Jackson",
-      "phoneNumber": "012241101",
-      "card_id": "tydbwj-3",
-      "reg_date": "8/7/2023",
-      "reg_time": "14:37:57"
-    },
-    {
       "id": 13,
       "user_id": "3x4567",
       "userName": "admin007",
@@ -519,6 +507,243 @@
       "phoneNumber": "012241101",
       "reg_date": "8/7/2023",
       "reg_time": "15:34:21"
+    },
+    {
+      "id": 17,
+      "user_id": "2x3456",
+      "userName": "user0101",
+      "firstName": "Chanjnint",
+      "age": "21",
+      "lastName": "Lim",
+      "phoneNumber": "081808091",
+      "card_id": {
+        "id": "6r-2c-3",
+        "postDate": "8/1/2023",
+        "postTime": "17:45:38",
+        "author": {
+          "id": "1x2345",
+          "name": "jennie"
+        },
+        "title": "Testing1",
+        "destination": "Paris",
+        "start_date": "10/08/2023",
+        "end_date": "12/08/2023",
+        "detail": "Hi, this is a free round trip!",
+        "image": [
+          "jennie2023-08-0117:44:53_0"
+        ],
+        "category": [
+          "Camping",
+          "Sea"
+        ],
+        "departure": {
+          "meet_location": "SR airpot",
+          "leave_time": "06:29"
+        },
+        "requirement": {
+          "age": [
+            20,
+            30
+          ],
+          "cost": 10000,
+          "nationalId": "Require",
+          "phoneNumber": "Require",
+          "amount": 2,
+          "transportation": "Not Require"
+        },
+        "expiry": false
+      },
+      "reg_date": "8/8/2023",
+      "reg_time": "16:27:40"
+    },
+    {
+      "id": 18,
+      "user_id": "2x3456",
+      "userName": "user0101",
+      "firstName": "Chanjnint",
+      "age": "16",
+      "lastName": "Lim",
+      "phoneNumber": "081808091",
+      "card_id": {
+        "id": "ydewf-3",
+        "postDate": "7/21/2023",
+        "postTime": "16:50:33",
+        "author": {
+          "id": "1x2345",
+          "name": "jennie"
+        },
+        "title": "Cultural Immersion Tour",
+        "destination": "Japan",
+        "start_date": "16/08/2023",
+        "end_date": "18/08/2023",
+        "detail": "Immerse yourself in the traditions and culture of Japan and discover its unique blend of modernity and tradition.",
+        "image": [
+          "jennie2023-07-2116:50:31_0",
+          "jennie2023-07-2116:50:31_1"
+        ],
+        "category": [
+          "Camping"
+        ],
+        "departure": {
+          "meet_location": "Narita International Airport",
+          "leave_time": "06:31"
+        },
+        "requirement": {
+          "age": [
+            15,
+            30
+          ],
+          "cost": 40,
+          "amount": 2,
+          "nationalId": "Require",
+          "phoneNumber": "Require"
+        },
+        "expiry": false
+      },
+      "reg_date": "8/8/2023",
+      "reg_time": "16:28:00"
+    },
+    {
+      "id": 19,
+      "user_id": "2x3456",
+      "userName": "user0101",
+      "firstName": "Chanjnint",
+      "age": "21",
+      "lastName": "Lim",
+      "phoneNumber": "081808091",
+      "card_id": {
+        "id": "6r-2c-3",
+        "postDate": "8/1/2023",
+        "postTime": "17:45:38",
+        "author": {
+          "id": "1x2345",
+          "name": "jennie"
+        },
+        "title": "Testing1",
+        "destination": "Paris",
+        "start_date": "10/08/2023",
+        "end_date": "12/08/2023",
+        "detail": "Hi, this is a free round trip!",
+        "image": [
+          "jennie2023-08-0117:44:53_0"
+        ],
+        "category": [
+          "Camping",
+          "Sea"
+        ],
+        "departure": {
+          "meet_location": "SR airpot",
+          "leave_time": "06:29"
+        },
+        "requirement": {
+          "age": [
+            20,
+            30
+          ],
+          "cost": 10000,
+          "nationalId": "Require",
+          "phoneNumber": "Require",
+          "amount": 2,
+          "transportation": "Not Require"
+        },
+        "expiry": false
+      },
+      "reg_date": "8/8/2023",
+      "reg_time": "16:29:38"
+    },
+    {
+      "id": 20,
+      "user_id": "2x3456",
+      "userName": "user0101",
+      "firstName": "Chanjnint",
+      "age": "29",
+      "lastName": "Lim",
+      "phoneNumber": "081808091",
+      "card_id": {
+        "id": "6r-2c-3",
+        "postDate": "8/1/2023",
+        "postTime": "17:45:38",
+        "author": {
+          "id": "1x2345",
+          "name": "jennie"
+        },
+        "title": "Testing1",
+        "destination": "Paris",
+        "start_date": "10/08/2023",
+        "end_date": "12/08/2023",
+        "detail": "Hi, this is a free round trip!",
+        "image": [
+          "jennie2023-08-0117:44:53_0"
+        ],
+        "category": [
+          "Camping",
+          "Sea"
+        ],
+        "departure": {
+          "meet_location": "SR airpot",
+          "leave_time": "06:29"
+        },
+        "requirement": {
+          "age": [
+            20,
+            30
+          ],
+          "cost": 10000,
+          "nationalId": "Require",
+          "phoneNumber": "Require",
+          "amount": 2,
+          "transportation": "Not Require"
+        },
+        "expiry": false
+      },
+      "reg_date": "8/8/2023",
+      "reg_time": "16:31:18"
+    },
+    {
+      "id": 21,
+      "user_id": "3x4567",
+      "userName": "admin007",
+      "firstName": "Michael",
+      "age": "15",
+      "lastName": "Jackson",
+      "phoneNumber": "012241101",
+      "card_id": {
+        "id": "tydbwj-3",
+        "postDate": "7/21/2023",
+        "postTime": "16:55:09",
+        "author": {
+          "id": "2x3456",
+          "name": "user0101"
+        },
+        "title": "Main Town of Tour",
+        "destination": "Japan",
+        "start_date": "01/06/2024",
+        "end_date": "10/06/2024",
+        "detail": "Immerse yourself in the traditions and culture of Japan and discover its unique blend of modernity and tradition.",
+        "image": [
+          "user01012023-07-2116:55:06_0"
+        ],
+        "category": [
+          "One day Trip"
+        ],
+        "departure": {
+          "meet_location": "Narita International Airport",
+          "leave_time": "03:14"
+        },
+        "requirement": {
+          "age": [
+            15,
+            15
+          ],
+          "cost": 45,
+          "nationalId": "Require",
+          "phoneNumber": "Require",
+          "amount": 2
+        },
+        "expiry": false
+      },
+      "reg_date": "8/8/2023",
+      "reg_time": "16:33:05"
     }
   ],
   "follow": [

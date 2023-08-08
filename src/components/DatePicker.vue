@@ -55,13 +55,9 @@ export default {
       required: true
     },
     min: {
-      type: Date,
+      type: String,
       required: true
     }
-    // max: {
-    //   type: String,
-    //   required: true
-    // }
   },
   data () {
     return {
@@ -103,9 +99,6 @@ export default {
     applyMin () {
       return this.parseDate(this.min)
     },
-    // applyMax () {
-    //   return this.parseDate(this.max)
-    // },
     parseDate (currentDate) {
       if (!currentDate) return null
 
@@ -114,7 +107,6 @@ export default {
     },
     savethisdate (date) {
       const formatDate = this.formatDate(date)
-      console.log('saveDate', formatDate)
       this.$refs.menu.save(date)
       this.$emit('input', formatDate)
     }

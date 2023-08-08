@@ -33,7 +33,7 @@
           </v-col>
           <v-col cols="12" sm="6" md="6">
             <date-picker
-              :min="currentDate"
+              :min="validateMinMax"
               v-model="form.end_date"
               label="End Date"
               :rules="[rules.createrule]"
@@ -243,13 +243,17 @@ export default {
       const month = String(currentDate.getMonth() + 1).padStart(2, '0') // Months are zero-based, so add 1, and ensure two digits
       const year = currentDate.getFullYear()
       return day + '/' + month + '/' + year
-      // return newdate
+    },
+    validateMinMax  () {
+      const startDate = this.form.start_date
+      return startDate
     }
   },
   methods: {
     validate () {
       this.isFormComplete = this.$refs.form.validate()
       this.$emit('form-complete', this.isFormComplete)
+      console.log(this.currentDate)
     },
     StartDate (value) {
       this.form.start_date = value

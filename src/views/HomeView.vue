@@ -17,7 +17,6 @@
           <template v-for="n in 6" >
             <div :key="n">
               <trip-btn
-                BtnColor="#1687A7"
                 :btn-label="Sortlabel[n]"
                 rounded
                 outlined

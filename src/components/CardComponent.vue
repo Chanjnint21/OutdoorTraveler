@@ -213,6 +213,7 @@ export default {
     onRegister () {
       this.tripItem = this.item
       this.isToggledRegister = true
+      console.log('this have been registered !')
     },
     onFullRegister () {
       console.log('this card is already full !!!')
@@ -327,8 +328,8 @@ export default {
       }
     },
     shortenDetail () {
-      var text = this.item.detail
-      var count = 270
+      const text = this.item.detail
+      const count = 270
       this.cardDetail = text.slice(0, count) + (text.length > count ? '...' : '')
     }
   },

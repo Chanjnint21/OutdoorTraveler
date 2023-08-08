@@ -45,92 +45,85 @@
           </v-col>
           <v-col class="d-flex align-center justify-center mb-2" cols="12" sm="12" md="6" lg="6">
             <v-card-actions>
-              <slot name="bookmark">
-                <trip-btn @click='ToFav' icon>
-                  <template #icon>
-                    <v-icon color="#97D8EB" class="pa-2">{{ FavIcon }}</v-icon>
-                  </template>
-                </trip-btn>
-              </slot>
-              <slot name="btn1">
-                <trip-btn
-                BtnColor="#276678"
+              <trip-btn @click='ToFav' icon>
+                <template #icon>
+                  <v-icon color="#97D8EB" class="pa-2">{{ FavIcon }}</v-icon>
+                </template>
+              </trip-btn>
+              <trip-btn
+                color="#276678"
                 class="white--text"
                 btn-label="Detail"
                 @click="ViewClick(item.id)"
               />
-              </slot>
-              <slot name="btn2">
-                <trip-btn
-                  class="white--text"
-                  @click="toUpdate(item.id)"
-                  v-if="!expireCard && cardOwner"
-                >
-                  <template #icon>
-                    <v-icon>mdi-pencil</v-icon>
-                  </template>
-                </trip-btn>
-                <trip-btn
-                  class="white--text"
-                  BtnLabel="expire"
-                  disabled
-                  v-else-if="expireCard && !joined"
-                />
-                <trip-btn
-                  class="white--text"
-                  BtnLabel="Joined"
-                  disabled
-                  v-else-if='expireCard && joined'
-                />
-            <trip-btn
-              BtnColor="#1687A7"
-              :class="['white--text', { 'disabled': getParticipator()}]"
-              :BtnLabel="showRegisterButton ? 'Register' : 'Full'"
-              @click="showRegisterButton ? onRegister() : onFullRegister()"
-              v-else-if='!cardOwner && !register'
-              :disabled="!showRegisterButton"
-            />
-                <c-dialog
-                  label1="Are you sure?"
-                  label2="Are you sure you want to unregister this trip?"
-                  DioColor="error"
-                  DioBtnClass="ml-3"
-                  DioLabel="Unregister"
-                  v-else-if="!cardOwner && register"
-                >
-                  <template #agree>
-                    <v-btn
-                      color="#1687A7"
-                      text
-                      @click="dialog = false, unRegister(crrUser[0].id, item.id)"
-                    >
-                      Yes
-                    </v-btn>
-                  </template>
-                </c-dialog>
-              </slot>
-              <slot name="btn3">
-                <c-dialog
-                  label1="Are you sure?"
-                  label2="You can't undo this action.Are you sure , you wanna delete this card?"
-                  DioColor="error"
-                  DioBtnClass="ml-3"
-                  v-if='cardOwner'
-                >
-                  <template #agree>
-                    <v-btn
-                      color="#1687A7"
-                      text
-                      @click="dialog = false; deleteItem(this.item.id)"
-                    >
-                      Yes
-                    </v-btn>
-                  </template>
-                  <template #icon>
-                    <v-icon>mdi-delete</v-icon>
-                  </template>
-                </c-dialog>
-              </slot>
+              <trip-btn
+                class="white--text"
+                color="#1687A7"
+                @click="toUpdate(item.id)"
+                v-if="!expireCard && cardOwner"
+              >
+                <template #icon>
+                  <v-icon>mdi-pencil</v-icon>
+                </template>
+              </trip-btn>
+              <trip-btn
+                class="white--text"
+                BtnLabel="expire"
+                disabled
+                v-if="expireCard && !joined"
+              />
+              <trip-btn
+                class="white--text"
+                BtnLabel="Joined"
+                disabled
+                v-if='expireCard && joined'
+              />
+              <trip-btn
+                color="#1687A7"
+                :class="['white--text', { 'disabled': getParticipator()}]"
+                :BtnLabel="showRegisterButton ? 'Register' : 'Full'"
+                @click="showRegisterButton ? onRegister() : onFullRegister()"
+                v-if='!cardOwner && !register'
+                :disabled="!showRegisterButton"
+              />
+              <c-dialog
+                label1="Are you sure?"
+                label2="Are you sure you want to unregister this trip?"
+                DioColor="error"
+                DioBtnClass="ml-3"
+                DioLabel="Unregister"
+                v-if="!expireCard && register"
+              >
+                <template #agree>
+                  <v-btn
+                    color="#1687A7"
+                    text
+                    @click="dialog = false, unRegister(crrUser[0].id, item.id)"
+                  >
+                    Yes
+                  </v-btn>
+                </template>
+              </c-dialog>
+              <c-dialog
+                label1="Are you sure?"
+                label2="You can't undo this action.Are you sure , you wanna delete this card?"
+                DioColor="error"
+                DioBtnClass="ml-3"
+                v-if='cardOwner'
+              >
+                <template #agree>
+                  <v-btn
+                    color="#1687A7"
+                    text
+                    @click="dialog = false; deleteItem(item.id)"
+                  >
+                    Yes
+                  </v-btn>
+                </template>
+                <template #icon>
+                  <v-icon>mdi-delete</v-icon>
+                </template>
+              </c-dialog>
             </v-card-actions>
           </v-col>
         </v-row>
@@ -140,6 +133,7 @@
   <r-dialog
     v-model="isToggledRegister"
     @onCancel="onCancelRegister"
+    @onRegister="onSuccessRegister"
     :item="tripItem"
   />
   </div>
@@ -211,14 +205,19 @@ export default {
       this.$router.go()
     },
     onRegister () {
-      this.tripItem = this.item
+      this.tripItem = this.item.id
       this.isToggledRegister = true
+    },
+    onSuccessRegister () {
+      this.register = true
+      this.countDate()
     },
     onFullRegister () {
       console.log('this card is already full !!!')
     },
     onCancelRegister () {
       this.isToggledRegister = false
+      this.register = false
     },
     toUpdate (id) {
       this.$router.push(`/user/update/${id}`)

@@ -17,7 +17,8 @@ export default {
       type: String
     },
     BtnColor: {
-      type: String
+      type: String,
+      default: '#1687A7'
     },
     icons: {
       type: String

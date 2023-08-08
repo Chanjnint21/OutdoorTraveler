@@ -42,7 +42,6 @@
               <prof-dialog :pfPic="userImg" v-if="asOwner"/>
               <trip-btn
                 class="white--text"
-                BtnColor="#1687A7"
                 btn-label="Follow"
                 rounded
                 @click="follow()"
@@ -50,14 +49,12 @@
               />
               <trip-btn
                 class="white--text"
-                BtnColor="#1687A7"
                 btn-label="unfollow"
                 rounded
                 @click="unfollow()"
                 v-else
               />
               <trip-btn
-                BtnColor="#1687A7"
                 icon
                 >
                 <template v-slot:icon>

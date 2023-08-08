@@ -23,7 +23,7 @@
             <template v-for="n in Taglabel.length - 1" >
               <v-col cols="3" :key="n">
                 <trip-btn
-                  BtnColor="#1687A7"
+                  color="#1687A7"
                   :btn-label="Taglabel[n]"
                   rounded
                   outlined
@@ -41,7 +41,7 @@
         <slot name="addi_info">
           <trip-btn
             class="white--text mx-2"
-            btn-color="#276678"
+            color="#276678"
             @click="backTab('personal_info')"
           >
             <template #icon>
@@ -52,7 +52,7 @@
         <trip-btn
           :disabled="!regForm"
           class="white--text mx-2"
-          btn-color="#1687A7"
+          color="#1687A7"
           @click="nextTab"
         >
           <template #icon>

@@ -20,7 +20,7 @@
           <trip-btn
             class="RouteBtn rounded-lg"
             icon-class="pa-2"
-            BtnColor="#276678"
+            color="#276678"
             BtnLabel="Home"
             icons="mdi-home"
             @click="toHome"
@@ -35,7 +35,7 @@
         <v-col cols='9' class='pa-1 mx-1'>
           <trip-btn
             class="RouteBtn rounded-lg"
-            BtnColor="#276678"
+            color="#276678"
             BtnLabel="Profile"
             @click="ToProfile"
             block
@@ -51,7 +51,7 @@
         <v-col cols='9' class='pa-1 mx-1' >
           <trip-btn
             class="RouteBtn rounded-lg"
-            BtnColor="#276678"
+            color="#276678"
             BtnLabel="Log Out"
             @click="LogOut"
             block
@@ -71,7 +71,7 @@
       <trip-btn
         v-if="!!$route.meta.isCreate"
         class="white--text"
-        BtnColor="#1687A7"
+        color="#1687A7"
         BtnLabel="Create"
         rounded
         @click="toCreatepage"

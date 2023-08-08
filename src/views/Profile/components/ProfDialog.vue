@@ -9,7 +9,7 @@
         v-bind="attrs"
         v-on="on"
         class="white--text"
-        BtnColor="#1687A7"
+        color="#1687A7"
         btn-label="Edit Profile"
         rounded
         >

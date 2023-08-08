@@ -2,7 +2,6 @@
   <v-btn
     v-bind="$attrs"
     v-on="$listeners"
-    :color="BtnColor"
   >
     <slot name="icon"></slot>
     {{ BtnLabel }}
@@ -14,9 +13,6 @@ export default {
   props: {
     val: String,
     BtnLabel: {
-      type: String
-    },
-    BtnColor: {
       type: String
     },
     icons: {

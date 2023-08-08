@@ -3,7 +3,7 @@
     <div v-if='EmptyReg' class='d-flex justify-center pt-5 text--disabled'>
       <v-container class="d-flex align-center justify-center vh-100">
           <v-col cols="12" class="d-flex align-center justify-center flex-column">
-            <v-img max-height="500" src="../../assets/nth_found.png"></v-img>
+            <v-img max-width="500" src="../../assets/empty_box.png"/>
             <p>There's no upcoming trip that you have register </p>
           </v-col>
       </v-container>

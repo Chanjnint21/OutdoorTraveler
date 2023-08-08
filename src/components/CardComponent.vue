@@ -210,7 +210,7 @@ export default {
       this.$router.go()
     },
     onRegister () {
-      this.tripItem = this.item.id
+      this.tripItem = this.item
       this.isToggledRegister = true
     },
     onFullRegister () {

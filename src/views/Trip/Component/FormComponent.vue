@@ -27,13 +27,13 @@
             <date-picker
               v-model="form.start_date"
               label="Start Date"
-              min="10/08/2023"
+              :min='currentDate'
               :rules="[rules.createrule]"
             />
           </v-col>
           <v-col cols="12" sm="6" md="6">
             <date-picker
-              min="10/08/2023"
+              :min="currentDate"
               v-model="form.end_date"
               label="End Date"
               :rules="[rules.createrule]"
@@ -234,6 +234,16 @@ export default {
     },
     emitImageData (newVal) {
       this.$emit('testing', newVal)
+    }
+  },
+  computed: {
+    currentDate () {
+      const currentDate = new Date()
+      const day = String(currentDate.getDate()).padStart(2, '0') // Ensure two digits, e.g., 05 instead of 5
+      const month = String(currentDate.getMonth() + 1).padStart(2, '0') // Months are zero-based, so add 1, and ensure two digits
+      const year = currentDate.getFullYear()
+      return day + '/' + month + '/' + year
+      // return newdate
     }
   },
   methods: {

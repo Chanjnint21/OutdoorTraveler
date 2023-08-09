@@ -13,6 +13,7 @@
         :value="computedDateFormatted"
         :label="label"
         append-icon="mdi-calendar"
+        :error-messages="err_msg"
         readonly
         color="#1687A7"
         hint="DD/MM/YYYY"
@@ -57,6 +58,10 @@ export default {
     min: {
       type: String,
       required: true
+    },
+    err_msg: {
+      type: String,
+      default: ''
     }
   },
   data () {
@@ -76,7 +81,6 @@ export default {
     value: {
       immediate: true,
       handler (val) {
-        console.log(val)
         this.date = this.parseDate(val)
       }
     }

@@ -37,6 +37,7 @@
               v-model="form.end_date"
               label="End Date"
               :rules="[rules.createrule]"
+              :err_msg="errorDate"
             />
           </v-col>
           <v-col cols="12">
@@ -152,7 +153,7 @@
               outlined
               rounded
               icons="mdi-account-multiple-outline"
-              :rules="[rules.createrule]"
+              :rules="[rules.amount]"
             />
           </v-col>
           <v-col cols="12" sm="6" md="6">
@@ -196,13 +197,28 @@ export default {
   data () {
     return {
       Choice: ['Not Require', 'Require'],
-      Tags: ['One day Trip', 'Hiking', 'Sea', 'Camping'],
+      Tags: [
+        'Adventure',
+        'One day Trip',
+        'Multi day Trip',
+        'Hiking',
+        'Camping',
+        'Mountain',
+        'Sea',
+        'Forest',
+        'Diving',
+        'Volunteer Trip',
+        'Event Traveling',
+        'Heritage Walk'
+      ],
       rules: {
-        createrule: value => !!value || 'field required'
+        createrule: value => !!value || 'field required',
+        amount: v => v >= 1 || 'invalid amount'
       },
       crrUser: JSON.parse(localStorage.getItem('authUser')),
       emitImageData: [],
       PostBtn: true,
+      errorDate: '',
       form: {
         id: '',
         postDate: '',
@@ -230,6 +246,11 @@ export default {
       deep: true,
       handler (val) {
         this.form = val
+        if (this.form.start_date > this.form.end_date) {
+          this.errorDate = 'End Date must not end before Start Date'
+        } else {
+          this.errorDate = ''
+        }
       }
     },
     emitImageData (newVal) {
@@ -244,8 +265,8 @@ export default {
       const year = currentDate.getFullYear()
       return day + '/' + month + '/' + year
     },
-    validateMinMax  () {
-      const startDate = this.form.start_date
+    validateMinMax () {
+      const startDate = this.form.start_date || this.currentDate
       return startDate
     }
   },

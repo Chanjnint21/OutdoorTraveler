@@ -11,7 +11,6 @@
 export default {
   name: 'TripBtn',
   props: {
-    val: String,
     BtnLabel: {
       type: String
     },

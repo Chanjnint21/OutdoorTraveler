@@ -375,28 +375,16 @@
       "reg_time": "15:03:23"
     },
     {
-      "id": 7,
-      "user_id": "3x4567",
-      "userName": "admin007",
-      "firstName": "Michael",
-      "age": "24",
-      "lastName": "Jackson",
-      "phoneNumber": "012241101",
-      "card_id": "Y909VXI",
-      "reg_date": "8/2/2023",
-      "reg_time": "16:36:51"
-    },
-    {
-      "id": 12,
-      "user_id": "3x4567",
-      "userName": "admin007",
-      "firstName": "Michael",
-      "age": "1",
-      "lastName": "Jackson",
-      "phoneNumber": "012241101",
+      "id": 8,
+      "user_id": "2x3456",
+      "userName": "user0101",
+      "firstName": "Chanjnint",
+      "lastName": "Lim",
+      "age": "18",
+      "phoneNumber": "081808091",
       "card_id": "tydbwj-3",
-      "reg_date": "8/7/2023",
-      "reg_time": "14:37:57"
+      "reg_date": "8/1/2023",
+      "reg_time": "16:15:34"
     },
     {
       "id": 13,
@@ -409,18 +397,6 @@
       "card_id": "ydewf-3",
       "reg_date": "8/7/2023",
       "reg_time": "14:46:12"
-    },
-    {
-      "id": 14,
-      "user_id": "1x2345",
-      "userName": "jennie",
-      "firstName": "Chansovanmony",
-      "age": "15",
-      "lastName": "Youen",
-      "phoneNumber": "01225680",
-      "card_id": "AhANIwV",
-      "reg_date": "8/8/2023",
-      "reg_time": "17:35:24"
     }
   ],
   "follow": [

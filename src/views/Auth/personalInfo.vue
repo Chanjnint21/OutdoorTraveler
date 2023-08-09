@@ -63,7 +63,7 @@
           <!-- <slot v-if="regForm" name="personal_info"></slot> -->
           <trip-btn
             class="white--text mx-2"
-            btn-color="#1687A7"
+            color="#1687A7"
             :disabled="!regForm"
             @click="nextTab"
           >

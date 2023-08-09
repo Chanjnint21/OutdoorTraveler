@@ -186,7 +186,7 @@ export default {
         try {
           await Service.submitRegister(this.regisForm)
           this.clearForm()
-          this.$emit('register', true)
+          this.$emit('onRegister', true)
         } catch (e) {
           console.log(e)
         }

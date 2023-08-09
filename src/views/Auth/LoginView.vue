@@ -1,6 +1,10 @@
 <template>
   <v-container fluid class="Login d-flex align-center justify-center" style="height: 100%;">
-    <v-card class="LoginCard d-flex rounded-xl" elevation="5">
+    <template v-if="greeting">
+      <h1 style="color:white">Welcome Back <span id="fade-in-text">!</span></h1>
+      <!-- <h1 style="color:white"> Be a planer and Enjoy the trip to the Fullest</h1> -->
+    </template>
+    <v-card class="LoginCard d-flex rounded-xl" elevation="5" v-else>
       <v-row class='pa-5 my-1'>
         <v-col
           class="d-flex align-center justify-center mx-5"
@@ -54,7 +58,7 @@
                 @click="loginToken"
                 rounded
                 class="white--text"
-                BtnColor="#1687A7"
+                color="#1687A7"
                 btn-label="Login"
                 dense
                 block
@@ -75,6 +79,7 @@ import { Service } from '@/service/index.js'
 export default {
   data () {
     return {
+      greeting: false,
       show: false,
       email: '',
       password: '',
@@ -92,7 +97,8 @@ export default {
         if (Token.length === 1) {
           localStorage.setItem('authToken', true)
           localStorage.setItem('authUser', JSON.stringify(Token))
-          this.$router.push('/user/home')
+          this.greeting = true
+          this.toHomePage()
         } else {
           this.login = true
           this.password = ''
@@ -100,19 +106,27 @@ export default {
       } catch (e) {
         console.log(e)
       }
+    },
+    toHomePage () {
+      setTimeout(() => {
+        this.$router.push('/user/home')
+      }, 3000)
     }
   }
 }
 </script>
 
 <style scoped>
-.Login {
-  background-color: #1687A7;
+#fade-in-text {
+  font-family: Arial;
+  animation: ease-in 2s infinite;
 }
 
-@media screen and (min-width: 850px) {
-  .LoginCard {
-    width: 800px;
-  }
+@keyframes ease-in {
+  0% { opacity: 0; }
+  25% { opacity: 1; }
+  50% { opacity: 0; }
+  75% { opacity: 1; }
+  100% { opacity: 0; }
 }
 </style>

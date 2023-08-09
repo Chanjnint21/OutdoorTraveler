@@ -42,6 +42,7 @@
               <prof-dialog :pfPic="userImg" v-if="asOwner"/>
               <trip-btn
                 class="white--text"
+                color="#1687A7"
                 btn-label="Follow"
                 rounded
                 @click="follow()"
@@ -49,12 +50,14 @@
               />
               <trip-btn
                 class="white--text"
+                color="#1687A7"
                 btn-label="unfollow"
                 rounded
                 @click="unfollow()"
                 v-else
               />
               <trip-btn
+                color="#1687A7"
                 icon
                 >
                 <template v-slot:icon>
@@ -146,6 +149,9 @@ export default {
       if (to.path !== from.path) {
         this.$router.go()
       }
+    },
+    following () {
+      return this.checkUser()
     }
   },
   methods: {
@@ -162,6 +168,7 @@ export default {
     // unfollow function on visit profile
     async unfollow () {
       this.following = false
+      console.log(this.followId)
       await Service.unfollow(this.followId)
     },
     // check if the crrUser have follow the visit profile

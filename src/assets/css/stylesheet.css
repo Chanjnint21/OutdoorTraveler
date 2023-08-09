@@ -26,3 +26,14 @@
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+
+/* login & register style */
+.Login {
+  background-color: #1687A7;
+}
+
+@media screen and (min-width: 850px) {
+  .LoginCard {
+    width: 800px;
+  }
+}

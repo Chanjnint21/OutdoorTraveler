@@ -37,7 +37,7 @@
           <slot name="profileSetup"></slot>
           <trip-btn
             class="white--text mx-2"
-            btn-color="#1687A7"
+            color="#1687A7"
             btn-label="Register"
             @click="onRegister"
           />

@@ -1,6 +1,9 @@
 <template>
   <v-container fluid class="Login d-flex align-center justify-center" style="height: 100%; width:100%">
-      <v-card class="LoginCard rounded-xl" elevation="5">
+      <template v-if="greeting">
+        <h1 style="color:white">Welcome to Outdoor Traveler <span id="fade-in-text">!</span></h1>
+      </template>
+      <v-card class="LoginCard rounded-xl" elevation="5" v-else>
         <v-toolbar>
           <v-col cols="2">
             <trip-btn
@@ -12,9 +15,6 @@
               </trip-btn>
           </v-col>
           <v-col cols="8" class="text-center">
-            <!-- <v-avatar>
-              <v-img src="../../assets/Img/logo1687A7.png" />
-            </v-avatar> -->
             <v-toolbar-title class="text-h5" style="color: #1687A7;" >Register</v-toolbar-title>
           </v-col>
           <v-spacer></v-spacer>
@@ -46,13 +46,12 @@
           </template>
         </v-toolbar>
         <v-tabs-items v-model="tabs" class="pa-5">
-          <personal-info value="personal_info" @personalForm="getPersonalForm">
-          </personal-info>
+          <personal-info value="personal_info" @personalForm="getPersonalForm"/>
           <additional-info value="additional_info" @aditionForm="getAditionForm">
             <template #addi_info>
               <trip-btn
                 class="white--text mx-2"
-                btn-color="#276678"
+                color="#276678"
                 @click="backTab('personal_info')"
               >
                 <template #icon>
@@ -65,7 +64,7 @@
             <template #profileSetup>
               <trip-btn
                 class="white--text mx-2"
-                btn-color="#276678"
+                color="#276678"
                 @click="backTab('additional_info')"
               >
                 <template #icon>
@@ -95,6 +94,7 @@ export default {
   },
   data () {
     return {
+      greeting: false,
       tabs: null,
       passUsername: '',
       additiontab: true,
@@ -116,7 +116,7 @@ export default {
   },
   methods: {
     back () {
-      this.$router.back()
+      this.$router.push('/login')
     },
     backTab (val) {
       this.tabs = val
@@ -161,22 +161,34 @@ export default {
     },
     async onRegister () {
       await Service.onRegisterUser(this.userForm)
-      localStorage.setItem('authToken', true)
-      localStorage.setItem('authUser', JSON.stringify([this.userForm]))
-      this.$router.push('/user/home')
+      const Token = await Service.logIn(this.userForm.email, this.userForm.password)
+      if (Token.length) {
+        localStorage.setItem('authToken', true)
+        localStorage.setItem('authUser', JSON.stringify(Token))
+        this.greeting = true
+        this.toHomePage()
+      }
+    },
+    toHomePage () {
+      setTimeout(() => {
+        this.$router.push('/user/home')
+      }, 5000)
     }
   }
 }
 </script>
 
 <style scoped>
-.Login {
-  background-color: #1687A7;
+#fade-in-text {
+  font-family: Arial;
+  animation: ease-in 2s infinite;
 }
 
-@media screen and (min-width: 850px) {
-  .LoginCard {
-    width: 800px;
-  }
+@keyframes ease-in {
+  0% { opacity: 0; }
+  25% { opacity: 1; }
+  50% { opacity: 0; }
+  75% { opacity: 1; }
+  100% { opacity: 0; }
 }
 </style>

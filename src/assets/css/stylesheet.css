@@ -4,6 +4,10 @@
     padding: 2rem 10rem;
   }
 }
+* {
+  font-family: 'Poppins', sans-serif;
+  /* font-family: 'Dosis', sans-serif; */
+}
 
 /* loader css */
 .loader-container {

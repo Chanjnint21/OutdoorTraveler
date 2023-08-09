@@ -11,6 +11,13 @@
       "firstName": "Chansovanmony",
       "lastName": "Youen",
       "bio": "Hey there ! Wanna go for advanture with me ? join me now",
+      "Interest": [
+        "Adventure",
+        "One day Trip",
+        "Camping",
+        "Diving",
+        "Volunteer Trip"
+      ],
       "verify": true
     },
     {
@@ -24,7 +31,14 @@
       "firstName": "Chanjnint",
       "lastName": "Lim",
       "bio": "Sticking along with me will be the best trip of you have ever joined !",
-      "verify": true
+      "verify": true,
+      "Interest": [
+        "Sea",
+        "Camping",
+        "Mountain",
+        "Diving",
+        "Volunteer Trip"
+      ]
     },
     {
       "id": "3x4567",
@@ -37,7 +51,35 @@
       "firstName": "Michael",
       "lastName": "Jackson",
       "bio": "Lorem ipsum dolor sits magnam. Neque magni culpa eaque nulla aperiam,",
+      "Interest": [
+        "One day Trip",
+        "Camping",
+        "Mountain",
+        "Diving",
+        "Volunteer Trip"
+      ],
       "verify": false
+    },
+    {
+      "id": "nd2_X1c",
+      "name": "john",
+      "image": "john2023-08-0916:05:03",
+      "email": "john@gmail.com",
+      "role": "user",
+      "password": "12345678",
+      "phone": "09725368",
+      "firstName": "John",
+      "lastName": "Dave",
+      "bio": "Tada",
+      "verify": false,
+      "Interest": [
+        "Adventure",
+        "One day Trip",
+        "Camping",
+        "Mountain",
+        "Diving",
+        "Volunteer Trip"
+      ]
     }
   ],
   "tripcards": [

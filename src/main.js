@@ -17,8 +17,10 @@ import DatePicker from './components/DatePicker.vue'
 import TimePicker from './components/TimePicker.vue'
 import VueLoad from './components/VueLoad.vue'
 import CDialog from './components/ComfirmDialog.vue'
+import FDialog from './views/Profile/components/FollowComponent.vue'
 
 Vue.use(VueAxios, axios)
+Vue.component('FDialog', FDialog)
 Vue.component('TripBtn', TripBtn)
 Vue.component('DatePicker', DatePicker)
 Vue.component('TimePicker', TimePicker)

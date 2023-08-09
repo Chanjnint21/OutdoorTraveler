@@ -33,7 +33,9 @@
                   <p> {{ userBio }}</p>
                 </v-col>
                 <v-col cols="12" class="d-flex">
+                  <f-dialog >{{ followingCount }}</f-dialog>
                   <p> {{ followingCount }} <span class="text--disabled mr-2"> following</span></p>
+                  <!-- <p> {{ followingCount }} <span class="text--disabled mr-2"> following</span></p> -->
                   <p> {{ followerCount }} <span class="text--disabled"> follower</span></p>
                 </v-col>
               </v-row>
@@ -114,6 +116,7 @@ import ProfDialog from './components/ProfDialog.vue'
 import { Service } from '@/service/index.js'
 import { storage } from '../../firebase'
 import { ref, getDownloadURL } from 'firebase/storage'
+import FDialog from './components/FollowComponent.vue'
 
 export default {
   components: {
@@ -121,7 +124,8 @@ export default {
     FavoritPost,
     UpComing,
     JoinedTrip,
-    ProfDialog
+    ProfDialog,
+    FDialog
   },
   data () {
     return {
@@ -138,7 +142,9 @@ export default {
       followId: '',
       followingCount: 0,
       followerCount: 0,
-      verify_color: ''
+      verify_color: '',
+      followingList: [],
+      followerList: []
     }
   },
   watch: {
@@ -214,7 +220,18 @@ export default {
         (downLoadUrl) => (this.userImg = downLoadUrl)
       )
     }
+    // followingData (data) {
+    //   for (let i = 0; i < data.length; i++) {
+    //     console.log(data[i].firstName)
+    //     this.followingList.push()
+    //   }
+    // }
   },
+  // async mounted () {
+  //   const follwer = await Service.followingList(this.crrUser.id)
+  //   console.log(follwer)
+  //   this.followingData(follwer)
+  // },
   created () {
     this.checkUser()
   }

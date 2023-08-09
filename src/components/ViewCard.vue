@@ -173,11 +173,6 @@ export default {
       ]
     }
   },
-  // watch: {
-  //   userlists () {
-  //     this.countUser = this.userlists.length
-  //   }
-  // },
   methods: {
     back () {
       this.$router.back()

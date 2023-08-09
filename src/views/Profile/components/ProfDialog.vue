@@ -98,9 +98,6 @@ import { storage } from '@/firebase'
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage'
 
 export default {
-  // props: {
-  //   pfPic: String
-  // },
   components: { TextField },
   data: () => ({
     dialog: false,

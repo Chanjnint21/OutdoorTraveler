@@ -10,15 +10,15 @@
       "phone": "01225680",
       "firstName": "Chansovanmony",
       "lastName": "Youen",
-      "bio": "Hey there ! Wanna go for advanture with me ? join me now",
+      "bio": "Im yo baby mama! ",
+      "verify": true,
       "Interest": [
         "Adventure",
-        "One day Trip",
-        "Camping",
         "Diving",
-        "Volunteer Trip"
-      ],
-      "verify": true
+        "Mountain",
+        "Volunteer Trip",
+        "Sea"
+      ]
     },
     {
       "id": "2x3456",
@@ -79,6 +79,29 @@
         "Mountain",
         "Diving",
         "Volunteer Trip"
+      ]
+    },
+    {
+      "id": "gpsiBeK",
+      "name": "Jcenniee",
+      "image": "jame2023-08-0817:47:51",
+      "email": "chansovanmonyyoeun03@gmail.com",
+      "role": "user",
+      "password": "12345678",
+      "phone": "085605126",
+      "firstName": "Chansovanmony",
+      "lastName": "Yoeun",
+      "bio": "im ur baby mama !",
+      "verify": false,
+      "Interest": [
+        "Adventure",
+        "Camping",
+        "Diving",
+        "One day Trip",
+        "Mountain",
+        "Volunteer Trip",
+        "Event Traveling",
+        "Sea"
       ]
     }
   ],
@@ -454,13 +477,54 @@
     },
     {
       "user_id": "3x4567",
-      "following": "2x3456",
-      "id": 5
+      "userName": "admin007",
+      "firstName": "Michael",
+      "age": "16",
+      "lastName": "Jackson",
+      "phoneNumber": "012241101",
+      "card_id": {
+        "id": "ydewf-3",
+        "postDate": "7/21/2023",
+        "postTime": "16:50:33",
+        "author": {
+          "id": "1x2345",
+          "name": "jennie"
+        },
+        "title": "Cultural Immersion Tour",
+        "destination": "Japan",
+        "start_date": "16/08/2023",
+        "end_date": "18/08/2023",
+        "detail": "Immerse yourself in the traditions and culture of Japan and discover its unique blend of modernity and tradition.",
+        "image": [
+          "jennie2023-07-2116:50:31_0",
+          "jennie2023-07-2116:50:31_1"
+        ],
+        "category": [
+          "Camping"
+        ],
+        "departure": {
+          "meet_location": "Narita International Airport",
+          "leave_time": "06:31"
+        },
+        "requirement": {
+          "age": [
+            15,
+            30
+          ],
+          "cost": 40,
+          "nationalId": "Require",
+          "phoneNumber": "Require"
+        },
+        "expiry": false
+      },
+      "reg_date": "8/3/2023",
+      "reg_time": "16:50:18"
     },
     {
-      "user_id": "1x2345",
-      "following": "2x3456",
-      "id": 6
+      "user_id": "",
+      "following": "1x2345",
+      "id": 12
+
     }
   ]
 }

@@ -1,10 +1,10 @@
 <template>
   <v-tab-item>
-    <div v-if='emptyJoined' class='d-flex justify-center pt-5 text--disabled'>
+    <div v-if='emptyJoined' class='d-flex justify-center text--disabled'>
       <v-container class="d-flex align-center justify-center vh-100">
         <v-col cols="12" class="d-flex align-center justify-center flex-column">
-          <v-img max-width="500" src="../../assets/empty_box.png"/>
-          <p>You haven't joined anything yet! </p>
+          <v-img max-width="400" src="../../assets/empty_Box.jpeg"/>
+          <p>You haven't joined trip yet! <router-link to="/user/home">Explore now</router-link> </p>
         </v-col>
     </v-container>
     </div>

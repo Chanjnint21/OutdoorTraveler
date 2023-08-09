@@ -1,7 +1,12 @@
 <template>
   <v-tab-item>
     <div v-if='EmptyPost' class='d-flex justify-center pt-5 text--disabled'>
-      <p>You haven't posted any blogs yet !</p>
+      <v-container class="d-flex justify-center">
+          <v-col cols="12" class="d-flex align-center justify-center flex-column">
+            <p>You haven't posted any blogs yet !</p>
+            <router-link to="/user/create"><p>Create your first Trip now</p></router-link>
+          </v-col>
+      </v-container>
     </div>
     <v-row v-else>
       <template v-for="item in items">

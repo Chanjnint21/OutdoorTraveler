@@ -6,6 +6,7 @@
     :icon="button ? false : true"
     DioBtnClass="grey-text"
     :DioLabel="button ? 'Draft' : '' "
+    :DioValue="dio_val"
   >
     <template #agree>
       <v-btn color="#1687A7" text @click="emitSaveChanges(); dialog = false">
@@ -13,12 +14,9 @@
       </v-btn>
     </template>
     <template #disagree>
-      <v-btn color="#1687A7" text @click="emitDiscardChanges(); dialog = false">
+      <v-btn color="#1687A7" text @click="DiscardChanges(); dialog = false">
         Don't Save
       </v-btn>
-    </template>
-    <template #icon v-if="!button">
-      <v-icon>mdi-arrow-left</v-icon>
     </template>
   </c-dialog>
   </div>
@@ -31,6 +29,10 @@ export default {
     button: {
       type: Boolean,
       default: false
+    },
+    dio_val: {
+      type: Boolean,
+      default: false
     }
   },
   methods: {
@@ -38,9 +40,9 @@ export default {
       this.$emit('saveChanges')
       this.dialog = false
     },
-    emitDiscardChanges () {
-      this.$emit('discardChanges')
-      this.dialog = false
+    DiscardChanges () {
+      localStorage.removeItem('objectData')
+      this.$router.back()
     }
   }
 }

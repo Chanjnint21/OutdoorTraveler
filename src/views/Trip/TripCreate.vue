@@ -2,7 +2,9 @@
   <v-container class="MainContain">
     <v-card class="rounded-xl">
       <v-col cols="1">
-        <save-dialog @saveChanges="SaveChanges" @discardChanges="DiscardChanges"/>
+        <v-btn @click="back" icon>
+          <v-icon>mdi-arrow-left</v-icon>
+        </v-btn>
       </v-col>
       <v-card-title class="d-flex justify-center text-h6">Trip Card</v-card-title>
       <form-component ref="form" v-model="form" :validity.sync="isFormComplete" @testing="passimagedata">
@@ -22,6 +24,7 @@
         </template>
       </form-component>
     </v-card>
+    <save-dialog :dio_val="Sdialog" @saveChanges="SaveChanges"/>
   </v-container>
 </template>
 
@@ -41,6 +44,7 @@ export default {
   data () {
     return {
       originalTripCard: null,
+      Sdialog: false,
       form: {},
       crrUser: JSON.parse(localStorage.getItem('authUser')),
       isFormComplete: false,
@@ -126,14 +130,14 @@ export default {
       this.$router.back()
     },
     back () {
-      this.$router.back()
+      if (Object.keys(this.form).length === 1) {
+        this.$router.back()
+      } else {
+        this.Sdialog = true
+      }
     },
     isFormModified () {
       return JSON.stringify(this.originalTripCard) !== JSON.stringify(this.form)
-    },
-    DiscardChanges () {
-      localStorage.removeItem('objectData')
-      this.$router.back()
     }
   },
   created () {

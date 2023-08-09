@@ -15,7 +15,7 @@
               </trip-btn>
           </v-col>
           <v-col cols="8" class="text-center">
-            <v-toolbar-title class="text-h5" style="color: #1687A7;" >Register</v-toolbar-title>
+            <v-toolbar-title style="color: #1687A7;" ><h3>Register</h3></v-toolbar-title>
           </v-col>
           <v-spacer></v-spacer>
           <template v-slot:extension>

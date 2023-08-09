@@ -82,7 +82,7 @@
           color="#1687A7"
           text
           :disabled="Valid"
-          @click="checkPassword()"
+          @click="onCheckPassword()"
         >
           Save
         </v-btn>
@@ -111,7 +111,8 @@ export default {
     password: '',
     errorMessages: '',
     changePic: null,
-    crrUser: JSON.parse(localStorage.getItem('authUser'))
+    crrUser: JSON.parse(localStorage.getItem('authUser')),
+    imgData: null
   }),
   watch: {
     password (newVal) {
@@ -123,24 +124,23 @@ export default {
     }
   },
   methods: {
-    async checkPassword () {
+    async onCheckPassword () {
       try {
         const Token = await Service.logIn(this.crrUser[0].email, this.password)
         if (Token.length === 1) {
-          if (this.changePic === null) {
+          if (this.imgData === null) {
             this.changePic = this.crrUser[0].image
+            this.onUpdatingProfile(this.changePic)
+          } else {
+            const file = this.imgData
+            const date = new Date().toJSON().slice(0, 10)
+            const time = new Date().toLocaleTimeString('en-US', { hour12: false })
+            const fileName = `${this.crrUser[0].name}${date}${time}`
+            const storageRef = ref(storage, `profile/${fileName}`)
+            uploadBytes(storageRef, file).then(() => {
+              this.onUpdatingProfile(fileName)
+            })
           }
-          const pfInfo = {
-            name: this.userName,
-            bio: this.userBio,
-            image: this.changePic
-          }
-          this.crrUser[0].name = pfInfo.name
-          this.crrUser[0].bio = pfInfo.bio
-          this.crrUser[0].image = pfInfo.image
-          localStorage.setItem('authUser', JSON.stringify(this.crrUser))
-          await Service.updateUser(this.crrUser[0].id, pfInfo)
-          this.$router.go()
         } else {
           this.errorMessages = 'Invalid password'
         }
@@ -148,24 +148,28 @@ export default {
         console.log(e)
       }
     },
-    imageData (newVal) {
-      try {
-        if (newVal === null) return
-        this.userImg = URL.createObjectURL(newVal)
-        for (let i = 0; i < newVal.length; i++) {
-          const file = newVal[0]
-          const date = new Date().toJSON().slice(0, 10)
-          const time = new Date().toLocaleTimeString('en-US', { hour12: false })
-          const fileName = `${this.crrUser[0].name}${date}${time}_${i}`
-          const storageRef = ref(storage, `profile/${fileName}`)
-          uploadBytes(storageRef, file).then((snapshot) => {
-            console.log(snapshot)
-            this.changePic = fileName
-          })
-        }
-      } catch (e) {
-        console.log(e)
+    async onUpdatingProfile (newImage) {
+      const pfInfo = {
+        name: this.userName,
+        bio: this.userBio,
+        image: newImage
       }
+      this.crrUser[0].name = pfInfo.name
+      this.crrUser[0].bio = pfInfo.bio
+      this.crrUser[0].image = pfInfo.image
+      localStorage.setItem('authUser', JSON.stringify(this.crrUser))
+      await Service.updateUser(this.crrUser[0].id, pfInfo)
+      this.$router.go()
+    },
+    imageData (newVal) {
+      if (newVal === null) {
+        this.imgData = null
+        console.log(this.imgData)
+        return
+      }
+      this.userImg = URL.createObjectURL(newVal)
+      this.imgData = newVal
+      console.log(this.imgData)
     }
   },
   mounted () {

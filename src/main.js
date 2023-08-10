@@ -18,6 +18,7 @@ import TimePicker from './components/TimePicker.vue'
 import VueLoad from './components/VueLoad.vue'
 import CDialog from './components/ComfirmDialog.vue'
 import FDialog from './views/Profile/components/FollowComponent.vue'
+import FRDialog from './views/Profile/components/FollowerComponent.vue'
 
 Vue.use(VueAxios, axios)
 Vue.component('FDialog', FDialog)
@@ -32,6 +33,7 @@ Vue.component('FileField', FileField)
 Vue.component('CardComponent', CardComponent)
 Vue.component('VueLoad', VueLoad)
 Vue.component('CDialog', CDialog)
+Vue.component('FRDialog', FRDialog)
 Vue.use(VueScrollTo)
 Vue.config.productionTip = false
 

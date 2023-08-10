@@ -496,7 +496,11 @@
       "user_id": "",
       "following": "1x2345",
       "id": 12
-
+    },
+    {
+      "user_id": "2x3456",
+      "following": "3x4567",
+      "id": 13
     }
   ]
 }

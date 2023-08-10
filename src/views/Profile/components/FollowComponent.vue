@@ -4,6 +4,8 @@
   v-model="dialog"
   scrollable
   max-width="300px"
+  v-bind="$attrs"
+  v-on="$listeners"
 >
 <template v-slot:activator="{ on, attrs }">
   <v-col cols="12" class="d-flex">
@@ -18,12 +20,6 @@
     <span class="text-h5 mb-5">Your Following</span>
   </v-card-title>
   <v-divider></v-divider>
-  <!-- <v-radio
-  label="Mony"
-></v-radio>
-<v-radio
-  label="Jimin"
-></v-radio> -->
   <v-list-item v-for="list in followingList" :key="list.id">
     <v-list-item-content>{{list}}</v-list-item-content>
   </v-list-item>
@@ -51,26 +47,29 @@ import { Service } from '@/service/index.js'
 export default {
   name: 'FollowDialog',
   props: {
+    // label: {
+    //   type: String
+    // }
   },
   data: () => ({
     dialog: false,
     followingList: [],
     followerList: [],
     crrUser: JSON.parse(localStorage.getItem('authUser'))[0]
+
   }),
   methods: {
     followingData (data) {
       for (let i = 0; i < data.length; i++) {
-        this.followingList.push(data[i].user_id)
-        console.log(this.followingList, 'mony')
+        this.followingList.push(data[i].following)
+        console.log(this.followingList)
       }
     }
   },
   async mounted () {
     const following = await Service.followingList(this.crrUser.id)
-    console.log(this.crrUser.firstName)
+    console.log('following', this.crrUser.firstName)
     this.followingData(following)
-    console.log(following, 'hi')
   }
 }
 

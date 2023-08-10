@@ -33,10 +33,10 @@
                   <p> {{ userBio }}</p>
                 </v-col>
                 <v-col cols="12" class="d-flex">
-                  <f-dialog >{{ followingCount }}</f-dialog>
-                  <p> {{ followingCount }} <span class="text--disabled mr-2"> following</span></p>
-                  <!-- <p> {{ followingCount }} <span class="text--disabled mr-2"> following</span></p> -->
-                  <p> {{ followerCount }} <span class="text--disabled"> follower</span></p>
+                  <f-dialog class="text--disabled mr-2"></f-dialog>
+                  <f-r-dialog class="text--disabled"> </f-r-dialog>
+                  <!-- <p> {{ followingCount }} <span class="text--disabled mr-2"> following</span></p>
+                  <p> {{ followerCount }} <span class="text--disabled"> follower</span></p> -->
                 </v-col>
               </v-row>
             </v-col>
@@ -120,6 +120,7 @@ import { Service } from '@/service/index.js'
 import { storage } from '../../firebase'
 import { ref, getDownloadURL } from 'firebase/storage'
 import FDialog from './components/FollowComponent.vue'
+import FRDialog from './components/FollowerComponent.vue'
 
 export default {
   components: {
@@ -128,7 +129,8 @@ export default {
     UpComing,
     JoinedTrip,
     ProfDialog,
-    FDialog
+    FDialog,
+    FRDialog
   },
   data () {
     return {
@@ -191,8 +193,10 @@ export default {
     async followList (userid) {
       const FollowingList = await Service.followingList(userid)
       this.followingCount = FollowingList.length
+      this.$emit('followingCount', this.followingCount)
       const FollowerList = await Service.followerList(userid)
       this.followerCount = FollowerList.length
+      this.$emit('followerCount', this.followerCount)
     },
     checkVerification (verify) {
       if (verify) {
@@ -227,18 +231,7 @@ export default {
         (downLoadUrl) => (this.userImg = downLoadUrl)
       )
     }
-    // followingData (data) {
-    //   for (let i = 0; i < data.length; i++) {
-    //     console.log(data[i].firstName)
-    //     this.followingList.push()
-    //   }
-    // }
   },
-  // async mounted () {
-  //   const follwer = await Service.followingList(this.crrUser.id)
-  //   console.log(follwer)
-  //   this.followingData(follwer)
-  // },
   created () {
     this.checkUser()
   }

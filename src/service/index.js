@@ -44,6 +44,14 @@ export const Service = {
       console.log(e)
     }
   },
+  async getUser (id) {
+    try {
+      const users = await axios.get(`http://localhost:3000/users/${id}`)
+      return users.data
+    } catch (e) {
+      console.log(e)
+    }
+  },
   async deleteItem (id) {
     try {
       await axios.delete(`http://localhost:3000/tripcards/${id}`)

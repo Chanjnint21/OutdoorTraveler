@@ -30,8 +30,8 @@
           </div>
         </v-list-item-content>
       </v-list-item>
-    <div v-if='emptyFollower' class='d-flex justify-center'>
-      <p>Sorry, you are not famous. &#x1f62d; </p>
+    <div v-if='emptyFollower' class='d-flex justify-center mt-5'>
+      <span class="text--disabled">Sorry, you are not famous. </span> &#x1f62d;
     </div>
       <v-card-actions>
         <v-btn
@@ -56,14 +56,18 @@ export default {
     followerCount: {
       type: Number,
       required: true
+    },
+    crrUser: {
+      type: String,
+      require: true
     }
   },
   data: () => ({
     dialog: false,
     followerList: [],
-    crrUser: JSON.parse(localStorage.getItem('authUser'))[0],
+    // crrUser: JSON.parse(localStorage.getItem('authUser'))[0],
     follower: 'Your Follower',
-    followerImg: []
+    followerImg: [],
     emptyFollower: false
   }),
   watch: {
@@ -92,10 +96,15 @@ export default {
     }
   },
   async mounted () {
-    const follower = await Service.followerList(this.crrUser.id)
-    console.log('follower', this.crrUser.firstName)
+    const routename = this.$route.params.name
+    const userData = await Service.handleSearchUser(routename)
+    if (this.crrUser === userData[0].id) {
+      this.UserID = this.crrUser
+    } else {
+      this.UserID = userData[0].id
+    }
+    const follower = await Service.followerList(this.UserID)
     this.followerData(follower)
-    console.log('followerCount', this.followerCount)
   }
 }
 

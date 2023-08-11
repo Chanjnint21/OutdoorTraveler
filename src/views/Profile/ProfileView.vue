@@ -34,10 +34,10 @@
                 </v-col>
                 <v-col cols="12" class="d-flex">
                   <div id="following-followers">
-                    <f-dialog class="text--disabled mr-2" :followingCount="followingCount"/>
+                    <f-dialog class="text--disabled mr-2" :crrUser="crrUser.id" :followingCount="followingCount"/>
                   </div>
                   <div>
-                    <f-r-dialog class="text--disabled mr-2" :followerCount="followerCount"/>
+                    <f-r-dialog class="text--disabled mr-2" :crrUser="crrUser.id" :followerCount="followerCount"/>
                   </div>
                 </v-col>
               </v-row>

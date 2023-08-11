@@ -8,13 +8,20 @@
       color='#1687A7'
     >
       <v-row class='d-flex justify-center' style="height: 50vh">
-        <v-col cols='12' class='d-flex justify-center my-5'>
-          <v-img
-            contain
-            src='@/assets/Img/logoF6F5F5.png'
-            max-height='400'
-            max-width='200'
-          />
+        <v-col cols='12' class="my-10">
+          <v-row no-gutters>
+            <v-col class='d-flex justify-center'>
+                <v-img
+                contain
+                src='@/assets/Img/logoF6F5F5.png'
+                max-height='400'
+                max-width='200'
+              />
+            </v-col>
+            <v-col class='d-flex justify-center'>
+              <h1 style="color: white">Outdoor Traveler</h1>
+            </v-col>
+          </v-row>
         </v-col>
         <v-col cols='9' class='pa-1 mx-1'>
           <trip-btn

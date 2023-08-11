@@ -59,6 +59,8 @@
               @files_item="imageData"
             />
           </v-col>
+          <slot name="onUpdateRoute">
+          </slot>
           <v-col cols="12">
             <select-field
               name="Categorise"

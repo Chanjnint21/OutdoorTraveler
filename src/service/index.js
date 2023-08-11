@@ -81,8 +81,13 @@ export const Service = {
     const Data = await axios.get(`http://localhost:3000/tripcards/${id}`)
     return Data.data
   },
+  // update the entire card
   async UpdateCard (id, cardinfo) {
-    axios.put(`http://localhost:3000/tripcards/${id}`, cardinfo)
+    return axios.put(`http://localhost:3000/tripcards/${id}`, cardinfo)
+  },
+  // only update card
+  async UpdateCardImg (id, imgs) {
+    return axios.patch(`http://localhost:3000/tripcards/${id}`, imgs)
   },
   async thisUserFav (UserId) {
     const FavData = await axios.get(`http://localhost:3000/Favorite?q=${UserId}`)

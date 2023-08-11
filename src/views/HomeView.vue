@@ -20,6 +20,7 @@
                 color="#1687A7"
                 :btn-label="Sortlabel[n]"
                 rounded
+                :value="Sortlabel[n]"
                 outlined
                 :id="Sortlabel[n]"
                 @click="sorting(Sortlabel[n])"

@@ -1,10 +1,10 @@
 <template>
   <v-tab-item>
-    <div v-if='EmptyReg' class='d-flex justify-center pt-5 text--disabled'>
+    <div v-if='EmptyReg' class='d-flex justify-center text--disabled'>
       <v-container class="d-flex align-center justify-center vh-100">
           <v-col cols="12" class="d-flex align-center justify-center flex-column">
-            <v-img max-width="500" src="../../assets/empty_box.png"/>
-            <p>There's no upcoming trip that you have register </p>
+            <v-img max-width="400" src="../../assets/empty_Box.jpeg"/>
+            <p>There's no upcoming trip that you have register! <router-link to="/user/home">Explore now</router-link></p>
           </v-col>
       </v-container>
     </div>
@@ -45,7 +45,6 @@ export default {
       deep: true, // Watch for changes in nested properties of RegCard (if applicable)
       handler () {
         if (this.RegCard.length === 0) {
-          console.log(this.RegCard.length)
           this.EmptyReg = true
         } else {
           this.EmptyReg = false

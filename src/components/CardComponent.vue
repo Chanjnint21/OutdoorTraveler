@@ -8,7 +8,7 @@
     <v-row no-gutters>
       <v-col
         cols="12"
-        sm="12"
+        sm="5"
         md="5"
         lg="5"
         xl="12"
@@ -18,7 +18,7 @@
           :files='item.image'
         />
       </v-col>
-      <v-col cols="12" sm="12" md="7" lg="7" xl="12">
+      <v-col cols="12" sm="7" md="7" lg="7" xl="12">
         <v-row class="d-flex align-start" style="height: 60%" no-gutters>
           <v-col cols="12">
             <v-card-title class="text-h5" v-if="!expireCard && register">
@@ -37,7 +37,7 @@
           </v-col>
         </v-row>
         <v-row class="d-flex align-end" style="height: 40%" no-gutters>
-          <v-col class="d-flex align-center " cols="12" sm="12" md="6" lg="6">
+          <v-col class="d-flex align-center justify-space-around " cols="12" sm="12" md="6" lg="6">
             <v-card-subtitle class="grey--text">
               By : {{ item.author?.name }}
             </v-card-subtitle>

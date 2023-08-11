@@ -89,7 +89,7 @@ export default {
           const pattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
           return pattern.test(v) || 'Invalid e-mail.'
         },
-        phonenumber: v => !!Number(v) || 'Invalid phone number'
+        phonenumber: v => v.length >= 9 || 'Invalid phone number'
       },
       passWords: '',
       cfPassword: '',
@@ -113,11 +113,6 @@ export default {
       }
       return true
     }
-    // regForm () {
-    //   if (this.regForm === true) {
-    //     this.$emit('personalForm', this.personalForm)
-    //   }
-    // }
   },
   methods: {
     nextTab () {

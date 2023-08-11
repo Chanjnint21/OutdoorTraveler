@@ -69,7 +69,16 @@ export default {
       default: false
     },
     DioLabel: String,
-    DioColor: String
+    DioColor: String,
+    DioValue: {
+      type: Boolean,
+      default: false
+    }
+  },
+  watch: {
+    DioValue (val) {
+      this.dialog = val
+    }
   }
 }
 </script>

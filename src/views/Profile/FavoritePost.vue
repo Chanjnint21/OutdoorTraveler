@@ -1,7 +1,12 @@
 <template>
   <v-tab-item>
-    <div v-if='EmptyFav' class='d-flex justify-center pt-5 text--disabled'>
-      <p>There's no favorite !</p>
+    <div v-if='EmptyFav' class='d-flex justify-center text--disabled'>
+      <v-container class="d-flex justify-center">
+          <v-col cols="12" class="d-flex align-center justify-center flex-column">
+            <v-img max-width="400" src="../../assets/empty_Box.jpeg"/>
+            <p>There's no favorite !</p>
+          </v-col>
+      </v-container>
     </div>
     <v-row v-else>
       <template v-for="item in items">

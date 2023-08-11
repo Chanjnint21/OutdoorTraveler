@@ -10,7 +10,7 @@
     <v-col cols="12" class="d-flex">
       <p
         v-bind="attrs"
-        v-on="on">
+        v-on="on"> {{ followerCount }}
         <span class="text--disabled mr-2">follower</span>
       </p>
     </v-col>
@@ -46,9 +46,10 @@ import { Service } from '@/service/index.js'
 export default {
   name: 'FollowerDialog',
   props: {
-    // label: {
-    //   type: String
-    // }
+    followerCount: {
+      type: Number,
+      required: true
+    }
   },
   data: () => ({
     dialog: false,
@@ -59,14 +60,15 @@ export default {
   methods: {
     followerData (data) {
       for (let i = 0; i < data.length; i++) {
-        this.followerList.push(data[i].id)
+        this.followerList.push(data[i].following)
       }
+      console.log('followerList', this.followerList)
     }
   },
   async mounted () {
     const follower = await Service.followerList(this.crrUser.id)
     console.log('follower', this.crrUser.firstName)
-    this.followingData(follower)
+    this.followerData(follower)
   }
 }
 

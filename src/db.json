@@ -368,7 +368,7 @@
         "amount": 2,
         "transportation": "Not Require"
       },
-      "expiry": false
+      "expiry": true
     }
   ],
   "Favorite": [
@@ -491,11 +491,6 @@
       },
       "reg_date": "8/3/2023",
       "reg_time": "16:50:18"
-    },
-    {
-      "user_id": "",
-      "following": "1x2345",
-      "id": 12
     },
     {
       "user_id": "2x3456",

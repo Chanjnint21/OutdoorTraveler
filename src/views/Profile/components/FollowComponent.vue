@@ -23,6 +23,9 @@
   <v-list-item v-for="list in followingList" :key="list.id">
     <v-list-item-content>{{list}}</v-list-item-content>
   </v-list-item>
+  <div v-if='emptyFollowing' class='d-flex justify-center text--disabled'>
+    <p>You didn't follow anyone :( </p>
+  </div>
   <v-card-actions>
     <v-btn
     color="blue darken-1"
@@ -55,10 +58,18 @@ export default {
   data: () => ({
     dialog: false,
     followingList: [],
-    followerList: [],
-    crrUser: JSON.parse(localStorage.getItem('authUser'))[0]
+    crrUser: JSON.parse(localStorage.getItem('authUser'))[0],
+    emptyFollowing: false
 
   }),
+  watch: {
+    followingCount: {
+      immediate: true,
+      handler () {
+        this.emptyFollowing = this.followingCount === 0
+      }
+    }
+  },
   methods: {
     followingData (data) {
       for (let i = 0; i < data.length; i++) {
@@ -72,6 +83,7 @@ export default {
     console.log('following', this.crrUser.firstName)
     this.followingData(following)
   }
+
 }
 
 </script>

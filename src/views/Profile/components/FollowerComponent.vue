@@ -23,6 +23,9 @@
     <v-list-item v-for="list in followerList" :key="list.user_id">
       <v-list-item-content>{{list}}</v-list-item-content>
     </v-list-item>
+    <div v-if='emptyFollower' class='d-flex justify-center text--disabled'>
+      <p>Sorry, you are not famous :') </p>
+    </div>
     <v-card-actions>
       <v-btn
       color="blue darken-1"
@@ -55,8 +58,17 @@ export default {
     dialog: false,
     followerList: [],
     crrUser: JSON.parse(localStorage.getItem('authUser'))[0],
-    follower: 'Your Follower'
+    follower: 'Your Follower',
+    emptyFollower: false
   }),
+  watch: {
+    followerCount: {
+      immediate: true,
+      handler () {
+        this.emptyFollower = this.followerCount === 0
+      }
+    }
+  },
   methods: {
     followerData (data) {
       for (let i = 0; i < data.length; i++) {
@@ -69,6 +81,7 @@ export default {
     const follower = await Service.followerList(this.crrUser.id)
     console.log('follower', this.crrUser.firstName)
     this.followerData(follower)
+    console.log('followerCount', this.followerCount)
   }
 }
 

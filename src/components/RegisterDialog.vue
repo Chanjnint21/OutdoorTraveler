@@ -162,7 +162,7 @@ export default {
       if (newVal) {
         this.regisForm.userName = this.crrUser[0].name
         this.regisForm.user_id = this.crrUser[0].id
-        this.regisForm.card_id = this.item
+        this.regisForm.card_id = this.item.id
         this.regisForm.firstName = this.crrUser[0].firstName
         this.regisForm.lastName = this.crrUser[0].lastName
         this.regisForm.phoneNumber = this.crrUser[0].phone

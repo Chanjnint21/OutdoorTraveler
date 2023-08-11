@@ -70,7 +70,7 @@
               <v-list class="scrollable-list">
                 <v-list-item
                   class="rounded-xxl mb-3"
-                  v-for="list in userlists"
+                  v-for="(list, i) in userlists"
                   :key="list.fullName"
                   style="background-color: rgba(151, 216, 235, 0.5); "
                 >
@@ -78,7 +78,7 @@
                     <v-img :src="list.avatar"></v-img>
                   </v-list-item-avatar>
                   <v-list-item-content>
-                    <v-list-item-title > {{ list.fullName }} </v-list-item-title>
+                    <v-list-item-title ><router-link :to='`/user/profile/${nameList[i]}`'>{{ list.fullName }}</router-link> </v-list-item-title>
                   </v-list-item-content>
                 </v-list-item>
               </v-list>
@@ -138,8 +138,7 @@ export default {
           value: 'item.time'
         }
       ],
-      userlists: [
-      ],
+      userlists: [],
       aboutTripLists: [
         { icon: 'mdi-map-marker', text: 'Destination:', data: this.item.destination },
         { icon: 'mdi-calendar-range', text: 'Start_Date :', data: this.item.start_date },
@@ -161,7 +160,8 @@ export default {
       emptyMatching: false,
       countUser: 0,
       userImg: '',
-      authorImg: ''
+      authorImg: '',
+      nameList: []
     }
   },
   computed: {
@@ -183,7 +183,9 @@ export default {
         const path = `profile/${thisUserImg[0].image}`
         console.log(path)
         getDownloadURL(ref(storage, path)).then(
-          (downLoadUrl) => {
+          async (downLoadUrl) => {
+            const userData = await Service.getUser(data[i].user_id)
+            this.nameList.push(userData.name)
             this.userlists.push({ fullName: `${data[i].firstName} ${data[i].lastName} `, avatar: downLoadUrl })
             this.countUser = this.userlists.length
           }

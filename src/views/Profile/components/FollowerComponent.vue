@@ -60,14 +60,15 @@ export default {
   methods: {
     followerData (data) {
       for (let i = 0; i < data.length; i++) {
-        this.followerList.push(data[i].id)
+        this.followerList.push(data[i].following)
       }
+      console.log('followerList', this.followerList)
     }
   },
   async mounted () {
     const follower = await Service.followerList(this.crrUser.id)
     console.log('follower', this.crrUser.firstName)
-    this.followingData(follower)
+    this.followerData(follower)
   }
 }
 

@@ -185,7 +185,7 @@ export const Service = {
   },
   async followerList (crrUser) {
     try {
-      const followerData = await axios.get(`http://localhost:3000/follow?user_id?following=${crrUser}`)
+      const followerData = await axios.get(`http://localhost:3000/follow?following=${crrUser}`)
       return followerData.data
     } catch (e) {
       console.log(e)

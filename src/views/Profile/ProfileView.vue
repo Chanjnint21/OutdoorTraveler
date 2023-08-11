@@ -33,10 +33,12 @@
                   <p> {{ userBio }}</p>
                 </v-col>
                 <v-col cols="12" class="d-flex">
-                  <f-dialog class="text--disabled mr-2"></f-dialog>
-                  <f-r-dialog class="text--disabled"> </f-r-dialog>
-                  <!-- <p> {{ followingCount }} <span class="text--disabled mr-2"> following</span></p>
-                  <p> {{ followerCount }} <span class="text--disabled"> follower</span></p> -->
+                  <div id="following-followers">
+                    <f-dialog class="text--disabled mr-2" :followingCount="followingCount"/>
+                  </div>
+                  <div>
+                    <f-r-dialog class="text--disabled mr-2" :followerCount="followerCount"/>
+                  </div>
                 </v-col>
               </v-row>
             </v-col>
@@ -237,3 +239,9 @@ export default {
   }
 }
 </script>
+<style>
+#following-followers {
+  display: flex;
+  align-items: center;
+}
+</style>

@@ -10,7 +10,7 @@
     <v-col cols="12" class="d-flex">
       <p
         v-bind="attrs"
-        v-on="on">
+        v-on="on"> {{ followerCount }}
         <span class="text--disabled mr-2">follower</span>
       </p>
     </v-col>
@@ -46,9 +46,10 @@ import { Service } from '@/service/index.js'
 export default {
   name: 'FollowerDialog',
   props: {
-    // label: {
-    //   type: String
-    // }
+    followerCount: {
+      type: Number,
+      required: true
+    }
   },
   data: () => ({
     dialog: false,

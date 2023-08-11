@@ -23,8 +23,8 @@
   <v-list-item v-for="list in followingList" :key="list.id">
     <v-list-item-content>{{list}}</v-list-item-content>
   </v-list-item>
-  <div v-if='emptyFollowing' class='d-flex justify-center text--disabled'>
-    <p>You didn't follow anyone :( </p>
+  <div v-if='emptyFollowing' class='d-flex justify-center'>
+    <p>You didn't follow anyone . &#x1f642; </p>
   </div>
   <v-card-actions>
     <v-btn

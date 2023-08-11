@@ -232,6 +232,9 @@ export default {
       getDownloadURL(ref(storage, path)).then(
         (downLoadUrl) => (this.userImg = downLoadUrl)
       )
+    },
+    async mounted () {
+      this.followingCount()
     }
   },
   created () {

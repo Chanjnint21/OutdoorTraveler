@@ -30,8 +30,8 @@
           </div>
         </v-list-item-content>
       </v-list-item>
-    <div v-if='emptyFollower' class='d-flex justify-center text--disabled'>
-      <p>Sorry, you are not famous :') </p>
+    <div v-if='emptyFollower' class='d-flex justify-center'>
+      <p>Sorry, you are not famous. &#x1f62d; </p>
     </div>
       <v-card-actions>
         <v-btn

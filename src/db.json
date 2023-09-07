@@ -249,7 +249,7 @@
         "nationalId": "Require",
         "phoneNumber": "Require"
       },
-      "expiry": false
+      "expiry": true
     },
     {
       "id": "tydbwj-3",
